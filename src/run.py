@@ -6,9 +6,12 @@
 #
 # Licensed under the MIT License
 
-import jinja2
-from pathlib import Path
+from __future__ import annotations
+
 import argparse
+from pathlib import Path
+
+import jinja2
 
 
 def main(
@@ -27,13 +30,13 @@ def main(
     if synchronize_security_policy:
         template = environment.get_template("SECURITY.md")
         output = template.render(package_url=package_url)
-        with open(".github/SECURITY.md", "w") as file:
+        with open(".github/SECURITY.md", "w", encoding="utf-8") as file:
             file.write(output + "\n")
 
     if synchronize_pull_request_template:
         template = environment.get_template("pull_request_template.md")
         output = template.render()
-        with open(".github/pull_request_template.md", "w") as file:
+        with open(".github/pull_request_template.md", "w", encoding="utf-8") as file:
             file.write(output + "\n")
 
 
