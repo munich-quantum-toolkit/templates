@@ -1,0 +1,56 @@
+# Copyright (c) 2023 - 2025 Chair for Design Automation, TUM
+# Copyright (c) 2025 Munich Quantum Software Company GmbH
+# All rights reserved.
+#
+# SPDX-License-Identifier: MIT
+#
+# Licensed under the MIT License
+
+name: Templating
+inputs:
+  synchronize-pull-request-template:
+    description: Whether to synchronize the pull-request template
+    type: boolean
+    default: true
+  synchronize-security-policy:
+    description: Whether to synchronize the security policy
+    type: boolean
+    default: true
+  package-url:
+    description: GitHub URL of the MQT package
+    type: string
+    default: ""
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      with:
+        ref: ${{ github.head_ref }}
+    - name: Install latest version of uv
+      uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6
+    - name: Run the templating script
+      shell: bash
+      env:
+        SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
+        SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
+        PACKAGE_URL: ${{ inputs.package-url }}
+      run: |
+        uv run --no-project --with jinja2 $GITHUB_ACTION_PATH/src/run.py \
+          $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
+          $SYNCHRONIZE_SECURITY_POLICY \
+          $PACKAGE_URL
+    - name: Configure bot
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    - name: Commit and push changes
+      shell: bash
+      run: |
+        git add .
+        if ! git diff --cached --quiet; then
+          git commit -m "Update template"
+          git push
+        else
+          echo "No changes to commit."
+        fi
