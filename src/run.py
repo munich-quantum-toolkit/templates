@@ -29,7 +29,7 @@ import jinja2
 class TemplateContainer:
     """Container for template information."""
 
-    template_path: str
+    file_name: str
     output_path: Path
     active: bool
     arguments: dict[str, str]
@@ -44,14 +44,14 @@ def main(
     """Render all templates."""
     template_containers = [
         TemplateContainer(
-            template_path="pull_request_template.md",
-            output_path=Path(".github/pull_request_template.md"),
+            file_name="pull_request_template.md",
+            output_path=Path(".github"),
             active=synchronize_pull_request_template,
             arguments={},
         ),
         TemplateContainer(
-            template_path="SECURITY.md",
-            output_path=Path(".github/SECURITY.md"),
+            file_name="SECURITY.md",
+            output_path=Path(".github"),
             active=synchronize_security_policy,
             arguments={"package_url": package_url},
         ),
@@ -69,9 +69,10 @@ def main(
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
     """Render a single template."""
     if template_container.active:
-        template = environment.get_template(template_container.template_path)
+        template = environment.get_template(template_container.file_name)
         output = template.render(**template_container.arguments)
-        template_container.output_path.write_text(output + "\n", encoding="utf-8")
+        output_file = template_container.output_path / template_container.file_name
+        output_file.write_text(output + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
