@@ -6,6 +6,8 @@
 #
 # Licensed under the MIT License
 
+"""Python module for rendering templates."""
+
 from __future__ import annotations
 
 import argparse
@@ -20,6 +22,7 @@ def main(
     synchronize_security_policy: bool,
     package_url: str,
 ) -> None:
+    """Render all templates."""
     templates_path = Path(__file__).absolute().parent.parent / "templates"
 
     environment = jinja2.Environment(
@@ -30,14 +33,12 @@ def main(
     if synchronize_security_policy:
         template = environment.get_template("SECURITY.md")
         output = template.render(package_url=package_url)
-        with open(".github/SECURITY.md", "w", encoding="utf-8") as file:
-            file.write(output + "\n")
+        Path(".github/SECURITY.md").write_text(output + "\n", encoding="utf-8")
 
     if synchronize_pull_request_template:
         template = environment.get_template("pull_request_template.md")
         output = template.render()
-        with open(".github/pull_request_template.md", "w", encoding="utf-8") as file:
-            file.write(output + "\n")
+        Path(".github/pull_request_template.md").write_text(output + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
