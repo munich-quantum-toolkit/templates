@@ -11,9 +11,21 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import jinja2
+
+
+@dataclass
+class TemplateContainer:
+    """Container for template information."""
+
+    template_path: str
+    output_path: Path
+    active: bool
+    arguments: dict[str, Any]
 
 
 def main(
@@ -23,22 +35,36 @@ def main(
     package_url: str,
 ) -> None:
     """Render all templates."""
-    templates_path = Path(__file__).absolute().parent.parent / "templates"
+    template_containers = [
+        TemplateContainer(
+            template_path="pull_request_template.md",
+            output_path=".github/pull_request_template.md",
+            active=synchronize_pull_request_template,
+            arguments={},
+        ),
+        TemplateContainer(
+            template_path="SECURITY.md",
+            output_path=".github/SECURITY.md",
+            active=synchronize_security_policy,
+            arguments={"package_url": package_url},
+        ),
+    ]
 
     environment = jinja2.Environment(
-        loader=jinja2.FileSystemLoader(templates_path),
+        loader=jinja2.FileSystemLoader(Path(__file__).absolute().parent.parent / "templates"),
         autoescape=jinja2.select_autoescape(["html", "xml", "htm"]),
     )
 
-    if synchronize_security_policy:
-        template = environment.get_template("SECURITY.md")
-        output = template.render(package_url=package_url)
-        Path(".github/SECURITY.md").write_text(output + "\n", encoding="utf-8")
+    for template_container in template_containers:
+        _render_template(environment, template_container)
 
-    if synchronize_pull_request_template:
-        template = environment.get_template("pull_request_template.md")
-        output = template.render()
-        Path(".github/pull_request_template.md").write_text(output + "\n", encoding="utf-8")
+
+def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
+    """Render a single template."""
+    if template_container.active:
+        template = environment.get_template(template_container.template_path)
+        output = template.render(**template_container.arguments)
+        template_container.output_path.write_text(output + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
