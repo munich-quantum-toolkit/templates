@@ -9,7 +9,6 @@
 import jinja2
 from pathlib import Path
 import argparse
-import os
 
 
 def main(
@@ -41,18 +40,21 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "synchronize_pull_request_template",
+        "--synchronize_pull_request_template",
+        default=True,
         type=bool,
         help="Whether to synchronize the pull-request template",
     )
     parser.add_argument(
-        "synchronize_security_policy",
+        "--synchronize_security_policy",
+        default=True,
         type=bool,
         help="Whether to synchronize the security policy",
     )
     parser.add_argument(
-        "package_url",
+        "--package_url",
         type=str,
+        required=True,
         help="GitHub URL of the MQT package",
     )
     args = parser.parse_args()

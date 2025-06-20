@@ -10,16 +10,13 @@ name: Templating
 inputs:
   synchronize-pull-request-template:
     description: Whether to synchronize the pull-request template
-    type: boolean
     default: true
   synchronize-security-policy:
     description: Whether to synchronize the security policy
-    type: boolean
     default: true
   package-url:
     description: GitHub URL of the MQT package
-    type: string
-    default: ""
+    required: true
 runs:
   using: composite
   steps:
@@ -34,9 +31,9 @@ runs:
         PACKAGE_URL: ${{ inputs.package-url }}
       run: |
         uv run --no-project --with jinja2 $GITHUB_ACTION_PATH/src/run.py \
-          $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
-          $SYNCHRONIZE_SECURITY_POLICY \
-          $PACKAGE_URL
+          --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
+          --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
+          --package_url $PACKAGE_URL
     - name: Create pull request
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
       with:
