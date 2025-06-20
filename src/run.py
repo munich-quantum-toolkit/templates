@@ -32,7 +32,7 @@ class TemplateContainer:
     template_path: str
     output_path: Path
     active: bool
-    arguments: dict[str, Any]
+    arguments: dict[str, str]
 
 
 def main(
