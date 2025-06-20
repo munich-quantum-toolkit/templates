@@ -38,13 +38,13 @@ def main(
     template_containers = [
         TemplateContainer(
             template_path="pull_request_template.md",
-            output_path=".github/pull_request_template.md",
+            output_path=Path(".github/pull_request_template.md"),
             active=synchronize_pull_request_template,
             arguments={},
         ),
         TemplateContainer(
             template_path="SECURITY.md",
-            output_path=".github/SECURITY.md",
+            output_path=Path(".github/SECURITY.md"),
             active=synchronize_security_policy,
             arguments={"package_url": package_url},
         ),
