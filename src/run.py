@@ -1,3 +1,10 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "jinja2",
+# ]
+# ///
+
 # Copyright (c) 2023 - 2025 Chair for Design Automation, TUM
 # Copyright (c) 2025 Munich Quantum Software Company GmbH
 # All rights reserved.

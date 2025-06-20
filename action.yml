@@ -30,7 +30,7 @@ runs:
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
         PACKAGE_URL: ${{ inputs.package-url }}
       run: |
-        uv run --no-project --with jinja2 $GITHUB_ACTION_PATH/src/run.py \
+        uv run $GITHUB_ACTION_PATH/src/run.py \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
           --package_url $PACKAGE_URL

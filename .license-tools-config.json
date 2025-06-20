@@ -8,8 +8,7 @@
   "title": false,
   "include": ["**/*"],
   "style_override_for_suffix": {
-    ".pyi": "DOCSTRING_STYLE",
-    ".Dockerfile": "POUND_STYLE"
+    ".pyi": "DOCSTRING_STYLE"
   },
   "exclude": [
     "^\\.[^/]+",
@@ -23,6 +22,7 @@
     ".*\\.svg",
     "uv\\.lock",
     "py\\.typed",
-    ".*build.*"
+    ".*build.*",
+    "src/run.py"
   ]
 }
