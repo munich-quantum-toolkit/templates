@@ -24,8 +24,6 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      with:
-        ref: ${{ github.head_ref }}
     - name: Install latest version of uv
       uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6
     - name: Run the templating script
@@ -39,18 +37,18 @@ runs:
           $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           $SYNCHRONIZE_SECURITY_POLICY \
           $PACKAGE_URL
-    - name: Configure bot
-      shell: bash
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-    - name: Commit and push changes
-      shell: bash
-      run: |
-        git add .
-        if ! git diff --cached --quiet; then
-          git commit -m "Update template"
-          git push
-        else
-          echo "No changes to commit."
-        fi
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
+      with:
+        token: ${{ github.token }}
+        commit-message: 📝 Update templated files
+        title: 📝 Update templated files
+        body: |
+          This pull request updates templated files.
+
+          > [!NOTE]
+          > This pull request was automatically created by a GitHub Actions workflow, which does not have permissions to trigger other workflows.
+          > Manually close and reopen this pull request to trigger the dependent workflows.
+        branch: update-templated-files
+        base: main
+        sign-commits: true
