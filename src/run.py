@@ -38,7 +38,6 @@ def main(
     *,
     synchronize_pull_request_template: bool,
     synchronize_security_policy: bool,
-    
     organization: str,
     repository: str,
 ) -> None:
