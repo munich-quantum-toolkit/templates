@@ -22,7 +22,6 @@
     ".*\\.svg",
     "uv\\.lock",
     "py\\.typed",
-    ".*build.*",
-    "src/run.py"
+    ".*build.*"
   ]
 }
