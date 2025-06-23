@@ -14,8 +14,11 @@ inputs:
   synchronize-security-policy:
     description: Whether to synchronize the security policy
     default: true
-  package-url:
-    description: GitHub URL of the MQT package
+  organization:
+    description: Name of the repository's organization
+    required: true
+  repository:
+    description: Name of the repository
     required: true
 runs:
   using: composite
@@ -28,12 +31,14 @@ runs:
       env:
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
-        PACKAGE_URL: ${{ inputs.package-url }}
+        ORGANIZATION: ${{ inputs.organization }}
+        REPOSITORY: ${{ inputs.repository }}
       run: |
         uv run $GITHUB_ACTION_PATH/src/run.py \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
-          --package_url $PACKAGE_URL
+          --organization $ORGANIZATION \
+          --repository $REPOSITORY
     - name: Create pull request
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
       with:

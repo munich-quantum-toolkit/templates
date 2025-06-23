@@ -38,7 +38,9 @@ def main(
     *,
     synchronize_pull_request_template: bool,
     synchronize_security_policy: bool,
-    package_url: str,
+    
+    organization: str,
+    repository: str,
 ) -> None:
     """Render all templates."""
     template_containers = [
@@ -52,7 +54,7 @@ def main(
             file_name="SECURITY.md",
             output_path=Path(".github"),
             active=synchronize_security_policy,
-            arguments={"package_url": package_url},
+            arguments={"organization": organization, "repository": repository},
         ),
     ]
 
@@ -89,15 +91,22 @@ if __name__ == "__main__":
         help="Whether to synchronize the security policy",
     )
     parser.add_argument(
-        "--package_url",
+        "--organization",
         type=str,
         required=True,
-        help="GitHub URL of the MQT package",
+        help="Name of the repository's organition",
+    )
+    parser.add_argument(
+        "--repository",
+        type=str,
+        required=True,
+        help="Name of the repository",
     )
     args = parser.parse_args()
 
     main(
         synchronize_pull_request_template=args.synchronize_pull_request_template,
         synchronize_security_policy=args.synchronize_security_policy,
-        package_url=args.package_url,
+        organization=args.organization,
+        repository=args.repository,
     )
