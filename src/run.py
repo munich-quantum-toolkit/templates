@@ -74,7 +74,6 @@ def main(
         _render_template(environment, template_container)
         _write_target_file(template_container)
 
-
     subprocess.run(["rm", "-rf", str(OLD_TEMPLATES_DIR)], check=False)
 
 
@@ -118,8 +117,6 @@ def _write_target_file(template_container: TemplateContainer) -> None:
             str(new_template),
         ]
         subprocess.run(command, check=False)
-
-
 
 
 if __name__ == "__main__":
