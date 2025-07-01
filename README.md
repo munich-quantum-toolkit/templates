@@ -33,6 +33,18 @@ Thank you to all the contributors who have helped make the MQT Templates a reali
 </a>
 </p>
 
+## Getting Started
+
+This repository includes a GitHub action that can be used to synchronize the [templates](./templates/) to other MQT repositories.
+For an example on how to use the action, refer to this repository's [`templating.yml`](./.github/workflows/templating.yml).
+
+The action uses [`Jinja`](https://jinja.palletsprojects.com/en/stable/) to render the templates.
+The rendered templates are placed into the [`.templates`](./.templates/) directory that is created by this action.
+Afterward, `git file-merge` is used to consolidate changes to the rendered templates with custom changes to the templated files.
+The action then creates a PR that updates the files in the [`.templates`](./.templates/) directory as well as the templated files.
+
+---
+
 ## Acknowledgements
 
 The Munich Quantum Toolkit has been supported by the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation program (grant agreement No. 101001318), the Bavarian State Ministry for Science and Arts through the Distinguished Professorship Program, as well as the Munich Quantum Valley, which is supported by the Bavarian state government with funds from the Hightech Agenda Bayern Plus.
