@@ -55,5 +55,5 @@ runs:
         base: main
         sign-commits: true
         add-paths: |
+          .github/*
           .templates/*
-          *
