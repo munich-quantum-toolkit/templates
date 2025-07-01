@@ -24,6 +24,9 @@ from pathlib import Path
 
 import jinja2
 
+OLD_TEMPLATES_DIR = Path(__file__).absolute().parent.parent / ".templates.old"
+TEMPLATES_DIR = Path(__file__).absolute().parent.parent / ".templates"
+
 
 @dataclass
 class TemplateContainer:
@@ -63,37 +66,31 @@ def main(
         autoescape=jinja2.select_autoescape(["html", "xml", "htm"]),
     )
 
-    templates_dir = Path(__file__).absolute().parent.parent / ".templates"
-    templates_dir.mkdir(parents=False, exist_ok=True)
-
-    old_templates_dir = Path(__file__).absolute().parent.parent / ".templates.old"
-    old_templates_dir.mkdir(parents=False, exist_ok=True)
+    OLD_TEMPLATES_DIR.mkdir(parents=False, exist_ok=True)
+    TEMPLATES_DIR.mkdir(parents=False, exist_ok=True)
 
     for template_container in template_containers:
-        _render_template(environment, template_container, templates_dir)
-        _get_old_template(template_container, old_templates_dir)
-        _write_target_file(template_container, templates_dir, old_templates_dir)
-
-    subprocess.run(["rm", "-rf", str(old_templates_dir)], check=False)
+        _get_old_template(template_container)
+        _render_template(environment, template_container)
+        _write_target_file(template_container)
 
 
-def _render_template(
-    environment: jinja2.Environment,
-    template_container: TemplateContainer,
-    templates_dir: Path,
-) -> None:
-    """Render a single template."""
+    subprocess.run(["rm", "-rf", str(OLD_TEMPLATES_DIR)], check=False)
+
+
+def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
+    """Render a template."""
     if template_container.active:
         template = environment.get_template(template_container.file_name)
         output = template.render(**template_container.arguments)
-        output_file = templates_dir / template_container.file_name
+        output_file = TEMPLATES_DIR / template_container.file_name
         output_file.write_text(output + "\n", encoding="utf-8")
 
 
-def _get_old_template(template_container: TemplateContainer, old_templates_dir: Path) -> None:
-    """Get the old rendered template from the repository."""
+def _get_old_template(template_container: TemplateContainer) -> None:
+    """Get the previous version of the rendered template from the ``main`` branch."""
     if template_container.active:
-        output_file = old_templates_dir / template_container.file_name
+        output_file = OLD_TEMPLATES_DIR / template_container.file_name
         with output_file.open("w", encoding="utf-8") as f:
             command = [
                 "git",
@@ -103,15 +100,15 @@ def _get_old_template(template_container: TemplateContainer, old_templates_dir: 
             subprocess.run(command, stdout=f, check=False)
 
 
-def _write_target_file(template_container: TemplateContainer, templates_dir: Path, old_templates_dir: Path) -> None:
+def _write_target_file(template_container: TemplateContainer) -> None:
     """Write the target file using ``git merge-file``."""
     if template_container.active:
         target_file = template_container.output_path / template_container.file_name
         target_file.parent.mkdir(parents=True, exist_ok=True)
         target_file.touch(exist_ok=True)
 
-        old_template = old_templates_dir / template_container.file_name
-        new_template = templates_dir / template_container.file_name
+        old_template = OLD_TEMPLATES_DIR / template_container.file_name
+        new_template = TEMPLATES_DIR / template_container.file_name
 
         command = [
             "git",
@@ -121,6 +118,8 @@ def _write_target_file(template_container: TemplateContainer, templates_dir: Pat
             str(new_template),
         ]
         subprocess.run(command, check=False)
+
+
 
 
 if __name__ == "__main__":
