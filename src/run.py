@@ -24,8 +24,8 @@ from pathlib import Path
 
 import jinja2
 
-OLD_TEMPLATES_DIR = Path(__file__).absolute().parent.parent / ".templates.old"
-TEMPLATES_DIR = Path(__file__).absolute().parent.parent / ".templates"
+OLD_TEMPLATES_DIR = Path(".templates.old")
+TEMPLATES_DIR = Path(".templates")
 
 
 @dataclass

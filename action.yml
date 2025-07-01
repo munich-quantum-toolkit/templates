@@ -54,6 +54,3 @@ runs:
         branch: update-templated-files
         base: main
         sign-commits: true
-        add-paths: |
-          .github/*
-          .templates/*
