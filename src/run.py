@@ -75,6 +75,7 @@ def main(
         _write_target_file(template_container)
 
     subprocess.run(["rm", "-rf", str(OLD_TEMPLATES_DIR)], check=False)
+    subprocess.run(["git", "add", f"{TEMPLATES_DIR}/*"], check=False)
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
