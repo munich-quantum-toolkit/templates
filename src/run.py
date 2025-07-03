@@ -19,12 +19,12 @@ from __future__ import annotations
 
 import argparse
 import subprocess
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
 import jinja2
 
-OLD_TEMPLATES_DIR = Path(".templates.old")
 TEMPLATES_DIR = Path(".templates")
 
 
@@ -66,15 +66,27 @@ def main(
         autoescape=jinja2.select_autoescape(["html", "xml", "htm"]),
     )
 
-    OLD_TEMPLATES_DIR.mkdir(parents=False, exist_ok=True)
     TEMPLATES_DIR.mkdir(parents=False, exist_ok=True)
 
-    for template_container in template_containers:
-        _get_old_template(template_container)
-        _render_template(environment, template_container)
-        _write_target_file(template_container)
+    with tempfile.TemporaryDirectory() as old_templates_dir_str:
+        old_templates_dir = Path(old_templates_dir_str)
+        for template_container in template_containers:
+            _get_old_template(template_container, old_templates_dir)
+            _render_template(environment, template_container)
+            _write_target_file(template_container, old_templates_dir)
 
-    subprocess.run(["rm", "-rf", str(OLD_TEMPLATES_DIR)], check=False)
+
+def _get_old_template(template_container: TemplateContainer, old_templates_dir: Path) -> None:
+    """Get the previous version of the rendered template from the ``main`` branch."""
+    if template_container.active:
+        output_file = old_templates_dir / template_container.file_name
+        with output_file.open("w", encoding="utf-8") as f:
+            command = [
+                "git",
+                "show",
+                f"main:.templates/{template_container.file_name}",
+            ]
+            subprocess.run(command, stdout=f, check=False)
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
@@ -86,27 +98,14 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
         output_file.write_text(output + "\n", encoding="utf-8")
 
 
-def _get_old_template(template_container: TemplateContainer) -> None:
-    """Get the previous version of the rendered template from the ``main`` branch."""
-    if template_container.active:
-        output_file = OLD_TEMPLATES_DIR / template_container.file_name
-        with output_file.open("w", encoding="utf-8") as f:
-            command = [
-                "git",
-                "show",
-                f"main:.templates/{template_container.file_name}",
-            ]
-            subprocess.run(command, stdout=f, check=False)
-
-
-def _write_target_file(template_container: TemplateContainer) -> None:
+def _write_target_file(template_container: TemplateContainer, old_templates_dir: Path) -> None:
     """Write the target file using ``git merge-file``."""
     if template_container.active:
         target_file = template_container.output_path / template_container.file_name
         target_file.parent.mkdir(parents=True, exist_ok=True)
         target_file.touch(exist_ok=True)
 
-        old_template = OLD_TEMPLATES_DIR / template_container.file_name
+        old_template = old_templates_dir / template_container.file_name
         new_template = TEMPLATES_DIR / template_container.file_name
 
         command = [
