@@ -40,7 +40,7 @@ For an example on how to use the action, refer to this repository's [`templating
 
 The action uses [`Jinja`](https://jinja.palletsprojects.com/en/stable/) to render the templates.
 The rendered templates are placed into the [`.templates`](./.templates/) directory that is created by this action.
-Afterward, `git file-merge` is used to consolidate changes to the rendered templates with custom changes to the templated files.
+Afterward, `git merge-file` is used to consolidate changes to the rendered templates with custom changes to the templated files.
 The action then creates a PR that updates the files in the [`.templates`](./.templates/) directory as well as the templated files.
 
 ---
