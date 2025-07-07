@@ -51,9 +51,8 @@ runs:
         body: |
           This pull request updates templated files.
 
-          > [!NOTE]
-          > This pull request was automatically created by a GitHub Actions workflow, which does not have permissions to trigger other workflows.
-          > Manually close and reopen this pull request to trigger the dependent workflows.
+          Note that the pull request may contain merge conflicts if there have been changes to a templated file and its template.
+          Resolve such conflicts manually before merging the pull request.
         branch: update-templated-files
         base: main
         sign-commits: true
