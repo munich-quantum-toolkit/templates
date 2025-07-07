@@ -55,6 +55,6 @@ runs:
           > [!NOTE]
           > This pull request may contain merge conflicts if there have been changes to a templated file and its template.
           > Resolve such conflicts manually before merging the pull request.
-        branch: update-templated-files
+        branch: update-mqt-templates
         base: main
         sign-commits: true
