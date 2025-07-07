@@ -122,7 +122,7 @@ def _write_target_file(template_container: TemplateContainer, old_templates_dir:
         subprocess.run(command, check=True)
 
 
-def _convert_to_bool(value: bool | str) -> bool:
+def _convert_to_bool(value: bool | str) -> bool:  # noqa: FBT001
     if isinstance(value, bool):
         return value
     if value in {"True", "true"}:
