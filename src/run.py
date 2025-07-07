@@ -122,9 +122,7 @@ def _write_target_file(template_container: TemplateContainer, old_templates_dir:
         subprocess.run(command, check=True)
 
 
-def _convert_to_bool(value: bool | str) -> bool:  # noqa: FBT001
-    if isinstance(value, bool):
-        return value
+def _convert_to_bool(value: str) -> bool:
     if value in {"True", "true"}:
         return True
     if value in {"False", "false"}:
@@ -138,13 +136,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--synchronize_pull_request_template",
         default=True,
-        type=bool,
+        type=_convert_to_bool,
         help="Whether to synchronize the pull-request template",
     )
     parser.add_argument(
         "--synchronize_security_policy",
         default=True,
-        type=bool,
+        type=_convert_to_bool,
         help="Whether to synchronize the security policy",
     )
     parser.add_argument(
@@ -162,8 +160,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(
-        synchronize_pull_request_template=_convert_to_bool(args.synchronize_pull_request_template),
-        synchronize_security_policy=_convert_to_bool(args.synchronize_security_policy),
+        synchronize_pull_request_template=args.synchronize_pull_request_template,
+        synchronize_security_policy=args.synchronize_security_policy,
         organization=args.organization,
         repository=args.repository,
     )
