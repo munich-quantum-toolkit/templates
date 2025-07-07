@@ -49,10 +49,12 @@ runs:
         commit-message: 📝 Update templated files
         title: 📝 Update templated files
         body: |
-          This pull request updates templated files.
+          This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
+          For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md).
 
-          Note that the pull request may contain merge conflicts if there have been changes to a templated file and its template.
-          Resolve such conflicts manually before merging the pull request.
+          > [!NOTE]
+          > This pull request may contain merge conflicts if there have been changes to a templated file and its template.
+          > Resolve such conflicts manually before merging the pull request.          
         branch: update-templated-files
         base: main
         sign-commits: true
