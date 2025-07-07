@@ -12,8 +12,7 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - name: Create GitHub App token
-        id: create-token
+      - id: create-token
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.APP_ID }}
