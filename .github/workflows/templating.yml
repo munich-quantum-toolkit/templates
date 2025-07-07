@@ -22,4 +22,4 @@ jobs:
         with:
           token: ${{ steps.create-token.outputs.token }}
           organization: munich-quantum-toolkit
-          repository: templates
+          repository: template
