@@ -86,7 +86,11 @@ def _get_old_template(template_container: TemplateContainer, old_templates_dir: 
                 "show",
                 f"main:.templates/{template_container.file_name}",
             ]
-            subprocess.run(command, stdout=f, check=False)
+            try:
+                subprocess.run(command, stdout=f, check=True)
+            except subprocess.CalledProcessError as e:
+                print(f"Warning: Failed to retrieve old template for {template_container.file_name}. Error: {e}")
+                f.write("")  # Write an empty file to ensure downstream processes can proceed.
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
@@ -115,7 +119,7 @@ def _write_target_file(template_container: TemplateContainer, old_templates_dir:
             str(old_template),
             str(new_template),
         ]
-        subprocess.run(command, check=False)
+        subprocess.run(command, check=True)
 
 
 if __name__ == "__main__":
