@@ -1,0 +1,60 @@
+# Copyright (c) 2023 - 2025 Chair for Design Automation, TUM
+# Copyright (c) 2025 Munich Quantum Software Company GmbH
+# All rights reserved.
+#
+# SPDX-License-Identifier: MIT
+#
+# Licensed under the MIT License
+
+name: Templating
+inputs:
+  token:
+    description: Token with permissions to create and update pull requests
+    required: true
+  synchronize-pull-request-template:
+    description: Whether to synchronize the pull-request template
+    default: true
+  synchronize-security-policy:
+    description: Whether to synchronize the security policy
+    default: true
+  organization:
+    description: Name of the repository's organization
+    required: true
+  repository:
+    description: Name of the repository
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+    - name: Install latest version of uv
+      uses: astral-sh/setup-uv@f0ec1fc3b38f5e7cd731bb6ce540c5af426746bb # v6
+    - name: Run the templating script
+      shell: bash
+      env:
+        SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
+        SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
+        ORGANIZATION: ${{ inputs.organization }}
+        REPOSITORY: ${{ inputs.repository }}
+      run: |
+        uv run $GITHUB_ACTION_PATH/src/run.py \
+          --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
+          --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
+          --organization $ORGANIZATION \
+          --repository $REPOSITORY
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
+      with:
+        token: ${{ inputs.token }}
+        commit-message: 📝 Update templated files
+        title: 📝 Update templated files
+        body: |
+          This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
+          For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md).
+
+          > [!NOTE]
+          > This pull request may contain merge conflicts if there have been changes to a templated file and its template.
+          > Resolve such conflicts manually before merging the pull request.
+        branch: update-mqt-templates
+        base: main
+        sign-commits: true

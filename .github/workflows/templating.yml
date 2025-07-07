@@ -1,0 +1,28 @@
+name: Templating
+on:
+  schedule:
+    # Run every Monday at 00:00 UTC
+    - cron: "0 0 * * 1"
+  pull_request:
+    paths:
+      - ".github/workflows/templating.yml"
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  render-template:
+    name: Render template
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - id: create-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - uses: munich-quantum-toolkit/templates@add-action
+        with:
+          token: ${{ steps.create-token.outputs.token }}
+          organization: munich-quantum-toolkit
+          repository: templates
