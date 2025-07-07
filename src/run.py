@@ -140,7 +140,7 @@ if __name__ == "__main__":
         "--organization",
         type=str,
         required=True,
-        help="Name of the repository's organition",
+        help="Name of the repository's organization",
     )
     parser.add_argument(
         "--repository",
