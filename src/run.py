@@ -121,14 +121,17 @@ def _write_target_file(template_container: TemplateContainer, old_templates_dir:
         ]
         subprocess.run(command, check=True)
 
+
 def _convert_to_bool(value: bool | str) -> bool:
     if isinstance(value, bool):
         return value
-    if value in ("True", "true"):
+    if value in {"True", "true"}:
         return True
-    if value in ("False", "false"):
+    if value in {"False", "false"}:
         return False
-    raise ValueError(f"Invalid boolean value: {value}")
+    msg = f"Invalid boolean value: {value}"
+    raise ValueError(msg)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
