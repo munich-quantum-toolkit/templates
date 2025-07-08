@@ -1,3 +1,6 @@
+<!--- This file is a rendered template. Please do not modify it directly. -->
+<!--- Changes can be contributed to https://github.com/munich-quantum-toolkit/templates. -->
+
 ## Description
 
 Please include a summary of the change and, if applicable, which issue is fixed.
