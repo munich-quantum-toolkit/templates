@@ -9,7 +9,7 @@
 
 # Templates for the Munich Quantum Toolkit (MQT)
 
-This repository contains a collection of templates and a GitHub action to synchronize them across the repositories of the [_Munich Quantum Toolkit (MQT)_](https://mqt.readthedocs.io).
+This repository contains a collection of templates and a GitHub Action to synchronize them across the repositories of the [_Munich Quantum Toolkit (MQT)_](https://mqt.readthedocs.io).
 
 If you have any questions, feel free to create a [discussion](https://github.com/munich-quantum-toolkit/templates/discussions) or an [issue](https://github.com/munich-quantum-toolkit/templates/issues) on [GitHub](https://github.com/munich-quantum-toolkit/templates).
 
@@ -35,13 +35,8 @@ Thank you to all the contributors who have helped make the MQT Templates a reali
 
 ## Getting Started
 
-This repository includes a GitHub action that can be used to synchronize the [templates](./templates/) to other MQT repositories.
-For an example on how to use the action, refer to this repository's [`templating.yml`](./.github/workflows/templating.yml).
-
-The action uses [`Jinja`](https://jinja.palletsprojects.com/en/stable/) to render the templates.
-The rendered templates are placed into the [`.templates`](./.templates/) directory that is created by this action.
-Afterward, `git merge-file` is used to consolidate changes to the rendered templates with custom changes to the templated files.
-The action then creates a PR that updates the files in the [`.templates`](./.templates/) directory as well as the templated files.
+This repository includes a GitHub Action that can be used to synchronize the [templates](./templates/) to other MQT repositories.
+For an example on how to use the Action, refer to this repository's [`templating.yml`](./.github/workflows/templating.yml).
 
 ---
 

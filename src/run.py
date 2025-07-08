@@ -18,14 +18,10 @@
 from __future__ import annotations
 
 import argparse
-import subprocess
-import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
 import jinja2
-
-TEMPLATES_DIR = Path(".templates")
 
 
 @dataclass
@@ -33,7 +29,7 @@ class TemplateContainer:
     """Container for template information."""
 
     file_name: str
-    output_path: Path
+    output_dir: Path
     active: bool
     arguments: dict[str, str]
 
@@ -49,13 +45,13 @@ def main(
     template_containers = [
         TemplateContainer(
             file_name="pull_request_template.md",
-            output_path=Path(".github"),
+            output_dir=Path(".github"),
             active=synchronize_pull_request_template,
             arguments={},
         ),
         TemplateContainer(
             file_name="SECURITY.md",
-            output_path=Path(".github"),
+            output_dir=Path(".github"),
             active=synchronize_security_policy,
             arguments={"organization": organization, "repository": repository},
         ),
@@ -66,31 +62,8 @@ def main(
         autoescape=jinja2.select_autoescape(["html", "xml", "htm"]),
     )
 
-    TEMPLATES_DIR.mkdir(parents=False, exist_ok=True)
-
-    with tempfile.TemporaryDirectory() as old_templates_dir_str:
-        old_templates_dir = Path(old_templates_dir_str)
-        for template_container in template_containers:
-            _get_old_template(template_container, old_templates_dir)
-            _render_template(environment, template_container)
-            _write_target_file(template_container, old_templates_dir)
-
-
-def _get_old_template(template_container: TemplateContainer, old_templates_dir: Path) -> None:
-    """Get the previous version of the rendered template from the ``main`` branch."""
-    if template_container.active:
-        output_file = old_templates_dir / template_container.file_name
-        with output_file.open("w", encoding="utf-8") as f:
-            command = [
-                "git",
-                "show",
-                f"main:.templates/{template_container.file_name}",
-            ]
-            try:
-                subprocess.run(command, stdout=f, check=True)
-            except subprocess.CalledProcessError as e:
-                print(f"Warning: Failed to retrieve old template for {template_container.file_name}. Error: {e}")
-                f.write("")  # Write an empty file to ensure downstream processes can proceed
+    for template_container in template_containers:
+        _render_template(environment, template_container)
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
@@ -98,31 +71,8 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
     if template_container.active:
         template = environment.get_template(template_container.file_name)
         output = template.render(**template_container.arguments)
-        output_file = TEMPLATES_DIR / template_container.file_name
-        output_file.write_text(output + "\n", encoding="utf-8")
-
-
-def _write_target_file(template_container: TemplateContainer, old_templates_dir: Path) -> None:
-    """Write the target file using ``git merge-file``."""
-    if template_container.active:
-        target_file = template_container.output_path / template_container.file_name
-        target_file.parent.mkdir(parents=True, exist_ok=True)
-        target_file.touch(exist_ok=True)
-
-        old_template = old_templates_dir / template_container.file_name
-        new_template = TEMPLATES_DIR / template_container.file_name
-
-        command = [
-            "git",
-            "merge-file",
-            str(target_file),
-            str(old_template),
-            str(new_template),
-        ]
-        try:
-            subprocess.run(command, check=True)
-        except subprocess.CalledProcessError as e:
-            print(f"Warning: Failed to merge files for {template_container.file_name}. Error: {e}")
+        output_path = template_container.output_dir / template_container.file_name
+        output_path.write_text(output + "\n", encoding="utf-8")
 
 
 def _convert_to_bool(value: str) -> bool:
