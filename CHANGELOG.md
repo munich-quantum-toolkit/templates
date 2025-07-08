@@ -15,7 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Removed
 
-- 🔥 Drop support for custom changes ([#14]) ([**@denialhaag**])
+- 🔥 Drop support for custom changes ([#13]) ([**@denialhaag**])
 
 <!-- Version links -->
 
@@ -33,4 +33,4 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [Common Changelog]: https://common-changelog.org
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[GitHub Release Notes]: https://github.com/munich-quantum-toolkit/workflows/releases
+[GitHub Release Notes]: https://github.com/munich-quantum-toolkit/templates/releases
