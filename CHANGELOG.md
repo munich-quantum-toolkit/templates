@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.0.0]
+
 ### Added
 
 - 👷 Add initial version of action ([#1]) ([**@denialhaag**])
@@ -18,6 +20,9 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 - 🔥 Drop support for custom changes ([#13]) ([**@denialhaag**])
 
 <!-- Version links -->
+
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.0.0
 
 <!-- PR links -->
 
