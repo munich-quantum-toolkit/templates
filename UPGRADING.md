@@ -5,3 +5,5 @@ This document describes breaking changes and how to upgrade. For a complete list
 ## [Unreleased]
 
 <!-- Version links -->
+
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
