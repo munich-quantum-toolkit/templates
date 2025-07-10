@@ -38,8 +38,9 @@ runs:
     - name: Run the templating script
       shell: bash
       env:
-        NAME: ${{ inputs.name }}
+        ORGANIZATION: ${{ inputs.organization }}
         REPOSITORY: ${{ inputs.repository }}
+        NAME: ${{ inputs.name }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
