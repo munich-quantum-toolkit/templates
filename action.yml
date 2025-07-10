@@ -66,4 +66,5 @@ runs:
           > Resolve such conflicts manually before merging the pull request.
         branch: update-mqt-templates
         base: main
+        labels: "documentation"
         sign-commits: true
