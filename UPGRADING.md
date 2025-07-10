@@ -5,7 +5,7 @@ This document describes breaking changes and how to upgrade. For a complete list
 ## [Unreleased]
 
 With this release, the templating Action has a new required input.
-The `name` is the stylized name of the MQT package (e.g., "Core" or "DDSIM")
+The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
 
 <!-- Version links -->
 

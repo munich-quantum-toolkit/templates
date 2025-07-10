@@ -18,7 +18,7 @@ inputs:
     description: Name of the repository
     required: true
   name:
-    description: Stylized name of the package
+    description: Stylized name of the package (e.g., "Core" or "DDSIM")
     required: true
   synchronize-issue-templates:
     description: Whether to synchronize the issue templates

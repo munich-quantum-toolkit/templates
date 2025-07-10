@@ -116,7 +116,7 @@ if __name__ == "__main__":
         "--name",
         type=str,
         required=True,
-        help="Stylized name of the package",
+        help="Stylized name of the package (e.g., 'Core' or 'DDSIM')",
     )
     parser.add_argument(
         "--synchronize_issue_templates",
