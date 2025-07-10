@@ -36,13 +36,27 @@ class TemplateContainer:
 
 def main(
     *,
-    synchronize_pull_request_template: bool,
-    synchronize_security_policy: bool,
     organization: str,
     repository: str,
+    name: str,
+    synchronize_issue_templates: bool,
+    synchronize_pull_request_template: bool,
+    synchronize_security_policy: bool,
 ) -> None:
     """Render all templates."""
     template_containers = [
+        TemplateContainer(
+            file_name="bug-report.yml",
+            output_dir=Path(".github/ISSUE_TEMPLATE"),
+            active=synchronize_issue_templates,
+            arguments={"organization": organization, "repository": repository, "name": name},
+        ),
+        TemplateContainer(
+            file_name="feature-request.yml",
+            output_dir=Path(".github/ISSUE_TEMPLATE"),
+            active=synchronize_issue_templates,
+            arguments={"organization": organization, "repository": repository},
+        ),
         TemplateContainer(
             file_name="pull_request_template.md",
             output_dir=Path(".github"),
@@ -87,18 +101,6 @@ def _convert_to_bool(value: str) -> bool:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--synchronize_pull_request_template",
-        default=True,
-        type=_convert_to_bool,
-        help="Whether to synchronize the pull-request template",
-    )
-    parser.add_argument(
-        "--synchronize_security_policy",
-        default=True,
-        type=_convert_to_bool,
-        help="Whether to synchronize the security policy",
-    )
-    parser.add_argument(
         "--organization",
         type=str,
         required=True,
@@ -109,6 +111,30 @@ if __name__ == "__main__":
         type=str,
         required=True,
         help="Name of the repository",
+    )
+    parser.add_argument(
+        "--name",
+        type=str,
+        required=True,
+        help="Stylized name of the package",
+    )
+    parser.add_argument(
+        "--synchronize_issue_templates",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the issue templates",
+    )
+    parser.add_argument(
+        "--synchronize_pull_request_template",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the pull-request template",
+    )
+    parser.add_argument(
+        "--synchronize_security_policy",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the security policy",
     )
     args = parser.parse_args()
 
