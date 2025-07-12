@@ -22,6 +22,7 @@
     ".*\\.svg",
     "uv\\.lock",
     "py\\.typed",
+    ".*\\.yml",
     ".*build.*"
   ]
 }
