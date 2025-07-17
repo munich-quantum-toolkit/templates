@@ -41,6 +41,7 @@ def main(
     name: str,
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
+    synchronize_release_drafter_template: bool,
     synchronize_security_policy: bool,
     synchronize_support_resources: bool,
 ) -> None:
@@ -63,6 +64,12 @@ def main(
             output_dir=Path(".github"),
             active=synchronize_pull_request_template,
             arguments={},
+        ),
+        TemplateContainer(
+            file_name="release-drafter.yml",
+            output_dir=Path(".github"),
+            active=synchronize_release_drafter_template,
+            arguments={"name": name},
         ),
         TemplateContainer(
             file_name="SECURITY.md",
@@ -138,6 +145,12 @@ if __name__ == "__main__":
         help="Whether to synchronize the pull-request template",
     )
     parser.add_argument(
+        "--synchronize_release_drafter_template",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the Release Drafter template",
+    )
+    parser.add_argument(
         "--synchronize_security_policy",
         default=True,
         type=_convert_to_bool,
@@ -157,6 +170,7 @@ if __name__ == "__main__":
         name=args.name,
         synchronize_issue_templates=args.synchronize_issue_templates,
         synchronize_pull_request_template=args.synchronize_pull_request_template,
+        synchronize_release_drafter_template=args.synchronize_release_drafter_template,
         synchronize_security_policy=args.synchronize_security_policy,
         synchronize_support_resources=args.synchronize_support_resources,
     )

@@ -26,6 +26,9 @@ inputs:
   synchronize-pull-request-template:
     description: Whether to synchronize the pull-request template
     default: true
+  synchronize-release-drafter-template:
+    description: Whether to synchronize the Release Drafter template
+    default: true
   synchronize-security-policy:
     description: Whether to synchronize the security policy
     default: true
@@ -46,6 +49,7 @@ runs:
         NAME: ${{ inputs.name }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
+        SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
         SYNCHRONIZE_SUPPORT_RESOURCES: ${{ inputs.synchronize-support-resources }}
       run: |
@@ -55,6 +59,7 @@ runs:
           --name $NAME \
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
+          --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
           --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES
     - name: Create pull request
