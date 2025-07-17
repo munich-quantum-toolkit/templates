@@ -1,3 +1,6 @@
+<!--- This file has been generated from an external template. Please do not modify it directly. -->
+<!--- Changes should be contributed to https://github.com/munich-quantum-toolkit/templates. -->
+
 # Support
 
 If you are stuck with a problem using MQT {{name}} or have questions, please get in touch at our [Issues](https://github.com/{{organization}}/{{repository}}/issues) or [Discussions](https://github.com/{{organization}}/{{repository}}/discussions).
