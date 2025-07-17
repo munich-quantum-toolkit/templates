@@ -42,6 +42,7 @@ def main(
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
     synchronize_security_policy: bool,
+    synchronize_support_resources: bool,
 ) -> None:
     """Render all templates."""
     template_containers = [
@@ -68,6 +69,12 @@ def main(
             output_dir=Path(".github"),
             active=synchronize_security_policy,
             arguments={"organization": organization, "repository": repository},
+        ),
+        TemplateContainer(
+            file_name="SUPPORT.md",
+            output_dir=Path(".github"),
+            active=synchronize_support_resources,
+            arguments={"organization": organization, "repository": repository, "name": name},
         ),
     ]
 
@@ -136,11 +143,20 @@ if __name__ == "__main__":
         type=_convert_to_bool,
         help="Whether to synchronize the security policy",
     )
+    parser.add_argument(
+        "--synchronize_support_resources",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the support resources",
+    )
     args = parser.parse_args()
 
     main(
-        synchronize_pull_request_template=args.synchronize_pull_request_template,
-        synchronize_security_policy=args.synchronize_security_policy,
         organization=args.organization,
         repository=args.repository,
+        name=args.name,
+        synchronize_issue_templates=args.synchronize_issue_templates,
+        synchronize_pull_request_template=args.synchronize_pull_request_template,
+        synchronize_security_policy=args.synchronize_security_policy,
+        synchronize_support_resources=args.synchronize_support_resources,
     )
