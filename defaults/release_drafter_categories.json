@@ -5,5 +5,10 @@
   "🤖 CI": ["continuous integration"],
   "📦 Packaging": ["packaging"],
   "🧹 Code Quality": ["code quality"],
-  "⬆️ Dependencies": ["dependencies", "github-actions", "submodules", "pre-commit"]
+  "⬆️ Dependencies": [
+    "dependencies",
+    "github-actions",
+    "submodules",
+    "pre-commit"
+  ]
 }
