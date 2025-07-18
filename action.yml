@@ -36,7 +36,7 @@ inputs:
     description: Whether to synchronize the support resources
     default: true
   release-drafter-categories:
-    description: Release Drafter categories as a JSON string
+    description: Release Drafter categories as a JSON string. If empty, a reasonable default will be used
     default: ""
 runs:
   using: composite
