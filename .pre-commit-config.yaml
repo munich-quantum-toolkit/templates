@@ -12,7 +12,7 @@ ci:
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
 
-exclude: ^templates/
+exclude: ^templates/release-drafter.yml$
 
 repos:
   # Standard hooks
