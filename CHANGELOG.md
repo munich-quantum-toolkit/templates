@@ -11,7 +11,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
-- ✨ Synchronize Renovate config ([#24]) ([**@denialhaag**])
+- ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
 - ✨ Synchronize issue templates ([#21]) ([**@denialhaag**])
