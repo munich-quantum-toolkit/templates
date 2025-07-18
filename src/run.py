@@ -182,7 +182,7 @@ if __name__ == "__main__":
         "--release_drafter_categories",
         type=str,
         default="",
-        help="Release Drafter categories as a JSON string",
+        help="Release Drafter categories as a JSON string. If empty, a reasonable default will be used.",
     )
     args = parser.parse_args()
 
