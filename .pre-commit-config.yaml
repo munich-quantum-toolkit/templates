@@ -12,8 +12,6 @@ ci:
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
 
-exclude: ^templates/release-drafter.yml$
-
 repos:
   # Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks

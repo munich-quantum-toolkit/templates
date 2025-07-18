@@ -36,6 +36,12 @@ class TemplateContainer:
     output_dir: Path
     active: bool
     arguments: dict[str, str]
+    template_name: str | None = None
+
+    def __post_init__(self) -> None:
+        """Set the template name if not provided."""
+        if self.template_name is None:
+            self.template_name = self.file_name
 
 
 def main(
@@ -76,6 +82,7 @@ def main(
         ),
         TemplateContainer(
             file_name="release-drafter.yml",
+            template_name="release-drafter.yml.in",
             output_dir=Path(".github"),
             active=synchronize_release_drafter_template,
             arguments={"name": name, "release_drafter_categories": release_drafter_categories_dict},
@@ -111,7 +118,7 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Render the template
-        template = environment.get_template(template_container.file_name)
+        template = environment.get_template(template_container.template_name)
         output = template.render(**template_container.arguments)
 
         # Write the rendered rendered to the file
