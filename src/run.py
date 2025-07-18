@@ -52,6 +52,7 @@ def main(
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
     synchronize_release_drafter_template: bool,
+    synchronize_renovate_config: bool,
     synchronize_security_policy: bool,
     synchronize_support_resources: bool,
     release_drafter_categories: str,
@@ -86,6 +87,12 @@ def main(
             output_dir=Path(".github"),
             active=synchronize_release_drafter_template,
             arguments={"name": name, "release_drafter_categories": release_drafter_categories_dict},
+        ),
+        TemplateContainer(
+            file_name="renovate.json5",
+            output_dir=Path(".github"),
+            active=synchronize_renovate_config,
+            arguments={},
         ),
         TemplateContainer(
             file_name="SECURITY.md",
@@ -174,6 +181,12 @@ if __name__ == "__main__":
         help="Whether to synchronize the Release Drafter template",
     )
     parser.add_argument(
+        "--synchronize_renovate_config",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the Renovate configuration",
+    )
+    parser.add_argument(
         "--synchronize_security_policy",
         default=True,
         type=_convert_to_bool,
@@ -200,6 +213,7 @@ if __name__ == "__main__":
         synchronize_issue_templates=args.synchronize_issue_templates,
         synchronize_pull_request_template=args.synchronize_pull_request_template,
         synchronize_release_drafter_template=args.synchronize_release_drafter_template,
+        synchronize_renovate_config=args.synchronize_renovate_config,
         synchronize_security_policy=args.synchronize_security_policy,
         synchronize_support_resources=args.synchronize_support_resources,
         release_drafter_categories=args.release_drafter_categories,

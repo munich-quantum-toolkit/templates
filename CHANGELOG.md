@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
+- ✨ Synchronize Renovate config ([#24]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
 - ✨ Synchronize issue templates ([#21]) ([**@denialhaag**])
@@ -32,6 +33,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 <!-- PR links -->
 
+[#25]: https://github.com/munich-quantum-toolkit/templates/pull/25
 [#24]: https://github.com/munich-quantum-toolkit/templates/pull/24
 [#23]: https://github.com/munich-quantum-toolkit/templates/pull/23
 [#21]: https://github.com/munich-quantum-toolkit/templates/pull/21
