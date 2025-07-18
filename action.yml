@@ -26,12 +26,18 @@ inputs:
   synchronize-pull-request-template:
     description: Whether to synchronize the pull-request template
     default: true
+  synchronize-release-drafter-template:
+    description: Whether to synchronize the Release Drafter template
+    default: true
   synchronize-security-policy:
     description: Whether to synchronize the security policy
     default: true
   synchronize-support-resources:
     description: Whether to synchronize the support resources
     default: true
+  release-drafter-categories:
+    description: Release Drafter categories as a JSON string. If empty, a reasonable default will be used
+    default: ""
 runs:
   using: composite
   steps:
@@ -46,8 +52,10 @@ runs:
         NAME: ${{ inputs.name }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
+        SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
         SYNCHRONIZE_SUPPORT_RESOURCES: ${{ inputs.synchronize-support-resources }}
+        RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
         uv run $GITHUB_ACTION_PATH/src/run.py \
           --organization $ORGANIZATION \
@@ -55,8 +63,10 @@ runs:
           --name $NAME \
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
+          --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
-          --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES
+          --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES \
+          --release_drafter_categories $RELEASE_DRAFTER_CATEGORIES
     - name: Create pull request
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
       with:
