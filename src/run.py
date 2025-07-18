@@ -18,10 +18,14 @@
 from __future__ import annotations
 
 import argparse
+import json
 from dataclasses import dataclass
 from pathlib import Path
 
 import jinja2
+
+DEFAULTS_DIR = Path(__file__).absolute().parent.parent / "defaults"
+TEMPLATES_DIR = Path(__file__).absolute().parent.parent / "templates"
 
 
 @dataclass
@@ -44,8 +48,13 @@ def main(
     synchronize_release_drafter_template: bool,
     synchronize_security_policy: bool,
     synchronize_support_resources: bool,
+    release_drafter_categories: str,
 ) -> None:
     """Render all templates."""
+    if not release_drafter_categories:
+        release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
+    release_drafter_categories_dict = json.loads(release_drafter_categories)
+
     template_containers = [
         TemplateContainer(
             file_name="bug-report.yml",
@@ -69,7 +78,7 @@ def main(
             file_name="release-drafter.yml",
             output_dir=Path(".github"),
             active=synchronize_release_drafter_template,
-            arguments={"name": name},
+            arguments={"name": name, "release_drafter_categories": release_drafter_categories_dict},
         ),
         TemplateContainer(
             file_name="SECURITY.md",
@@ -86,7 +95,7 @@ def main(
     ]
 
     environment = jinja2.Environment(
-        loader=jinja2.FileSystemLoader(Path(__file__).absolute().parent.parent / "templates"),
+        loader=jinja2.FileSystemLoader(TEMPLATES_DIR),
         autoescape=jinja2.select_autoescape(["html", "xml", "htm"]),
     )
 
@@ -97,9 +106,16 @@ def main(
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
     """Render a template."""
     if template_container.active:
+        # Create output directory if it does not exist
+        output_dir = template_container.output_dir
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Render the template
         template = environment.get_template(template_container.file_name)
         output = template.render(**template_container.arguments)
-        output_path = template_container.output_dir / template_container.file_name
+
+        # Write the rendered rendered to the file
+        output_path = output_dir / template_container.file_name
         output_path.write_text(output + "\n", encoding="utf-8")
 
 
@@ -162,6 +178,12 @@ if __name__ == "__main__":
         type=_convert_to_bool,
         help="Whether to synchronize the support resources",
     )
+    parser.add_argument(
+        "--release_drafter_categories",
+        type=str,
+        default="",
+        help="Release Drafter categories as a JSON string",
+    )
     args = parser.parse_args()
 
     main(
@@ -173,4 +195,5 @@ if __name__ == "__main__":
         synchronize_release_drafter_template=args.synchronize_release_drafter_template,
         synchronize_security_policy=args.synchronize_security_policy,
         synchronize_support_resources=args.synchronize_support_resources,
+        release_drafter_categories=args.release_drafter_categories,
     )
