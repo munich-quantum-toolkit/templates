@@ -29,6 +29,9 @@ inputs:
   synchronize-release-drafter-template:
     description: Whether to synchronize the Release Drafter template
     default: true
+  synchronize-renovate-config:
+    description: Whether to synchronize the Renovate configuration
+    default: true
   synchronize-security-policy:
     description: Whether to synchronize the security policy
     default: true
@@ -53,6 +56,7 @@ runs:
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
+        SYNCHRONIZE_RENOVATE_CONFIG: ${{ inputs.synchronize-renovate-config }}
         SYNCHRONIZE_SECURITY_POLICY: ${{ inputs.synchronize-security-policy }}
         SYNCHRONIZE_SUPPORT_RESOURCES: ${{ inputs.synchronize-support-resources }}
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
@@ -64,6 +68,7 @@ runs:
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \
+          --synchronize_renovate_config $SYNCHRONIZE_RENOVATE_CONFIG \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
           --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES \
           --release_drafter_categories $RELEASE_DRAFTER_CATEGORIES
