@@ -17,7 +17,7 @@
     {
       matchManagers: ["cargo"],
       addLabels: ["rust"],
-      commitMessagePrefix: "⬆\uD83E\uDD80"
+      commitMessagePrefix: "⬆\uFE0F\uD83E\uDD80"
     },
     {
       matchManagers: ["github-actions"],
@@ -27,7 +27,7 @@
     {
       matchManagers: ["npm"],
       addLabels: ["javascript"],
-      commitMessagePrefix: "⬆\uD83D\uDCDC"
+      commitMessagePrefix: "⬆\uFE0F\uD83D\uDCDC"
     },
     {
       matchManagers: ["pep621"],

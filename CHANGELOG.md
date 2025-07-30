@@ -16,6 +16,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
 - ✨ Synchronize issue templates ([#21]) ([**@denialhaag**])
 
+### Fixed
+
+- 🐛 Fix emojis in Renovate config ([#32]) ([**@denialhaag**])
+
 ## [1.0.0]
 
 ### Added
@@ -33,6 +37,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 <!-- PR links -->
 
+[#32]: https://github.com/munich-quantum-toolkit/templates/pull/32
 [#25]: https://github.com/munich-quantum-toolkit/templates/pull/25
 [#24]: https://github.com/munich-quantum-toolkit/templates/pull/24
 [#23]: https://github.com/munich-quantum-toolkit/templates/pull/23
