@@ -536,9 +536,28 @@ If you don't want to use {code}`nox`, you can also build the documentation direc
 The docs can then be found in the {code}`docs/_build` directory.
 :::
 
-## Release a New Version
+## Maintaining the Changelog and Upgrade Guide
 
-# TODO
+MQT {{name}} adheres to [Semantic Versioning], with the exception that minor releases may include breaking changes.
+To inform users about changes to the project, we maintain a changelog and an upgrade guide.
+
+When your PR includes noteworthy changes, please make sure to update the changelog.
+The format of the changelog is based on a mixture of [Keep a Changelog] and [Common Changelog].
+Make sure to add a link to your PR at the bottom of the changelog.
+If this is your first contribution to MQT {{name}}, you can also add a link to your GitHub profile.
+
+If your changes are breaking, please also add a section to the upgrade guide.
+The style is relatively free, you can just lay out how a user has to adapt their usage of MQT {{name}}.
+
+## Releasing a New Version
+
+When it's time to release a new version of MQT {{name}}, a PR has to be created that adds titles with the new version number in the changelog and the upgrade guide.
+Also the version links at the bottom of the two files have to be updated.
+
+After the PR preparing the release is merged, ensure that the draft created by the Release Drafter looks good.
+If there are unlabeled PRs, you can label them after the fact and then run the Release Drafter again.
+
+Once everything looks good, the new version can be released.
 
 <!-- Links -->
 
@@ -550,3 +569,6 @@ The docs can then be found in the {code}`docs/_build` directory.
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
 [vscode]: https://code.visualstudio.com/
+[Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
+[Common Changelog]: https://common-changelog.org
+[Semantic Versioning]: https://semver.org/spec/v2.0.0.html
