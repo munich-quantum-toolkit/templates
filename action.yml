@@ -11,15 +11,24 @@ inputs:
   token:
     description: Token with permissions to create and update pull requests
     required: true
-  organization:
-    description: Name of the repository's organization
-    required: true
-  repository:
-    description: Name of the repository
-    required: true
   name:
     description: Stylized name of the package (e.g., "Core" or "DDSIM")
     required: true
+  organization:
+    description: Name of the repository's organization
+    required: true
+  project-type:
+    description: Type of the project
+    required: true
+    options:
+      - cpp
+      - python
+  repository:
+    description: Name of the repository
+    required: true
+  synchronize-development-guide:
+    description: Whether to synchronize the development guide
+    default: true
   synchronize-issue-templates:
     description: Whether to synchronize the issue templates
     default: true
@@ -50,9 +59,11 @@ runs:
     - name: Run the templating script
       shell: bash
       env:
-        ORGANIZATION: ${{ inputs.organization }}
-        REPOSITORY: ${{ inputs.repository }}
         NAME: ${{ inputs.name }}
+        ORGANIZATION: ${{ inputs.organization }}
+        PROJECT_TYPE: ${{ inputs.project_type }}
+        REPOSITORY: ${{ inputs.repository }}
+        SYNCHRONIZE_DEVELOPMENT_GUIDE: ${{ inputs.synchronize-development-guide }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
@@ -62,9 +73,11 @@ runs:
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
         uv run $GITHUB_ACTION_PATH/src/run.py \
-          --organization $ORGANIZATION \
-          --repository $REPOSITORY \
           --name $NAME \
+          --organization $ORGANIZATION \
+          --project_type $PROJECT_TYPE \
+          --repository $REPOSITORY \
+          --synchronize_development_guide $SYNCHRONIZE_DEVELOPMENT_GUIDE \
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \

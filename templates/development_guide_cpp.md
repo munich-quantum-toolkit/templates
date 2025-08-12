@@ -108,7 +108,7 @@ This guide will get you started.
    :::
    ::::
 
-   Afterward, you can install the `pre-commit` hooks with
+   Afterward, you can install the {code}`pre-commit` hooks with
 
    ```console
    $ pre-commit install
@@ -197,10 +197,8 @@ $ ctest -C Release --test-dir build
 
 from the main project directory after building the project as described above.
 
-# TODO: CMake flag
-
 :::{tip}
-If you want to disable configuring and building the C++ tests, you can pass `-DBUILD_MQT_CORE_TESTS=OFF` to the CMake configure step.
+If you want to disable configuring and building the C++ tests, you can pass `-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
 :::
 
 ### C++ Code Formatting and Linting
@@ -257,16 +255,16 @@ See the [Working on the Documentation](#working-on-the-documentation) section fo
 ## Working on the Python package
 
 We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
-This allows to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
+This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
 
 ::::::{tab-set}
 :sync-group: installer
 
-:::::{tab-item} `uv` _(recommended)_
+:::::{tab-item} {code}`uv` _(recommended)_
 :sync: uv
-Getting the project up and running locally using `uv` is as simple as running
+Getting the project up and running locally using {code}`uv` is as simple as running
 
 ```console
 $ uv sync
@@ -280,9 +278,9 @@ This will
 - build and install the project itself into the virtual environment.
   :::::
 
-:::::{tab-item} `pip`
+:::::{tab-item} {code}`pip`
 :sync: pip
-The whole process is a lot more tedious and manual if you use `pip`.
+The whole process is a lot more tedious and manual if you use {code}`pip`.
 Once you have Python installed, you can first create a virtual environment using
 ::::{tab-set}
 :::{tab-item} macOS and Linux
@@ -320,8 +318,8 @@ Due to the build isolation, the corresponding C++ build directory cannot be reus
 This can make rapid iteration on the Python package cumbersome.
 However, one can work around this by pre-installing the build dependencies in the virtual environment and then building the package without isolation.
 
-Since the overall process can be quite involved, we recommend using [`nox`][nox] to automate the build process.
-`nox` is a Python automation tool that allows you to define tasks in a `noxfile.py` file and then run them with a single command.
+Since the overall process can be quite involved, we recommend using [{code}`nox`][nox] to automate the build process.
+{code}`nox` is a Python automation tool that allows you to define tasks in a `noxfile.py` file and then run them with a single command.
 
 ::::{tab-set}
 :::{tab-item} {code}`uv` _(recommended)_
@@ -371,10 +369,8 @@ We define four convenient {code}`nox` sessions in {code}`noxfile.py`:
 
 These are explained in more detail in the following sections.
 
-# TODO: CMake flag
-
 :::{tip}
-If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_CORE_BINDINGS=ON` to the CMake configure step.
+If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
 CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
 In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
 Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
