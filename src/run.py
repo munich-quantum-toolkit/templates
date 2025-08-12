@@ -60,14 +60,6 @@ def main(
     release_drafter_categories: str,
 ) -> None:
     """Render all templates."""
-    if project_type == "cpp":
-        development_guide_template_name = "development_guide_cpp.md"
-    elif project_type == "python":
-        development_guide_template_name = "development_guide_python.md"
-    else:
-        msg = "Invalid project type."
-        raise ValueError(msg)
-
     if not release_drafter_categories:
         release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
     release_drafter_categories_dict = json.loads(release_drafter_categories)
@@ -77,14 +69,19 @@ def main(
             file_name="bug-report.yml",
             output_dir=Path(".github/ISSUE_TEMPLATE"),
             active=synchronize_issue_templates,
-            arguments={"organization": organization, "repository": repository, "name": name},
+            arguments={"name": name, "organization": organization, "repository": repository},
         ),
         TemplateContainer(
             file_name="development_guide.md",
             output_dir=Path("docs/development_guide.md"),
-            template_name=development_guide_template_name,
+            template_name="development_guide.md",
             active=synchronize_development_guide,
-            arguments={"organization": organization, "repository": repository, "name": name},
+            arguments={
+                "name": name,
+                "organization": organization,
+                "project_type": project_type,
+                "repository": repository,
+            },
         ),
         TemplateContainer(
             file_name="feature-request.yml",
@@ -121,7 +118,7 @@ def main(
             file_name="support.md",
             output_dir=Path(".github"),
             active=synchronize_support_resources,
-            arguments={"organization": organization, "repository": repository, "name": name},
+            arguments={"name": name, "organization": organization, "repository": repository},
         ),
     ]
 

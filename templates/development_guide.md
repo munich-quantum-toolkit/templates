@@ -40,7 +40,11 @@ This guide will get you started.
 
    Now you can make your changes locally.
 
-4. If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
+4. {% if project_type == "cpp" -%}
+   If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
+   {% elif project_type == "python" -%}
+   We highly recommend using [{code}`uv`][uv].
+   {% endif -%}
    It is an extremely fast Python package and project manager written in Rust and developed by [Astral](https://astral.sh/) (the same team behind [{code}`ruff`][ruff]).
    It can act as a drop-in replacement for {code}`pip` and {code}`virtualenv`, and it provides a more modern and faster alternative to the traditional Python package management tools.
    It automatically handles the creation of virtual environments and the installation of packages, and it is much faster than {code}`pip`.
@@ -114,7 +118,9 @@ This guide will get you started.
    $ pre-commit install
    ```
 
-## Working on the C++ library
+{%- if project_type == "cpp" %}
+
+## Working on the C++ Library
 
 Building the project requires a C++ compiler supporting _C++20_ and CMake with a minimum version of _3.24_.
 As of 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers.
@@ -252,12 +258,24 @@ For some tips on how to write good Doxygen comments, see the [Doxygen Manual](ht
 The C++ API documentation is integrated into the overall documentation that we host on ReadTheDocs using the [breathe](https://breathe.readthedocs.io/en/latest/) extension for Sphinx.
 See the [Working on the Documentation](#working-on-the-documentation) section for more information on how to build the documentation.
 
-## Working on the Python package
+{%- endif %}
+
+{%- if project_type == "cpp" %}
+
+## Working on the Python Package
 
 We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
+
+{%- elif project_type == "python" %}
+
+## Working on the Package
+
+The package lives in the {code}`src/mqt/{{repository}}` directory.
+
+{%- endif %}
 
 ::::::{tab-set}
 :sync-group: installer
@@ -369,6 +387,8 @@ We define four convenient {code}`nox` sessions in {code}`noxfile.py`:
 
 These are explained in more detail in the following sections.
 
+{%- if project_type == "cpp" %}
+
 :::{tip}
 If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
 CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
@@ -377,7 +397,17 @@ Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Inte
 Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
 :::
 
-### Running Python Tests
+{%- endif %}
+
+{%- if project_type == "cpp" %}
+
+## Running Python Tests
+
+{%- elif project_type == "python" %}
+
+## Running Tests
+
+{%- endif %}
 
 The Python code is tested by unit tests using the [{code}`pytest`](https://docs.pytest.org/en/latest/) framework.
 The corresponding test files can be found in the {code}`test/python` directory.
@@ -414,7 +444,15 @@ This ensures that the project can still be built and the tests pass with the min
 $ nox -s minimums
 ```
 
-### Python Code Formatting and Linting
+{%- if project_type == "cpp" %}
+
+## Python Code Formatting and Linting
+
+{%- elif project_type == "python" %}
+
+## Code Formatting and Linting
+
+{%- endif %}
 
 The Python code is formatted and linted using a collection of [{code}`pre-commit`][pre-commit] hooks.
 This collection includes
@@ -449,7 +487,15 @@ There are two ways of using these hooks:
 
   :::
 
-### Python Documentation
+{%- if project_type == "cpp" %}
+
+## Python Documentation
+
+{%- elif project_type == "python" %}
+
+## Documentation
+
+{%- endif %}
 
 The Python code is documented using [Google-style docstrings](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
 Every public function, class, and module should have a docstring that explains what it does and how to use it.
