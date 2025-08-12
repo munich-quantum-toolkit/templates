@@ -328,7 +328,7 @@ Then, you can install the project via
 ::::::
 
 :::{tip}
-While the above commands install the project in editable mode (so that changes to the Python code are immediately reflected in the installed package) any changes to the C++ code will require a rebuild of the Python package.
+While the above commands install the project in editable mode (so that changes to the Python code are immediately reflected in the installed package), any changes to the C++ code will require a rebuild of the Python package.
 :::
 
 The commands above build a wheel for the project in an isolated environment and then installs into the virtual environment.
