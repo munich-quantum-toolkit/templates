@@ -183,7 +183,7 @@ There are multiple ways to avoid these downloads:
 - You can pass `-DUSE_SYSTEM_BOOST=ON` to the CMake configure step to use the Boost installation on your system and avoid downloading Boost multiprecision.
   :::
 
-### C++ Testing and Code Coverage
+### Running the C++ Tests and Code Coverage
 
 We use the [GoogleTest](https://google.github.io/googletest/primer.html) framework for unit testing of the C++ library.
 All tests are contained in the {code}`test` directory, which is further divided into subdirectories for different parts of the library.
@@ -327,6 +327,8 @@ Then, you can install the project via
 :::::
 ::::::
 
+{%- if project_type == "c++-python" %}
+
 :::{tip}
 While the above commands install the project in editable mode (so that changes to the Python code are immediately reflected in the installed package), any changes to the C++ code will require a rebuild of the Python package.
 :::
@@ -337,6 +339,12 @@ This can make rapid iteration on the Python package cumbersome.
 However, one can work around this by pre-installing the build dependencies in the virtual environment and then building the package without isolation.
 
 Since the overall process can be quite involved, we recommend using [{code}`nox`][nox] to automate the build process.
+
+{%- elif project_type == "pure-python" %}
+
+We also recommend using [{code}`nox`][nox].
+
+{%- endif %}
 {code}`nox` is a Python automation tool that allows you to define tasks in a `noxfile.py` file and then run them with a single command.
 
 ::::{tab-set}
@@ -401,16 +409,20 @@ Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configur
 
 {%- if project_type == "c++-python" %}
 
-## Running Python Tests
+## Running the Python Tests
 
 {%- elif project_type == "pure-python" %}
 
-## Running Tests
+## Running the Tests
 
 {%- endif %}
 
 The Python code is tested by unit tests using the [{code}`pytest`](https://docs.pytest.org/en/latest/) framework.
+{%- if project_type == "c++-python" %}
 The corresponding test files can be found in the {code}`test/python` directory.
+{%- elif project_type == "pure-python" %}
+The corresponding test files can be found in the {code}`tests` directory.
+{%- endif %}
 A {code}`nox` session is provided to conveniently run the Python tests.
 
 ```console
@@ -501,7 +513,9 @@ Every public function, class, and module should have a docstring that explains w
 {code}`ruff` will check for missing docstrings and will explicitly warn you if you forget to add one.
 
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html) to document the expected types of function arguments and return values.
+{%- if project_type == "c++-python" %}
 For the compiled parts of the code base, we provide type hints in the form of stub files in the {code}`python/mqt/{{repository}}` directory.
+{%- endif %}
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
 [{code}`sphinx-autoapi`](https://sphinx-autoapi.readthedocs.io/en/latest/) extension for Sphinx.
