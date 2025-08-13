@@ -71,7 +71,7 @@ This guide will get you started.
 
    Check out their excellent [documentation][uv] for more information.
 
-5. We also highly recommend to install and set up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit.
+5. We also highly recommend installing and setting up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit.
 
    ::::{tab-set}
    :::{tab-item} {code}`uv` _(recommended)_
@@ -125,15 +125,16 @@ This guide will get you started.
 Building the project requires a C++ compiler supporting _C++20_ and CMake with a minimum version of _3.24_.
 As of July 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
 
-- `ubuntu-24.04`: `Release` and `Debug` builds compiled by `gcc`
-- `ubuntu-24.04-arm`: `Release` build compiled by `gcc`
-- `macos-14`: `Release` and `Debug` builds compiled by `clang`
-- `macos-15`: `Release` build compiled by `clang`
-- `windows-2022`: `Release` and `Debug` builds compiled by `msvc`
-- `windows-11-arm`: `Release` build compiled by `msvc`
+- `ubuntu-24.04`: `Release` and `Debug` builds using `gcc`
+- `ubuntu-24.04-arm`: `Release` build using `gcc`
+- `macos-14`: `Release` and `Debug` builds using `AppleClang`
+- `macos-13`: `Release` build using `AppleClang`
+- `windows-2022`: `Release` and `Debug` builds using `msvc`
+- `windows-11-arm`: `Release` build using `msvc`
 
 To access the latest build logs, visit the [GitHub Actions page](https://github.com/{{organization}}/{{repository}}/actions/workflows/ci.yml).
 
+Additionally, we regularly run extensive tests with an even wider matrix of compilers and operating systems.
 We are not aware of any issues with other compilers or operating systems.
 If you encounter any problems, please [open an issue](https://github.com/{{organization}}/{{repository}}/issues) and let us know.
 
@@ -275,6 +276,15 @@ See the [Working on the Documentation](#working-on-the-documentation) section fo
 We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
+
+:::{tip}
+If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
+CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
+In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
+Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
+Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
+:::
+
 The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
 
 {%- elif project_type == "pure-python" %}
@@ -342,10 +352,10 @@ Then, you can install the project via
 While the above commands install the project in editable mode (so that changes to the Python code are immediately reflected in the installed package), any changes to the C++ code will require a rebuild of the Python package.
 :::
 
-The commands above build a wheel for the project in an isolated environment and then installs into the virtual environment.
+The commands above build a wheel for the project in an isolated environment and then install it into the virtual environment.
 Due to the build isolation, the corresponding C++ build directory cannot be reused for subsequent builds.
 This can make rapid iteration on the Python package cumbersome.
-However, one can work around this by pre-installing the build dependencies in the virtual environment and then building the package without isolation.
+However, one can work around this by pre-installing the build dependencies in the virtual environment and then building the package without build isolation.
 
 Since the overall process can be quite involved, we recommend using [{code}`nox`][nox] to automate the build process.
 
@@ -406,18 +416,6 @@ These are explained in more detail in the following sections.
 
 {%- if project_type == "c++-python" %}
 
-:::{tip}
-If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
-CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
-In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
-Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
-Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
-:::
-
-{%- endif %}
-
-{%- if project_type == "c++-python" %}
-
 ## Running the Python Tests
 
 {%- elif project_type == "pure-python" %}
@@ -451,8 +449,9 @@ $ nox -s tests-3.12
 :::{note}
 If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
 
-````console
+```console
 (.venv) $ pytest
+```
 
 This requires that you have the project installed in the virtual environment and the test dependency group installed.
 :::
@@ -462,7 +461,7 @@ This ensures that the project can still be built and the tests pass with the min
 
 ```console
 $ nox -s minimums
-````
+```
 
 {%- if project_type == "c++-python" %}
 
@@ -582,7 +581,7 @@ When updating the changelog, follow these guidelines:
 - Entries in each category are sorted by merge time, with the latest pull requests appearing first.
 - Each entry links to the pull request and all contributing authors.
   The links are defined at the bottom of the file.
-  If this is your contribution to this project, don't forget to add a link to your GitHub profile.
+  If this is your first contribution to this project, do not forget to add a link to your GitHub profile.
 
 If your pull request introduces major or breaking changes, or if you think additional context would help users, please also add a section to the upgrade guide.
 The upgrade guide is intended to provide a general overview of significant changes in a more descriptive and prose-oriented form than the changelog.
@@ -591,7 +590,7 @@ Feel free to write in a style that is helpful and accessible for users seeking t
 
 ## Releasing a New Version
 
-When it's time to release a new version of MQT {{name}}, create a pull request that prepares the release.
+When it is time to release a new version of MQT {{name}}, create a pull request that prepares the release.
 This pull request should:
 
 - add new version titles in both the changelog and the upgrade guide,
@@ -603,9 +602,20 @@ This pull request should:
 - review the upgrade guide to ensure it covers all major or breaking changes and provides helpful context, and
 - if the upgrade guide contains a section relevant to the release, add a reference to it in the changelog.
 
-Before merging the release preparation pull request, check the release draft generated by the Release Drafter for unlabelled pull requests.
+Before merging the release preparation pull request, check the GitHub release draft generated by the Release Drafter for unlabelled pull requests.
 Unlabelled pull requests would appear at the top of the release draft below the main heading.
 If you missed updating labels before merging, you can still update them and re-run the Release Drafter afterward.
+Furthermore, check whether the version number in the release draft is correct.
+The version number in the release draft is dictated by the presence of certain labels on the pull requests involved in a release.
+By default, a patch release will be created.
+If any pull request has the {code}`minor` or {code}`major` label, a major or minor release will be created, respectively.
+
+:::{note}
+Sometimes, dependabot or renovate will tag a dependency update pull request with a {code}`minor` or {code}`major` label because the dependency update itself is a minor or major release.
+This does not mean that the dependency update itself is a breaking change for MQT {{name}}.
+If you are sure that the dependency update does not introduce any breaking changes for MQT {{name}}, you can remove the {code}`minor` or {code}`major` label from the pull request.
+This will ensure that the respective pull request does not influence the type of release.
+:::
 
 Once everything is in order and the release draft looks good, you can proceed to publish the new version.
 
