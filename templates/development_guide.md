@@ -40,9 +40,9 @@ This guide will get you started.
 
    Now you can make your changes locally.
 
-4. {% if project_type == "cpp" -%}
+4. {% if project_type == "c++-python" -%}
    If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
-   {% elif project_type == "python" -%}
+   {% elif project_type == "pure-python" -%}
    We highly recommend using [{code}`uv`][uv].
    {% endif -%}
    It is an extremely fast Python package and project manager written in Rust and developed by [Astral](https://astral.sh/) (the same team behind [{code}`ruff`][ruff]).
@@ -118,7 +118,7 @@ This guide will get you started.
    $ pre-commit install
    ```
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 ## Working on the C++ Library
 
@@ -260,7 +260,7 @@ See the [Working on the Documentation](#working-on-the-documentation) section fo
 
 {%- endif %}
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 ## Working on the Python Package
 
@@ -269,7 +269,7 @@ This allows us to keep the performance-critical parts of the code in C++ while p
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
 
-{%- elif project_type == "python" %}
+{%- elif project_type == "pure-python" %}
 
 ## Working on the Package
 
@@ -387,7 +387,7 @@ We define four convenient {code}`nox` sessions in {code}`noxfile.py`:
 
 These are explained in more detail in the following sections.
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 :::{tip}
 If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
@@ -399,11 +399,11 @@ Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configur
 
 {%- endif %}
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 ## Running Python Tests
 
-{%- elif project_type == "python" %}
+{%- elif project_type == "pure-python" %}
 
 ## Running Tests
 
@@ -443,11 +443,11 @@ This ensures that the project can still be built and the tests pass with the min
 $ nox -s minimums
 ````
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 ## Python Code Formatting and Linting
 
-{%- elif project_type == "python" %}
+{%- elif project_type == "pure-python" %}
 
 ## Code Formatting and Linting
 
@@ -486,11 +486,11 @@ There are two ways of using these hooks:
 
   :::
 
-{%- if project_type == "cpp" %}
+{%- if project_type == "c++-python" %}
 
 ## Python Documentation
 
-{%- elif project_type == "python" %}
+{%- elif project_type == "pure-python" %}
 
 ## Documentation
 

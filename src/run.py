@@ -173,7 +173,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--project_type",
         type=str,
-        choices=["cpp", "python"],
+        choices=["c++-python", "pure-python"],
         required=True,
         help="Type of the project",
     )

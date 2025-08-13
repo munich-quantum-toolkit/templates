@@ -21,8 +21,8 @@ inputs:
     description: Type of the project
     required: true
     options:
-      - cpp
-      - python
+      - c++-python
+      - pure-python
   repository:
     description: Name of the repository
     required: true
