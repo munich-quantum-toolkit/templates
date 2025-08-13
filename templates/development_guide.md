@@ -168,20 +168,21 @@ Building the project this way generates
 - some test executables in the {code}`build/test` directory.
 
 :::{note}
-The project uses CMake's [FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
-As such, the configuration step requires an active internet connection (at least the first time it is run) to download the dependencies.
-Specifically, the project downloads
+This project uses CMake's [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
+Because of this, the first time you configure the project, you'll need an active internet connection to fetch the required libraries.
 
-- [nlohmann/json](https://github.com/nlohmann/json) for JSON serialization and deserialization (roughly 100 KB)
-- [Boost Multiprecision](https://github.com/boostorg/multiprecision) for arbitrary precision arithmetic (roughly 4 MB)
-- [GoogleTest](https://github.com/google/googletest) for unit testing (roughly 1 MB)
+However, there are several ways to bypass these downloads:
 
-There are multiple ways to avoid these downloads:
+- Use system-installed dependencies:
+  If the dependencies are already installed on your system and Find-modules exist for them, `FetchContent` will use those versions instead of downloading them.
+- Provide a local copy:
+  If you have local copies of the dependencies (from a previous build or another project), you can point `FetchContent` to them by passing the [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
+  The `<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
+- Use project-specific options:
+  Some projects provide specific CMake options to use a system-wide dependency instead of downloading it.
+  Check the project's documentation or CMake files for these types of flags.
 
-- If you have the dependencies installed on your system, `FetchContent` will use them and not download anything.
-- If you have a local copy of the dependencies, for example, from a previous build or another project, you can point `FetchContent` to them by passing [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) to the CMake configure step.
-- You can pass `-DUSE_SYSTEM_BOOST=ON` to the CMake configure step to use the Boost installation on your system and avoid downloading Boost multiprecision.
-  :::
+:::
 
 ### Running the C++ Tests and Code Coverage
 
@@ -294,7 +295,8 @@ This will
 - create a virtual environment,
 - install all the project's dependencies into the virtual environment with known-good versions, and
 - build and install the project itself into the virtual environment.
-  :::::
+
+:::::
 
 :::::{tab-item} {code}`pip`
 :sync: pip
