@@ -5,125 +5,130 @@ This guide will get you started.
 
 ## Initial Setup
 
-1. Get the code
+1.  Get the code
 
-   ::::{tab-set}
-   :::{tab-item} External Contribution
-   If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
+    ::::{tab-set}
+    :::{tab-item} External Contribution
+    If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
 
-   ```console
-   $ git clone git@github.com:your_name_here/{{repository}}.git
-   ```
+    ```console
+    $ git clone git@github.com:your_name_here/{{repository}}.git
+    ```
 
-   :::
-   :::{tab-item} Internal Contribution
-   If you do have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
+    :::
+    :::{tab-item} Internal Contribution
+    If you do have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
 
-   ```console
-   $ git clone git@github.com/{{organization}}/{{repository}}.git
-   ```
+    ```console
+    $ git clone git@github.com/{{organization}}/{{repository}}.git
+    ```
 
-   :::
-   ::::
+    :::
+    ::::
 
-2. Change into the project directory
+2.  Change into the project directory
 
-   ```console
-   $ cd {{repository}}
-   ```
+    ```console
+    $ cd {{repository}}
+    ```
 
-3. Create a branch for local development
+3.  Create a branch for local development
 
-   ```console
-   $ git checkout -b name-of-your-bugfix-or-feature
-   ```
+    ```console
+    $ git checkout -b name-of-your-bugfix-or-feature
+    ```
 
-   Now you can make your changes locally.
+    Now you can make your changes locally.
 
-4. {% if project_type == "c++-python" -%}
-   If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
-   {% elif project_type == "pure-python" -%}
-   We highly recommend using [{code}`uv`][uv].
-   {% endif -%}
-   It is an extremely fast Python package and project manager written in Rust and developed by [Astral](https://astral.sh/) (the same team behind [{code}`ruff`][ruff]).
-   It can act as a drop-in replacement for {code}`pip` and {code}`virtualenv`, and it provides a more modern and faster alternative to the traditional Python package management tools.
-   It automatically handles the creation of virtual environments and the installation of packages, and it is much faster than {code}`pip`.
-   Additionally, it can even set up Python for you if it is not installed yet.
+4.  Install development tools
 
-   If you do not have {code}`uv` installed yet, you can install it via
+    We highly recommend using modern and fast tooling for the development workflow.
+    {%- if project_type == "c++-python" %}
+    If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
+    {%- elif project_type == "pure-python" %}
+    We highly recommend using [{code}`uv`][uv].
+    {%- endif %}
+    It is an extremely fast Python package and project manager written in Rust and developed by [Astral](https://astral.sh/) (the same team behind [{code}`ruff`][ruff]).
+    It can act as a drop-in replacement for {code}`pip` and {code}`virtualenv`, and it provides a more modern and faster alternative to the traditional Python package management tools.
+    It automatically handles the creation of virtual environments and the installation of packages, and it is much faster than {code}`pip`.
+    Additionally, it can even set up a Python interpreter for you if it is not installed yet.
 
-   ::::{tab-set}
-   :::{tab-item} macOS and Linux
+    If you do not have {code}`uv` installed yet, you can install it via:
 
-   ```console
-   $ curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
+    ::::{tab-set}
+    :::{tab-item} macOS and Linux
 
-   :::
-   :::{tab-item} Windows
+    ```console
+    $ curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
 
-   ```console
-   $ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-   ```
+    :::
+    :::{tab-item} Windows
 
-   :::
-   ::::
+    ```console
+    $ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```
 
-   Check out their excellent [documentation][uv] for more information.
+    :::
+    ::::
 
-5. We also highly recommend installing and setting up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit.
+    Check out their excellent [documentation][uv] for more information.
 
-   ::::{tab-set}
-   :::{tab-item} {code}`uv` _(recommended)_
-   :sync: uv
-   The easiest way to install {code}`pre-commit` is via [{code}`uv`][uv].
+    We also highly recommend installing and setting up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit, and [{code}`nox`][nox] for automating common development tasks.
 
-   ```console
-   $ uv tool install pre-commit
-   ```
+    ::::{tab-set}
+    :::{tab-item} {code}`uv` _(recommended)_
+    :sync: uv
+    The easiest way to install {code}`pre-commit` and {code}`nox` is via [{code}`uv`][uv].
 
-   :::
-   :::{tab-item} {code}`brew`
-   :sync: brew
-   If you use macOS and Homebrew, you can install {code}`pre-commit` with
+    ```console
+    $ uv tool install pre-commit
+    $ uv tool install nox
+    ```
 
-   ```console
-   $ brew install pre-commit
-   ```
+    :::
+    :::{tab-item} {code}`brew`
+    :sync: brew
+    If you use macOS and Homebrew, you can install {code}`pre-commit` and {code}`nox` with:
 
-   :::
-   :::{tab-item} {code}`pipx`
-   :sync: pipx
-   If you prefer to use [{code}`pipx`][pipx], you can install {code}`pre-commit` with
+    ```console
+    $ brew install pre-commit nox
+    ```
 
-   ```console
-   $ pipx install pre-commit
-   ```
+    :::
+    :::{tab-item} {code}`pipx`
+    :sync: pipx
+    If you prefer to use [{code}`pipx`][pipx], you can install {code}`pre-commit` and {code}`nox` with:
 
-   :::
-   :::{tab-item} {code}`pip`
-   :sync: pip
-   If you prefer to use regular {code}`pip` (preferably in a virtual environment), you can install {code}`pre-commit` with
+    ```console
+    $ pipx install pre-commit
+    $ pipx install nox
+    ```
 
-   ```console
-   $ pip install pre-commit
-   ```
+    :::
+    :::{tab-item} {code}`pip`
+    :sync: pip
+    If you prefer to use regular {code}`pip` (preferably in a virtual environment), you can install {code}`pre-commit` and {code}`nox` with:
 
-   :::
-   ::::
+    ```console
+    $ pip install pre-commit nox
+    ```
 
-   Afterward, you can install the {code}`pre-commit` hooks with
+    :::
+    ::::
 
-   ```console
-   $ pre-commit install
-   ```
+    Afterward, you can set up the {code}`pre-commit` hooks with:
+
+    ```console
+    $ pre-commit install
+    ```
 
 {%- if project_type == "c++-python" %}
 
 ## Working on the C++ Library
 
 Building the project requires a C++ compiler supporting _C++20_ and CMake with a minimum version of _3.24_.
-As of July 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
+As of August 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
 
 - `ubuntu-24.04`: `Release` and `Debug` builds using `gcc`
 - `ubuntu-24.04-arm`: `Release` build using `gcc`
@@ -148,19 +153,19 @@ If you prefer to work on the command line, the following instructions will guide
 
 Our projects use _CMake_ as the main build configuration tool.
 Building a project using CMake is a two-stage process.
-First, CMake needs to be _configured_ by calling
+First, CMake needs to be _configured_ by calling:
 
 ```console
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 ```
 
-This tells CMake to
+This tells CMake to:
 
 - search the current directory {code}`.` (passed via {code}`-S`) for a {code}`CMakeLists.txt` file,
 - process it into a directory {code}`build` (passed via {code}`-B`), and
 - configure a {code}`Release` build (passed via {code}`-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a _Debug_ build.
 
-After configuring CMake, the project can be built by calling
+After configuring CMake, the project can be built by calling:
 
 ```console
 $ cmake --build build --config Release
@@ -170,7 +175,7 @@ This tries to build the project in the {code}`build` directory (passed via {code
 Some operating systems and development environments explicitly require a configuration to be set, which is why the {code}`--config` flag is also passed to the build command.
 The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
-Building the project this way generates
+Building the project this way generates:
 
 - the main project libraries in the {code}`build/src` directory and
 - some test executables in the {code}`build/test` directory.
@@ -181,12 +186,12 @@ Because of this, the first time you configure the project, you'll need an active
 
 However, there are several ways to bypass these downloads:
 
-- Use system-installed dependencies:
+- **Use system-installed dependencies**:
   If the dependencies are already installed on your system and Find-modules exist for them, `FetchContent` will use those versions instead of downloading them.
-- Provide a local copy:
+- **Provide a local copy**:
   If you have local copies of the dependencies (from a previous build or another project), you can point `FetchContent` to them by passing the [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
   The `<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
-- Use project-specific options:
+- **Use project-specific options**:
   Some projects provide specific CMake options to use a system-wide dependency instead of downloading it.
   Check the project's documentation or CMake files for these types of flags.
 
@@ -204,7 +209,7 @@ Try to write meaningful tests that actually test the correctness of the code and
 
 Most IDEs like [CLion][clion] or [Visual Studio Code][vscode] provide a convenient way to run the tests directly from the IDE.
 If you prefer to run the tests from the command line, you can use CMake's test runner [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html).
-To run the tests, call
+To run the tests, call:
 
 ```console
 $ ctest -C Release --test-dir build
@@ -219,12 +224,12 @@ If you want to disable configuring and building the C++ tests, you can pass `-DB
 ### C++ Code Formatting and Linting
 
 This project mostly follows the [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html), which is a set of guidelines for writing C++ code.
-To ensure the quality of the code and that it conforms to these guidelines, we use
+To ensure the quality of the code and that it conforms to these guidelines, we use:
 
 - [`clang-tidy`](https://clang.llvm.org/extra/clang-tidy/), a static analysis tool that checks for common mistakes in C++ code, and
 - [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html), a tool that automatically formats C++ code according to a given style guide.
 
-Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run `clang-tidy` on the code and automatically format it with clang-format.
+Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run `clang-tidy` on the code and automatically format it with `clang-format`.
 
 - If you are using CLion, you can configure the project to use the {code}`.clang-tidy` and {code}`.clang-format` files in the project root directory.
 - If you are using Visual Studio Code, you can install the [clangd extension](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd).
@@ -234,7 +239,7 @@ In many cases, they also provide quick-fixes for these issues.
 Furthermore, they provide a command to automatically format your code according to the given style.
 
 :::{note}
-After configuring CMake, you can run `clang-tidy` on a file by calling
+After configuring CMake, you can run `clang-tidy` on a file by calling:
 
 ```console
 $ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
@@ -244,8 +249,8 @@ where {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE
 :::
 
 Our {code}`pre-commit` configuration also includes {code}`clang-format`.
-If you have installed {code}`pre-commit`, it will automatically run clang-format on your code before each commit.
-If you do not have {code}`pre-commit` setup, the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on your code and automatically format it according to the style guide.
+If you have installed {code}`pre-commit`, it will automatically run `clang-format` on your code before each commit.
+If you do not have {code}`pre-commit` set up, the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on your code and automatically format it according to the style guide.
 
 :::{tip}
 Remember to pull the changes back into your local repository after the bot has formatted your code to avoid merge conflicts.
@@ -300,13 +305,13 @@ The package lives in the {code}`src/mqt/{{repository}}` directory.
 
 :::::{tab-item} {code}`uv` _(recommended)_
 :sync: uv
-Getting the project up and running locally using {code}`uv` is as simple as running
+Getting the project up and running locally using {code}`uv` is as simple as running:
 
 ```console
 $ uv sync
 ```
 
-This will
+This will:
 
 - download a suitable version of Python for you (if you don't have it installed yet),
 - create a virtual environment,
@@ -318,7 +323,7 @@ This will
 :::::{tab-item} {code}`pip`
 :sync: pip
 The whole process is a lot more tedious and manual if you use {code}`pip`.
-Once you have Python installed, you can first create a virtual environment using
+Once you have Python installed, you can first create a virtual environment using:
 ::::{tab-set}
 :::{tab-item} macOS and Linux
 
@@ -337,7 +342,7 @@ $ .venv\Scripts\activate.bat
 
 :::
 ::::
-Then, you can install the project via
+Then, you can install the project via:
 
 ```console
 (.venv) $ pip install -ve.
@@ -365,45 +370,7 @@ We also recommend using [{code}`nox`][nox].
 
 {%- endif %}
 {code}`nox` is a Python automation tool that allows you to define tasks in a `noxfile.py` file and then run them with a single command.
-
-::::{tab-set}
-:::{tab-item} {code}`uv` _(recommended)_
-:sync: uv
-The easiest way to install {code}`nox` is via [{code}`uv`][uv].
-
-```console
-$ uv tool install nox
-```
-
-:::
-:::{tab-item} {code}`brew`
-:sync: brew
-If you use macOS and Homebrew, you can install {code}`nox` with
-
-```console
-$ brew install nox
-```
-
-:::
-:::{tab-item} {code}`pipx`
-:sync: pipx
-If you prefer to use [{code}`pipx`][pipx], you can install {code}`nox` with
-
-```console
-$ pipx install nox
-```
-
-:::
-:::{tab-item} {code}`pip`
-:sync: pip
-If you prefer to use regular {code}`pip` (preferably in a virtual environment), you can install {code}`nox` with
-
-```console
-$ pip install nox
-```
-
-:::
-::::
+If you have not installed it yet in the [Initial Setup](#initial-setup), you can do so now.
 
 We define four convenient {code}`nox` sessions in {code}`noxfile.py`:
 
@@ -448,12 +415,12 @@ $ nox -s tests-3.12
 
 :::{note}
 If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
+This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running `uv sync`).
 
 ```console
 (.venv) $ pytest
 ```
 
-This requires that you have the project installed in the virtual environment and the test dependency group installed.
 :::
 
 We provide an additional nox session {code}`minimums` that makes use of {code}`uv`'s {code}`--resolution=lowest-direct` flag to install the lowest possible versions of the direct dependencies.
@@ -474,14 +441,14 @@ $ nox -s minimums
 {%- endif %}
 
 The Python code is formatted and linted using a collection of [{code}`pre-commit`][pre-commit] hooks.
-This collection includes
+This collection includes:
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
 - [mypy][mypy], a static type checker for Python code.
 
 There are two ways of using these hooks:
 
-- You can install the hooks manually by running
+- You can install the hooks manually by running:
 
   ```console
   $ pre-commit install
@@ -530,11 +497,11 @@ The Python API documentation is integrated into the overall documentation that w
 
 ## Working on the Documentation
 
-The documentation is written in [MyST](https://myst-parser.readthedocs.io/en/latest/index.html) (a flavour of Markdown) and built using [Sphinx](https://www.sphinx-doc.org/en/master/).
+The documentation is written in [MyST](https://myst-parser.readthedocs.io/en/latest/index.html) (a flavor of Markdown) and built using [Sphinx](https://www.sphinx-doc.org/en/master/).
 The documentation source files can be found in the {code}`docs/` directory.
 
 On top of the API documentation, we provide a set of tutorials and examples that demonstrate how to use the library.
-These are written in Markdown using [myst-nb](https://myst-nb.readthedocs.io/en/latest/), which allows to execute Python code blocks in the documentation.
+These are written in Markdown using [myst-nb](https://myst-nb.readthedocs.io/en/latest/), which allows executing Python code blocks in the documentation.
 The code blocks are executed during the documentation build process, and the output is included in the documentation.
 This allows us to provide up-to-date examples and tutorials that are guaranteed to work with the latest version of the library.
 
@@ -549,6 +516,7 @@ Finally, it will host the documentation on a local web server for you to view.
 
 :::{note}
 If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
+This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running `uv sync`).
 
 ```console
 (.venv) $ sphinx-build -b html docs/ docs/_build
@@ -608,7 +576,7 @@ If you missed updating labels before merging, you can still update them and re-r
 Furthermore, check whether the version number in the release draft is correct.
 The version number in the release draft is dictated by the presence of certain labels on the pull requests involved in a release.
 By default, a patch release will be created.
-If any pull request has the {code}`minor` or {code}`major` label, a major or minor release will be created, respectively.
+If any pull request has the {code}`minor` or {code}`major` label, a minor or major release will be created, respectively.
 
 :::{note}
 Sometimes, dependabot or renovate will tag a dependency update pull request with a {code}`minor` or {code}`major` label because the dependency update itself is a minor or major release.
@@ -617,7 +585,8 @@ If you are sure that the dependency update does not introduce any breaking chang
 This will ensure that the respective pull request does not influence the type of release.
 :::
 
-Once everything is in order and the release draft looks good, you can proceed to publish the new version.
+Once everything is in order and the release draft looks good, you can merge the release preparation pull request.
+Afterward, navigate to the [Releases page](https://github.com/{{organization}}/{{repository}}/releases) on GitHub, edit the created draft, and publish the release.
 
 <!-- Links -->
 
