@@ -430,7 +430,7 @@ $ nox -s tests-3.12
 :::{note}
 If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
 
-```console
+````console
 (.venv) $ pytest
 
 This requires that you have the project installed in the virtual environment and the test dependency group installed.
@@ -441,7 +441,7 @@ This ensures that the project can still be built and the tests pass with the min
 
 ```console
 $ nox -s minimums
-```
+````
 
 {%- if project_type == "cpp" %}
 
