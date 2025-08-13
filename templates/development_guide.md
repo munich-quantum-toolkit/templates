@@ -123,7 +123,14 @@ This guide will get you started.
 ## Working on the C++ Library
 
 Building the project requires a C++ compiler supporting _C++20_ and CMake with a minimum version of _3.24_.
-As of 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers.
+As of July 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
+
+- `ubuntu-24.04`: `Release` and `Debug` builds compiled by `gcc`
+- `ubuntu-24.04-arm`: `Release` build compiled by `gcc`
+- `macos-14`: `Release` and `Debug` builds compiled by `clang`
+- `macos-15`: `Release` build compiled by `clang`
+- `windows-2022`: `Release` and `Debug` builds compiled by `msvc`
+- `windows-11-arm`: `Release` build compiled by `msvc`
 
 To access the latest build logs, visit the [GitHub Actions page](https://github.com/{{organization}}/{{repository}}/actions/workflows/ci.yml).
 
