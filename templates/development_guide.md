@@ -554,7 +554,7 @@ The docs can then be found in the {code}`docs/_build` directory.
 ## Maintaining the Changelog and Upgrade Guide
 
 MQT {{name}} adheres to [Semantic Versioning], with the exception that minor releases may include breaking changes.
-To inform users about changes to the project, we maintain a changelog and an upgrade guide.
+To inform users about changes to the project, we maintain a {doc}`changelog <CHANGELOG>` and an {doc}`upgrade guide <UPGRADING>`.
 
 When your PR includes noteworthy changes, please make sure to update the changelog.
 The format of the changelog is based on a mixture of [Keep a Changelog] and [Common Changelog].
