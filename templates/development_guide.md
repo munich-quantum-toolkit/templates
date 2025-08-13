@@ -431,8 +431,7 @@ $ nox -s tests-3.12
 If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
 
 ```console
-(.venv) $ pytest test/python
-```
+(.venv) $ pytest
 
 This requires that you have the project installed in the virtual environment and the test dependency group installed.
 :::
