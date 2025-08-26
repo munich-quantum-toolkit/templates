@@ -13,20 +13,25 @@ See <https://docs.github.com/en/get-started/quickstart> for a general introducti
 
 You can contribute in several ways:
 
-- 🐛 Report Bugs
-  : Report bugs at <https://github.com/{{organization}}/{{repository}}/issues> using the _🐛 Bug report_ issue template. Please make sure to fill out all relevant information in the respective issue form.
+- 🐛 Report Bugs:
+  Report bugs at <https://github.com/{{organization}}/{{repository}}/issues> using the _🐛 Bug report_ issue template.
+  Please make sure to fill out all relevant information in the respective issue form.
 
-- 🐛 Fix Bugs
-  : Look through the [GitHub Issues][issues] for bugs. Anything tagged with "bug" is open to whoever wants to try and fix it.
+- 🐛 Fix Bugs:
+  Look through the [GitHub Issues][issues] for bugs.
+  Anything tagged with "bug" is open to whoever wants to try and fix it.
 
-- ✨ Propose New Features
-  : Propose new features at <https://github.com/{{organization}}/{{repository}}/issues> using the _✨ Feature request_ issue template. Please make sure to fill out all relevant information in the respective issue form.
+- ✨ Propose New Features:
+  Propose new features at <https://github.com/{{organization}}/{{repository}}/issues> using the _✨ Feature request_ issue template.
+  Please make sure to fill out all relevant information in the respective issue form.
 
-- ✨ Implement New Features
-  : Look through the [GitHub Issues][issues] for features. Anything tagged with "feature" or "enhancement" is open to whoever wants to implement it. We highly appreciate external contributions to the project.
+- ✨ Implement New Features:
+  Look through the [GitHub Issues][issues] for features.
+  Anything tagged with "feature" or "enhancement" is open to whoever wants to implement it.
+  We highly appreciate external contributions to the project.
 
-- 📝 Write Documentation
-  : MQT {{name}} could always use some more documentation, and we appreciate any help with that.
+- 📝 Write Documentation:
+  MQT {{name}} could always use some more documentation, and we appreciate any help with that.
 
 ## Guidelines
 
@@ -41,8 +46,8 @@ It is important that we all adhere to them to ensure that the project can grow s
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
 - Document new features appropriately.
-  For user-facing changes, add an entry to the `CHANGELOG.md` file.
-  In case of breaking changes, please also update the `UPGRADING.md` file.
+  For user-facing changes, add an entry to the changelog.
+  In case of breaking changes, please also update the upgrade guide.
 - Add tests for bug fixes to demonstrate that the bug has been resolved.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and unrelated code.
@@ -110,10 +115,11 @@ If you encounter any problems, please [open an issue][issues] and let us know.
 
 ### Configure and Build
 
-> [!TIP]
-> We recommend using an IDE like [CLion][clion] or [Visual Studio Code][vscode] for development.
-> Both IDEs have excellent support for CMake projects and provide a convenient way to run CMake and build the project.
-> If you prefer to work on the command line, the following instructions will guide you through the process.
+:::{tip}
+We recommend using an IDE like [CLion][clion] or [Visual Studio Code][vscode] for development.
+Both IDEs have excellent support for CMake projects and provide a convenient way to run CMake and build the project.
+If you prefer to work on the command line, the following instructions will guide you through the process.
+:::
 
 Our projects use _CMake_ as the main build configuration tool.
 Building a project using CMake is a two-stage process.
@@ -144,20 +150,23 @@ Building the project this way generates:
 - the main project libraries in the {code}`build/src` directory and
 - some test executables in the {code}`build/test` directory.
 
-> [!NOTE]
-> This project uses CMake's [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
-> Because of this, the first time you configure the project, you'll need an active internet connection to fetch the required libraries.
->
-> However, there are several ways to bypass these downloads:
->
-> - **Use system-installed dependencies**:
->   If the dependencies are already installed on your system and Find-modules exist for them, `FetchContent` will use those versions instead of downloading them.
-> - **Provide a local copy**:
->   If you have local copies of the dependencies (from a previous build or another project), you can point `FetchContent` to them by passing the [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
->   The `<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
-> - **Use project-specific options**:
->   Some projects provide specific CMake options to use a system-wide dependency instead of downloading it.
->   Check the project's documentation or CMake files for these types of flags.
+:::{note}
+
+This project uses CMake's [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
+Because of this, the first time you configure the project, you'll need an active internet connection to fetch the required libraries.
+
+However, there are several ways to bypass these downloads:
+
+- **Use system-installed dependencies**:
+  If the dependencies are already installed on your system and Find-modules exist for them, `FetchContent` will use those versions instead of downloading them.
+- **Provide a local copy**:
+  If you have local copies of the dependencies (from a previous build or another project), you can point `FetchContent` to them by passing the [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
+  The `<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
+- **Use project-specific options**:
+  Some projects provide specific CMake options to use a system-wide dependency instead of downloading it.
+  Check the project's documentation or CMake files for these types of flags.
+
+:::
 
 ### Running the C++ Tests and Code Coverage
 
@@ -179,8 +188,9 @@ $ ctest -C Release --test-dir build
 
 from the main project directory after building the project as described above.
 
-> [!TIP]
-> If you want to disable configuring and building the C++ tests, you can pass `-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
+:::{tip}
+If you want to disable configuring and building the C++ tests, you can pass `-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
+:::
 
 ### C++ Code Formatting and Linting
 
@@ -199,21 +209,25 @@ They will automatically execute `clang-tidy` on your code and highlight any issu
 In many cases, they also provide quick-fixes for these issues.
 Furthermore, they provide a command to automatically format your code according to the given style.
 
-> [!NOTE]
-> After configuring CMake, you can run `clang-tidy` on a file by calling the following command:
->
-> ```console
-> $ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
-> ```
->
-> Here, {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE_DIRECTORY>` is the path to the {code}`include` directory of the project.
+:::{note}
+
+After configuring CMake, you can run `clang-tidy` on a file by calling the following command:
+
+```console
+$ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
+```
+
+Here, {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE_DIRECTORY>` is the path to the {code}`include` directory of the project.
+
+:::
 
 Our {code}`pre-commit` configuration also includes {code}`clang-format`.
 If you have installed {code}`pre-commit`, it will automatically run `clang-format` on your code before each commit.
 If you do not have {code}`pre-commit` set up, the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on your code and automatically format it according to the style guide.
 
-> [!TIP]
-> Remember to pull the changes back into your local repository after the bot has formatted your code to avoid merge conflicts.
+:::{tip}
+Remember to pull the changes back into your local repository after the bot has formatted your code to avoid merge conflicts.
+:::
 
 Our CI pipeline will also run {code}`clang-tidy` over the changes in your PR and report any issues it finds.
 Due to technical limitations, the workflow can only post PR comments if the changes are not coming from a fork.
@@ -241,12 +255,15 @@ We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose l
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 
-> [!TIP]
-> If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
-> CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
-> In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
-> Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
-> Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
+:::{tip}
+
+If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
+CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
+In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
+Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
+Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
+
+:::
 
 The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
 
@@ -301,13 +318,16 @@ If you only want to run the tests on a specific Python version, you can pass the
 $ nox -s tests-3.12
 ```
 
-> [!NOTE]
-> If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
-> This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running `uv sync`).
->
-> ```console
-> (.venv) $ pytest
-> ```
+:::{note}
+
+If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
+This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running `uv sync`).
+
+```console
+(.venv) $ pytest
+```
+
+:::
 
 We provide an additional nox session {code}`minimums` that makes use of {code}`uv`'s {code}`--resolution=lowest-direct` flag to install the lowest possible versions of the direct dependencies.
 This ensures that the project can still be built and the tests pass with the minimum required versions of the dependencies.
@@ -347,12 +367,15 @@ You can also run {code}`nox` session {code}`lint` to run the hooks manually.
 $ nox -s lint
 ```
 
-> [!NOTE]
-> If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`pre-commit`.
->
-> ```console
-> $ pre-commit run --all-files
-> ```
+:::{note}
+
+If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`pre-commit`.
+
+```console
+$ pre-commit run --all-files
+```
+
+:::
 
 {%- if project_type == "c++-python" %}
 
@@ -395,15 +418,18 @@ $ nox -s docs
 This will install all dependencies for building the documentation in an isolated environment, build the Python package, and then build the documentation.
 Finally, it will host the documentation on a local web server for you to view.
 
-> [!NOTE]
-> If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
-> This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running `uv sync`).
->
-> ```console
-> (.venv) $ sphinx-build -b html docs/ docs/_build
-> ```
->
-> The docs can then be found in the {code}`docs/_build` directory.
+:::{note}
+
+If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
+This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running `uv sync`).
+
+```console
+(.venv) $ sphinx-build -b html docs/ docs/_build
+```
+
+The docs can then be found in the {code}`docs/_build` directory.
+
+:::
 
 ## Tips for Development
 
@@ -489,11 +515,14 @@ The version number in the release draft is dictated by the presence of certain l
 By default, a patch release will be created.
 If any PR has the {code}`minor` or {code}`major` label, a minor or major release will be created, respectively.
 
-> [!NOTE]
-> Sometimes, Dependabot or Renovate will tag a PR updating a dependency with a {code}`minor` or {code}`major` label because the dependency update itself is a minor or major release.
-> This does not mean that the dependency update itself is a breaking change for MQT {{name}}.
-> If you are sure that the dependency update does not introduce any breaking changes for MQT {{name}}, you can remove the {code}`minor` or {code}`major` label from the PR.
-> This will ensure that the respective PR does not influence the type of an upcoming release.
+:::{note}
+
+Sometimes, Dependabot or Renovate will tag a PR updating a dependency with a {code}`minor` or {code}`major` label because the dependency update itself is a minor or major release.
+This does not mean that the dependency update itself is a breaking change for MQT {{name}}.
+If you are sure that the dependency update does not introduce any breaking changes for MQT {{name}}, you can remove the {code}`minor` or {code}`major` label from the PR.
+This will ensure that the respective PR does not influence the type of an upcoming release.
+
+:::
 
 Once everything is in order and the release draft looks good, you can merge the PR preparing the release.
 Afterward, navigate to the [Releases page](https://github.com/{{organization}}/{{repository}}/releases) on GitHub, edit the created draft, and publish the release.
