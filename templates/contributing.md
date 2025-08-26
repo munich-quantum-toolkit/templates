@@ -125,9 +125,9 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
 This tells CMake to:
 
-- search the current directory {code}`.` (passed via {code}`-S`) for a {code}`CMakeLists.txt` file,
-- process it into a directory {code}`build` (passed via {code}`-B`), and
-- configure a {code}`Release` build (passed via {code}`-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a _Debug_ build.
+- search the current directory `.` (passed via `-S`) for a `CMakeLists.txt` file,
+- process it into a directory `build` (passed via `-B`), and
+- configure a `Release` build (passed via `-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a _Debug_ build.
 
 After configuring CMake, the project can be built by calling:
 
@@ -135,14 +135,14 @@ After configuring CMake, the project can be built by calling:
 $ cmake --build build --config Release
 ```
 
-This tries to build the project in the {code}`build` directory (passed via {code}`--build`).
-Some operating systems and development environments explicitly require a configuration to be set, which is why the {code}`--config` flag is also passed to the build command.
-The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
+This tries to build the project in the `build` directory (passed via `--build`).
+Some operating systems and development environments explicitly require a configuration to be set, which is why the `--config` flag is also passed to the build command.
+The flag `--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
 Building the project this way generates:
 
-- the main project libraries in the {code}`build/src` directory and
-- some test executables in the {code}`build/test` directory.
+- the main project libraries in the `build/src` directory and
+- some test executables in the `build/test` directory.
 
 > [!NOTE]
 > This project uses CMake's [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
@@ -162,7 +162,7 @@ Building the project this way generates:
 ### Running the C++ Tests and Code Coverage
 
 We use the [GoogleTest](https://google.github.io/googletest/primer.html) framework for unit testing of the C++ library.
-All tests are contained in the {code}`test` directory, which is further divided into subdirectories for different parts of the library.
+All tests are contained in the `test` directory, which is further divided into subdirectories for different parts of the library.
 You are expected to write tests for any new features you implement and ensure that all tests pass.
 Our CI pipeline on GitHub will also run the tests and check for any failures.
 It will also collect code coverage information and upload it to [Codecov](https://codecov.io/gh/{{organization}}/{{repository}}).
@@ -192,7 +192,7 @@ To ensure the quality of the code and that it conforms to these guidelines, we u
 
 Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run `clang-tidy` on the code and automatically format it with `clang-format`.
 
-- If you are using CLion, you can configure the project to use the {code}`.clang-tidy` and {code}`.clang-format` files in the project root directory.
+- If you are using CLion, you can configure the project to use the `.clang-tidy` and `.clang-format` files in the project root directory.
 - If you are using Visual Studio Code, you can install the [clangd extension](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd).
 
 They will automatically execute `clang-tidy` on your code and highlight any issues.
@@ -206,18 +206,18 @@ Furthermore, they provide a command to automatically format your code according 
 > $ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
 > ```
 >
-> Here, {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE_DIRECTORY>` is the path to the {code}`include` directory of the project.
+> Here, `<FILE>` is the file you want to analyze and `<PATH_TO_INCLUDE_DIRECTORY>` is the path to the `include` directory of the project.
 
-Our {code}`pre-commit` configuration also includes {code}`clang-format`.
-If you have installed {code}`pre-commit`, it will automatically run `clang-format` on your code before each commit.
-If you do not have {code}`pre-commit` set up, the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on your code and automatically format it according to the style guide.
+Our `pre-commit` configuration also includes `clang-format`.
+If you have installed `pre-commit`, it will automatically run `clang-format` on your code before each commit.
+If you do not have `pre-commit` set up, the [pre-commit.ci](https://pre-commit.ci) bot will run `clang-format` on your code and automatically format it according to the style guide.
 
 > [!TIP]
 > Remember to pull the changes back into your local repository after the bot has formatted your code to avoid merge conflicts.
 
-Our CI pipeline will also run {code}`clang-tidy` over the changes in your PR and report any issues it finds.
+Our CI pipeline will also run `clang-tidy` over the changes in your PR and report any issues it finds.
 Due to technical limitations, the workflow can only post PR comments if the changes are not coming from a fork.
-If you are working on a fork, you can still see the {code}`clang-tidy` results either in the GitHub Actions logs, on the workflow summary page, or in the "Files changed" tab of the PR.
+If you are working on a fork, you can still see the `clang-tidy` results either in the GitHub Actions logs, on the workflow summary page, or in the "Files changed" tab of the PR.
 
 ### C++ Documentation
 
@@ -237,35 +237,35 @@ See the [Working on the Documentation](#working-on-the-documentation) section fo
 
 ## Working on the Python Package
 
-We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
+We use [`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
-All code related to C++-Python bindings is contained in the {code}`bindings` directory.
+All code related to C++-Python bindings is contained in the `bindings` directory.
 
 > [!TIP]
 > If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
-> CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
+> CMake will then try to find Python and the necessary dependencies (`pybind11`) on your system and configure the respective targets.
 > In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
 > Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
 > Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
 
-The Python package itself lives in the {code}`python/mqt/{{repository}}` directory.
+The Python package itself lives in the `python/mqt/{{repository}}` directory.
 
 {%- elif project_type == "pure-python" %}
 
 ## Working on the Package
 
-The package lives in the {code}`src/mqt/{{repository}}` directory.
+The package lives in the `src/mqt/{{repository}}` directory.
 
-We recommend using [{code}`nox`][nox] for development.
-{code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
+We recommend using [`nox`][nox] for development.
+`nox` is a Python automation tool that allows you to define tasks in a `noxfile.py` file and then run them with a single command.
 If you have not installed it yet, see our [installation guide](https://mqt.readthedocs.io/projects/{{repository}}/en/latest/installation.html).
 
-We define four convenient {code}`nox` sessions in our {code}`noxfile.py`:
+We define four convenient `nox` sessions in our `noxfile.py`:
 
-- {code}`tests` to run the Python tests
-- {code}`minimums` to run the Python tests with the minimum dependencies
-- {code}`lint` to run the Python code formatting and linting
-- {code}`docs` to build the documentation
+- `tests` to run the Python tests
+- `minimums` to run the Python tests with the minimum dependencies
+- `lint` to run the Python code formatting and linting
+- `docs` to build the documentation
 
 These are explained in more detail in the following sections.
 
@@ -279,37 +279,37 @@ These are explained in more detail in the following sections.
 
 {%- endif %}
 
-The Python code is tested by unit tests using the [{code}`pytest`](https://docs.pytest.org/en/latest/) framework.
+The Python code is tested by unit tests using the [`pytest`](https://docs.pytest.org/en/latest/) framework.
 {%- if project_type == "c++-python" %}
-The corresponding test files can be found in the {code}`test/python` directory.
+The corresponding test files can be found in the `test/python` directory.
 {%- elif project_type == "pure-python" %}
-The corresponding test files can be found in the {code}`tests` directory.
+The corresponding test files can be found in the `tests` directory.
 {%- endif %}
-A {code}`nox` session is provided to conveniently run the Python tests.
+A `nox` session is provided to conveniently run the Python tests.
 
 ```console
 $ nox -s tests
 ```
 
 The above command will automatically build the project and run the tests on all supported Python versions.
-For each Python version, it will create a virtual environment (in the {code}`.nox` directory) and install the project into it.
+For each Python version, it will create a virtual environment (in the `.nox` directory) and install the project into it.
 We take extra care to install the project without build isolation so that rebuilds are typically very fast.
 
-If you only want to run the tests on a specific Python version, you can pass the desired Python version to the {code}`nox` command.
+If you only want to run the tests on a specific Python version, you can pass the desired Python version to the `nox` command.
 
 ```console
 $ nox -s tests-3.12
 ```
 
 > [!NOTE]
-> If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
+> If you do not want to use `nox`, you can also run the tests directly using `pytest`.
 > This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running `uv sync`).
 >
 > ```console
 > (.venv) $ pytest
 > ```
 
-We provide an additional nox session {code}`minimums` that makes use of {code}`uv`'s {code}`--resolution=lowest-direct` flag to install the lowest possible versions of the direct dependencies.
+We provide an additional nox session `minimums` that makes use of `uv`'s `--resolution=lowest-direct` flag to install the lowest possible versions of the direct dependencies.
 This ensures that the project can still be built and the tests pass with the minimum required versions of the dependencies.
 
 ```console
@@ -326,7 +326,7 @@ $ nox -s minimums
 
 {%- endif %}
 
-The Python code is formatted and linted using a collection of [{code}`pre-commit`][pre-commit] hooks.
+The Python code is formatted and linted using a collection of [`pre-commit`][pre-commit] hooks.
 This collection includes:
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
@@ -338,17 +338,17 @@ The hooks can be installed by running running the following command in the root 
 $ pre-commit install
 ```
 
-This will install the hooks in the {code}`.git/hooks` directory of the repository.
+This will install the hooks in the `.git/hooks` directory of the repository.
 The hooks will be executed whenever you commit changes.
 
-You can also run {code}`nox` session {code}`lint` to run the hooks manually.
+You can also run `nox` session `lint` to run the hooks manually.
 
 ```console
 $ nox -s lint
 ```
 
 > [!NOTE]
-> If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`pre-commit`.
+> If you do not want to use `nox`, you can also run the hooks manually by using `pre-commit`.
 >
 > ```console
 > $ pre-commit run --all-files
@@ -366,27 +366,27 @@ $ nox -s lint
 
 The Python code is documented using [Google-style docstrings](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
 Every public function, class, and module should have a docstring that explains what it does and how to use it.
-{code}`ruff` will check for missing docstrings and will explicitly warn you if you forget to add one.
+`ruff` will check for missing docstrings and will explicitly warn you if you forget to add one.
 
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html) to document the expected types of function arguments and return values.
 {%- if project_type == "c++-python" %}
-For the compiled parts of the code base, we provide type hints in the form of stub files in the {code}`python/mqt/{{repository}}` directory.
+For the compiled parts of the code base, we provide type hints in the form of stub files in the `python/mqt/{{repository}}` directory.
 {%- endif %}
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
-[{code}`sphinx-autoapi`](https://sphinx-autoapi.readthedocs.io/en/latest/) extension for Sphinx.
+[`sphinx-autoapi`](https://sphinx-autoapi.readthedocs.io/en/latest/) extension for Sphinx.
 
 ## Working on the Documentation
 
 The documentation is written in [MyST](https://myst-parser.readthedocs.io/en/latest/index.html) (a flavor of Markdown) and built using [Sphinx](https://www.sphinx-doc.org/en/master/).
-The documentation source files can be found in the {code}`docs/` directory.
+The documentation source files can be found in the `docs/` directory.
 
 On top of the API documentation, we provide a set of tutorials and examples that demonstrate how to use the library.
 These are written in Markdown using [myst-nb](https://myst-nb.readthedocs.io/en/latest/), which allows executing Python code blocks in the documentation.
 The code blocks are executed during the documentation build process, and the output is included in the documentation.
 This allows us to provide up-to-date examples and tutorials that are guaranteed to work with the latest version of the library.
 
-You can build the documentation using the {code}`nox` session {code}`docs`.
+You can build the documentation using the `nox` session `docs`.
 
 ```console
 $ nox -s docs
@@ -396,14 +396,14 @@ This will install all dependencies for building the documentation in an isolated
 Finally, it will host the documentation on a local web server for you to view.
 
 > [!NOTE]
-> If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
+> If you don't want to use `nox`, you can also build the documentation directly using `sphinx-build`.
 > This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running `uv sync`).
 >
 > ```console
 > (.venv) $ sphinx-build -b html docs/ docs/_build
 > ```
 >
-> The docs can then be found in the {code}`docs/_build` directory.
+> The docs can then be found in the `docs/_build` directory.
 
 ## Tips for Development
 
@@ -445,12 +445,12 @@ If your PR includes noteworthy changes, please update the changelog.
 The format is based on a mixture of [Keep a Changelog] and [Common Changelog].
 There are the following categories:
 
-- {code}`Added` for new features.
-- {code}`Changed` for changes in existing functionality.
-- {code}`Deprecated` for soon-to-be removed features.
-- {code}`Removed` for now removed features.
-- {code}`Fixed` for any bug fixes.
-- {code}`Security` in case of vulnerabilities.
+- `Added` for new features.
+- `Changed` for changes in existing functionality.
+- `Deprecated` for soon-to-be removed features.
+- `Removed` for now removed features.
+- `Fixed` for any bug fixes.
+- `Security` in case of vulnerabilities.
 
 When updating the changelog, follow these guidelines:
 
@@ -487,12 +487,12 @@ If you missed updating labels before merging, you can still update them and re-r
 Furthermore, check whether the version number in the release draft is correct.
 The version number in the release draft is dictated by the presence of certain labels on the PRs involved in a release.
 By default, a patch release will be created.
-If any PR has the {code}`minor` or {code}`major` label, a minor or major release will be created, respectively.
+If any PR has the `minor` or `major` label, a minor or major release will be created, respectively.
 
 > [!NOTE]
-> Sometimes, Dependabot or Renovate will tag a PR updating a dependency with a {code}`minor` or {code}`major` label because the dependency update itself is a minor or major release.
+> Sometimes, Dependabot or Renovate will tag a PR updating a dependency with a `minor` or `major` label because the dependency update itself is a minor or major release.
 > This does not mean that the dependency update itself is a breaking change for MQT {{name}}.
-> If you are sure that the dependency update does not introduce any breaking changes for MQT {{name}}, you can remove the {code}`minor` or {code}`major` label from the PR.
+> If you are sure that the dependency update does not introduce any breaking changes for MQT {{name}}, you can remove the `minor` or `major` label from the PR.
 > This will ensure that the respective PR does not influence the type of an upcoming release.
 
 Once everything is in order and the release draft looks good, you can merge the PR preparing the release.
