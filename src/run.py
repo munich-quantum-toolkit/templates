@@ -77,11 +77,7 @@ def main(
             output_dir=Path(".github/contributing.md"),
             template_name="contributing.md",
             active=synchronize_contribution_guide,
-            arguments={
-                "name": name,
-                "organization": organization,
-                "repository": repository,
-            },
+            arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
             file_name="contributing.md",
