@@ -231,6 +231,130 @@ find_package(mqt-{{core}} <version> REQUIRED)
 
 {%- endif %}
 
+## Development Setup
+
+You want to contribute to MQT {{name}}?
+Below, you can find instructions on how to setup your development environment.
+Refer to {doc}`contributing` for a detailed guide on how to contribute.
+
+1.  Get the code
+
+    ::::{tab-set}
+    :::{tab-item} External Contribution
+    If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
+
+    ```console
+    $ git clone git@github.com:your_name_here/{{repository}}.git
+    ```
+
+    :::
+    :::{tab-item} Internal Contribution
+    If you do have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
+
+    ```console
+    $ git clone git@github.com/{{organization}}/{{repository}}.git
+    ```
+
+    :::
+    ::::
+
+2.  Change into the project directory
+
+    ```console
+    $ cd {{repository}}
+    ```
+
+3.  Create a branch for local development
+
+    ```console
+    $ git checkout -b name-of-your-bugfix-or-feature
+    ```
+
+    Now you can make your changes locally.
+
+4.  Install development tools
+
+    We highly recommend using modern and fast tooling for the development workflow.
+    {%- if project_type == "c++-python" %}
+    If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
+    {%- elif project_type == "pure-python" %}
+    We highly recommend using [{code}`uv`][uv].
+    {%- endif %}
+    It is an extremely fast Python package and project manager written in Rust and developed by [Astral](https://astral.sh/) (the same team behind [{code}`ruff`][ruff]).
+    It can act as a drop-in replacement for {code}`pip` and {code}`virtualenv`, and it provides a more modern and faster alternative to the traditional Python package management tools.
+    It automatically handles the creation of virtual environments and the installation of packages, and it is much faster than {code}`pip`.
+    Additionally, it can even set up a Python interpreter for you if it is not installed yet.
+
+    If you do not have {code}`uv` installed yet, you can install it via:
+
+    ::::{tab-set}
+    :::{tab-item} macOS and Linux
+
+    ```console
+    $ curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+
+    :::
+    :::{tab-item} Windows
+
+    ```console
+    $ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+    ```
+
+    :::
+    ::::
+
+    Check out their excellent [documentation][uv] for more information.
+
+    We also highly recommend installing and setting up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit, and [{code}`nox`][nox] for automating common development tasks.
+
+    ::::{tab-set}
+    :::{tab-item} {code}`uv` _(recommended)_
+    :sync: uv
+    The easiest way to install {code}`pre-commit` and {code}`nox` is via [{code}`uv`][uv].
+
+    ```console
+    $ uv tool install pre-commit
+    $ uv tool install nox
+    ```
+
+    :::
+    :::{tab-item} {code}`brew`
+    :sync: brew
+    If you use macOS and Homebrew, you can install {code}`pre-commit` and {code}`nox` with:
+
+    ```console
+    $ brew install pre-commit nox
+    ```
+
+    :::
+    :::{tab-item} {code}`pipx`
+    :sync: pipx
+    If you prefer to use [{code}`pipx`][pipx], you can install {code}`pre-commit` and {code}`nox` with:
+
+    ```console
+    $ pipx install pre-commit
+    $ pipx install nox
+    ```
+
+    :::
+    :::{tab-item} {code}`pip`
+    :sync: pip
+    If you prefer to use regular {code}`pip` (preferably in a virtual environment), you can install {code}`pre-commit` and {code}`nox` with:
+
+    ```console
+    $ pip install pre-commit nox
+    ```
+
+    :::
+    ::::
+
+    Afterward, you can set up the {code}`pre-commit` hooks with:
+
+    ```console
+    $ pre-commit install
+    ```
+
 <!-- Links -->
 
 [FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
