@@ -48,6 +48,7 @@ It is important that we all adhere to them to ensure that the project can grow s
 - Document new features appropriately.
   For user-facing changes, add an entry to the changelog.
   In case of breaking changes, please also update the upgrade guide.
+  For more details, see the {ref}`guide on maintaining the changelog and upgrade guide <maintaining-changelog-upgrade-guide>`.
 - Add tests for bug fixes to demonstrate that the bug has been resolved.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and unrelated code.
@@ -91,21 +92,21 @@ We will guide you through the process.
 
 ## Installation
 
-Check out our [installation guide for developers](https://mqt.readthedocs.io/projects/{{repository}}/en/latest/installation.html) for instructions on how to set up your development environment.
+Check out our {ref}`installation guide for developers <development-setup>` for instructions on how to set up your development environment.
 
 {%- if project_type == "c++-python" %}
 
 ## Working on the C++ Library
 
-Building the project requires a C++ compiler supporting _C++20_ and CMake with a minimum version of _3.24_.
+Building the project requires [C++ compiler supporting C++20](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and a minimum [CMake](https://cmake.org/) version of 3.24.
 As of August 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
 
-- `ubuntu-24.04`: `Release` and `Debug` builds using `gcc`
-- `ubuntu-24.04-arm`: `Release` build using `gcc`
-- `macos-14`: `Release` and `Debug` builds using `AppleClang`
-- `macos-13`: `Release` build using `AppleClang`
-- `windows-2022`: `Release` and `Debug` builds using `msvc`
-- `windows-11-arm`: `Release` build using `msvc`
+- {code}`ubuntu-24.04`: {code}`Release` and {code}`Debug` builds using {code}`gcc`
+- {code}`ubuntu-24.04-arm`: {code}`Release` build using {code}`gcc`
+- {code}`macos-14`: {code}`Release` and {code}`Debug` builds using {code}`AppleClang`
+- {code}`macos-13`: {code}`Release` build using {code}`AppleClang`
+- {code}`windows-2022`: {code}`Release` and {code}`Debug` builds using {code}`msvc`
+- {code}`windows-11-arm`: {code}`Release` build using {code}`msvc`
 
 To access the latest build logs, visit the [GitHub Actions page](https://github.com/{{organization}}/{{repository}}/actions/workflows/ci.yml).
 
@@ -152,16 +153,16 @@ Building the project this way generates:
 
 :::{note}
 
-This project uses CMake's [`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
+This project uses CMake's [{code}`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
 Because of this, the first time you configure the project, you'll need an active internet connection to fetch the required libraries.
 
 However, there are several ways to bypass these downloads:
 
 - **Use system-installed dependencies**:
-  If the dependencies are already installed on your system and Find-modules exist for them, `FetchContent` will use those versions instead of downloading them.
+  If the dependencies are already installed on your system and Find-modules exist for them, {code}`FetchContent` will use those versions instead of downloading them.
 - **Provide a local copy**:
-  If you have local copies of the dependencies (from a previous build or another project), you can point `FetchContent` to them by passing the [`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
-  The `<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
+  If you have local copies of the dependencies (from a previous build or another project), you can point {code}`FetchContent` to them by passing the [{code}`-DFETCHCONTENT_SOURCE_DIR_<uppercaseName>`](https://cmake.org/cmake/help/latest/module/FetchContent.html#variable:FETCHCONTENT_SOURCE_DIR_%3CuppercaseName%3E) flag to your CMake configure step.
+  The {code}`<uppercaseName>` should be replaced with the name of the dependency as specified in the project's CMake files.
 - **Use project-specific options**:
   Some projects provide specific CMake options to use a system-wide dependency instead of downloading it.
   Check the project's documentation or CMake files for these types of flags.
@@ -180,16 +181,14 @@ Try to write meaningful tests that actually test the correctness of the code and
 
 Most IDEs like [CLion][clion] or [Visual Studio Code][vscode] provide a convenient way to run the tests directly from the IDE.
 If you prefer to run the tests from the command line, you can use CMake's test runner [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html).
-To run the tests, call:
+To run the tests, run the following command from the main project directory after building the project as described above:
 
 ```console
 $ ctest -C Release --test-dir build
 ```
 
-from the main project directory after building the project as described above.
-
 :::{tip}
-If you want to disable configuring and building the C++ tests, you can pass `-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
+If you want to disable configuring and building the C++ tests, you can pass {code}`-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
 :::
 
 ### C++ Code Formatting and Linting
@@ -200,18 +199,18 @@ To ensure the quality of the code and that it conforms to these guidelines, we u
 - [`clang-tidy`](https://clang.llvm.org/extra/clang-tidy/), a static analysis tool that checks for common mistakes in C++ code, and
 - [`clang-format`](https://clang.llvm.org/docs/ClangFormat.html), a tool that automatically formats C++ code according to a given style guide.
 
-Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run `clang-tidy` on the code and automatically format it with `clang-format`.
+Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run {code}`clang-tidy` on the code and automatically format it with {code}`clang-format`.
 
 - If you are using CLion, you can configure the project to use the {code}`.clang-tidy` and {code}`.clang-format` files in the project root directory.
 - If you are using Visual Studio Code, you can install the [clangd extension](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd).
 
-They will automatically execute `clang-tidy` on your code and highlight any issues.
+They will automatically execute {code}`clang-tidy` on your code and highlight any issues.
 In many cases, they also provide quick-fixes for these issues.
 Furthermore, they provide a command to automatically format your code according to the given style.
 
 :::{note}
 
-After configuring CMake, you can run `clang-tidy` on a file by calling the following command:
+After configuring CMake, you can run {code}`clang-tidy` on a file by calling the following command:
 
 ```console
 $ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
@@ -222,7 +221,7 @@ Here, {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE
 :::
 
 Our {code}`pre-commit` configuration also includes {code}`clang-format`.
-If you have installed {code}`pre-commit`, it will automatically run `clang-format` on your code before each commit.
+If you have installed {code}`pre-commit`, it will automatically run {code}`clang-format` on your code before each commit.
 If you do not have {code}`pre-commit` set up, the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on your code and automatically format it according to the style guide.
 
 :::{tip}
@@ -257,11 +256,11 @@ All code related to C++-Python bindings is contained in the {code}`bindings` dir
 
 :::{tip}
 
-If you just want to build the Python bindings themselves, you can pass `-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
+If you just want to build the Python bindings themselves, you can pass {code}`-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
 CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
 In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
-Go to `Preferences` -> `Build, Execution, Deployment` -> `CMake` -> `Python Integration` and check the box `Pass Python Interpreter to CMake`.
-Alternatively, you can pass `-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
+Go to {code}`Preferences` -> {code}`Build, Execution, Deployment` -> {code}`CMake` -> {code}`Python Integration` and check the box {code}`Pass Python Interpreter to CMake`.
+Alternatively, you can pass {code}`-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
 
 :::
 
@@ -321,7 +320,7 @@ $ nox -s tests-3.12
 :::{note}
 
 If you do not want to use {code}`nox`, you can also run the tests directly using {code}`pytest`.
-This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running `uv sync`).
+This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running {code}`uv sync`).
 
 ```console
 (.venv) $ pytest
@@ -421,7 +420,7 @@ Finally, it will host the documentation on a local web server for you to view.
 :::{note}
 
 If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
-This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running `uv sync`).
+This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running {code}`uv sync`).
 
 ```console
 (.venv) $ sphinx-build -b html docs/ docs/_build
@@ -438,29 +437,31 @@ Here are some tips for finding the cause of certain failures:
 
 {%- if project_type == "c++-python" %}
 
-- If any of the `CI / 🇨‌ Test` checks fail, this indicates build errors or test failures in the C++ part of the code base.
+- If any of the {code}`CI / 🇨‌ Test` checks fail, this indicates build errors or test failures in the C++ part of the code base.
   Look through the respective logs on GitHub for any error or failure messages.
-- If any of the `CI / 🐍 Test` checks fail, this indicates build errors or test failures in the Python part of the code base.
+- If any of the {code}`CI / 🐍 Test` checks fail, this indicates build errors or test failures in the Python part of the code base.
   Look through the respective logs on GitHub for any error or failure messages.
 
 {%- elif project_type == "pure-python" %}
 
-- If any of the `CI / 🐍 Test` checks fail, this indicates build errors or test failures.
+- If any of the {code}`CI / 🐍 Test` checks fail, this indicates build errors or test failures.
   Look through the respective logs on GitHub for any error or failure messages.
 
 {%- endif %}
 
-- If any of the `codecov/\*` checks fail, this means that your changes are not appropriately covered by tests or that the overall project coverage decreased too much.
+- If any of the {code}`codecov/\*` checks fail, this means that your changes are not appropriately covered by tests or that the overall project coverage decreased too much.
   Ensure that you include tests for all your changes in the PR.
   {%- if project_type == "c++-python" %}
-- If `cpp-linter` comments on your PR with a list of warnings, these have been raised by `clang-tidy` when checking the C++ part of your changes for warnings or style guideline violations.
+- If {code}`cpp-linter` comments on your PR with a list of warnings, these have been raised by {code}`clang-tidy` when checking the C++ part of your changes for warnings or style guideline violations.
   The individual messages frequently provide helpful suggestions on how to fix the warnings.
-  If you don't see any messages, but the `🇨‌ Lint / 🚨 Lint` check is red, click on the `Details` link to see the full log of the check and a step summary.
+  If you don't see any messages, but the {code}`🇨‌ Lint / 🚨 Lint` check is red, click on the {code}`Details` link to see the full log of the check and a step summary.
   {%- endif %}
-- If the `pre-commit.ci` check fails, some of the `pre-commit` checks failed and could not be fixed automatically by the _pre-commit.ci_ bot.
+- If the {code}`pre-commit.ci` check fails, some of the {code}`pre-commit` checks failed and could not be fixed automatically by the _pre-commit.ci_ bot.
   The individual log messages frequently provide helpful suggestions on how to fix the warnings.
-- If the `docs/readthedocs.org:\*` check fails, the documentation could not be built properly.
+- If the {code}`docs/readthedocs.org:\*` check fails, the documentation could not be built properly.
   Inspect the corresponding log file for any errors.
+
+(maintaining-changelog-upgrade-guide=)
 
 ## Maintaining the Changelog and Upgrade Guide
 

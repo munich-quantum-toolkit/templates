@@ -7,7 +7,8 @@
 MQT {{name}} is mainly developed as a C++20 library with Python bindings.
 The resulting Python package is available on [PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all major operating systems using all modern Python versions.
 {%- elif project_type == "pure-python" %}
-MQT {{name}} is developed as a Python package that is available on [PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all major operating systems using all modern Python versions.
+MQT {{name}} is developed as a Python package that is available on [PyPI](https://pypi.org/project/mqt.{{repository}}/).
+It can be installed on all major operating systems using all modern Python versions.
 {%- endif %}
 
 :::::{tip}
@@ -104,8 +105,6 @@ $ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ::::
 
 This requires a [C++ compiler supporting C++20](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and a minimum [CMake](https://cmake.org/) version of 3.24.
-The library is continuously tested under Linux, macOS, and Windows using the [latest available system versions for GitHub Actions](https://github.com/actions/virtual-environments).
-In order to access the latest build logs, visit the [GitHub Actions page](https://github.com/{{organization}}/{{repository}}/actions/workflows/ci.yml).
 
 {%- endif %}
 
@@ -231,13 +230,15 @@ find_package(mqt-{{core}} <version> REQUIRED)
 
 {%- endif %}
 
+(development-setup=)
+
 ## Development Setup
 
 You want to contribute to MQT {{name}}?
 Below, you can find instructions on how to setup your development environment.
-Refer to {doc}`contributing` for a detailed guide on how to contribute.
+Refer to {doc}`contributing` for a detailed contribution guide.
 
-1.  Get the code
+1.  Get the code:
 
     ::::{tab-set}
     :::{tab-item} External Contribution
@@ -258,13 +259,13 @@ Refer to {doc}`contributing` for a detailed guide on how to contribute.
     :::
     ::::
 
-2.  Change into the project directory
+2.  Change into the project directory:
 
     ```console
     $ cd {{repository}}
     ```
 
-3.  Create a branch for local development
+3.  Create a branch for local development:
 
     ```console
     $ git checkout -b name-of-your-bugfix-or-feature
@@ -272,7 +273,7 @@ Refer to {doc}`contributing` for a detailed guide on how to contribute.
 
     Now you can make your changes locally.
 
-4.  Install development tools
+4.  Install development tools:
 
     We highly recommend using modern and fast tooling for the development workflow.
     {%- if project_type == "c++-python" %}
