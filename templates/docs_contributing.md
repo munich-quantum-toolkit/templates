@@ -122,7 +122,7 @@ Both IDEs have excellent support for CMake projects and provide a convenient way
 If you prefer to work on the command line, the following instructions will guide you through the process.
 :::
 
-Our projects use _CMake_ as the main build configuration tool.
+Our projects use CMake as the main build configuration tool.
 Building a project using CMake is a two-stage process.
 First, CMake needs to be _configured_ by calling:
 
@@ -130,13 +130,13 @@ First, CMake needs to be _configured_ by calling:
 $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 ```
 
-This tells CMake to:
+This tells CMake to
 
 - search the current directory {code}`.` (passed via {code}`-S`) for a {code}`CMakeLists.txt` file,
 - process it into a directory {code}`build` (passed via {code}`-B`), and
-- configure a {code}`Release` build (passed via {code}`-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a _Debug_ build.
+- configure a {code}`Release` build (passed via {code}`-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a {code}`Debug` build.
 
-After configuring CMake, the project can be built by calling:
+After configuring CMake, the project can be _built_ by calling:
 
 ```console
 $ cmake --build build --config Release
@@ -146,7 +146,7 @@ This tries to build the project in the {code}`build` directory (passed via {code
 Some operating systems and development environments explicitly require a configuration to be set, which is why the {code}`--config` flag is also passed to the build command.
 The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
-Building the project this way generates:
+Building the project this way generates
 
 - the main project libraries in the {code}`build/src` directory and
 - some test executables in the {code}`build/test` directory.
