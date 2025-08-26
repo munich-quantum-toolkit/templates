@@ -270,6 +270,8 @@ The Python package itself lives in the {code}`python/mqt/{{repository}}` directo
 
 ## Working on the Package
 
+{%- endif %}
+
 The package lives in the {code}`src/mqt/{{repository}}` directory.
 
 We recommend using [{code}`nox`][nox] for development.
@@ -451,11 +453,15 @@ Here are some tips for finding the cause of certain failures:
 
 - If any of the {code}`codecov/\*` checks fail, this means that your changes are not appropriately covered by tests or that the overall project coverage decreased too much.
   Ensure that you include tests for all your changes in the PR.
-  {%- if project_type == "c++-python" %}
+
+{%- if project_type == "c++-python" %}
+
 - If {code}`cpp-linter` comments on your PR with a list of warnings, these have been raised by {code}`clang-tidy` when checking the C++ part of your changes for warnings or style guideline violations.
   The individual messages frequently provide helpful suggestions on how to fix the warnings.
   If you don't see any messages, but the {code}`🇨‌ Lint / 🚨 Lint` check is red, click on the {code}`Details` link to see the full log of the check and a step summary.
-  {%- endif %}
+
+{%- endif %}
+
 - If the {code}`pre-commit.ci` check fails, some of the {code}`pre-commit` checks failed and could not be fixed automatically by the _pre-commit.ci_ bot.
   The individual log messages frequently provide helpful suggestions on how to fix the warnings.
 - If the {code}`docs/readthedocs.org:\*` check fails, the documentation could not be built properly.
