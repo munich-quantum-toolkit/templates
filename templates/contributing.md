@@ -13,25 +13,20 @@ See <https://docs.github.com/en/get-started/quickstart> for a general introducti
 
 You can contribute in several ways:
 
-- 🐛 Report Bugs:
-  Report bugs at <https://github.com/{{organization}}/{{repository}}/issues> using the _🐛 Bug report_ issue template.
-  Please make sure to fill out all relevant information in the respective issue form.
+- 🐛 Report Bugs
+  : Report bugs at <https://github.com/{{organization}}/{{repository}}/issues> using the _🐛 Bug report_ issue template. Please make sure to fill out all relevant information in the respective issue form.
 
-- 🐛 Fix Bugs:
-  Look through the [GitHub Issues][issues] for bugs.
-  Anything tagged with "bug" is open to whoever wants to try and fix it.
+- 🐛 Fix Bugs
+  : Look through the [GitHub Issues][issues] for bugs. Anything tagged with "bug" is open to whoever wants to try and fix it.
 
-- ✨ Propose New Features:
-  Propose new features at <https://github.com/{{organization}}/{{repository}}/issues> using the _✨ Feature request_ issue template.
-  Please make sure to fill out all relevant information in the respective issue form.
+- ✨ Propose New Features
+  : Propose new features at <https://github.com/{{organization}}/{{repository}}/issues> using the _✨ Feature request_ issue template. Please make sure to fill out all relevant information in the respective issue form.
 
-- ✨ Implement New Features:
-  Look through the [GitHub Issues][issues] for features.
-  Anything tagged with "feature" or "enhancement" is open to whoever wants to implement it.
-  We highly appreciate external contributions to the project.
+- ✨ Implement New Features
+  : Look through the [GitHub Issues][issues] for features. Anything tagged with "feature" or "enhancement" is open to whoever wants to implement it. We highly appreciate external contributions to the project.
 
-- 📝 Write Documentation:
-  MQT {{name}} could always use some more documentation, and we appreciate any help with that.
+- 📝 Write Documentation
+  : MQT {{name}} could always use some more documentation, and we appreciate any help with that.
 
 ## Guidelines
 
@@ -46,8 +41,8 @@ It is important that we all adhere to them to ensure that the project can grow s
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
 - Document new features appropriately.
-  For user-facing changes, add an entry to the changelog.
-  In case of breaking changes, please also update the upgrade guide.
+  For user-facing changes, add an entry to the `CHANGELOG.md` file.
+  In case of breaking changes, please also update the `UPGRADING.md` file.
 - Add tests for bug fixes to demonstrate that the bug has been resolved.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and unrelated code.
@@ -444,7 +439,7 @@ Here are some tips for finding the cause of certain failures:
 ## Maintaining the Changelog and Upgrade Guide
 
 MQT {{name}} adheres to [Semantic Versioning], with the exception that minor releases may include breaking changes.
-To inform users about changes to the project, we maintain a [changelog](https://github.com/{{organization}}/{{repository}}/blob/main/CHANGELOG.md) and an [upgrade guide](https://github.com/{{organization}}/{{repository}}/blob/main/UPGRADING.md).
+To inform users about changes to the project, we maintain a {doc}`changelog <CHANGELOG>` and an {doc}`upgrade guide <UPGRADING>`.
 
 If your PR includes noteworthy changes, please update the changelog.
 The format is based on a mixture of [Keep a Changelog] and [Common Changelog].
