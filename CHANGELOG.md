@@ -11,7 +11,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
-- ✨ Synchronize development guide ([#31]) ([**@denialhaag**])
+- ✨ Synchronize contribution guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
+- ✨ Synchronize installation guide ([#31]) ([**@denialhaag**])
 - ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
@@ -49,6 +50,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 <!-- Contributor -->
 
+[**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
 
 <!-- General links -->
