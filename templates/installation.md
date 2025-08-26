@@ -230,7 +230,7 @@ find_package(mqt-{{core}} <version> REQUIRED)
 
 {%- endif %}
 
-(development-setup=)
+(development-setup)=
 
 ## Development Setup
 
@@ -253,7 +253,7 @@ Refer to {doc}`contributing` for a detailed contribution guide.
     If you do have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
 
     ```console
-    $ git clone git@github.com/{{organization}}/{{repository}}.git
+    $ git clone git@github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
     ```
 
     :::
@@ -262,7 +262,7 @@ Refer to {doc}`contributing` for a detailed contribution guide.
 2.  Change into the project directory:
 
     ```console
-    $ cd {{repository}}
+    $ cd mqt-{{repository}}
     ```
 
 3.  Create a branch for local development:
@@ -277,7 +277,7 @@ Refer to {doc}`contributing` for a detailed contribution guide.
 
     We highly recommend using modern and fast tooling for the development workflow.
     {%- if project_type == "c++-python" %}
-    If you plan to [work on the Python package](#working-on-the-python-package), we highly recommend using [{code}`uv`][uv].
+    If you plan to work on the Python package, we highly recommend using [{code}`uv`][uv].
     {%- elif project_type == "pure-python" %}
     We highly recommend using [{code}`uv`][uv].
     {%- endif %}
@@ -310,9 +310,11 @@ Refer to {doc}`contributing` for a detailed contribution guide.
     We also highly recommend installing and setting up [{code}`pre-commit`][pre-commit] to automatically run a set of checks before each commit, and [{code}`nox`][nox] for automating common development tasks.
 
     ::::{tab-set}
+    :sync-group: installer
+
     :::{tab-item} {code}`uv` _(recommended)_
     :sync: uv
-    The easiest way to install {code}`pre-commit` and {code}`nox` is via [{code}`uv`][uv].
+    The easiest way to install {code}`pre-commit` and {code}`nox` is via [{code}`uv`][uv]:
 
     ```console
     $ uv tool install pre-commit

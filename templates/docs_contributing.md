@@ -242,7 +242,7 @@ When touching existing code, we encourage you to add Doxygen comments to the cod
 For some tips on how to write good Doxygen comments, see the [Doxygen Manual](https://www.doxygen.nl/manual/docblocks.html).
 
 The C++ API documentation is integrated into the overall documentation that we host on ReadTheDocs using the [breathe](https://breathe.readthedocs.io/en/latest/) extension for Sphinx.
-See the [Working on the Documentation](#working-on-the-documentation) section for more information on how to build the documentation.
+See the [](#working-on-documentation) section for more information on how to build the documentation.
 
 {%- endif %}
 
@@ -348,7 +348,7 @@ $ nox -s minimums
 {%- endif %}
 
 The Python code is formatted and linted using a collection of [{code}`pre-commit`][pre-commit] hooks.
-This collection includes:
+This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
 - [mypy][mypy], a static type checker for Python code.
@@ -362,7 +362,7 @@ $ pre-commit install
 This will install the hooks in the {code}`.git/hooks` directory of the repository.
 The hooks will be executed whenever you commit changes.
 
-You can also run {code}`nox` session {code}`lint` to run the hooks manually.
+You can also run the {code}`nox` session {code}`lint` to run the hooks manually.
 
 ```console
 $ nox -s lint
@@ -399,6 +399,8 @@ For the compiled parts of the code base, we provide type hints in the form of st
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
 [{code}`sphinx-autoapi`](https://sphinx-autoapi.readthedocs.io/en/latest/) extension for Sphinx.
+
+(working-on-documentation)=
 
 ## Working on the Documentation
 
@@ -467,7 +469,7 @@ Here are some tips for finding the cause of certain failures:
 - If the {code}`docs/readthedocs.org:\*` check fails, the documentation could not be built properly.
   Inspect the corresponding log file for any errors.
 
-(maintaining-changelog-upgrade-guide=)
+(maintaining-changelog-upgrade-guide)=
 
 ## Maintaining the Changelog and Upgrade Guide
 
