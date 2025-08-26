@@ -26,8 +26,11 @@ inputs:
   repository:
     description: Name of the repository
     required: true
-  synchronize-development-guide:
-    description: Whether to synchronize the development guide
+  synchronize-contribution-guide:
+    description: Whether to synchronize the contribution guide
+    default: true
+  synchronize-installation-guide:
+    description: Whether to synchronize the installation guide
     default: true
   synchronize-issue-templates:
     description: Whether to synchronize the issue templates
@@ -63,7 +66,8 @@ runs:
         ORGANIZATION: ${{ inputs.organization }}
         PROJECT_TYPE: ${{ inputs.project_type }}
         REPOSITORY: ${{ inputs.repository }}
-        SYNCHRONIZE_DEVELOPMENT_GUIDE: ${{ inputs.synchronize-development-guide }}
+        SYNCHRONIZE_CONTRIBUTION_GUIDE: ${{ inputs.synchronize-contribution-guide }}
+        SYNCHRONIZE_INSTALLATION_GUIDE: ${{ inputs.synchronize-installation-guide }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
@@ -77,7 +81,8 @@ runs:
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \
           --repository $REPOSITORY \
-          --synchronize_development_guide $SYNCHRONIZE_DEVELOPMENT_GUIDE \
+          --synchronize_contribution_guide $SYNCHRONIZE_CONTRIBUTION_GUIDE \
+          --synchronize_installation_guide $SYNCHRONIZE_INSTALLATION_GUIDE \
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \

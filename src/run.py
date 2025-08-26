@@ -50,7 +50,8 @@ def main(
     organization: str,
     project_type: str,
     repository: str,
-    synchronize_development_guide: bool,
+    synchronize_contribution_guide: bool,
+    synchronize_installation_guide: bool,
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
     synchronize_release_drafter_template: bool,
@@ -72,10 +73,32 @@ def main(
             arguments={"name": name, "organization": organization, "repository": repository},
         ),
         TemplateContainer(
-            file_name="development_guide.md",
-            output_dir=Path("docs/development_guide.md"),
-            template_name="development_guide.md",
-            active=synchronize_development_guide,
+            file_name="contributing.md",
+            output_dir=Path(".github/contributing.md"),
+            template_name="contributing.md",
+            active=synchronize_contribution_guide,
+            arguments={
+                "name": name,
+                "organization": organization,
+                "repository": repository,
+            },
+        ),
+        TemplateContainer(
+            file_name="contributing.md",
+            output_dir=Path("docs/contributing.md"),
+            template_name="docs_contributing.md",
+            active=synchronize_contribution_guide,
+            arguments={
+                "name": name,
+                "organization": organization,
+                "project_type": project_type,
+                "repository": repository,
+            },
+        ),
+        TemplateContainer(
+            file_name="installation.md",
+            output_dir=Path("docs/installation.md"),
+            active=synchronize_installation_guide,
             arguments={
                 "name": name,
                 "organization": organization,
@@ -184,10 +207,16 @@ if __name__ == "__main__":
         help="Name of the repository",
     )
     parser.add_argument(
-        "--synchronize_development_guide",
+        "--synchronize_contribution_guide",
         default=True,
         type=_convert_to_bool,
-        help="Whether to synchronize the development guide",
+        help="Whether to synchronize the contribution guide",
+    )
+    parser.add_argument(
+        "--synchronize_installation_guide",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the installation guide",
     )
     parser.add_argument(
         "--synchronize_issue_templates",
@@ -238,7 +267,8 @@ if __name__ == "__main__":
         organization=args.organization,
         project_type=args.project_type,
         repository=args.repository,
-        synchronize_development_guide=args.synchronize_development_guide,
+        synchronize_contribution_guide=args.synchronize_contribution_guide,
+        synchronize_installation_guide=args.synchronize_installation_guide,
         synchronize_issue_templates=args.synchronize_issue_templates,
         synchronize_pull_request_template=args.synchronize_pull_request_template,
         synchronize_release_drafter_template=args.synchronize_release_drafter_template,
