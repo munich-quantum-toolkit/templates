@@ -16,12 +16,12 @@ The release adds support for templating several new files.
 By default, the templating is enabled for all the added files.
 This behavior can be controlled using the following flags:
 
-- `synchronize-contribution-xguide`: Whether to synchronize `CONTRIBUTING.md` and `docs/CONTRIBUTING.md`
+- `synchronize-contribution-xguide`: Whether to synchronize `.github/CONTRIBUTING.md` and `docs/contributing.md`
 - `synchronize-documentation-utilities`: Whether to synchronize documentation utilities such as `docs/_templates/page.html` and `docs/_static/custom.css`
 - `synchronize-installation-guide`: Whether to synchronize `docs/installing.md`
 - `synchronize-release-drafter-template`: Whether to synchronize `.github/release-drafter.yml`
 - `synchronize-renovate-config`: Whether to synchronize `.github/renovate.json5`
-- `synchronize-support-resources`: Whether to synchronize `.github/SUPPORT.md`
+- `synchronize-support-resources`: Whether to synchronize `.github/SUPPORT.md` and `docs/support.md`
 
 The categories of the Release Drafter can be configured using `release-drafter-categories`.
 If not provided, the default categories are used.

@@ -86,7 +86,7 @@ def main(
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
-            file_name="CONTRIBUTING.md",
+            file_name="contributing.md",
             output_dir=Path("docs"),
             template_name="docs_contributing.md",
             active=synchronize_contribution_guide,
@@ -96,6 +96,12 @@ def main(
                 "project_type": project_type,
                 "repository": repository,
             },
+        ),
+        TemplateContainer(
+            file_name="support.md",
+            output_dir=Path("docs"),
+            template_name="docs_support.md",
+            active=synchronize_contribution_guide,
         ),
         TemplateContainer(
             file_name="installation.md",
