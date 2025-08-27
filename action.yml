@@ -94,7 +94,7 @@ runs:
           --synchronize_renovate_config $SYNCHRONIZE_RENOVATE_CONFIG \
           --synchronize_security_policy $SYNCHRONIZE_SECURITY_POLICY \
           --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES \
-          --release_drafter_categories $RELEASE_DRAFTER_CATEGORIES
+          --release_drafter_categories "$RELEASE_DRAFTER_CATEGORIES"
     - name: Create pull request
       uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7
       with:
