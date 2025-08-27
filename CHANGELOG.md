@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 ### Added
 
 - ✨ Synchronize contribution guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
-- ✨ Synchronize installation guide ([#31]) ([**@denialhaag**])
+- ✨ Synchronize installation guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
 - ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
