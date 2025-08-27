@@ -181,7 +181,7 @@ def _copy_template(template_container: TemplateContainer) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Read the template
-        output = (TEMPLATES_DIR / template_container.file_name).read_text(encoding="utf-8")
+        output = (TEMPLATES_DIR / template_container.template_name).read_text(encoding="utf-8")
 
         # Write the read template to a file
         output_path = output_dir / template_container.file_name
