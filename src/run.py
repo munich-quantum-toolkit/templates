@@ -35,7 +35,7 @@ class TemplateContainer:
     file_name: str
     output_dir: Path
     active: bool
-    arguments: dict[str, str] | None
+    arguments: dict[str, str] | None = None
     template_name: str | None = None
 
     def __post_init__(self) -> None:
