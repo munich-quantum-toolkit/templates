@@ -51,6 +51,7 @@ def main(
     project_type: str,
     repository: str,
     synchronize_contribution_guide: bool,
+    synchronize_documentation_utilities: bool,
     synchronize_installation_guide: bool,
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
@@ -80,6 +81,12 @@ def main(
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
+            file_name="custom.css",
+            output_dir=Path("docs/_static/custom.css"),
+            active=synchronize_documentation_utilities,
+            arguments={},
+        ),
+        TemplateContainer(
             file_name="CONTRIBUTING.md",
             output_dir=Path("docs/CONTRIBUTING.md"),
             template_name="docs_contributing.md",
@@ -101,6 +108,18 @@ def main(
                 "project_type": project_type,
                 "repository": repository,
             },
+        ),
+        TemplateContainer(
+            file_name="lit_header.bib",
+            output_dir=Path("docs/lit_header.bib"),
+            active=synchronize_documentation_utilities,
+            arguments={},
+        ),
+        TemplateContainer(
+            file_name="page.html",
+            output_dir=Path("docs/_templates/page.html"),
+            active=synchronize_documentation_utilities,
+            arguments={},
         ),
         TemplateContainer(
             file_name="feature-request.yml",
@@ -209,6 +228,12 @@ if __name__ == "__main__":
         help="Whether to synchronize the contribution guide",
     )
     parser.add_argument(
+        "--synchronize_documentation_utilities",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize documentation utilities such as page.html and custom.css",
+    )
+    parser.add_argument(
         "--synchronize_installation_guide",
         default=True,
         type=_convert_to_bool,
@@ -264,6 +289,7 @@ if __name__ == "__main__":
         project_type=args.project_type,
         repository=args.repository,
         synchronize_contribution_guide=args.synchronize_contribution_guide,
+        synchronize_documentation_utilities=args.synchronize_documentation_utilities,
         synchronize_installation_guide=args.synchronize_installation_guide,
         synchronize_issue_templates=args.synchronize_issue_templates,
         synchronize_pull_request_template=args.synchronize_pull_request_template,
