@@ -4,39 +4,49 @@
 # Contributing
 
 Thank you for your interest in contributing to MQT {{name}}!
-This document lays out development guidelines but also acts as a development guide.
+This document outlines how to contribute and the development guidelines.
 
 We use GitHub to [host code](https://github.com/{{organization}}/{{repository}}), to [track issues and feature requests][issues], as well as accept [pull requests](https://github.com/{{organization}}/{{repository}}/pulls).
 See <https://docs.github.com/en/get-started/quickstart> for a general introduction to working with GitHub and contributing to projects.
 
 ## Types of Contributions
 
-You can contribute in several ways:
+Pick the path that fits your time and interests:
 
-- 🐛 Report Bugs:
-  Report bugs at <https://github.com/{{organization}}/{{repository}}/issues> using the _🐛 Bug report_ issue template.
-  Please make sure to fill out all relevant information in the respective issue form.
+- 🐛 Report bugs
+  Use the _🐛 Bug report_ template at <https://github.com/{{organization}}/{{repository}}/issues>.
+  Include steps to reproduce, expected vs. actual behavior, environment, and a minimal example.
 
-- 🐛 Fix Bugs:
-  Look through the [GitHub Issues][issues] for bugs.
-  Anything tagged with "bug" is open to whoever wants to try and fix it.
+- 🛠️ Fix bugs
+  Browse [issues][issues], especially those labeled "bug", "help wanted", or "good first issue".
+  Open a draft PR early to get feedback.
 
-- ✨ Propose New Features:
-  Propose new features at <https://github.com/{{organization}}/{{repository}}/issues> using the _✨ Feature request_ issue template.
-  Please make sure to fill out all relevant information in the respective issue form.
+- 💡 Propose features
+  Use the _✨ Feature request_ template at <https://github.com/{{organization}}/{{repository}}/issues>.
+  Describe the motivation, alternatives considered, and (optionally) a small API sketch.
 
-- ✨ Implement New Features:
-  Look through the [GitHub Issues][issues] for features.
-  Anything tagged with "feature" or "enhancement" is open to whoever wants to implement it.
-  We highly appreciate external contributions to the project.
+- ✨ Implement features
+  Pick items labeled "feature" or "enhancement".
+  Coordinate in the issue first if the change is substantial; start with a draft PR.
 
-- 📝 Write Documentation:
-  MQT {{name}} could always use some more documentation, and we appreciate any help with that.
+- 📝 Improve documentation
+  Add or refine docstrings, tutorials, and examples; fix typos; clarify explanations.
+  Small documentation-only PRs are very welcome.
+
+- ⚡ Performance and reliability
+  Profile hot paths, add benchmarks, reduce allocations, deflake tests, and improve error messages.
+
+- 📦 Packaging and tooling
+  Improve build configuration, type hints/stubs, CI workflows, and platform wheels.
+  Incremental tooling fixes have a big impact.
+
+- 🙌 Community support
+  Triage issues, reproduce reports, and answer questions in Discussions:
+  <https://github.com/{{organization}}/{{repository}}/discussions>.
 
 ## Guidelines
 
-This section lays out some guidelines for contributing to MQT {{name}}.
-It is important that we all adhere to them to ensure that the project can grow sustainably.
+Please adhere to the following guidelines to help the project grow sustainably.
 
 ### Core Guidelines
 
@@ -45,11 +55,10 @@ It is important that we all adhere to them to ensure that the project can grow s
 - Focus on a single feature or bug at a time and only touch relevant files.
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
-- Document new features appropriately.
-  For user-facing changes, add an entry to the changelog.
-  In case of breaking changes, please also update the upgrade guide.
-  For more details, see the {ref}`guide on maintaining the changelog and upgrade guide <maintaining-changelog-upgrade-guide>`.
-- Add tests for bug fixes to demonstrate that the bug has been resolved.
+- Document new features.
+  For user-facing changes, add a changelog entry; for breaking changes, update the upgrade guide.
+  For details, see {ref}`maintaining-changelog-upgrade-guide`.
+- Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and unrelated code.
 - Check your code for style and linting errors before committing.
@@ -59,29 +68,21 @@ It is important that we all adhere to them to ensure that the project can grow s
 ### Pull Request Workflow
 
 - Create PRs early.
-  It is ok to create work-in-progress PRs.
-  You may mark these as draft PRs on GitHub.
-- Describe your PR with a descriptive title, reference any related issues by including the issue number in the PR description, and add a comprehensive description of the changes.
-  Follow the provided PR template and do not delete any sections, except for the issue reference if your PR is not related to an issue.
-- Whenever a PR is created or updated, several workflows on all supported platforms and versions of Python are executed.
-  These workflows ensure that the project still builds, all tests pass, the code is properly formatted, and no new linting errors are introduced.
-  Your PR must pass all these continuous integration (CI) checks before it can be merged.
-- Once your PR is ready, change it from a draft PR to a regular PR and request a review from one of the project maintainers.
-  Only request a review once you are done with your changes and the PR is ready to be reviewed.
-  If you are unsure whether your PR is ready, ask in the PR comments.
-  If you are a first-time contributor, request a review from one of the maintainers by mentioning them in a comment on the PR.
-- If your PR gets a "Changes requested" review, address the feedback and update your PR by pushing to the same branch.
-  Do not close the PR and open a new one.
-  Respond to review comments on the PR (e.g., with "Done. 👍" or "Done in @<commit>.") to let the reviewer know that you have addressed the feedback
-  Note that reviewers do not get a notification if you just react to the review comment with an emoji.
-  Write a comment to notify the reviewer.
-  Do not resolve the review comments yourself.
-  The reviewer will mark the comments as resolved once they are satisfied with the changes.
-- Be sure to rerequest a review once you have made changes after a code review so that maintainers know that the requests have been addressed.
-- Please do not squash commits before merging; we usually squash them to keep the history clean.
-  We only merge without squashing if the commit history is clean and meaningful.
-  Avoid rebasing or force-pushing your PR branch before merging, as it complicates reviews.
-  You can rebase or clean up commits after addressing all review comments if desired.
+  Work-in-progress PRs are welcome; mark them as drafts on GitHub.
+- Use a clear title, reference related issues by number, and describe the changes.
+  Follow the PR template; only omit the issue reference if not applicable.
+- CI runs on all supported platforms and Python versions to build, test, format, and lint.
+  All checks must pass before merging.
+- When ready, convert the draft to a regular PR and request a review from a maintainer.
+  If unsure, ask in PR comments.
+  If you are a first-time contributor, mention a maintainer in a comment to request a review.
+- If your PR gets a "Changes requested" review, address the feedback and push updates to the same branch.
+  Do not close and reopen a new PR.
+  Respond to comments to signal that you have addressed the feedback.
+  Do not resolve review comments yourself; the reviewer will do so once satisfied.
+- Re-request a review after pushing changes that address feedback.
+- Do not squash commits locally; maintainers typically squash on merge.
+  Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
 
 ## Get Started 🎉
 
@@ -98,8 +99,8 @@ Check out our {ref}`installation guide for developers <development-setup>` for i
 
 ## Working on the C++ Library
 
-Building the project requires [C++ compiler supporting C++20](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and a minimum [CMake](https://cmake.org/) version of 3.24.
-As of August 2025, our CI pipeline on GitHub continuously tests the library under a wide matrix of systems and compilers:
+Building the project requires a [C++ compiler supporting C++20](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
+As of August 2025, our CI pipeline on GitHub continuously tests the library across the following matrix of systems and compilers:
 
 - {code}`ubuntu-24.04`: {code}`Release` and {code}`Debug` builds using {code}`gcc`
 - {code}`ubuntu-24.04-arm`: {code}`Release` build using {code}`gcc`
@@ -142,7 +143,7 @@ After configuring CMake, the project can be _built_ by calling:
 $ cmake --build build --config Release
 ```
 
-This tries to build the project in the {code}`build` directory (passed via {code}`--build`).
+This builds the project in the {code}`build` directory (passed via {code}`--build`).
 Some operating systems and development environments explicitly require a configuration to be set, which is why the {code}`--config` flag is also passed to the build command.
 The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
@@ -154,7 +155,7 @@ Building the project this way generates
 :::{note}
 
 This project uses CMake's [{code}`FetchContent`](https://cmake.org/cmake/help/latest/module/FetchContent.html) module to download and build its dependencies.
-Because of this, the first time you configure the project, you'll need an active internet connection to fetch the required libraries.
+Because of this, the first time you configure the project, you will need an active internet connection to fetch the required libraries.
 
 However, there are several ways to bypass these downloads:
 
@@ -242,7 +243,7 @@ When touching existing code, we encourage you to add Doxygen comments to the cod
 For some tips on how to write good Doxygen comments, see the [Doxygen Manual](https://www.doxygen.nl/manual/docblocks.html).
 
 The C++ API documentation is integrated into the overall documentation that we host on ReadTheDocs using the [breathe](https://breathe.readthedocs.io/en/latest/) extension for Sphinx.
-See the [](#working-on-documentation) section for more information on how to build the documentation.
+See {ref}`working-on-documentation` for more information on how to build the documentation.
 
 {%- endif %}
 
@@ -256,7 +257,7 @@ All code related to C++-Python bindings is contained in the {code}`bindings` dir
 
 :::{tip}
 
-If you just want to build the Python bindings themselves, you can pass {code}`-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
+To build only the Python bindings, pass {code}`-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
 CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
 In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
 Go to {code}`Preferences` -> {code}`Build, Execution, Deployment` -> {code}`CMake` -> {code}`Python Integration` and check the box {code}`Pass Python Interpreter to CMake`.
@@ -309,7 +310,7 @@ A {code}`nox` session is provided to conveniently run the Python tests.
 $ nox -s tests
 ```
 
-The above command will automatically build the project and run the tests on all supported Python versions.
+This command automatically builds the project and runs the tests on all supported Python versions.
 For each Python version, it will create a virtual environment (in the {code}`.nox` directory) and install the project into it.
 We take extra care to install the project without build isolation so that rebuilds are typically very fast.
 
@@ -353,7 +354,7 @@ This collection includes
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
 - [mypy][mypy], a static type checker for Python code.
 
-The hooks can be installed by running running the following command in the root directory:
+The hooks can be installed by running the following command in the root directory:
 
 ```console
 $ pre-commit install
@@ -419,11 +420,11 @@ $ nox -s docs
 ```
 
 This will install all dependencies for building the documentation in an isolated environment, build the Python package, and then build the documentation.
-Finally, it will host the documentation on a local web server for you to view.
+It will then host the documentation on a local web server for you to view.
 
 :::{note}
 
-If you don't want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
+If you do not want to use {code}`nox`, you can also build the documentation directly using {code}`sphinx-build`.
 This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running {code}`uv sync`).
 
 ```console
@@ -516,7 +517,7 @@ This PR should:
 - review the upgrade guide to ensure it covers all major or breaking changes and provides helpful context, and
 - if the upgrade guide contains a section relevant to the release, add a reference to it in the changelog.
 
-Before merging the PR perparing the release, check the GitHub release draft generated by the Release Drafter for unlabelled PRs.
+Before merging the PR preparing the release, check the GitHub release draft generated by the Release Drafter for unlabelled PRs.
 Unlabelled PRs would appear at the top of the release draft below the main heading.
 If you missed updating labels before merging, you can still update them and re-run the Release Drafter afterward.
 Furthermore, check whether the version number in the release draft is correct.
