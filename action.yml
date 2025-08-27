@@ -67,7 +67,7 @@ runs:
       env:
         NAME: ${{ inputs.name }}
         ORGANIZATION: ${{ inputs.organization }}
-        PROJECT_TYPE: ${{ inputs.project_type }}
+        PROJECT_TYPE: ${{ inputs.project-type }}
         REPOSITORY: ${{ inputs.repository }}
         SYNCHRONIZE_CONTRIBUTION_GUIDE: ${{ inputs.synchronize-contribution-guide }}
         SYNCHRONIZE_DOCUMENTATION_UTILITIES: ${{ inputs.synchronize-documentation-utilities }}
