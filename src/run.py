@@ -84,7 +84,6 @@ def main(
             file_name="custom.css",
             output_dir=Path("docs/_static/custom.css"),
             active=synchronize_documentation_utilities,
-            arguments=None,
         ),
         TemplateContainer(
             file_name="CONTRIBUTING.md",
@@ -113,13 +112,11 @@ def main(
             file_name="lit_header.bib",
             output_dir=Path("docs/lit_header.bib"),
             active=synchronize_documentation_utilities,
-            arguments=None,
         ),
         TemplateContainer(
             file_name="page.html",
             output_dir=Path("docs/_templates/page.html"),
             active=synchronize_documentation_utilities,
-            arguments=None,
         ),
         TemplateContainer(
             file_name="feature-request.yml",
@@ -131,7 +128,6 @@ def main(
             file_name="pull_request_template.md",
             output_dir=Path(".github"),
             active=synchronize_pull_request_template,
-            arguments=None,
         ),
         TemplateContainer(
             file_name="release-drafter.yml",
@@ -144,7 +140,6 @@ def main(
             file_name="renovate.json5",
             output_dir=Path(".github"),
             active=synchronize_renovate_config,
-            arguments=None,
         ),
         TemplateContainer(
             file_name="SECURITY.md",
