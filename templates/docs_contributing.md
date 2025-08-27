@@ -13,34 +13,42 @@ See <https://docs.github.com/en/get-started/quickstart> for a general introducti
 
 Pick the path that fits your time and interests:
 
-- 🐛 Report bugs
+- 🐛 Report bugs:
+
   Use the _🐛 Bug report_ template at <https://github.com/{{organization}}/{{repository}}/issues>.
   Include steps to reproduce, expected vs. actual behavior, environment, and a minimal example.
 
-- 🛠️ Fix bugs
+- 🛠️ Fix bugs:
+
   Browse [issues][issues], especially those labeled "bug", "help wanted", or "good first issue".
   Open a draft PR early to get feedback.
 
-- 💡 Propose features
+- 💡 Propose features:
+
   Use the _✨ Feature request_ template at <https://github.com/{{organization}}/{{repository}}/issues>.
   Describe the motivation, alternatives considered, and (optionally) a small API sketch.
 
-- ✨ Implement features
+- ✨ Implement features:
+
   Pick items labeled "feature" or "enhancement".
   Coordinate in the issue first if the change is substantial; start with a draft PR.
 
-- 📝 Improve documentation
+- 📝 Improve documentation:
+
   Add or refine docstrings, tutorials, and examples; fix typos; clarify explanations.
   Small documentation-only PRs are very welcome.
 
-- ⚡ Performance and reliability
+- ⚡️ Performance and reliability:
+
   Profile hot paths, add benchmarks, reduce allocations, deflake tests, and improve error messages.
 
-- 📦 Packaging and tooling
+- 📦 Packaging and tooling:
+
   Improve build configuration, type hints/stubs, CI workflows, and platform wheels.
   Incremental tooling fixes have a big impact.
 
-- 🙌 Community support
+- 🙌 Community support:
+
   Triage issues, reproduce reports, and answer questions in Discussions:
   <https://github.com/{{organization}}/{{repository}}/discussions>.
 
@@ -99,7 +107,7 @@ Check out our {ref}`installation guide for developers <development-setup>` for i
 
 ## Working on the C++ Library
 
-Building the project requires a [C++ compiler supporting C++20](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
+Building the project requires a C++20-capable [C++ compiler](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
 As of August 2025, our CI pipeline on GitHub continuously tests the library across the following matrix of systems and compilers:
 
 - {code}`ubuntu-24.04`: {code}`Release` and {code}`Debug` builds using {code}`gcc`
@@ -277,7 +285,7 @@ The package lives in the {code}`src/mqt/{{repository}}` directory.
 
 We recommend using [{code}`nox`][nox] for development.
 {code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
-If you have not installed it yet, see our [installation guide](https://mqt.readthedocs.io/projects/{{repository}}/en/latest/installation.html).
+If you have not installed it yet, see our {ref}`installation guide for developers <development-setup>`.
 
 We define four convenient {code}`nox` sessions in our {code}`noxfile.py`:
 
