@@ -237,7 +237,7 @@ find_package(mqt-{{repository}} <version> REQUIRED)
 
 Set up a reproducible development environment for MQT {{name}}.
 This is the recommended starting point for both bug fixes and new features.
-For detailed guidelines and workflows, see {doc}`contributing`.
+For detailed guidelines and workflows, see {doc}`CONTRIBUTING`.
 
 1.  Get the code:
 

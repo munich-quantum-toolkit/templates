@@ -73,15 +73,15 @@ def main(
             arguments={"name": name, "organization": organization, "repository": repository},
         ),
         TemplateContainer(
-            file_name="contributing.md",
-            output_dir=Path(".github/contributing.md"),
-            template_name="contributing.md",
+            file_name="CONTRIBUTING.md",
+            output_dir=Path(".github/CONTRIBUTING.md"),
+            template_name="CONTRIBUTING.md",
             active=synchronize_contribution_guide,
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
-            file_name="contributing.md",
-            output_dir=Path("docs/contributing.md"),
+            file_name="CONTRIBUTING.md",
+            output_dir=Path("docs/CONTRIBUTING.md"),
             template_name="docs_contributing.md",
             active=synchronize_contribution_guide,
             arguments={

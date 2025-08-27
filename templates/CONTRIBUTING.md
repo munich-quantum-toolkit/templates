@@ -4,4 +4,4 @@
 # Contributing
 
 Thank you for your interest in contributing to MQT {{name}}!
-An extensive contribution guide is available in our [documentation](https://mqt.readthedocs.io/projects/{{repository}}/en/latest/contributing.html).
+An extensive contribution guide is available in our [documentation](https://mqt.readthedocs.io/projects/{{repository}}/en/latest/CONTRIBUTING.html).
