@@ -179,7 +179,7 @@ set(MQT_{{name.upper()}}_REPO_OWNER "{{organization}}"
 # cmake-format: on
 FetchContent_Declare(
   mqt-{{repository}}
-  GIT_REPOSITORY https://github.com/${MQT_CORE_REPO_OWNER}/{{repository}}.git
+  GIT_REPOSITORY https://github.com/${MQT_{{name.upper()}}_REPO_OWNER}/{{repository}}.git
   GIT_TAG ${MQT_{{name.upper()}}_REV}
   FIND_PACKAGE_ARGS ${MQT_{{name.upper()}}_MINIMUM_VERSION})
 list(APPEND FETCH_PACKAGES mqt-{{repository}})
