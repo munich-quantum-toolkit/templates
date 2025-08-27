@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-08-27
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
+
 ### Added
 
 - ✨ Synchronize documentation utilities such as `page.html` and `custom.css` ([#45]) ([**@denialhaag**])
@@ -27,7 +31,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 - 🐛 Fix emojis in Renovate config ([#32]) ([**@denialhaag**])
 
-## [1.0.0]
+## [1.0.0] - 2025-07-09
 
 ### Added
 
@@ -39,7 +43,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.0
 [1.0.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.0.0
 
 <!-- PR links -->

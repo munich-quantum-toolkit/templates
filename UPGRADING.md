@@ -4,6 +4,8 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+## [1.1.0]
+
 With this release, the templating Action has new required inputs:
 
 - The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
@@ -12,4 +14,5 @@ With this release, the templating Action has new required inputs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
