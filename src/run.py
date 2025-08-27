@@ -134,7 +134,7 @@ def main(
             arguments={"organization": organization, "repository": repository},
         ),
         TemplateContainer(
-            file_name="support.md",
+            file_name="SUPPORT.md",
             output_dir=Path(".github"),
             active=synchronize_support_resources,
             arguments={"name": name, "organization": organization, "repository": repository},
