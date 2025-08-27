@@ -35,7 +35,7 @@ class TemplateContainer:
     file_name: str
     output_dir: Path
     active: bool
-    arguments: dict[str, str]
+    arguments: dict[str, str] | None
     template_name: str | None = None
 
     def __post_init__(self) -> None:
@@ -84,7 +84,7 @@ def main(
             file_name="custom.css",
             output_dir=Path("docs/_static/custom.css"),
             active=synchronize_documentation_utilities,
-            arguments={},
+            arguments=None,
         ),
         TemplateContainer(
             file_name="CONTRIBUTING.md",
@@ -113,13 +113,13 @@ def main(
             file_name="lit_header.bib",
             output_dir=Path("docs/lit_header.bib"),
             active=synchronize_documentation_utilities,
-            arguments={},
+            arguments=None,
         ),
         TemplateContainer(
             file_name="page.html",
             output_dir=Path("docs/_templates/page.html"),
             active=synchronize_documentation_utilities,
-            arguments={},
+            arguments=None,
         ),
         TemplateContainer(
             file_name="feature-request.yml",
@@ -131,7 +131,7 @@ def main(
             file_name="pull_request_template.md",
             output_dir=Path(".github"),
             active=synchronize_pull_request_template,
-            arguments={},
+            arguments=None,
         ),
         TemplateContainer(
             file_name="release-drafter.yml",
@@ -144,7 +144,7 @@ def main(
             file_name="renovate.json5",
             output_dir=Path(".github"),
             active=synchronize_renovate_config,
-            arguments={},
+            arguments=None,
         ),
         TemplateContainer(
             file_name="SECURITY.md",
@@ -166,7 +166,25 @@ def main(
     )
 
     for template_container in template_containers:
-        _render_template(environment, template_container)
+        if template_container.arguments is None:
+            _copy_template(template_container)
+        else:
+            _render_template(environment, template_container)
+
+
+def _copy_template(template_container: TemplateContainer) -> None:
+    """Copy a template without arguments."""
+    if template_container.active:
+        # Create output directory if it does not exist
+        output_dir = template_container.output_dir
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # Read the template
+        output = (TEMPLATES_DIR / template_container.file_name).read_text(encoding="utf-8")
+
+        # Write the read template to a file
+        output_path = output_dir / template_container.file_name
+        output_path.write_text(output + "\n", encoding="utf-8")
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
@@ -180,7 +198,7 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
         template = environment.get_template(template_container.template_name)
         output = template.render(**template_container.arguments)
 
-        # Write the rendered rendered to the file
+        # Write the rendered template to a file
         output_path = output_dir / template_container.file_name
         output_path.write_text(output + "\n", encoding="utf-8")
 
