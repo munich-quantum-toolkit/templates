@@ -75,19 +75,19 @@ def main(
         ),
         TemplateContainer(
             file_name="CONTRIBUTING.md",
-            output_dir=Path(".github/CONTRIBUTING.md"),
+            output_dir=Path(".github"),
             template_name="CONTRIBUTING.md",
             active=synchronize_contribution_guide,
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
             file_name="custom.css",
-            output_dir=Path("docs/_static/custom.css"),
+            output_dir=Path("docs/_static"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
             file_name="CONTRIBUTING.md",
-            output_dir=Path("docs/CONTRIBUTING.md"),
+            output_dir=Path("docs"),
             template_name="docs_contributing.md",
             active=synchronize_contribution_guide,
             arguments={
@@ -99,7 +99,7 @@ def main(
         ),
         TemplateContainer(
             file_name="installation.md",
-            output_dir=Path("docs/installation.md"),
+            output_dir=Path("docs"),
             active=synchronize_installation_guide,
             arguments={
                 "name": name,
@@ -110,12 +110,12 @@ def main(
         ),
         TemplateContainer(
             file_name="lit_header.bib",
-            output_dir=Path("docs/lit_header.bib"),
+            output_dir=Path("docs"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
             file_name="page.html",
-            output_dir=Path("docs/_templates/page.html"),
+            output_dir=Path("docs/_templates"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
