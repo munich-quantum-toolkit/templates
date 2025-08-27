@@ -4,8 +4,11 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-With this release, the templating Action has a new required input.
-The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
+With this release, the templating Action has new required inputs:
+
+- The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
+- The `project_type` specifies whether the project has C++ components.
+  The options are `c++-python` or `pure-python`.
 
 <!-- Version links -->
 

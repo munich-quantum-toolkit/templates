@@ -11,10 +11,16 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
+- ✨ Synchronize contribution guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
+- ✨ Synchronize installation guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
 - ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
 - ✨ Synchronize issue templates ([#21]) ([**@denialhaag**])
+
+### Changed
+
+- 🚚 Rename `support.md` to `SUPPORT.md` ([#31]) ([**@denialhaag**])
 
 ### Fixed
 
@@ -38,6 +44,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 <!-- PR links -->
 
 [#32]: https://github.com/munich-quantum-toolkit/templates/pull/32
+[#31]: https://github.com/munich-quantum-toolkit/templates/pull/31
 [#25]: https://github.com/munich-quantum-toolkit/templates/pull/25
 [#24]: https://github.com/munich-quantum-toolkit/templates/pull/24
 [#23]: https://github.com/munich-quantum-toolkit/templates/pull/23
@@ -47,6 +54,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 <!-- Contributor -->
 
+[**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
 
 <!-- General links -->

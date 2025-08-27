@@ -11,15 +11,27 @@ inputs:
   token:
     description: Token with permissions to create and update pull requests
     required: true
-  organization:
-    description: Name of the repository's organization
-    required: true
-  repository:
-    description: Name of the repository
-    required: true
   name:
     description: Stylized name of the package (e.g., "Core" or "DDSIM")
     required: true
+  organization:
+    description: Name of the repository's organization
+    required: true
+  project-type:
+    description: Type of the project
+    required: true
+    options:
+      - c++-python
+      - pure-python
+  repository:
+    description: Name of the repository
+    required: true
+  synchronize-contribution-guide:
+    description: Whether to synchronize the contribution guide
+    default: true
+  synchronize-installation-guide:
+    description: Whether to synchronize the installation guide
+    default: true
   synchronize-issue-templates:
     description: Whether to synchronize the issue templates
     default: true
@@ -50,9 +62,12 @@ runs:
     - name: Run the templating script
       shell: bash
       env:
-        ORGANIZATION: ${{ inputs.organization }}
-        REPOSITORY: ${{ inputs.repository }}
         NAME: ${{ inputs.name }}
+        ORGANIZATION: ${{ inputs.organization }}
+        PROJECT_TYPE: ${{ inputs.project_type }}
+        REPOSITORY: ${{ inputs.repository }}
+        SYNCHRONIZE_CONTRIBUTION_GUIDE: ${{ inputs.synchronize-contribution-guide }}
+        SYNCHRONIZE_INSTALLATION_GUIDE: ${{ inputs.synchronize-installation-guide }}
         SYNCHRONIZE_ISSUE_TEMPLATES: ${{ inputs.synchronize-issue-templates }}
         SYNCHRONIZE_PULL_REQUEST_TEMPLATE: ${{ inputs.synchronize-pull-request-template }}
         SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE: ${{ inputs.synchronize-release-drafter-template }}
@@ -62,9 +77,12 @@ runs:
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
         uv run $GITHUB_ACTION_PATH/src/run.py \
-          --organization $ORGANIZATION \
-          --repository $REPOSITORY \
           --name $NAME \
+          --organization $ORGANIZATION \
+          --project_type $PROJECT_TYPE \
+          --repository $REPOSITORY \
+          --synchronize_contribution_guide $SYNCHRONIZE_CONTRIBUTION_GUIDE \
+          --synchronize_installation_guide $SYNCHRONIZE_INSTALLATION_GUIDE \
           --synchronize_issue_templates $SYNCHRONIZE_ISSUE_TEMPLATES \
           --synchronize_pull_request_template $SYNCHRONIZE_PULL_REQUEST_TEMPLATE \
           --synchronize_release_drafter_template $SYNCHRONIZE_RELEASE_DRAFTER_TEMPLATE \
