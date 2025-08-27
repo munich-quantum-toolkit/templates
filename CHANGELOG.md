@@ -18,6 +18,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
 - ✨ Synchronize issue templates ([#21]) ([**@denialhaag**])
 
+### Changed
+
+- 🚚 Rename `support.md` to `SUPPORT.md` ([#31]) ([**@denialhaag**])
+
 ### Fixed
 
 - 🐛 Fix emojis in Renovate config ([#32]) ([**@denialhaag**])
