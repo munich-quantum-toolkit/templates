@@ -11,9 +11,8 @@ MQT {{name}} is a Python package available on [PyPI](https://pypi.org/project/mq
 It can be installed on all major operating systems with all supported Python versions.
 {%- endif %}
 
-(uv-recommendation)=
-
 :::::{tip}
+:name: uv-recommendation
 
 We recommend using [{code}`uv`][uv].
 It is a fast Python package and project manager by [Astral](https://astral.sh/) (creators of [{code}`ruff`][ruff]).
@@ -279,7 +278,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
     We highly recommend using modern, fast tooling for the development workflow.
     We recommend using [{code}`uv`][uv].
-    If you don't have {code}`uv`, follow the installation instructions in the recommendation above (see {ref}`uv-recommendation`).
+    If you don't have {code}`uv`, follow the installation instructions in the recommendation above (see {ref}`tip above <uv-recommendation>`).
     See the [uv documentation][uv] for more information.
 
     We also recommend installing [{code}`pre-commit`][pre-commit] to automatically run checks before each commit and [{code}`nox`][nox] to automate common development tasks.
@@ -337,5 +336,8 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
 [FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
 [git-submodule]: https://git-scm.com/docs/git-submodule
+[nox]: https://nox.thea.codes/en/stable/
+[pipx]: https://pypa.github.io/pipx/
+[pre-commit]: https://pre-commit.com/
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
