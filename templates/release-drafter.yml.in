@@ -14,7 +14,7 @@ categories:
       - "{{ label }}"
       {%- endfor %}
   {%- endfor %}
-change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+change-template: "- $TITLE ([#$NUMBER]($URL)) ([**@$AUTHOR**](https://github.com/$AUTHOR))"
 change-title-escapes: '\<*_&'
 version-resolver:
   major:
