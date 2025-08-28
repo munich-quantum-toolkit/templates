@@ -75,19 +75,19 @@ def main(
         ),
         TemplateContainer(
             file_name="CONTRIBUTING.md",
-            output_dir=Path(".github/CONTRIBUTING.md"),
+            output_dir=Path(".github"),
             template_name="CONTRIBUTING.md",
             active=synchronize_contribution_guide,
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
             file_name="custom.css",
-            output_dir=Path("docs/_static/custom.css"),
+            output_dir=Path("docs/_static"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
-            file_name="CONTRIBUTING.md",
-            output_dir=Path("docs/CONTRIBUTING.md"),
+            file_name="contributing.md",
+            output_dir=Path("docs"),
             template_name="docs_contributing.md",
             active=synchronize_contribution_guide,
             arguments={
@@ -98,8 +98,14 @@ def main(
             },
         ),
         TemplateContainer(
+            file_name="support.md",
+            output_dir=Path("docs"),
+            template_name="docs_support.md",
+            active=synchronize_contribution_guide,
+        ),
+        TemplateContainer(
             file_name="installation.md",
-            output_dir=Path("docs/installation.md"),
+            output_dir=Path("docs"),
             active=synchronize_installation_guide,
             arguments={
                 "name": name,
@@ -110,12 +116,12 @@ def main(
         ),
         TemplateContainer(
             file_name="lit_header.bib",
-            output_dir=Path("docs/lit_header.bib"),
+            output_dir=Path("docs"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
             file_name="page.html",
-            output_dir=Path("docs/_templates/page.html"),
+            output_dir=Path("docs/_templates"),
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
@@ -175,7 +181,7 @@ def _copy_template(template_container: TemplateContainer) -> None:
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Read the template
-        output = (TEMPLATES_DIR / template_container.file_name).read_text(encoding="utf-8")
+        output = (TEMPLATES_DIR / template_container.template_name).read_text(encoding="utf-8")
 
         # Write the read template to a file
         output_path = output_dir / template_container.file_name

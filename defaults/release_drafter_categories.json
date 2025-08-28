@@ -1,5 +1,10 @@
 {
-  "🚀 Features and Enhancements": ["enhancement", "feature", "usability"],
+  "🚀 Features and Enhancements": [
+    "enhancement",
+    "feature",
+    "refactor",
+    "usability"
+  ],
   "🐛 Bug Fixes": ["bug", "fix"],
   "📄 Documentation": ["documentation"],
   "🤖 CI": ["continuous integration"],
@@ -8,7 +13,7 @@
   "⬆️ Dependencies": [
     "dependencies",
     "github-actions",
-    "submodules",
-    "pre-commit"
+    "pre-commit",
+    "submodules"
   ]
 }
