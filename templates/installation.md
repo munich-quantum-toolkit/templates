@@ -3,7 +3,7 @@
 
 # Installation
 
-{%- if project_type == "c++-python" %}
+{% if project_type == "c++-python" %}
 MQT {{name}} is primarily developed as a C++20 library with Python bindings.
 The Python package is available on [PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all major operating systems with all supported Python versions.
 {%- elif project_type == "pure-python" %}
