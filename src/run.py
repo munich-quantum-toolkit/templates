@@ -76,7 +76,6 @@ def main(
         TemplateContainer(
             file_name="CONTRIBUTING.md",
             output_dir=Path(".github"),
-            template_name="CONTRIBUTING.md",
             active=synchronize_contribution_guide,
             arguments={"name": name, "repository": repository},
         ),
@@ -86,9 +85,9 @@ def main(
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
+            template_name="docs_contributing.md",
             file_name="contributing.md",
             output_dir=Path("docs"),
-            template_name="docs_contributing.md",
             active=synchronize_contribution_guide,
             arguments={
                 "name": name,
@@ -98,9 +97,9 @@ def main(
             },
         ),
         TemplateContainer(
+            template_name="docs_support.md",
             file_name="support.md",
             output_dir=Path("docs"),
-            template_name="docs_support.md",
             active=synchronize_contribution_guide,
         ),
         TemplateContainer(
@@ -136,8 +135,8 @@ def main(
             active=synchronize_pull_request_template,
         ),
         TemplateContainer(
-            file_name="release-drafter.yml",
             template_name="release-drafter.yml.in",
+            file_name="release-drafter.yml",
             output_dir=Path(".github"),
             active=synchronize_release_drafter_template,
             arguments={"name": name, "release_drafter_categories": release_drafter_categories_dict},
@@ -185,7 +184,7 @@ def _copy_template(template_container: TemplateContainer) -> None:
 
         # Write the read template to a file
         output_path = output_dir / template_container.file_name
-        output_path.write_text(output + "\n", encoding="utf-8")
+        output_path.write_text(output, encoding="utf-8")
 
 
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:

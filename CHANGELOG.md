@@ -9,6 +9,12 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.1] - 2025-09-01
+
+### Fixed
+
+- 🐛 Fix whitespaces in rendered templates ([#??]) ([**@denialhaag**])
+
 ## [1.1.0] - 2025-08-28
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
@@ -43,12 +49,14 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.1
 [1.1.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.0
 [1.0.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.0.0
 
 <!-- PR links -->
 
+[#??]: https://github.com/munich-quantum-toolkit/templates/pull/??
 [#45]: https://github.com/munich-quantum-toolkit/templates/pull/45
 [#32]: https://github.com/munich-quantum-toolkit/templates/pull/32
 [#31]: https://github.com/munich-quantum-toolkit/templates/pull/31
