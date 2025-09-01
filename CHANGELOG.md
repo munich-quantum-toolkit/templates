@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
+- 🎨 Add `has_changelog_and_upgrade_guide` flag to make templates more generic ([#55]) ([**@denialhaag**])
 - 🎨 Add `other` as possible `project_type` ([#54]) ([**@denialhaag**])
 
 ## [1.1.2] - 2025-09-01
@@ -65,6 +66,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#55]: https://github.com/munich-quantum-toolkit/templates/pull/55
 [#54]: https://github.com/munich-quantum-toolkit/templates/pull/54
 [#51]: https://github.com/munich-quantum-toolkit/templates/pull/51
 [#50]: https://github.com/munich-quantum-toolkit/templates/pull/50

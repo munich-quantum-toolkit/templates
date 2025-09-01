@@ -50,6 +50,7 @@ def main(
     organization: str,
     project_type: str,
     repository: str,
+    has_changelog_and_upgrade_guide: bool,
     synchronize_contribution_guide: bool,
     synchronize_documentation_utilities: bool,
     synchronize_installation_guide: bool,
@@ -106,6 +107,7 @@ def main(
                 "organization": organization,
                 "project_type": project_type,
                 "repository": repository,
+                "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
             },
         ),
         TemplateContainer(
@@ -145,13 +147,18 @@ def main(
             file_name="pull_request_template.md",
             output_dir=Path(".github"),
             active=synchronize_pull_request_template,
+            arguments={"has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide},
         ),
         TemplateContainer(
             template_name="release-drafter.yml.in",
             file_name="release-drafter.yml",
             output_dir=Path(".github"),
             active=synchronize_release_drafter_template,
-            arguments={"name": name, "release_drafter_categories": release_drafter_categories_dict},
+            arguments={
+                "name": name,
+                "release_drafter_categories": release_drafter_categories_dict,
+                "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
+            },
         ),
         TemplateContainer(
             file_name="renovate.json5",
@@ -252,6 +259,12 @@ if __name__ == "__main__":
         help="Name of the repository",
     )
     parser.add_argument(
+        "--has_changelog_and_upgrade_guide",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether the repository has a changelog and upgrade guide",
+    )
+    parser.add_argument(
         "--synchronize_contribution_guide",
         default=True,
         type=_convert_to_bool,
@@ -318,6 +331,7 @@ if __name__ == "__main__":
         organization=args.organization,
         project_type=args.project_type,
         repository=args.repository,
+        has_changelog_and_upgrade_guide=args.has_changelog_and_upgrade_guide,
         synchronize_contribution_guide=args.synchronize_contribution_guide,
         synchronize_documentation_utilities=args.synchronize_documentation_utilities,
         synchronize_installation_guide=args.synchronize_installation_guide,
