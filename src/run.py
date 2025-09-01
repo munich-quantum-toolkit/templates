@@ -61,7 +61,11 @@ def main(
     synchronize_support_resources: bool,
     release_drafter_categories: str,
 ) -> None:
-    """Render all templates."""
+    """Render all templates.
+
+    Raises:
+        ValueError: If the arguments are incompatible with each other.
+    """
     if project_type == "other":
         if synchronize_contribution_guide:
             msg = "Contribution guide cannot be synchronized for project type 'other'."
