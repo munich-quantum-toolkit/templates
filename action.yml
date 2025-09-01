@@ -27,6 +27,9 @@ inputs:
   repository:
     description: Name of the repository
     required: true
+  has-changelog-and-upgrade-guide:
+    description: Whether the repository has a changelog and upgrade guide
+    default: true
   synchronize-contribution-guide:
     description: Whether to synchronize the contribution guide
     default: true
@@ -70,6 +73,7 @@ runs:
         ORGANIZATION: ${{ inputs.organization }}
         PROJECT_TYPE: ${{ inputs.project-type }}
         REPOSITORY: ${{ inputs.repository }}
+        HAS_CHANGELOG_AND_UPGRADE_GUIDE: ${{ inputs.has-changelog-and-upgrade-guide }}
         SYNCHRONIZE_CONTRIBUTION_GUIDE: ${{ inputs.synchronize-contribution-guide }}
         SYNCHRONIZE_DOCUMENTATION_UTILITIES: ${{ inputs.synchronize-documentation-utilities }}
         SYNCHRONIZE_INSTALLATION_GUIDE: ${{ inputs.synchronize-installation-guide }}
@@ -86,6 +90,7 @@ runs:
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \
           --repository $REPOSITORY \
+          --has_changelog_and_upgrade_guide $HAS_CHANGELOG_AND_UPGRADE_GUIDE \
           --synchronize_contribution_guide $SYNCHRONIZE_CONTRIBUTION_GUIDE \
           --synchronize_documentation_utilities $SYNCHRONIZE_DOCUMENTATION_UTILITIES \
           --synchronize_installation_guide $SYNCHRONIZE_INSTALLATION_GUIDE \

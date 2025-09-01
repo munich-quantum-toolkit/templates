@@ -4,8 +4,12 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-While not a breaking change, `other` has been added as a `project_type`.
-For this `project_type`, the contribution and installation guides cannot be synchronized.
+This release includes two non-breaking changes:
+
+- A `has-changelog-and-upgrade-guide` has been added to make the templated more generic.
+  If this flag is disabled, respective sections in templates such as `pull_request_template.msd` are omitted.
+- `other` has been added as a `project_type`.
+  For this project type, the contribution and installation guides cannot be synchronized.
 
 ## [1.1.0]
 
