@@ -1,14 +1,20 @@
 <!--- This file has been generated from an external template. Please do not modify it directly. -->
 <!--- Changes should be contributed to https://github.com/munich-quantum-toolkit/templates. -->
 
+{%- if project_type == "c++-python" %}
+
 # Installation
 
-{% if project_type == "c++-python" %}
 MQT {{name}} is primarily developed as a C++20 library with Python bindings.
 The Python package is available on [PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all major operating systems with all supported Python versions.
+
 {%- elif project_type == "pure-python" %}
+
+# Installation
+
 MQT {{name}} is a Python package available on [PyPI](https://pypi.org/project/mqt.{{repository}}/).
 It can be installed on all major operating systems with all supported Python versions.
+
 {%- endif %}
 
 :::::{tip}
