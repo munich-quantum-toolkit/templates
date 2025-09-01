@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Added
+
+- 🎨 Add `other` as possible `project_type` ([#54]) ([**@denialhaag**])
+
 ## [1.1.2] - 2025-09-01
 
 - 🐛 Fix whitespace in installation guide ([#51]) ([**@denialhaag**])
@@ -61,6 +65,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#54]: https://github.com/munich-quantum-toolkit/templates/pull/54
 [#51]: https://github.com/munich-quantum-toolkit/templates/pull/51
 [#50]: https://github.com/munich-quantum-toolkit/templates/pull/50
 [#45]: https://github.com/munich-quantum-toolkit/templates/pull/45

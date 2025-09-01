@@ -4,6 +4,9 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+While not a breaking change, `other` has been added as a `project_type`.
+For this `project_type`, the contribution and installation guides cannot be synchronized.
+
 ## [1.1.0]
 
 With this release, the templating Action has new required inputs:

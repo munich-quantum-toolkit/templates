@@ -62,6 +62,14 @@ def main(
     release_drafter_categories: str,
 ) -> None:
     """Render all templates."""
+    if project_type == "other":
+        if synchronize_contribution_guide:
+            msg = "Contribution guide cannot be synchronized for project type 'other'."
+            raise ValueError(msg)
+        if synchronize_installation_guide:
+            msg = "Installation guide cannot be synchronized for project type 'other'."
+            raise ValueError(msg)
+
     if not release_drafter_categories:
         release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
     release_drafter_categories_dict = json.loads(release_drafter_categories)
@@ -229,7 +237,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--project_type",
         type=str,
-        choices=["c++-python", "pure-python"],
+        choices=["c++-python", "pure-python", "other"],
         required=True,
         help="Type of the project",
     )
