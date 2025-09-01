@@ -23,6 +23,7 @@ inputs:
     options:
       - c++-python
       - pure-python
+      - other
   repository:
     description: Name of the repository
     required: true
