@@ -4,6 +4,8 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+## [1.1.3]
+
 This release includes two non-breaking changes:
 
 - A `has-changelog-and-upgrade-guide` has been added to make the templated more generic.
@@ -60,5 +62,6 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
 [1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
