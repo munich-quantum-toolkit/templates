@@ -114,7 +114,7 @@ def main(
             template_name="docs_support.md",
             file_name="support.md",
             output_dir=Path("docs"),
-            active=synchronize_contribution_guide,
+            active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
             file_name="installation.md",
