@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.5] - 2025-09-02
+
 ### Changed
 
 - 🎨 Improve Renovate configuration ([#59]) ([**@denialhaag**])
@@ -82,7 +84,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.4...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.5...HEAD
+[1.1.5]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.5
 [1.1.4]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.4
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.3
 [1.1.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.2
