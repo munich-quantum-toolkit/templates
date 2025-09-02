@@ -86,7 +86,7 @@ runs:
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
         uv run $GITHUB_ACTION_PATH/src/run.py \
-          --name $NAME \
+          --name "$NAME" \
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \
           --repository $REPOSITORY \
