@@ -15,6 +15,11 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 - 🐛 Allow `name` to contain whitespace character ([#58]) ([**@denialhaag**])
 
+### Changed
+
+- 🎨 Improve wording in issue templates ([#57]) ([**@denialhaag**])
+- 🎨 Improve Renovate configuration ([#57]) ([**@denialhaag**])
+
 ## [1.1.3] - 2025-09-02
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#113)._
@@ -24,7 +29,13 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#113)._
 - 🎨 Add `has_changelog_and_upgrade_guide` flag to make templates more generic ([#55]) ([**@denialhaag**])
 - 🎨 Add `other` as possible `project_type` ([#54]) ([**@denialhaag**])
 
+### Changed
+
+- 🎨 Add `hpca` key to `lit_header.bib` ([#53]) ([**@denialhaag**])
+
 ## [1.1.2] - 2025-09-01
+
+### Fixed
 
 - 🐛 Fix whitespace in installation guide ([#51]) ([**@denialhaag**])
 
@@ -79,8 +90,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 <!-- PR links -->
 
 [#58]: https://github.com/munich-quantum-toolkit/templates/pull/58
+[#57]: https://github.com/munich-quantum-toolkit/templates/pull/57
 [#55]: https://github.com/munich-quantum-toolkit/templates/pull/55
 [#54]: https://github.com/munich-quantum-toolkit/templates/pull/54
+[#53]: https://github.com/munich-quantum-toolkit/templates/pull/53
 [#51]: https://github.com/munich-quantum-toolkit/templates/pull/51
 [#50]: https://github.com/munich-quantum-toolkit/templates/pull/50
 [#45]: https://github.com/munich-quantum-toolkit/templates/pull/45
