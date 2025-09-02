@@ -9,6 +9,12 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.4] - 2025-09-02
+
+### Fixed
+
+- 🐛 Allow `name` to contain whitespace character ([#58]) ([**@denialhaag**])
+
 ## [1.1.3] - 2025-09-02
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#113)._
@@ -62,7 +68,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.4...HEAD
+[1.1.4]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.4
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.3
 [1.1.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.2
 [1.1.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.1
@@ -71,6 +78,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#58]: https://github.com/munich-quantum-toolkit/templates/pull/58
 [#55]: https://github.com/munich-quantum-toolkit/templates/pull/55
 [#54]: https://github.com/munich-quantum-toolkit/templates/pull/54
 [#51]: https://github.com/munich-quantum-toolkit/templates/pull/51
