@@ -84,6 +84,9 @@ disallow_untyped_defs = true
 explicit_package_bases = true
 warn_unreachable = true
 
+[[tool.mypy.overrides]]
+module = ["pre_commit.*"]
+ignore_missing_imports = true
 
 [tool.ruff]
 line-length = 120
