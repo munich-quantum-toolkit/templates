@@ -28,7 +28,7 @@ class TemplateContainer:
     file_name: str
     output_dir: Path
     active: bool
-    arguments: dict[str, str] | None = None
+    arguments: dict[str, str | bool] | None = None
     template_name: str | None = None
 
     def __post_init__(self) -> None:
@@ -187,6 +187,8 @@ def render_templates(
 def _copy_template(template_container: TemplateContainer) -> None:
     """Copy a template without arguments."""
     if template_container.active:
+        assert template_container.template_name is not None
+
         # Create output directory if it does not exist
         output_dir = ROOT_DIR / template_container.output_dir
         output_dir.mkdir(parents=True, exist_ok=True)
@@ -202,6 +204,9 @@ def _copy_template(template_container: TemplateContainer) -> None:
 def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
     """Render a template."""
     if template_container.active:
+        assert template_container.arguments is not None
+        assert template_container.template_name is not None
+
         # Create output directory if it does not exist
         output_dir = ROOT_DIR / template_container.output_dir
         output_dir.mkdir(parents=True, exist_ok=True)

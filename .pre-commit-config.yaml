@@ -53,6 +53,18 @@ repos:
         args: ["--fix", "--show-fixes"]
       - id: ruff-format
 
+  # Static type checking using mypy
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.1
+    hooks:
+      - id: mypy
+        files: ^(src/mqt|tests)
+        args: []
+        additional_dependencies:
+          - jinja2
+          - pytest
+          - pytest-mock
+
   # Check for spelling
   - repo: https://github.com/crate-ci/typos
     rev: v1.36.2
