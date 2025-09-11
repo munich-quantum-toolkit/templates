@@ -1,0 +1,60 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  change-detection:
+    name: 🔍 Change
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@d42342e610318ddf1fcd2371be987faa47caedf0 # v1.16
+
+  python-tests:
+    name: 🐍 Test
+    needs: change-detection
+    if: fromJSON(needs.change-detection.outputs.run-python-tests)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Install uv
+        uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6.6.0
+      - name: Run tests
+        run: uv run pytest
+
+  python-linter:
+    name: 🐍 Lint
+    needs: change-detection
+    if: fromJSON(needs.change-detection.outputs.run-python-tests)
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@d42342e610318ddf1fcd2371be987faa47caedf0 # v1.16
+
+  # this job does nothing and is only used for branch protection
+  required-checks-pass:
+    name: 🚦 Check
+    if: always()
+    needs:
+      - change-detection
+      - python-tests
+      - python-linter
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
+        with:
+          allowed-skips: >-
+            ${{
+              fromJSON(needs.change-detection.outputs.run-python-tests)
+              && '' || 'python-tests,'
+            }}
+            ${{
+              fromJSON(needs.change-detection.outputs.run-python-tests)
+              && '' || 'python-linter,'
+            }}
+          jobs: ${{ toJSON(needs) }}
