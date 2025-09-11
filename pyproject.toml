@@ -1,0 +1,143 @@
+# Copyright (c) 2023 - 2025 Chair for Design Automation, TUM
+# Copyright (c) 2025 Munich Quantum Software Company GmbH
+# All rights reserved.
+#
+# SPDX-License-Identifier: MIT
+#
+# Licensed under the MIT License
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "mqt-templates"
+dynamic = ["version"]
+authors = [
+  { name="Daniel Haag", email = "daniel.haag@tum.de" },
+  { name="Lukas Burgholzer", email = "burgholzer@me.com" },
+]
+description = "A collection of templates and a GitHub action to synchronize them"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE.md"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = [
+    "jinja2>=3.1.6",
+]
+requires-python = ">=3.13"
+
+[project.urls]
+Homepage = "https://github.com/munich-quantum-toolkit/templates"
+Documentation = "https://mqt.readthedocs.io/projects/templates"
+Issues = "https://github.com/munich-quantum-toolkit/templates/issues"
+Discussions = "https://github.com/munich-quantum-toolkit/templates/discussions"
+
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mqt"]
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/mqt/templates/_version.py"
+
+
+[tool.uv]
+required-version = ">=0.5.20"
+reinstall-package = ["mqt-templates"]
+
+[tool.uv.sources]
+mqt-templates = { workspace = true }
+
+
+[tool.pytest.ini_options]
+minversion = "7.2"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+filterwarnings = [
+    "error",
+]
+log_cli_level = "INFO"
+testpaths = ["tests"]
+xfail_strict = true
+
+
+[tool.mypy]
+files = ["src/mqt", "tests"]
+mypy_path = ["$MYPY_CONFIG_FILE_DIR/src"]
+python_version = "3.10"
+warn_unused_configs = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+strict = true
+disallow_untyped_defs = true
+explicit_package_bases = true
+warn_unreachable = true
+
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+preview = true
+unsafe-fixes = true
+fix = true
+show-fixes = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "C90",     # <...> too complex
+    "COM812",  # Conflicts with formatter
+    "CPY001",  # Missing copyright notice at top of file
+    "ISC001",  # Conflicts with formatter
+    "PLR09",   # Too many <...>
+    "PLR2004", # Magic value used in comparison
+    "S101",    # Use of assert detected
+    "S404",    # `subprocess` module is possibly insecure
+    "S603",    # `subprocess` call: check for execution of untrusted input
+    "S607",    # Starting a process with a partial executable path
+    "TID252",  # Prefer absolute imports over relative imports from parent modules
+    "T20",     # print statement used
+]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"typing.Callable".msg = "Use collections.abc.Callable instead."
+"typing.Iterator".msg = "Use collections.abc.Iterator instead."
+"typing.Mapping".msg = "Use collections.abc.Mapping instead."
+"typing.Sequence".msg = "Use collections.abc.Sequence instead."
+"typing.Set".msg = "Use collections.abc.Set instead."
+
+[tool.ruff.lint.isort]
+known-first-party = ["mqt.templates"]
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["T20", "INP001"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+[tool.typos.default.extend-words]
+wille = "wille"
+aer = "aer"
+ket   = "ket"
+
+
+[dependency-groups]
+test = [
+  "pytest>=8.3.5",
+  "pytest-mock>=3.15.0",
+  "pre-commit>=4.3.0",
+]
+dev = [
+  {include-group = "test"},
+]
