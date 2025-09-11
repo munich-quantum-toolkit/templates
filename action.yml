@@ -85,7 +85,7 @@ runs:
         SYNCHRONIZE_SUPPORT_RESOURCES: ${{ inputs.synchronize-support-resources }}
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
-        uv run -m mqt.templates \
+        uv run mqt.templates \
           --name "$NAME" \
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \

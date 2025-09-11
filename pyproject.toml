@@ -31,6 +31,9 @@ dependencies = [
 ]
 requires-python = ">=3.13"
 
+[project.scripts]
+mqt-templates = "mqt.templates.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/munich-quantum-toolkit/templates"
 Documentation = "https://mqt.readthedocs.io/projects/templates"
