@@ -67,6 +67,7 @@ runs:
     - name: Install latest version of uv
       uses: astral-sh/setup-uv@4959332f0f014c5280e7eac8b70c90cb574c9f9b # v6
     - name: Install mqt.templates
+      shell: bash
       run: uv sync
     - name: Run the templating script
       shell: bash
