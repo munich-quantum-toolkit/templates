@@ -6,7 +6,7 @@
 #
 # Licensed under the MIT License
 
-"""Python package for rendering templates."""
+"""Main entry point for rendering templates."""
 
 from __future__ import annotations
 
