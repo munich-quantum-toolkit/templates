@@ -48,52 +48,16 @@ def _check_files(files: list[Path]) -> None:
         assert file_before == file_after, f"File {file.name} was modified by pre-commit"
 
 
-def test_cpp_python(temp_dir: Path) -> None:
-    """Test that templates for `c++-python` projects are rendered correctly."""
+@pytest.mark.parametrize("project_type", ["c++-python", "pure-python"])
+@pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
+def test_non_other(temp_dir: Path, project_type: str, has_changelog_and_upgrade_guide: bool) -> None:  # noqa: FBT001
+    """Test that templates for non-`other` projects are rendered correctly."""
     render_templates(
         name="Test",
         organization="munich-quantum-toolkit",
-        project_type="c++-python",
+        project_type=project_type,
         repository="test",
-        has_changelog_and_upgrade_guide=True,
-        synchronize_contribution_guide=True,
-        synchronize_documentation_utilities=True,
-        synchronize_installation_guide=True,
-        synchronize_issue_templates=True,
-        synchronize_pull_request_template=True,
-        synchronize_release_drafter_template=True,
-        synchronize_renovate_config=True,
-        synchronize_security_policy=True,
-        synchronize_support_resources=True,
-        release_drafter_categories="",
-    )
-
-    files = [
-        temp_dir / ".github" / "CONTRIBUTING.md",
-        temp_dir / ".github" / "ISSUE_TEMPLATE" / "bug-report.yml",
-        temp_dir / ".github" / "ISSUE_TEMPLATE" / "feature-request.yml",
-        temp_dir / ".github" / "pull_request_template.md",
-        temp_dir / ".github" / "release-drafter.yml",
-        temp_dir / ".github" / "renovate.json5",
-        temp_dir / ".github" / "SECURITY.md",
-        temp_dir / ".github" / "SUPPORT.md",
-        temp_dir / "docs" / "_static" / "custom.css",
-        temp_dir / "docs" / "_templates" / "page.html",
-        temp_dir / "docs" / "contributing.md",
-        temp_dir / "docs" / "installation.md",
-        temp_dir / "docs" / "lit_header.bib",
-    ]
-    _check_files(files)
-
-
-def test_pure_python(temp_dir: Path) -> None:
-    """Test that templates for `pure-python` projects are rendered correctly."""
-    render_templates(
-        name="Test",
-        organization="munich-quantum-toolkit",
-        project_type="pure-python",
-        repository="test",
-        has_changelog_and_upgrade_guide=True,
+        has_changelog_and_upgrade_guide=has_changelog_and_upgrade_guide,
         synchronize_contribution_guide=True,
         synchronize_documentation_utilities=True,
         synchronize_installation_guide=True,
