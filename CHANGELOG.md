@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Added
+
+- ✅ Add tests checking that templates render correctly ([#67]) ([**@denialhaag**])
+
 ## [1.1.6] - 2025-09-08
 
 ### Changed
@@ -103,6 +107,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#67]: https://github.com/munich-quantum-toolkit/templates/pull/67
 [#66]: https://github.com/munich-quantum-toolkit/templates/pull/66
 [#59]: https://github.com/munich-quantum-toolkit/templates/pull/59
 [#58]: https://github.com/munich-quantum-toolkit/templates/pull/58
