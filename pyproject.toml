@@ -44,6 +44,10 @@ required-version = ">=0.8.17"
 
 [tool.uv.build-backend]
 module-name = "mqt.templates"
+source-include = [
+  "defaults/**",
+  "templates/**"
+]
 
 [tool.uv.sources]
 mqt-templates = { workspace = true }
@@ -128,8 +132,6 @@ git-only = [
     "CHANGELOG.md",
     "UPGRADING.md",
     "uv.lock",
-    "defaults/*",
-    "templates/*",
     "tests/*",
     "action.yml",
 ]
