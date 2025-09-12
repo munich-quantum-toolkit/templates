@@ -80,6 +80,7 @@ warn_unreachable = true
 module = ["pre_commit.*"]
 ignore_missing_imports = true
 
+
 [tool.ruff]
 line-length = 120
 preview = true
@@ -119,6 +120,20 @@ convention = "google"
 wille = "wille"
 aer = "aer"
 ket   = "ket"
+
+
+[tool.check-sdist]
+git-only = [
+    ".gitignore",
+    ".license-tools-config.json",
+    "CHANGELOG.md",
+    "UPGRADING.md",
+    "uv.lock",
+    "defaults/*",
+    "templates/*",
+    "tests/*",
+    "action.yml",
+]
 
 
 [dependency-groups]
