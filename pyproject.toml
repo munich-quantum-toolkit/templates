@@ -35,7 +35,6 @@ mqt-templates = "mqt.templates.__main__:main"
 
 [project.urls]
 Homepage = "https://github.com/munich-quantum-toolkit/templates"
-Documentation = "https://mqt.readthedocs.io/projects/templates"
 Issues = "https://github.com/munich-quantum-toolkit/templates/issues"
 Discussions = "https://github.com/munich-quantum-toolkit/templates/discussions"
 
