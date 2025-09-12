@@ -7,13 +7,12 @@
 # Licensed under the MIT License
 
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
-build-backend = "hatchling.build"
-
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"
 
 [project]
 name = "mqt-templates"
-dynamic = ["version"]
+version = "1.1.6"
 authors = [
   { name="Daniel Haag", email = "daniel.haag@tum.de" },
   { name="Lukas Burgholzer", email = "burgholzer@me.com" },
@@ -41,18 +40,11 @@ Issues = "https://github.com/munich-quantum-toolkit/templates/issues"
 Discussions = "https://github.com/munich-quantum-toolkit/templates/discussions"
 
 
-[tool.hatch.version]
-source = "vcs"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/mqt"]
-
-[tool.hatch.build.hooks.vcs]
-version-file = "src/mqt/templates/_version.py"
-
-
 [tool.uv]
-required-version = ">=0.5.20"
+required-version = ">=0.8.17"
+
+[tool.uv.build-backend]
+module-name = "mqt.templates"
 
 [tool.uv.sources]
 mqt-templates = { workspace = true }
