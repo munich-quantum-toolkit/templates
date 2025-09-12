@@ -43,7 +43,7 @@ def _check_files(files: list[Path]) -> None:
     for file in files:
         assert file.exists()
         file_before = file.read_text()
-        pre_commit.main.main(["run", "--show-diff-on-failure", "--files", str(file)])
+        pre_commit.main.main(["run", "--files", str(file)])
         file_after = file.read_text()
         assert file_before == file_after, f"File {file.name} was modified by pre-commit"
 
