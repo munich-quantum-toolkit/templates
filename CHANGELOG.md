@@ -13,6 +13,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 - ✅ Add tests checking that templates render correctly ([#67]) ([**@denialhaag**])
 
+### Changed
+
+- 📝 Mention `macos-15-intel` runner in contribution guide ([#79]) ([**@denialhaag**])
+
 ## [1.1.6] - 2025-09-08
 
 ### Changed
@@ -107,6 +111,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#79]: https://github.com/munich-quantum-toolkit/templates/pull/79
 [#67]: https://github.com/munich-quantum-toolkit/templates/pull/67
 [#66]: https://github.com/munich-quantum-toolkit/templates/pull/66
 [#59]: https://github.com/munich-quantum-toolkit/templates/pull/59
