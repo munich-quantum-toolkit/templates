@@ -44,6 +44,10 @@
       commitMessagePrefix: "⬆\uFE0F\uD83D\uDD12\uFE0F",
     },
     {
+      matchManagers: ["pre-commit"],
+      versioning: "pep440"
+    },
+    {
       description: "Automerge patch updates",
       matchUpdateTypes: ["patch"],
       automerge: true
