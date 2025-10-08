@@ -45,7 +45,6 @@
     },
     {
       matchManagers: ["pre-commit"],
-      matchPackageNames: ["henryiii/validate-pyproject-schema-store"],
       versioning: "pep440"
     },
     {
