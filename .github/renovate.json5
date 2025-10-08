@@ -44,6 +44,11 @@
       commitMessagePrefix: "⬆\uFE0F\uD83D\uDD12\uFE0F",
     },
     {
+      matchManagers: ["pre-commit"],
+      matchPackageNames: ["henryiii/validate-pyproject-schema-store"],
+      "versioning": "pep440"
+    },
+    {
       description: "Automerge patch updates",
       matchUpdateTypes: ["patch"],
       automerge: true
