@@ -46,7 +46,7 @@
     {
       matchManagers: ["pre-commit"],
       matchPackageNames: ["henryiii/validate-pyproject-schema-store"],
-      "versioning": "pep440"
+      versioning: "pep440"
     },
     {
       description: "Automerge patch updates",
