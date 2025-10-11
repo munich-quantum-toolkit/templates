@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.7] - 2025-10-11
+
 ### Added
 
 - ✅ Add tests checking that templates render correctly ([#67]) ([**@denialhaag**])
@@ -100,7 +102,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.6...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.7...HEAD
+[1.1.7]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.7
 [1.1.6]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.6
 [1.1.5]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.5
 [1.1.4]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.4
