@@ -9,6 +9,12 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.8] - 2025-10-13
+
+### Fixed
+
+- 🐛 Fix call of templating script in action ([#100]) ([**@denialhaag**])
+
 ## [1.1.7] - 2025-10-11
 
 ### Added
@@ -102,7 +108,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.7...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.8...HEAD
+[1.1.8]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.8
 [1.1.7]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.7
 [1.1.6]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.6
 [1.1.5]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.5
@@ -115,6 +122,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#100]: https://github.com/munich-quantum-toolkit/templates/pull/100
 [#90]: https://github.com/munich-quantum-toolkit/templates/pull/90
 [#79]: https://github.com/munich-quantum-toolkit/templates/pull/79
 [#67]: https://github.com/munich-quantum-toolkit/templates/pull/67
