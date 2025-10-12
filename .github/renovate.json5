@@ -37,15 +37,12 @@
     {
       matchManagers: ["pre-commit"],
       addLabels: ["pre-commit"],
-      commitMessagePrefix: "⬆\uFE0F\uD83E\uDE9D"
+      commitMessagePrefix: "⬆\uFE0F\uD83E\uDE9D",
+      versioning: "pep440"
     },
     {
       matchUpdateTypes: ["lockFileMaintenance"],
       commitMessagePrefix: "⬆\uFE0F\uD83D\uDD12\uFE0F",
-    },
-    {
-      matchManagers: ["pre-commit"],
-      versioning: "pep440"
     },
     {
       description: "Automerge patch updates",
