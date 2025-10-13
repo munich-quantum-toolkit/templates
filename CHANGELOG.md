@@ -13,7 +13,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Fixed
 
-- 🐛 Fix repository checkout in action ([#102]) ([**@denialhaag**])
+- 🐛 Fix working directory of action ([#102]) ([**@denialhaag**])
 
 ## [1.1.8] - 2025-10-13
 
