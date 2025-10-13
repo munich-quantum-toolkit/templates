@@ -67,7 +67,7 @@ runs:
       shell: bash
       env:
         ACTION_REF: ${{ github.action_ref }}
-      run: echo "ACTION_REF=${ACTION_REF}" >> $GITHUB_ENV
+      run: echo "ACTION_REF=$(echo "${ACTION_REF}" | tr -d '\n')" >> $GITHUB_ENV
     - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       with:
         repository: munich-quantum-toolkit/templates
