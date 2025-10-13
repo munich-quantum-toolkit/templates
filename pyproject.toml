@@ -140,7 +140,6 @@ git-only = [
 [dependency-groups]
 test = [
   "pytest>=8.3.5",
-  "pytest-mock>=3.15.0",
   "pre-commit>=4.3.0",
 ]
 dev = [

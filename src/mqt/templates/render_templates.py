@@ -18,7 +18,7 @@ import jinja2
 
 DEFAULTS_DIR = Path(__file__).absolute().parent.parent.parent.parent / "defaults"
 TEMPLATES_DIR = Path(__file__).absolute().parent.parent.parent.parent / "templates"
-ROOT_DIR = Path().absolute() / "target"
+ROOT_DIR = Path().absolute()
 
 
 @dataclass
@@ -39,6 +39,7 @@ class TemplateContainer:
 
 def render_templates(
     *,
+    target_dir: Path,
     name: str,
     organization: str,
     project_type: str,
@@ -178,20 +179,18 @@ def render_templates(
     )
 
     for template_container in template_containers:
+        output_dir = target_dir / template_container.output_dir
+        output_dir.mkdir(parents=True, exist_ok=True)
         if template_container.arguments is None:
-            _copy_template(template_container)
+            _copy_template(template_container, output_dir)
         else:
-            _render_template(environment, template_container)
+            _render_template(environment, template_container, output_dir)
 
 
-def _copy_template(template_container: TemplateContainer) -> None:
+def _copy_template(template_container: TemplateContainer, output_dir: Path) -> None:
     """Copy a template without arguments."""
     if template_container.active:
         assert template_container.template_name is not None
-
-        # Create output directory if it does not exist
-        output_dir = ROOT_DIR / template_container.output_dir
-        output_dir.mkdir(parents=True, exist_ok=True)
 
         # Read the template
         output = (TEMPLATES_DIR / template_container.template_name).read_text(encoding="utf-8")
@@ -201,15 +200,11 @@ def _copy_template(template_container: TemplateContainer) -> None:
         output_path.write_text(output, encoding="utf-8")
 
 
-def _render_template(environment: jinja2.Environment, template_container: TemplateContainer) -> None:
+def _render_template(environment: jinja2.Environment, template_container: TemplateContainer, output_dir: Path) -> None:
     """Render a template."""
     if template_container.active:
         assert template_container.arguments is not None
         assert template_container.template_name is not None
-
-        # Create output directory if it does not exist
-        output_dir = ROOT_DIR / template_container.output_dir
-        output_dir.mkdir(parents=True, exist_ok=True)
 
         # Render the template
         template = environment.get_template(template_container.template_name)
