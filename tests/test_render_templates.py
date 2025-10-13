@@ -22,11 +22,9 @@ from mqt.templates.render_templates import render_templates
 if TYPE_CHECKING:
     from collections.abc import Generator
 
-    from pytest_mock import MockFixture
-
 
 @pytest.fixture
-def temp_dir(mocker: MockFixture) -> Generator[Path]:
+def temp_dir() -> Generator[Path]:
     """Create a temporary directory for testing.
 
     Yields:
@@ -34,7 +32,6 @@ def temp_dir(mocker: MockFixture) -> Generator[Path]:
     """
     temp_dir = Path(__file__).absolute().parent.parent / "temp"
     temp_dir.mkdir(exist_ok=True)
-    mocker.patch("mqt.templates.render_templates.ROOT_DIR", temp_dir)
     yield temp_dir
     shutil.rmtree(temp_dir)
 
@@ -53,6 +50,7 @@ def _check_files(files: list[Path]) -> None:
 def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
     """Test that templates for non-`other` projects are rendered correctly."""
     render_templates(
+        target_dir=temp_dir,
         name="Test",
         organization="munich-quantum-toolkit",
         project_type=project_type,
@@ -91,6 +89,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
 def test_other(temp_dir: Path) -> None:
     """Test that templates for `other` projects are rendered correctly."""
     render_templates(
+        target_dir=temp_dir,
         name="Test",
         organization="munich-quantum-toolkit",
         project_type="other",

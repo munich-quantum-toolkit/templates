@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
 from .render_templates import render_templates
 
@@ -27,6 +28,12 @@ def _convert_to_bool(value: str) -> bool:
 def main() -> None:
     """Parse arguments and render templates."""
     parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--target_dir",
+        type=str,
+        default=".",
+        help="Target directory for the rendered templates",
+    )
     parser.add_argument(
         "--name",
         type=str,
@@ -121,6 +128,7 @@ def main() -> None:
     args = parser.parse_args()
 
     render_templates(
+        target_dir=Path(args.target_dir),
         name=args.name,
         organization=args.organization,
         project_type=args.project_type,
