@@ -18,7 +18,7 @@ import jinja2
 
 DEFAULTS_DIR = Path(__file__).absolute().parent.parent.parent.parent / "defaults"
 TEMPLATES_DIR = Path(__file__).absolute().parent.parent.parent.parent / "templates"
-ROOT_DIR = Path().absolute()
+ROOT_DIR = Path().absolute().parent
 
 
 @dataclass
