@@ -93,7 +93,7 @@ runs:
         RELEASE_DRAFTER_CATEGORIES: ${{ inputs.release-drafter-categories }}
       run: |
         uv run mqt-templates \
-          --target_dir $TARGET_DIR \
+          --target_dir "$TARGET_DIR" \
           --name "$NAME" \
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \
