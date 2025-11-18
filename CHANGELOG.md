@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛 Fix broken link to contributing.html ([#126]) ([**@Ectras**])
+
 ## [1.1.9] - 2025-10-13
 
 ### Fixed
@@ -129,6 +133,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#126]: https://github.com/munich-quantum-toolkit/templates/pull/126
 [#102]: https://github.com/munich-quantum-toolkit/templates/pull/102
 [#100]: https://github.com/munich-quantum-toolkit/templates/pull/100
 [#90]: https://github.com/munich-quantum-toolkit/templates/pull/90
@@ -157,6 +162,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 [**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
+[**@Ectras**]: https://github.com/Ectras/
 
 <!-- General links -->
 
