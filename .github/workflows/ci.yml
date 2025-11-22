@@ -17,7 +17,7 @@ permissions:
 jobs:
   change-detection:
     name: 🔍 Change
-    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@56cf3608b07dc10bda5b98d77ed6ad21ecf7ef5d # v1.17.0
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@4845865ca25c2da3374981f47ae9ed9607a30e1c # v1.17.1
 
   python-tests:
     name: 🐍 Test
@@ -39,7 +39,7 @@ jobs:
     name: 🐍 Lint
     needs: change-detection
     if: fromJSON(needs.change-detection.outputs.run-python-tests)
-    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@56cf3608b07dc10bda5b98d77ed6ad21ecf7ef5d # v1.17.0
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@4845865ca25c2da3374981f47ae9ed9607a30e1c # v1.17.1
 
   # this job does nothing and is only used for branch protection
   required-checks-pass:
