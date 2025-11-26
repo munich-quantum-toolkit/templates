@@ -11,35 +11,37 @@ ci:
   autoupdate_commit_msg: "⬆️🪝 update pre-commit hooks"
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
+  skip: [mypy]
 
 repos:
   # Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v6.0.0"
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
+        args: ["--maxkb=2048"]
       - id: check-case-conflict
-      - id: check-docstring-first
+      - id: check-vcs-permalinks
       - id: check-merge-conflict
       - id: check-symlinks
+      - id: check-json
       - id: check-toml
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
       - id: mixed-line-ending
-      - id: requirements-txt-fixer
       - id: trailing-whitespace
 
   # Handling unwanted unicode characters
   - repo: https://github.com/sirosen/texthooks
-    rev: "0.7.1"
+    rev: 0.7.1
     hooks:
       - id: fix-ligatures
       - id: fix-smartquotes
 
   # Check for common mistakes
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: "v1.10.0"
+    rev: v1.10.0
     hooks:
       - id: rst-backticks
       - id: rst-directive-colons
@@ -50,10 +52,9 @@ repos:
     rev: v0.14.6
     hooks:
       - id: ruff-check
-        args: ["--fix", "--show-fixes"]
       - id: ruff-format
 
-  # Static type checking using mypy
+  # Check static types with mypy
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.18.2
     hooks:
