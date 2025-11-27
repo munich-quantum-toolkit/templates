@@ -146,7 +146,7 @@ requires-dist = [{ name = "jinja2", specifier = ">=3.1.6" }]
 dev = [
     { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pytest", specifier = ">=8.3.5" },
-    { name = "ty", specifier = ">=0.0.1a27" },
+    { name = "ty", specifier = "==0.0.1a28" },
 ]
 test = [
     { name = "pre-commit", specifier = ">=4.3.0" },
