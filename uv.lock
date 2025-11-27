@@ -114,8 +114,12 @@ dev = [
 =======
     { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pytest", specifier = ">=8.3.5" },
+<<<<<<< HEAD
     { name = "ty", specifier = ">=0.0.1a27" },
 >>>>>>> f073912 (Add ty to dev dependencies)
+=======
+    { name = "ty", specifier = "==0.0.1a28" },
+>>>>>>> 8891d37 (Pin ty)
 ]
 test = [
     { name = "prek", specifier = ">=0.2.19" },
