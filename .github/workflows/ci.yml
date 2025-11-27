@@ -40,6 +40,8 @@ jobs:
     needs: change-detection
     if: fromJSON(needs.change-detection.outputs.run-python-tests)
     uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@dbcd4474154dda0794838207274a3bccd4550de0 # v1.17.3
+    with:
+      enable-ty: true
 
   # this job does nothing and is only used for branch protection
   required-checks-pass:
