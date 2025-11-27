@@ -11,6 +11,7 @@ ci:
   autoupdate_commit_msg: "⬆️🪝 update pre-commit hooks"
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
+  skip: [ty-check]
 
 repos:
   # Standard hooks
