@@ -11,6 +11,7 @@ ci:
   autoupdate_commit_msg: "⬆️🪝 update pre-commit hooks"
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
+  skip: [ty-check]
 
 repos:
   # Standard hooks
@@ -52,6 +53,16 @@ repos:
       - id: ruff-check
         args: ["--fix", "--show-fixes"]
       - id: ruff-format
+
+  # Check static types with ty
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty check
+        entry: uvx ty check .
+        language: system
+        pass_filenames: false
+        always_run: true
 
   # Static type checking using mypy
   - repo: https://github.com/pre-commit/mirrors-mypy
