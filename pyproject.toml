@@ -139,5 +139,4 @@ test = [
 ]
 dev = [
   {include-group = "test"},
-  "ruff>=0.14.6",
 ]
