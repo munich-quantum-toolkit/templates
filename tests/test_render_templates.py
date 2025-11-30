@@ -11,10 +11,10 @@
 from __future__ import annotations
 
 import shutil
+import subprocess
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-import pre_commit.main
 import pytest
 
 from mqt.templates.render_templates import render_templates
@@ -40,7 +40,7 @@ def _check_files(files: list[Path]) -> None:
     for file in files:
         assert file.exists()
         file_before = file.read_text()
-        pre_commit.main.main(["run", "--files", str(file)])
+        subprocess.run(["prek", "run", "--files", str(file)], check=False)
         file_after = file.read_text()
         assert file_before == file_after, f"File {file.name} was modified by pre-commit"
 

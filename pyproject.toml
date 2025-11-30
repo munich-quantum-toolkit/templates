@@ -135,7 +135,7 @@ git-only = [
 [dependency-groups]
 test = [
   "pytest>=9.0.1",
-  "pre-commit>=4.3.0",
+  "prek>=0.2.19",
 ]
 dev = [
   {include-group = "test"},
