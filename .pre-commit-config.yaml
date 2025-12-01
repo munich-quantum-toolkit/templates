@@ -60,16 +60,6 @@ repos:
       - id: ruff-check
       - id: ruff-format
 
-  # Check static types with ty
-  - repo: local
-    hooks:
-      - id: ty-check
-        name: ty check
-        entry: uvx ty check .
-        language: system
-        pass_filenames: false
-        always_run: true
-
   # Check static types with mypy
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.19.0
@@ -81,6 +71,16 @@ repos:
           - jinja2
           - pytest
           - pytest-mock
+
+  # Check static types with ty
+  - repo: local
+    hooks:
+      - id: ty-check
+        name: ty check
+        entry: python -c "import subprocess; import sys; subprocess.run(['uv', 'sync', '--no-install-project', '--inexact']); sys.exit(subprocess.run(['uv', 'run', '--no-sync', 'ty', 'check']).returncode)"
+        language: unsupported
+        require_serial: true
+        types_or: [python, pyi, jupyter]
 
   # Check for spelling
   - repo: https://github.com/crate-ci/typos
