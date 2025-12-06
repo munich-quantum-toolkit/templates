@@ -9,6 +9,13 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.11] - 2025-12-06
+
+### Changed
+
+- 🔧 Group all renovate patch version updates into a single update PR ([#160]) ([**@burgholzer**])
+- 🔧 Use more renovate presets ([#160]) ([**@burgholzer**])
+
 ## [1.1.10] - 2025-11-20
 
 ### Fixed
@@ -120,7 +127,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.10...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.11...HEAD
+[1.1.11]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.11
 [1.1.10]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.10
 [1.1.9]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.9
 [1.1.8]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.8
@@ -136,6 +144,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#160]: https://github.com/munich-quantum-toolkit/templates/pull/160
 [#126]: https://github.com/munich-quantum-toolkit/templates/pull/126
 [#102]: https://github.com/munich-quantum-toolkit/templates/pull/102
 [#100]: https://github.com/munich-quantum-toolkit/templates/pull/100
