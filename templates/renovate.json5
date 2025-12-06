@@ -52,8 +52,8 @@
     },
     {
       description: "Group and automerge all patch updates",
+      groupName: "patch updates",
       groupSlug: "all-patch",
-      matchPackageNames: ["*"],
       matchUpdateTypes: ["patch"],
       automerge: true
     },
