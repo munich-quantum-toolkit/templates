@@ -9,6 +9,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.12] - 2026-01-09
+
 ### Changed
 
 - 📝 Add docs for setting up dev environment with uv ([#182]) ([**@adnathanail**])
@@ -133,7 +135,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.11...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.12...HEAD
+[1.1.12]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.12
 [1.1.11]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.11
 [1.1.10]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.10
 [1.1.9]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.9
