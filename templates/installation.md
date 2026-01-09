@@ -323,7 +323,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     ```
 
     They can also be run automatically on every commit via [{code}`prek`][prek] (recommended).
-    To set this up, [install {code}`prek`](https://prek.j178.dev/installation/), e.g., via:
+    To set this up, {code}`prek`, e.g., via:
 
     ::::{tab-set}
     :::{tab-item} macOS and Linux
