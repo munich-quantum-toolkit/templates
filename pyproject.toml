@@ -146,5 +146,5 @@ test = [
 ]
 dev = [
   {include-group = "test"},
-  "ty==0.0.8",
+  "ty==0.0.10",
 ]
