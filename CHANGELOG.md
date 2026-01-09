@@ -9,6 +9,12 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Add docs for setting up dev environment with uv ([#182]) ([**@adnathanail**])
+- 🔧 Remove instructions to install nox (it is installed by default) ([#182]) ([**@adnathanail**])
+- 🔧 Replace recommendation to use pre-commit with prek ([#182]) ([**@adnathanail**])
+
 ## [1.1.11] - 2025-12-06
 
 ### Changed
@@ -144,6 +150,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#182]: https://github.com/munich-quantum-toolkit/templates/pull/182
 [#160]: https://github.com/munich-quantum-toolkit/templates/pull/160
 [#126]: https://github.com/munich-quantum-toolkit/templates/pull/126
 [#102]: https://github.com/munich-quantum-toolkit/templates/pull/102
@@ -175,6 +182,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 [**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
 [**@Ectras**]: https://github.com/Ectras/
+[**@adnathanail**]: https://github.com/adnathanail
 
 <!-- General links -->
 
