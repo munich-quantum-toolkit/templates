@@ -108,12 +108,12 @@ requires-dist = [{ name = "jinja2", specifier = ">=3.1.6" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "prek", specifier = ">=0.2.19" },
+    { name = "prek", specifier = ">=0.2.27" },
     { name = "pytest", specifier = ">=9.0.1" },
     { name = "ty", specifier = "==0.0.10" },
 ]
 test = [
-    { name = "prek", specifier = ">=0.2.19" },
+    { name = "prek", specifier = ">=0.2.27" },
     { name = "pytest", specifier = ">=9.0.1" },
 ]
 
