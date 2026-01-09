@@ -280,62 +280,48 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
     Now you can make your changes locally.
 
-4.  Install development tools:
+4.  Install development dependencies:
 
     We highly recommend using modern, fast tooling for the development workflow.
     We recommend using [{code}`uv`][uv].
     If you don't have {code}`uv`, follow the installation instructions in the recommendation above (see {ref}`tip above <uv-recommendation>`).
     See the [uv documentation][uv] for more information.
 
-    We also recommend installing [{code}`pre-commit`][pre-commit] to automatically run checks before each commit and [{code}`nox`][nox] to automate common development tasks.
-
     ::::{tab-set}
     :sync-group: installer
 
     :::{tab-item} {code}`uv` _(recommended)_
     :sync: uv
-    The easiest way to install {code}`pre-commit` and {code}`nox` is via [{code}`uv`][uv]:
-
+    Install the dependencies (including testing and documentation dependencies) with [{code}`uv`][uv] with:
     ```console
-    $ uv tool install pre-commit
-    $ uv tool install nox
+    $ uv sync --group dev --group docs
     ```
-
-    :::
-    :::{tab-item} {code}`brew`
-    :sync: brew
-    On macOS with Homebrew, you can install {code}`pre-commit` and {code}`nox` with:
-
-    ```console
-    $ brew install pre-commit nox
-    ```
-
-    :::
-    :::{tab-item} {code}`pipx`
-    :sync: pipx
-    If you prefer to use [{code}`pipx`][pipx], you can install {code}`pre-commit` and {code}`nox` with:
-
-    ```console
-    $ pipx install pre-commit
-    $ pipx install nox
-    ```
-
     :::
     :::{tab-item} {code}`pip`
     :sync: pip
-    If you prefer to use regular {code}`pip` (preferably in a virtual environment), you can install {code}`pre-commit` and {code}`nox` with:
-
+    If you really don't want to use [{code}`uv`][uv], you can export the dependencies into a {code}`requirements.txt` and install into a virtual environment using {code}`pip` 
     ```console
-    $ pip install pre-commit nox
+    $ uv export --group docs --no-hashes > requirements.txt 
+    $ python -m venv .venv
+    $ source ./.venv/bin/activate
+    (.venv) $ python -m pip install -r requirements.txt
     ```
-
     :::
     ::::
 
-    Then enable the {code}`pre-commit` hooks with:
+5.  Linting:
+
+    Linting is handled by [{code}`nox`][nox], by running:
+    ```console
+    $ nox -s lint
+    ```
+    
+    There are also [{code}`prek`][prek] hooks available, which allow you to automatically run linting every time you commit.
+
+    To set this up, [install {code}`prek`](https://prek.j178.dev/installation/), then run:
 
     ```console
-    $ pre-commit install
+    $ prek install
     ```
 
 <!-- Links -->
@@ -344,6 +330,6 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 [git-submodule]: https://git-scm.com/docs/git-submodule
 [nox]: https://nox.thea.codes/en/stable/
 [pipx]: https://pypa.github.io/pipx/
-[pre-commit]: https://pre-commit.com/
+[prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
