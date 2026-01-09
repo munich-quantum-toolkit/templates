@@ -150,6 +150,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#182]: https://github.com/munich-quantum-toolkit/templates/pull/182
 [#160]: https://github.com/munich-quantum-toolkit/templates/pull/160
 [#126]: https://github.com/munich-quantum-toolkit/templates/pull/126
 [#102]: https://github.com/munich-quantum-toolkit/templates/pull/102
@@ -181,6 +182,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 [**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
 [**@Ectras**]: https://github.com/Ectras/
+[**@adnathanail**]: https://github.com/adnathanail
 
 <!-- General links -->
 
