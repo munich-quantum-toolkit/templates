@@ -292,7 +292,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
     :::{tab-item} {code}`uv` _(recommended)_
     :sync: uv
-    Install the dependencies (including testing and documentation dependencies) with [{code}`uv`][uv] with:
+    Install the dependencies (including testing and documentation dependencies) with [{code}`uv`][uv]:
 
     ```console
     $ uv sync --group dev --group docs
@@ -301,10 +301,10 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     :::
     :::{tab-item} {code}`pip`
     :sync: pip
-    If you really don't want to use [{code}`uv`][uv], you can export the dependencies into a {code}`requirements.txt` and install into a virtual environment using {code}`pip`
+    If you really don't want to use [{code}`uv`][uv], you can export the dependencies into a {code}`requirements.txt` and install into a virtual environment using {code}`pip`.
 
     ```console
-    $ uv export --group docs --no-hashes > requirements.txt
+    $ uv export --group dev --group docs --no-hashes > requirements.txt
     $ python -m venv .venv
     $ source ./.venv/bin/activate
     (.venv) $ python -m pip install -r requirements.txt
