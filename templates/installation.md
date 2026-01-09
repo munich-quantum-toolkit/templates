@@ -280,7 +280,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
     Now you can make your changes locally.
 
-4.  Install development dependencies:
+4.  Install the project and its development dependencies:
 
     We highly recommend using modern, fast tooling for the development workflow.
     We recommend using [{code}`uv`][uv].
@@ -292,38 +292,65 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
     :::{tab-item} {code}`uv` _(recommended)_
     :sync: uv
-    Install the dependencies (including testing and documentation dependencies) with [{code}`uv`][uv]:
+    Install the project (including development dependencies) with [{code}`uv`][uv]:
 
     ```console
-    $ uv sync --group dev --group docs
+    $ uv sync
     ```
 
     :::
     :::{tab-item} {code}`pip`
     :sync: pip
-    If you really don't want to use [{code}`uv`][uv], you can export the dependencies into a {code}`requirements.txt` and install into a virtual environment using {code}`pip`.
+    If you really don't want to use [{code}`uv`][uv], you can install the project and the development dependencies into a virtual environment using {code}`pip`.
 
     ```console
-    $ uv export --group dev --group docs --no-hashes > requirements.txt
     $ python -m venv .venv
     $ source ./.venv/bin/activate
-    (.venv) $ python -m pip install -r requirements.txt
+    (.venv) $ python -m pip install -U pip
+    (.venv) $ python -m pip install -e . --group dev
     ```
 
     :::
     ::::
 
-5.  Linting:
+5.  Install pre-commit hooks to ensure code quality:
 
-    Linting is handled by [{code}`nox`][nox], by running:
+    The project uses [pre-commit] hooks for running linters and formatting tools on each commit.
+    These checks can be run manually via [{code}`nox`][nox], by running:
 
     ```console
     $ nox -s lint
     ```
 
-    There are also [{code}`prek`][prek] hooks available, which allow you to automatically run linting every time you commit.
+    They can also be run automatically on every commit via [{code}`prek`][prek] (recommended).
+    To set this up, [install {code}`prek`](https://prek.j178.dev/installation/), e.g., via:
 
-    To set this up, [install {code}`prek`](https://prek.j178.dev/installation/), then run:
+    ::::{tab-set}
+    :::{tab-item} macOS and Linux
+
+    ```console
+    $ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
+    ```
+
+    :::
+    :::{tab-item} Windows
+
+    ```console
+    $ powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
+    ```
+
+    :::
+
+    :::{tab-item} {code}`uv`
+
+    ```console
+    $ uv tool install prek
+    ```
+
+    :::
+    ::::
+
+    Then run:
 
     ```console
     $ prek install
@@ -335,6 +362,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 [git-submodule]: https://git-scm.com/docs/git-submodule
 [nox]: https://nox.thea.codes/en/stable/
 [pipx]: https://pypa.github.io/pipx/
+[pre-commit]: https://pre-commit.com/
 [prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
