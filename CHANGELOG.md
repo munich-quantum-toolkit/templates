@@ -11,9 +11,9 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
-- 📝 Add docs for setting up dev environment with uv ([**@adnathanail**])
-- 🔧 Remove instructions to install nox (it is installed by default) ([**@adnathanail**])
-- 🔧 Replace recommendation to use pre-commit with prek ([**@adnathanail**])
+- 📝 Add docs for setting up dev environment with uv ([#182]) ([**@adnathanail**])
+- 🔧 Remove instructions to install nox (it is installed by default) ([#182]) ([**@adnathanail**])
+- 🔧 Replace recommendation to use pre-commit with prek ([#182]) ([**@adnathanail**])
 
 ## [1.1.11] - 2025-12-06
 
