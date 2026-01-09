@@ -22,11 +22,13 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE.md"]
 classifiers = [
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3 :: Only",
+  "Natural Language :: English",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
 ]
 dependencies = [
-    "jinja2>=3.1.6",
+  "jinja2>=3.1.6",
 ]
 requires-python = ">=3.13"
 
@@ -96,16 +98,16 @@ show-fixes = true
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    "C90",     # <...> too complex
-    "CPY001",  # Missing copyright notice at top of file
-    "PLR09",   # Too many <...>
-    "PLR2004", # Magic value used in comparison
-    "S101",    # Use of assert detected
-    "S404",    # `subprocess` module is possibly insecure
-    "S603",    # `subprocess` call: check for execution of untrusted input
-    "S607",    # Starting a process with a partial executable path
-    "TID252",  # Prefer absolute imports over relative imports from parent modules
-    "T20",     # print statement used
+  "C90",     # <...> too complex
+  "CPY001",  # Missing copyright notice at top of file
+  "PLR09",   # Too many <...>
+  "PLR2004", # Magic value used in comparison
+  "S101",    # Use of assert detected
+  "S404",    # `subprocess` module is possibly insecure
+  "S603",    # `subprocess` call: check for execution of untrusted input
+  "S607",    # Starting a process with a partial executable path
+  "TID252",  # Prefer absolute imports over relative imports from parent modules
+  "T20",     # print statement used
 ]
 future-annotations = true
 
@@ -127,13 +129,13 @@ ket   = "ket"
 
 [tool.check-sdist]
 git-only = [
-    ".gitignore",
-    ".license-tools-config.json",
-    "CHANGELOG.md",
-    "UPGRADING.md",
-    "uv.lock",
-    "tests/*",
-    "action.yml",
+  ".gitignore",
+  ".license-tools-config.json",
+  "CHANGELOG.md",
+  "UPGRADING.md",
+  "uv.lock",
+  "tests/*",
+  "action.yml",
 ]
 
 
