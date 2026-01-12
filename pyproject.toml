@@ -72,22 +72,6 @@ filterwarnings = ["error"]
 error-on-warning = true
 
 
-[tool.mypy]
-files = ["src/mqt", "tests"]
-mypy_path = ["$MYPY_CONFIG_FILE_DIR/src"]
-python_version = "3.13"
-warn_unused_configs = true
-enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
-strict = true
-disallow_untyped_defs = true
-explicit_package_bases = true
-warn_unreachable = true
-
-[[tool.mypy.overrides]]
-module = ["pre_commit.*"]
-ignore_missing_imports = true
-
-
 [tool.ruff]
 line-length = 120
 preview = true

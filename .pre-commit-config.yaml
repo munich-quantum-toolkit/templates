@@ -11,7 +11,7 @@ ci:
   autoupdate_commit_msg: "⬆️🪝 update pre-commit hooks"
   autofix_commit_msg: "🎨 pre-commit fixes"
   autoupdate_schedule: quarterly
-  skip: [mypy, ty-check]
+  skip: [ty-check]
 
 repos:
   # Standard hooks
@@ -60,24 +60,12 @@ repos:
       - id: ruff-check
       - id: ruff-format
 
-  # Check static types with mypy
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.19.1
-    hooks:
-      - id: mypy
-        files: ^(src/mqt|tests)
-        args: []
-        additional_dependencies:
-          - jinja2
-          - pytest
-          - pytest-mock
-
   # Check static types with ty
   - repo: local
     hooks:
       - id: ty-check
         name: ty check
-        entry: python -c "import subprocess; import sys; subprocess.run(['uv', 'sync', '--no-install-project', '--inexact']); sys.exit(subprocess.run(['uv', 'run', '--no-sync', 'ty', 'check']).returncode)"
+        entry: uv run ty check
         language: unsupported
         require_serial: true
         types_or: [python, pyi, jupyter]

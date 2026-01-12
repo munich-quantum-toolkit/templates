@@ -42,6 +42,7 @@ jobs:
     uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@d6314c45667c131055a0389afc110e8dedc6da3f # v1.17.11
     with:
       enable-ty: true
+      enable-mypy: false
 
   # this job does nothing and is only used for branch protection
   required-checks-pass:
