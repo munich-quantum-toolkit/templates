@@ -55,7 +55,6 @@
       groupName: "patch versions",
       groupSlug: "all-patch",
       matchUpdateTypes: ["patch"],
-      commitMessagePrefix: "⬆\uFE0F\uD83E\uDE79",
       automerge: true
     },
   ]
