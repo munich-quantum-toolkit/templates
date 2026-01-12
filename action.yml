@@ -114,11 +114,9 @@ runs:
       env:
         MQT_TEMPLATES_REF: ${{ github.action_ref }}
       run: |
-        echo "MQT_TEMPLATES_REF: "
-        echo "$MQT_TEMPLATES_REF"
+        echo "MQT_TEMPLATES_REF: $MQT_TEMPLATES_REF"
         SANITIZED_REF="$(printf '%s' "$MQT_TEMPLATES_REF" | tr -d '\n')"
-        echo "SANITIZED_REF: "
-        echo "$SANITIZED_REF"
+        echo "SANITIZED_REF: $SANITIZED_REF"
         echo "BRANCH_NAME=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_ENV"
       shell: bash
     - name: Create pull request
