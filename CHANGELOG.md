@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Fixed
+
+- 🐛 Use unique branch names for PRs ([#190]) ([**@denialhaag**])
+
 ## [1.1.12] - 2026-01-09
 
 ### Changed
@@ -21,8 +25,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
-- 🔧 Group all renovate patch version updates into a single update PR ([#160]) ([**@burgholzer**])
-- 🔧 Use more renovate presets ([#160]) ([**@burgholzer**])
+- 🔧 Group all Renovate patch version updates into a single update PR ([#160]) ([**@burgholzer**])
+- 🔧 Use more Renovate presets ([#160]) ([**@burgholzer**])
 
 ## [1.1.10] - 2025-11-20
 
