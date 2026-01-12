@@ -12,7 +12,7 @@ Fixes #(issue) <!--- Replace `(issue)` with the issue number fixed by this pull 
 This checklist serves as a reminder of a couple of things that ensure your pull request will be merged swiftly.
 -->
 
-- [ ] The pull request only contains commits that are focused and relevant to this change.
+- [ ] The PR only contains commits that are focused and relevant to this change.
 - [ ] I have added appropriate tests that cover the new/changed functionality.
 - [ ] I have updated the documentation to reflect these changes.
 - [ ] I have added entries to the changelog for any noteworthy additions, changes, fixes, or removals.
