@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Added
+
+- 🔧 Add exclude labels for release drafter configuration ([#196]) ([**@burgholzer**])
+
 ### Fixed
 
 - 🐛 Use unique branch names for PRs ([#190]) ([**@denialhaag**])
@@ -157,6 +161,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#196]: https://github.com/munich-quantum-toolkit/templates/pull/196
 [#190]: https://github.com/munich-quantum-toolkit/templates/pull/190
 [#182]: https://github.com/munich-quantum-toolkit/templates/pull/182
 [#160]: https://github.com/munich-quantum-toolkit/templates/pull/160
