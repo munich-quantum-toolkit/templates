@@ -54,8 +54,7 @@
     },
     {
       description: "Group and automerge all patch updates",
-      groupName: "patch versions",
-      groupSlug: "all-patch",
+      groupName: "patch updates",
       matchUpdateTypes: ["patch"],
       matchCurrentVersion: "!/^0\.0/",
       commitMessagePrefix: "⬆\uFE0F\uD83E\uDE79",
