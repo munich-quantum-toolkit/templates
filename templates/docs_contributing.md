@@ -4,7 +4,7 @@
 # Contributing
 
 Thank you for your interest in contributing to MQT {{name}}!
-This document outlines how to contribute and the development guidelines.
+This document outlines the development guidelines and how to contribute.
 
 We use GitHub to [host code](https://github.com/{{organization}}/{{repository}}), to [track issues and feature requests][issues], as well as accept [pull requests](https://github.com/{{organization}}/{{repository}}/pulls).
 See <https://docs.github.com/en/get-started/quickstart> for a general introduction to working with GitHub and contributing to projects.
@@ -454,6 +454,7 @@ Here are some tips for finding the cause of certain failures:
 
 - If any of the {code}`CI / 🇨‌ Test` checks fail, this indicates build errors or test failures in the C++ part of the code base.
   Look through the respective logs on GitHub for any error or failure messages.
+
 - If any of the {code}`CI / 🐍 Test` checks fail, this indicates build errors or test failures in the Python part of the code base.
   Look through the respective logs on GitHub for any error or failure messages.
 
@@ -477,6 +478,7 @@ Here are some tips for finding the cause of certain failures:
 
 - If the {code}`pre-commit.ci` check fails, some of the {code}`pre-commit` checks failed and could not be fixed automatically by the _pre-commit.ci_ bot.
   The individual log messages frequently provide helpful suggestions on how to fix the warnings.
+
 - If the {code}`docs/readthedocs.org:\*` check fails, the documentation could not be built properly.
   Inspect the corresponding log file for any errors.
 
