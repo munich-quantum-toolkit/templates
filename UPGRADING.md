@@ -4,6 +4,21 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+With this release, the templating action has new required input.
+The `create-pull-request` flag controls whether a pull request with the changes is created.
+This allows the templating workflow to be configured so that pull requests are created only when the workflow runs on the `main` branch.
+
+```yaml
+- uses: munich-quantum-toolkit/templates@v1.2.0
+  with:
+    create-pull-request: ${{ github.ref == 'refs/heads/main' }}
+    token: <...>
+    name: Core
+    organization: munich-quantum-toolkit
+    project-type: c++-python
+    repository: core
+```
+
 ## [1.1.3]
 
 This release includes two non-breaking changes:
@@ -15,7 +30,7 @@ This release includes two non-breaking changes:
 
 ## [1.1.0]
 
-With this release, the templating Action has new required inputs:
+With this release, the templating action has new required inputs:
 
 - The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
 - The `project_type` specifies whether the project has C++ components.
@@ -35,7 +50,7 @@ This behavior can be controlled using the following flags:
 The categories of the Release Drafter can be configured using `release-drafter-categories`.
 If not provided, the default categories are used.
 
-See below for an exemplary Action configuration:
+See below for an exemplary action configuration:
 
 ```yaml
 jobs:

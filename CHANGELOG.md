@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
+- 🔧 Add `create-pull-request` flag to control whether a PR is created ([#203]) ([**@burgholzer**])
 - 🔧 Tweak Renovate configuration ([#197]) ([**@burgholzer**])
 
 ### Fixed
@@ -166,6 +167,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#203]: https://github.com/munich-quantum-toolkit/templates/pull/203
 [#201]: https://github.com/munich-quantum-toolkit/templates/pull/201
 [#197]: https://github.com/munich-quantum-toolkit/templates/pull/197
 [#196]: https://github.com/munich-quantum-toolkit/templates/pull/196
