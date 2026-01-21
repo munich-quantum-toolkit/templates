@@ -11,7 +11,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
-- 🔧 Add exclude labels for release drafter configuration ([#196]) ([**@burgholzer**])
+- 🔧 Add exclude labels to Release Drafter configuration ([#196]) ([**@burgholzer**])
 
 ### Changed
 
@@ -19,6 +19,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Fixed
 
+- 🐛 Remove empty section title from Release Drafter template ([#201]) ([**@denialhaag**])
 - 🐛 Use unique branch names for PRs ([#190]) ([**@denialhaag**])
 
 ## [1.1.12] - 2026-01-09
@@ -165,6 +166,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#201]: https://github.com/munich-quantum-toolkit/templates/pull/201
 [#197]: https://github.com/munich-quantum-toolkit/templates/pull/197
 [#196]: https://github.com/munich-quantum-toolkit/templates/pull/196
 [#190]: https://github.com/munich-quantum-toolkit/templates/pull/190
