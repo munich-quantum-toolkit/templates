@@ -4,20 +4,8 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-With this release, the templating action has new required input.
-The `create-pull-request` flag controls whether a pull request with the changes is created.
-This allows the templating workflow to be configured so that pull requests are created only when the workflow runs on the `main` branch.
-
-```yaml
-- uses: munich-quantum-toolkit/templates@v1.2.0
-  with:
-    create-pull-request: ${{ github.ref == 'refs/heads/main' }}
-    token: <...>
-    name: Core
-    organization: munich-quantum-toolkit
-    project-type: c++-python
-    repository: core
-```
+While not a breaking change, with this release, the action will only create a pull request once it runs on `main`.
+On all other branches, the action outputs `git diff` to the terminal.
 
 ## [1.1.3]
 

@@ -15,7 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
-- 🔧 Add `create-pull-request` flag to control whether a PR is created ([#203]) ([**@burgholzer**])
+- 👷 Create PRs only when the action runs on `main` ([#203]) ([**@denialhaag**])
 - 🔧 Tweak Renovate configuration ([#197]) ([**@burgholzer**])
 
 ### Fixed
