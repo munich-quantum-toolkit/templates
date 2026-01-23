@@ -4,6 +4,9 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+While not a breaking change, with this release, the action will only create a pull request once it runs on `main`.
+On all other branches, the action outputs `git diff` to the terminal.
+
 ## [1.1.3]
 
 This release includes two non-breaking changes:
@@ -15,7 +18,7 @@ This release includes two non-breaking changes:
 
 ## [1.1.0]
 
-With this release, the templating Action has new required inputs:
+With this release, the templating action has new required inputs:
 
 - The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
 - The `project_type` specifies whether the project has C++ components.
@@ -35,7 +38,7 @@ This behavior can be controlled using the following flags:
 The categories of the Release Drafter can be configured using `release-drafter-categories`.
 If not provided, the default categories are used.
 
-See below for an exemplary Action configuration:
+See below for an exemplary action configuration:
 
 ```yaml
 jobs:
