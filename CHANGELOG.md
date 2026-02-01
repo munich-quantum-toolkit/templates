@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
+- 📝 Update list of runners in contribution guide ([#210]) ([**@denialhaag**])
 - 👷 Create PRs only when the action runs on `main` ([#203]) ([**@denialhaag**])
 - 🔧 Tweak Renovate configuration ([#197]) ([**@burgholzer**])
 
