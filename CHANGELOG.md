@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
+- 📝 Update list of runners in contribution guide ([#210]) ([**@denialhaag**])
 - 👷 Create PRs only when the action runs on `main` ([#203]) ([**@denialhaag**])
 - 🔧 Tweak Renovate configuration ([#197]) ([**@burgholzer**])
 
@@ -167,6 +168,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#210]: https://github.com/munich-quantum-toolkit/templates/pull/210
 [#203]: https://github.com/munich-quantum-toolkit/templates/pull/203
 [#201]: https://github.com/munich-quantum-toolkit/templates/pull/201
 [#197]: https://github.com/munich-quantum-toolkit/templates/pull/197
