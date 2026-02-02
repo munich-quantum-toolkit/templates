@@ -168,6 +168,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#210]: https://github.com/munich-quantum-toolkit/templates/pull/210
 [#203]: https://github.com/munich-quantum-toolkit/templates/pull/203
 [#201]: https://github.com/munich-quantum-toolkit/templates/pull/201
 [#197]: https://github.com/munich-quantum-toolkit/templates/pull/197
