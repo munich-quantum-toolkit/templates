@@ -44,7 +44,7 @@ See below for an exemplary action configuration:
 jobs:
   render-template:
     name: Render template
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     permissions:
       contents: write
       pull-requests: write
