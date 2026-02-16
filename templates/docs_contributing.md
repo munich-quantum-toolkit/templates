@@ -94,6 +94,26 @@ Please adhere to the following guidelines to help the project grow sustainably.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
 
+(working-with-coderabbit)=
+
+### Working with CodeRabbit
+
+We use [CodeRabbit](https://github.com/apps/coderabbit) for automated code review on pull requests.
+To get the most out of it and help the project maintain high quality, please follow these practices:
+
+- **Draft PRs**: CodeRabbit runs on every push to non-draft PRs. If you are still experimenting, mark your PR as a draft so that review runs when you are ready for feedback.
+- **Respond to comments**: Do not simply dismiss CodeRabbit's comments. It learns from your replies and improves over time. If a suggestion does not apply, take a moment to explain why in a reply.
+- **Avoid multiple AI review bots**: CodeRabbit performs significantly worse when other AI review bots (e.g., Copilot) are active on the same PR. For the best results, do not tag Copilot unless you have already iterated with CodeRabbit and want an extra pass.
+- **Tag CodeRabbit when mentioning Copilot**: If you tag a human in a message to Copilot, also tag [@coderabbitai](https://github.com/coderabbitai). This encourages CodeRabbit to give a concrete, updated response instead of generic boilerplate.
+- **Let CodeRabbit resolve comments**: Do not resolve review comments manually before the next CodeRabbit run after your push. CodeRabbit is designed to resolve completed comments itself.
+- **Manual review on drafts**: You can trigger a full review on a draft PR by commenting with "[@coderabbitai](https://github.com/coderabbitai) full review".
+
+### Use of AI and LLMs
+
+Contributions may be prepared with the help of AI or LLM tools.
+However, [AI Slop](https://en.wikipedia.org/wiki/AI_slop)—generic, low-value, or clearly machine-generated content that does not meet our standards for clarity, accuracy, or usefulness—is not acceptable.
+Ensure that all text, code, and documentation you submit are accurate, relevant, and consistent with the project's style and guidelines.
+
 ## Get Started 🎉
 
 Ready to contribute?
@@ -261,14 +281,14 @@ See {ref}`working-on-documentation` for more information on how to build the doc
 
 ## Working on the Python Package
 
-We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
+We use [{code}`nanobind`](https://nanobind.readthedocs.io/) to expose large parts of the C++ core library to Python ([♻️ Replace pybind11 with nanobind — #1383](https://github.com/munich-quantum-toolkit/core/pull/1383)).
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 
 :::{tip}
 
 To build only the Python bindings, pass {code}`-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
-CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
+CMake will then try to find Python and the necessary dependencies ({code}`nanobind`) on your system and configure the respective targets.
 In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
 Go to {code}`Preferences` -> {code}`Build, Execution, Deployment` -> {code}`CMake` -> {code}`Python Integration` and check the box {code}`Pass Python Interpreter to CMake`.
 Alternatively, you can pass {code}`-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
@@ -289,11 +309,12 @@ We recommend using [{code}`nox`][nox] for development.
 {code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
 If you have not installed it yet, see our {ref}`installation guide for developers <development-setup>`.
 
-We define four convenient {code}`nox` sessions in our {code}`noxfile.py`:
+We define five convenient {code}`nox` sessions in our {code}`noxfile.py`:
 
 - {code}`tests` to run the Python tests
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
+- {code}`stubs` to regenerate the type stub files for the Python bindings
 - {code}`docs` to build the documentation
 
 These are explained in more detail in the following sections.
@@ -362,7 +383,7 @@ The Python code is formatted and linted using a collection of [{code}`pre-commit
 This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
-- [mypy][mypy], a static type checker for Python code.
+- [ty][ty], [Astral's type checker](https://docs.astral.sh/ty/) for Python ([🚨 Enable Astral's type checker ty — #1333](https://github.com/munich-quantum-toolkit/core/pull/1333), [⬆️🪝 Update patch updates — #1437](https://github.com/munich-quantum-toolkit/core/pull/1437)).
 
 The hooks can be installed by running the following command in the root directory:
 
@@ -406,6 +427,7 @@ Every public function, class, and module should have a docstring that explains w
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html) to document the expected types of function arguments and return values.
 {%- if project_type == "c++-python" %}
 For the compiled parts of the code base, we provide type hints in the form of stub files in the {code}`python/mqt/{{repository}}` directory.
+These stub files are auto-generated; you can update them after changing the bindings by running {code}`nox -s stubs`.
 {%- endif %}
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
@@ -576,7 +598,7 @@ Once everything is in order, navigate to the [Releases page](https://github.com/
 <!--- Links --->
 
 [clion]: https://www.jetbrains.com/clion/
-[mypy]: https://mypy-lang.org/
+[ty]: https://docs.astral.sh/ty/
 [nox]: https://nox.thea.codes/en/stable/
 [issues]: https://github.com/{{organization}}/{{repository}}/issues
 [pipx]: https://pypa.github.io/pipx/

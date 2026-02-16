@@ -111,6 +111,18 @@ def render_templates(
             active=synchronize_documentation_utilities,
         ),
         TemplateContainer(
+            template_name="docs_tooling.md",
+            file_name="tooling.md",
+            output_dir=Path("docs"),
+            active=synchronize_documentation_utilities,
+            arguments={
+                "name": name,
+                "organization": organization,
+                "project_type": project_type,
+                "repository": repository,
+            },
+        ),
+        TemplateContainer(
             file_name="installation.md",
             output_dir=Path("docs"),
             active=synchronize_installation_guide,
