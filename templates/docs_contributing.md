@@ -106,7 +106,7 @@ To get the most out of it and help the project maintain high quality, please fol
 - **Avoid multiple AI review bots**: CodeRabbit performs significantly worse when other AI review bots (e.g., Copilot) are active on the same PR. For the best results, do not tag Copilot unless you have already iterated with CodeRabbit and want an extra pass.
 - **Tag CodeRabbit when mentioning Copilot**: If you tag a human in a message to Copilot, also tag [@coderabbitai](https://github.com/coderabbitai). This encourages CodeRabbit to give a concrete, updated response instead of generic boilerplate.
 - **Let CodeRabbit resolve comments**: Do not resolve review comments manually before the next CodeRabbit run after your push. CodeRabbit is designed to resolve completed comments itself.
-- **Manual review on drafts**: You can trigger a full review on a draft PR by commenting with "[@coderabbitai](https://github.com/coderabbitai) full review".
+- **Manual review on drafts**: You can trigger a full review on a draft PR by commenting with `@coderabbitai full review`.
 
 ### Use of AI and LLMs
 
