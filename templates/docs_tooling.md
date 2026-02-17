@@ -14,7 +14,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                          |
 | **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Install with {code}`pre-commit install`; run manually with {code}`pre-commit run --all-files`. |
 | **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                |
-| **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                              |
+| **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                             |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                               |
 
 {%- if project_type == "c++-python" %}
