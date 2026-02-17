@@ -160,7 +160,7 @@ For debug builds on Windows, add the `-use_debug` flag to the script invocation.
 :::
 ::::
 
-For supported LLVM versions, commit hashes, and other options, see the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) repository and its [version-manifest.json](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
+For supported LLVM versions, commit hashes, and other options, see the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) repository and its [`version-manifest.json`](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
 
 ### Making MLIR Available to the Build
 
