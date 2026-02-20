@@ -12,12 +12,12 @@ It serves as a quick reference for new contributors and users who want to unders
 | -------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                  |
 | **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                          |
-| **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Install with {code}`pre-commit install`; run manually with {code}`pre-commit run --all-files`. |
+| **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Recommended: install and run via [prek](https://prek.j178.dev) ({code}`prek install`, {code}`prek run`); alternative: {code}`pre-commit`. |
 | **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                |
 | **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                             |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                               |
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 | Tool         | Description                                          | Links / Notes                                                                                                                             |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | **Sphinx** | Documentation generator.                   | [Documentation](https://www.sphinx-doc.org/). Docs source in {code}`docs/`.                 |
 | **MyST**   | Markdown flavor for Sphinx (used in docs). | [Documentation](https://myst-parser.readthedocs.io/). Enables rich Markdown in doc sources. |
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## C++
 
@@ -60,8 +60,6 @@ It serves as a quick reference for new contributors and users who want to unders
 - **Commit messages**: Prefer [gitmoji](https://gitmoji.dev) for context.
 - **Changelog / versioning**: Projects may follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). When present, see the project's changelog and upgrade guide in the documentation.
 - **Python style**: Google-style docstrings; type hints for public APIs.
-  {%- if project_type == "c++-python" %}
+  {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - **C++ style**: [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html); enforced via clang-format and clang-tidy.
   {%- endif %}
-
-For detailed workflows and contribution guidelines, see {doc}`contributing`.

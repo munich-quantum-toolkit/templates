@@ -23,6 +23,7 @@ inputs:
     required: true
     options:
       - c++-python
+      - c++-mlir-python
       - pure-python
       - other
   repository:

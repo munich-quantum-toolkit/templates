@@ -111,11 +111,11 @@ $ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ::::
 This requires a C++20-capable [C++ compiler](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
 
-{%- if has_mlir %}
+{%- if project_type == "c++-mlir-python" %}
 
 ## Setting Up MLIR
 
-MQT {{name}} enables [MLIR](https://mlir.llvm.org/) by default for building from source ([📦️ Enable MLIR by default — #1356](https://github.com/munich-quantum-toolkit/core/pull/1356)).
+MQT {{name}} enables [MLIR](https://mlir.llvm.org/) by default for building from source.
 MLIR is part of the [LLVM](https://llvm.org/) project and provides the intermediate representation used by MQT {{name}} for quantum programs.
 To build from source, you must install MLIR and make it available to both the C++ and Python builds on your platform.
 
@@ -165,23 +165,25 @@ For supported LLVM versions, commit hashes, and other options, see the [`setup-m
 ### Making MLIR Available to the Build
 
 After installing MLIR, point the build system to it by setting the CMake variable {code}`MLIR_DIR` to the **CMake configuration directory** of the installation: {code}`<install-prefix>/lib/cmake/mlir`.
-Use the same prefix you passed to the setup script (e.g., {code}`/path/to/installation` or {code}`C:\path\to\installation`).
+:::::: {tab-set}
 
-::::{tab-set}
-
-:::{tab-item} C++ Build
+::::: {tab-item} C++ Build
 
 Pass {code}`MLIR_DIR` when configuring with CMake:
 
-::::{tab-set}
-:::{tab-item} macOS and Linux
+:::: {tab-set}
+::: {tab-item} macOS and Linux
+
+Use the same prefix you passed to the setup script (e.g., {code}`/path/to/installation`).
 
 ```console
 $ cmake -S . -B build -DMLIR_DIR=/path/to/installation/lib/cmake/mlir
 ```
 
 :::
-:::{tab-item} Windows
+::: {tab-item} Windows
+
+Use the same prefix you passed to the setup script (e.g., {code}`C:\path\to\installation`).
 
 ```console
 $ cmake -S . -B build -DMLIR_DIR=C:/path/to/installation/lib/cmake/mlir
@@ -192,21 +194,21 @@ Use forward slashes in the path, or escape backslashes when passing the value to
 :::
 ::::
 
-:::
+:::::
 
-:::{tab-item} Python Build
+::::: {tab-item} Python Build
 
 When building the Python package from source, set {code}`MLIR_DIR` via the {code}`CMAKE_ARGS` environment variable so that the build backend passes it to CMake:
 
-::::{tab-set}
-:::{tab-item} macOS and Linux
+:::: {tab-set}
+::: {tab-item} macOS and Linux
 
 ```console
 (.venv) $ CMAKE_ARGS="-DMLIR_DIR=/path/to/installation/lib/cmake/mlir" pip install .
 ```
 
 :::
-:::{tab-item} Windows
+::: {tab-item} Windows
 
 ```console
 (.venv) $ $env:CMAKE_ARGS="-DMLIR_DIR=C:/path/to/installation/lib/cmake/mlir"; pip install .
@@ -215,9 +217,9 @@ When building the Python package from source, set {code}`MLIR_DIR` via the {code
 :::
 ::::
 
-:::
+:::::
 
-::::
+::::::
 
 ### Using CMake Presets
 

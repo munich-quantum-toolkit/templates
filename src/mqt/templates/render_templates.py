@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 import jinja2
 
@@ -58,9 +59,32 @@ def render_templates(
 ) -> None:
     """Render templates.
 
+    Args:
+        target_dir: The directory to render the templates to.
+        name: The name of the project.
+        organization: The organization of the project.
+        project_type: The type of the project. One of "pure-python", "c++-python", "c++-mlir-python", "other".
+        repository: The name of the repository.
+        has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
+        synchronize_contribution_guide: Whether to synchronize the contribution guide.
+        synchronize_documentation_utilities: Whether to synchronize the documentation utilities.
+        synchronize_installation_guide: Whether to synchronize the installation guide.
+        synchronize_issue_templates: Whether to synchronize the issue templates.
+        synchronize_pull_request_template: Whether to synchronize the pull request template.
+        synchronize_release_drafter_template: Whether to synchronize the release drafter template.
+        synchronize_renovate_config: Whether to synchronize the renovate configuration.
+        synchronize_security_policy: Whether to synchronize the security policy.
+        synchronize_support_resources: Whether to synchronize the support resources.
+        release_drafter_categories: The categories for the release drafter.
+
     Raises:
-        ValueError: If the arguments are incompatible with each other.
+        ValueError: If the arguments are incompatible with each other or if the project type is not supported.
     """
+    supported_project_types = ["pure-python", "c++-python", "c++-mlir-python", "other"]
+    if project_type not in supported_project_types:
+        msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
+        raise ValueError(msg)
+
     if project_type == "other":
         if synchronize_contribution_guide:
             msg = "Contribution guide cannot be synchronized for project type 'other'."
