@@ -52,7 +52,7 @@ It serves as a quick reference for new contributors and users who want to unders
 
 {% endif %}
 
-## CI and quality
+## CI and Quality
 
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
