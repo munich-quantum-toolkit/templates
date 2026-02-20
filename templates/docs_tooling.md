@@ -65,6 +65,6 @@ It serves as a quick reference for new contributors and users who want to unders
 - **Commit messages**: Prefer [gitmoji](https://gitmoji.dev) for context.
 - **Changelog / versioning**: Projects may follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). When present, see the project's changelog and upgrade guide in the documentation.
 - **Python style**: Google-style docstrings; type hints for public APIs.
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+  {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - **C++ style**: [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html); enforced via clang-format and clang-tidy.
-{%- endif %}
+  {%- endif %}
