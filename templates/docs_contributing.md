@@ -408,7 +408,7 @@ $ nox -s lint
 If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`prek`.
 
 ```console
-$ prek run
+$ prek run --all-files
 ```
 
 Alternatively, you can use the standard {code}`pre-commit run --all-files` command.
