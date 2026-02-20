@@ -119,7 +119,7 @@ MQT {{name}} enables [MLIR](https://mlir.llvm.org/) by default for building from
 MLIR is part of the [LLVM](https://llvm.org/) project and provides the intermediate representation used by MQT {{name}} for quantum programs.
 To build from source, you must install MLIR and make it available to both the C++ and Python builds on your platform.
 
-The recommended approach is to use the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) scripts to download a pre-built MLIR distribution; the binaries are produced by the [portable-mlir-toolchain](https://github.com/munich-quantum-software/portable-mlir-toolchain/) project.
+The recommended approach is to use the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) scripts to download a pre-built MLIR distribution; the binaries are produced by the [`portable-mlir-toolchain`](https://github.com/munich-quantum-software/portable-mlir-toolchain/) project.
 
 ### Downloading the MLIR Distribution
 
