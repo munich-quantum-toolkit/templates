@@ -392,8 +392,6 @@ The hooks can be installed by running the following command in the root director
 $ prek install
 ```
 
-Alternatively, you can use the standard {code}`pre-commit install` command.
-
 This will install the hooks in the {code}`.git/hooks` directory of the repository.
 The hooks will be executed whenever you commit changes.
 
