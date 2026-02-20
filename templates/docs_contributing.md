@@ -308,12 +308,14 @@ We recommend using [{code}`nox`][nox] for development.
 {code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
 If you have not installed it yet, see our {ref}`installation guide for developers <development-setup>`.
 
-We define five convenient {code}`nox` sessions in our {code}`noxfile.py`:
+We define {%- if project_type in ["c++-python", "c++-mlir-python"] %} five {%- else %} four {%- endif %} convenient {code}`nox` sessions in our {code}`noxfile.py`:
 
 - {code}`tests` to run the Python tests
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - {code}`stubs` to regenerate the type stub files for the Python bindings
+{%- endif %}
 - {code}`docs` to build the documentation
 
 These are explained in more detail in the following sections.
