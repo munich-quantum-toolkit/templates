@@ -8,14 +8,14 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## Python
 
-| Tool           | Description                                                                              | Links / Notes                                                                                                                            |
-| -------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                  |
-| **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                          |
+| Tool           | Description                                                                              | Links / Notes                                                                                                                                                                       |
+| -------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                                             |
+| **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                                                     |
 | **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Recommended: install and run via [prek](https://prek.j178.dev) ({code}`prek install`, {code}`prek run`); alternative: {code}`pre-commit`. |
-| **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                |
-| **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                             |
-| **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                               |
+| **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                                                           |
+| **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                                        |
+| **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                                          |
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
