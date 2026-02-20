@@ -384,7 +384,7 @@ The Python code is formatted and linted using a collection of [{code}`pre-commit
 This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
-- [ty][ty], [Astral's type checker](https://docs.astral.sh/ty/) for Python.
+- [ty][ty], Astral's type checker for Python.
 
 The hooks can be installed by running the following command in the root directory:
 
