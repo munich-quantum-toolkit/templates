@@ -8,7 +8,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## Python
 
-<!-- prettier-ignore -->
 | Tool           | Description                                                                              | Links / Notes                                                                                                                                                                       |
 | -------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                                  |
@@ -20,7 +19,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
-<!-- prettier-ignore -->
 | Tool         | Description                                          | Links / Notes                                                                                                                             |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **nanobind** | C++/Python bindings (exposes C++ library to Python). | [Documentation](https://nanobind.readthedocs.io/). Bindings live in {code}`bindings`; stubs are auto-generated (see {doc}`contributing`). |
@@ -29,7 +27,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## Build and documentation
 
-<!-- prettier-ignore -->
 | Tool       | Description                                | Links / Notes                                                                               |
 | ---------- | ------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | **CMake**  | Build configuration (configure + build).   | [Documentation](https://cmake.org/documentation/). Requires 3.24 or newer.                  |
@@ -40,7 +37,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## C++
 
-<!-- prettier-ignore -->
 | Tool             | Description                          | Links / Notes                                                                                                 |
 | ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root. |
@@ -52,7 +48,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## CI and quality
 
-<!-- prettier-ignore -->
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions).               |
