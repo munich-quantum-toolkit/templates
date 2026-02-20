@@ -12,18 +12,20 @@ It serves as a quick reference for new contributors and users who want to unders
 | -------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                                             |
 | **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                                                     |
-| **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Recommended: install and run via [prek](https://prek.j178.dev) ({code}`prek install`, {code}`prek run`); alternative: {code}`pre-commit`. |
+| **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Recommended: install and run via [prek](https://prek.j178.dev) ({code}`prek install`, {code}`prek run` for staged files, {code}`prek run -a` for all files); alternative: {code}`pre-commit`. |
 | **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                                                           |
 | **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                                        |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                                          |
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{% if project_type in ["c++-python", "c++-mlir-python"] %}
+
+## C++/Python Bindings
 
 | Tool         | Description                                          | Links / Notes                                                                                                                             |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **nanobind** | C++/Python bindings (exposes C++ library to Python). | [Documentation](https://nanobind.readthedocs.io/). Bindings live in {code}`bindings`; stubs are auto-generated (see {doc}`contributing`). |
 
-{%- endif %}
+{% endif %}
 
 ## Build and documentation
 
@@ -33,11 +35,10 @@ It serves as a quick reference for new contributors and users who want to unders
 | **Sphinx** | Documentation generator.                   | [Documentation](https://www.sphinx-doc.org/). Docs source in {code}`docs/`.                 |
 | **MyST**   | Markdown flavor for Sphinx (used in docs). | [Documentation](https://myst-parser.readthedocs.io/). Enables rich Markdown in doc sources. |
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{% if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## C++
 
-<!-- prettier-ignore -->
 | Tool             | Description                          | Links / Notes                                                                                                 |
 | ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root. |
@@ -45,11 +46,11 @@ It serves as a quick reference for new contributors and users who want to unders
 | **Doxygen**      | C++ API documentation (comments).    | [Documentation](https://www.doxygen.nl/). Rendered in Sphinx via [breathe](https://breathe.readthedocs.io/).  |
 | **GoogleTest**   | C++ unit testing.                    | [Primer](https://google.github.io/googletest/primer.html). Tests in {code}`test/`; run via CTest.             |
 
-{%- if project_type == "c++-mlir-python" %}
+{% if project_type == "c++-mlir-python" %}
 | **LLVM/MLIR** | Compiler framework providing MLIR dialects and infrastructure. | Obtained via [setup-mlir](https://github.com/munich-quantum-toolkit/setup-mlir). Required for all MLIR-based builds. |
-{%- endif %}
+{% endif %}
 
-{%- endif %}
+{% endif %}
 
 ## CI and quality
 
@@ -65,6 +66,6 @@ It serves as a quick reference for new contributors and users who want to unders
 - **Commit messages**: Prefer [gitmoji](https://gitmoji.dev) for context.
 - **Changelog / versioning**: Projects may follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). When present, see the project's changelog and upgrade guide in the documentation.
 - **Python style**: Google-style docstrings; type hints for public APIs.
-  {%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{% if project_type in ["c++-python", "c++-mlir-python"] %}
 - **C++ style**: [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html); enforced via clang-format and clang-tidy.
-  {%- endif %}
+{% endif %}
