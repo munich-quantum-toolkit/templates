@@ -3,7 +3,7 @@
 
 # Tooling
 
-This page summarizes the main tools, software, and standards used in MQT {{name}}.
+This page summarizes the main tools, software, and standards used in MQT Test.
 It serves as a quick reference for new contributors and users who want to understand the project's ecosystem.
 
 ## Python
@@ -18,14 +18,10 @@ It serves as a quick reference for new contributors and users who want to unders
 | **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                             |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                               |
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
-
 <!-- prettier-ignore -->
 | Tool         | Description                                          | Links / Notes                                                                                                                             |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **nanobind** | C++/Python bindings (exposes C++ library to Python). | [Documentation](https://nanobind.readthedocs.io/). Bindings live in {code}`bindings`; stubs are auto-generated (see {doc}`contributing`). |
-
-{%- endif %}
 
 ## Build and documentation
 
@@ -35,8 +31,6 @@ It serves as a quick reference for new contributors and users who want to unders
 | **CMake**  | Build configuration (configure + build).   | [Documentation](https://cmake.org/documentation/). Requires 3.24 or newer.                  |
 | **Sphinx** | Documentation generator.                   | [Documentation](https://www.sphinx-doc.org/). Docs source in {code}`docs/`.                 |
 | **MyST**   | Markdown flavor for Sphinx (used in docs). | [Documentation](https://myst-parser.readthedocs.io/). Enables rich Markdown in doc sources. |
-
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## C++
 
@@ -48,15 +42,13 @@ It serves as a quick reference for new contributors and users who want to unders
 | **Doxygen**      | C++ API documentation (comments).    | [Documentation](https://www.doxygen.nl/). Rendered in Sphinx via [breathe](https://breathe.readthedocs.io/).  |
 | **GoogleTest**   | C++ unit testing.                    | [Primer](https://google.github.io/googletest/primer.html). Tests in {code}`test/`; run via CTest.             |
 
-{%- endif %}
-
 ## CI and quality
 
 <!-- prettier-ignore -->
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions).               |
-| **Codecov**        | Code coverage reporting.                    | [Codecov for this repo](https://codecov.io/gh/{{organization}}/{{repository}}).                                               |
+| **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/munich-quantum-toolkit/test/actions).               |
+| **Codecov**        | Code coverage reporting.                    | [Codecov for this repo](https://codecov.io/gh/munich-quantum-toolkit/test).                                               |
 | **CodeRabbit**     | Automated code review on PRs.               | [CodeRabbit app](https://github.com/apps/coderabbit). See the section _Working with CodeRabbit_ in the {doc}`contributing` guide. |
 | **pre-commit.ci**  | Runs pre-commit in CI and can auto-fix.     | [pre-commit.ci](https://pre-commit.ci).                                                                                           |
 
@@ -65,6 +57,4 @@ It serves as a quick reference for new contributors and users who want to unders
 - **Commit messages**: Prefer [gitmoji](https://gitmoji.dev) for context.
 - **Changelog / versioning**: Projects may follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). When present, see the project's changelog and upgrade guide in the documentation.
 - **Python style**: Google-style docstrings; type hints for public APIs.
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - **C++ style**: [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html); enforced via clang-format and clang-tidy.
-{%- endif %}
