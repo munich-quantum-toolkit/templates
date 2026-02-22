@@ -409,8 +409,6 @@ If you do not want to use {code}`nox`, you can also run the hooks manually by us
 $ prek run --all-files
 ```
 
-Alternatively, you can use the standard {code}`pre-commit run --all-files` command.
-
 :::
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
