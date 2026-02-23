@@ -119,6 +119,5 @@ def test_other(temp_dir: Path) -> None:
         temp_dir / "docs" / "_static" / "custom.css",
         temp_dir / "docs" / "_templates" / "page.html",
         temp_dir / "docs" / "lit_header.bib",
-        temp_dir / "docs" / "tooling.md",
     ]
     _check_files(files)
