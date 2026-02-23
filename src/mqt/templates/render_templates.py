@@ -137,7 +137,7 @@ def render_templates(
             template_name="docs_tooling.md",
             file_name="tooling.md",
             output_dir=Path("docs"),
-            active=synchronize_documentation_utilities,
+            active=synchronize_contribution_guide,
             arguments={
                 "name": name,
                 "organization": organization,

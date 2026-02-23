@@ -103,6 +103,7 @@ To get the most out of it and help the project maintain high quality, please fol
 
 - **Draft PRs**: CodeRabbit runs on every push to non-draft PRs. If you are still experimenting, mark your PR as a draft so that review runs when you are ready for feedback.
 - **Respond to comments**: Do not simply dismiss CodeRabbit's comments. It learns from your replies and improves over time. If a suggestion does not apply, take a moment to explain why in a reply.
+- **Avoid multiple AI review bots**: CodeRabbit performs significantly worse when other AI review bots (e.g., Copilot) are active on the same PR. For the best results, do not tag Copilot unless you have already iterated with CodeRabbit and want an extra pass.
 - **Engage CodeRabbit in discussions**: When team members are discussing code in PR comments, CodeRabbit stays silent by default. Tag @coderabbitai to engage it in the conversation and get its feedback on the specific points being discussed.
 - **Let CodeRabbit resolve comments**: Do not resolve review comments manually before the next CodeRabbit run after your push. CodeRabbit is designed to resolve completed comments itself.
 - **Manual review on drafts**: You can trigger a full review on a draft PR by commenting with `@coderabbitai full review`.

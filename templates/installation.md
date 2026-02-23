@@ -111,6 +111,8 @@ $ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ::::
 This requires a C++20-capable [C++ compiler](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
 
+{%- endif %}
+
 {%- if project_type == "c++-mlir-python" %}
 
 ## Setting Up MLIR
@@ -263,8 +265,6 @@ This disables all MLIR-related features in MQT {{name}}.
 ```console
 $ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 ```
-
-{%- endif %}
 
 {%- endif %}
 

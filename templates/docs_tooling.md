@@ -60,12 +60,3 @@ It serves as a quick reference for new contributors and users who want to unders
 | **Codecov**        | Code coverage reporting.                    | [Codecov for this repo](https://codecov.io/gh/{{organization}}/{{repository}}).                                                   |
 | **CodeRabbit**     | Automated code review on PRs.               | [CodeRabbit app](https://github.com/apps/coderabbit). See the section _Working with CodeRabbit_ in the {doc}`contributing` guide. |
 | **pre-commit.ci**  | Runs pre-commit in CI and can auto-fix.     | [pre-commit.ci](https://pre-commit.ci).                                                                                           |
-
-## Standards and conventions
-
-- **Commit messages**: Prefer [gitmoji](https://gitmoji.dev) for context.
-- **Changelog / versioning**: Projects may follow [Keep a Changelog](https://keepachangelog.com/) and [Semantic Versioning](https://semver.org/). When present, see the project's changelog and upgrade guide in the documentation.
-- **Python style**: Google-style docstrings; type hints for public APIs.
-  {% if project_type in ["c++-python", "c++-mlir-python"] %}
-- **C++ style**: [LLVM Coding Standard](https://llvm.org/docs/CodingStandards.html); enforced via clang-format and clang-tidy.
-  {% endif %}
