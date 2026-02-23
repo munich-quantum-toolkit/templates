@@ -16,6 +16,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                                                                                                               |
 | **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                                                                                            |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                                                                                              |
+
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## C++/Python Bindings
@@ -23,6 +24,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | Tool         | Description                                          | Links / Notes                                                                                                                             |
 | ------------ | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | **nanobind** | C++/Python bindings (exposes C++ library to Python). | [Documentation](https://nanobind.readthedocs.io/). Bindings live in {code}`bindings`; stubs are auto-generated (see {doc}`contributing`). |
+
 {%- endif %}
 
 ## Build and documentation
@@ -32,6 +34,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | **CMake**  | Build configuration (configure + build).   | [Documentation](https://cmake.org/documentation/). Requires 3.24 or newer.                  |
 | **Sphinx** | Documentation generator.                   | [Documentation](https://www.sphinx-doc.org/). Docs source in {code}`docs/`.                 |
 | **MyST**   | Markdown flavor for Sphinx (used in docs). | [Documentation](https://myst-parser.readthedocs.io/). Enables rich Markdown in doc sources. |
+
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## C++
@@ -43,6 +46,7 @@ It serves as a quick reference for new contributors and users who want to unders
 | **clang-tidy**   | Static analysis and linting for C++. | [Documentation](https://clang.llvm.org/extra/clang-tidy/). Config: {code}`.clang-tidy` in project root.       |
 | **Doxygen**      | C++ API documentation (comments).    | [Documentation](https://www.doxygen.nl/). Rendered in Sphinx via [breathe](https://breathe.readthedocs.io/).  |
 | **GoogleTest**   | C++ unit testing.                    | [Primer](https://google.github.io/googletest/primer.html). Tests in {code}`test/`; run via CTest.             |
+
 {%- if project_type == "c++-mlir-python" %}
 | **LLVM/MLIR** | Compiler framework providing MLIR dialects and infrastructure. | Obtained via [setup-mlir](https://github.com/munich-quantum-toolkit/setup-mlir). Required for all MLIR-based builds. |
 {%- endif %}
