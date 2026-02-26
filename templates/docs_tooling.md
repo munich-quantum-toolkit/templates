@@ -12,8 +12,8 @@ It serves as a quick reference for new contributors and users who want to unders
 | -------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                                                                                                 |
 | **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                                                                                                         |
-| **pre-commit** | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://pre-commit.com/). Recommended: install and run via [prek](https://prek.j178.dev) ({code}`prek install`, {code}`prek run` for staged files, {code}`prek run -a` for all files); alternative: {code}`pre-commit`. |
-| **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in pre-commit and CI.                                                                                                                                                               |
+| **prek**       | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://prek.j178.dev). Install and run via {code}`prek install`, {code}`prek run` (staged files), or {code}`prek run -a` (all files). |
+| **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in prek and CI.                                                                                                                                                                     |
 | **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                                                                                            |
 | **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                                                                                              |
 
@@ -31,7 +31,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 | Tool       | Description                                | Links / Notes                                                                               |
 | ---------- | ------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| **CMake**  | Build configuration (configure + build).   | [Documentation](https://cmake.org/documentation/). Requires 3.24 or newer.                  |
 | **Sphinx** | Documentation generator.                   | [Documentation](https://www.sphinx-doc.org/). Docs source in {code}`docs/`.                 |
 | **MyST**   | Markdown flavor for Sphinx (used in docs). | [Documentation](https://myst-parser.readthedocs.io/). Enables rich Markdown in doc sources. |
 
@@ -39,7 +38,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## C++
 
-<!-- prettier-ignore -->
 | Tool             | Description                          | Links / Notes                                                                                                 |
 | ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root. |
@@ -54,7 +52,6 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## CI and Quality
 
-<!-- prettier-ignore -->
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions). |
