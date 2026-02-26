@@ -8,14 +8,14 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## Python
 
-| Tool           | Description                                                                              | Links / Notes                                                                                                                                                                                                                           |
-| -------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **uv**         | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                                                                                                 |
-| **nox**        | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                                                                                                         |
-| **prek**       | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://prek.j178.dev). Install and run via {code}`prek install`, {code}`prek run` (staged files), or {code}`prek run -a` (all files). |
-| **ruff**       | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in prek and CI.                                                                                                                                                                     |
-| **ty**         | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                                                                                                            |
-| **pytest**     | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                                                                                                              |
+| Tool       | Description                                                                              | Links / Notes                                                                                                                                          |
+| ---------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **uv**     | Fast Python package and project manager (install, venv, dependencies).                   | [Documentation](https://docs.astral.sh/uv/). Recommended over {code}`pip` for installs and development.                                                |
+| **nox**    | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                        |
+| **prek**   | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://prek.j178.dev). Install and run via {code}`prek install`, {code}`prek run` (staged files), or {code}`prek run -a` (all files). |
+| **ruff**   | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in prek and CI.                                                                                    |
+| **ty**     | Static type checker for Python (Astral).                                                 | [Documentation](https://docs.astral.sh/ty/).                                                                                                           |
+| **pytest** | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`pytest`.                                                             |
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
@@ -54,7 +54,7 @@ It serves as a quick reference for new contributors and users who want to unders
 
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions). |
-| **Codecov**        | Code coverage reporting.                    | [Codecov for this repo](https://codecov.io/gh/{{organization}}/{{repository}}). |
+| **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions).               |
+| **Codecov**        | Code coverage reporting.                    | [Codecov for this repo](https://codecov.io/gh/{{organization}}/{{repository}}).                                                   |
 | **CodeRabbit**     | Automated code review on PRs.               | [CodeRabbit app](https://github.com/apps/coderabbit). See the section _Working with CodeRabbit_ in the {doc}`contributing` guide. |
 | **pre-commit.ci**  | Runs pre-commit in CI and can auto-fix.     | [pre-commit.ci](https://pre-commit.ci).                                                                                           |
