@@ -38,6 +38,7 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## C++
 
+<!-- prettier-ignore -->
 | Tool             | Description                          | Links / Notes                                                                                                 |
 | ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
 | **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root. |
@@ -52,6 +53,7 @@ It serves as a quick reference for new contributors and users who want to unders
 
 ## CI and Quality
 
+<!-- prettier-ignore -->
 | Tool               | Description                                 | Links / Notes                                                                                                                     |
 | ------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | **GitHub Actions** | CI workflows (build, test, lint, coverage). | Workflows in {code}`.github/workflows/`; see [Actions](https://github.com/{{organization}}/{{repository}}/actions).               |
