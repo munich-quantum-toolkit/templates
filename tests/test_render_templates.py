@@ -45,7 +45,7 @@ def _check_files(files: list[Path]) -> None:
         assert file_before == file_after, f"File {file.name} was modified by pre-commit"
 
 
-@pytest.mark.parametrize("project_type", ["c++-python", "pure-python"])
+@pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
 def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
     """Test that templates for non-`other` projects are rendered correctly."""
@@ -82,6 +82,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         temp_dir / "docs" / "contributing.md",
         temp_dir / "docs" / "installation.md",
         temp_dir / "docs" / "lit_header.bib",
+        temp_dir / "docs" / "tooling.md",
     ]
     _check_files(files)
 

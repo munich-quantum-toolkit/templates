@@ -94,6 +94,38 @@ Please adhere to the following guidelines to help the project grow sustainably.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
 
+(working-with-coderabbit)=
+
+### Working with CodeRabbit
+
+We use [CodeRabbit](https://github.com/apps/coderabbit) for automated code review on pull requests.
+To get the most out of it and help the project maintain high quality, please follow these practices:
+
+- **Draft PRs**:
+  CodeRabbit runs on every push to non-draft PRs.
+  If you are still experimenting, mark your PR as a draft so that review runs when you are ready for feedback.
+- **Respond to comments**:
+  Do not simply dismiss CodeRabbit's comments.
+  It learns from your replies and improves over time.
+  If a suggestion does not apply, take a moment to explain why in a reply.
+- **Avoid multiple AI review bots**:
+  CodeRabbit performs significantly worse when other AI review bots (e.g., Copilot) are active on the same PR.
+  For the best results, do not tag Copilot unless you have already iterated with CodeRabbit and want an extra pass.
+- **Engage CodeRabbit in discussions**:
+  When team members are discussing code in PR comments, CodeRabbit stays silent by default.
+  Tag {code}`@coderabbitai` to engage it in the conversation and get its feedback on the specific points being discussed.
+- **Let CodeRabbit resolve comments**:
+  Do not resolve review comments manually before the next CodeRabbit run after your push.
+  CodeRabbit is designed to resolve completed comments itself.
+- **Manual review on drafts**:
+  You can trigger a full review on a draft PR by commenting with {code}`@coderabbitai full review`.
+
+### Use of AI and LLMs
+
+Contributions may be prepared with the help of AI or LLM tools.
+However, [AI Slop](https://en.wikipedia.org/wiki/AI_slop)—generic, low-value, or clearly machine-generated content that does not meet our standards for clarity, accuracy, or usefulness—is not acceptable.
+Ensure that all text, code, and documentation you submit are accurate, relevant, and consistent with the project's style and guidelines.
+
 ## Get Started 🎉
 
 Ready to contribute?
@@ -105,7 +137,7 @@ We will guide you through the process.
 
 Check out our {ref}`installation guide for developers <development-setup>` for instructions on how to set up your development environment.
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## Working on the C++ Library
 
@@ -257,18 +289,18 @@ See {ref}`working-on-documentation` for more information on how to build the doc
 
 {%- endif %}
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## Working on the Python Package
 
-We use [{code}`pybind11`](https://pybind11.readthedocs.io/en/stable) to expose large parts of the C++ core library to Python.
+We use [{code}`nanobind`](https://nanobind.readthedocs.io/) to expose large parts of the C++ core library to Python.
 This allows us to keep the performance-critical parts of the code in C++ while providing a convenient interface for Python users.
 All code related to C++-Python bindings is contained in the {code}`bindings` directory.
 
 :::{tip}
 
 To build only the Python bindings, pass {code}`-DBUILD_MQT_{{name.upper()}}_BINDINGS=ON` to the CMake configure step.
-CMake will then try to find Python and the necessary dependencies ({code}`pybind11`) on your system and configure the respective targets.
+CMake will then try to find Python and the necessary dependencies ({code}`nanobind`) on your system and configure the respective targets.
 In [CLion][clion], you can enable an option to pass the current Python interpreter to CMake.
 Go to {code}`Preferences` -> {code}`Build, Execution, Deployment` -> {code}`CMake` -> {code}`Python Integration` and check the box {code}`Pass Python Interpreter to CMake`.
 Alternatively, you can pass {code}`-DPython_ROOT_DIR=<PATH_TO_PYTHON>` to the configure step to point CMake to a specific Python installation.
@@ -289,16 +321,19 @@ We recommend using [{code}`nox`][nox] for development.
 {code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
 If you have not installed it yet, see our {ref}`installation guide for developers <development-setup>`.
 
-We define four convenient {code}`nox` sessions in our {code}`noxfile.py`:
+We define {%- if project_type in ["c++-python", "c++-mlir-python"] %} five {%- else %} four {%- endif %} convenient {code}`nox` sessions in our {code}`noxfile.py`:
 
 - {code}`tests` to run the Python tests
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
+  {%- if project_type in ["c++-python", "c++-mlir-python"] %}
+- {code}`stubs` to regenerate the type stub files for the Python bindings
+  {%- endif %}
 - {code}`docs` to build the documentation
 
 These are explained in more detail in the following sections.
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## Running the Python Tests
 
@@ -309,7 +344,7 @@ These are explained in more detail in the following sections.
 {%- endif %}
 
 The Python code is tested by unit tests using the [{code}`pytest`](https://docs.pytest.org/en/latest/) framework.
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 The corresponding test files can be found in the {code}`test/python` directory.
 {%- elif project_type == "pure-python" %}
 The corresponding test files can be found in the {code}`tests` directory.
@@ -348,7 +383,7 @@ This ensures that the project can still be built and the tests pass with the min
 $ nox -s minimums
 ```
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## Python Code Formatting and Linting
 
@@ -362,12 +397,12 @@ The Python code is formatted and linted using a collection of [{code}`pre-commit
 This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust, and
-- [mypy][mypy], a static type checker for Python code.
+- [ty][ty], Astral's type checker for Python.
 
 The hooks can be installed by running the following command in the root directory:
 
 ```console
-$ pre-commit install
+$ prek install
 ```
 
 This will install the hooks in the {code}`.git/hooks` directory of the repository.
@@ -381,15 +416,15 @@ $ nox -s lint
 
 :::{note}
 
-If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`pre-commit`.
+If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`prek`.
 
 ```console
-$ pre-commit run --all-files
+$ prek run --all-files
 ```
 
 :::
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 ## Python Documentation
 
@@ -404,8 +439,9 @@ Every public function, class, and module should have a docstring that explains w
 {code}`ruff` will check for missing docstrings and will explicitly warn you if you forget to add one.
 
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html) to document the expected types of function arguments and return values.
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 For the compiled parts of the code base, we provide type hints in the form of stub files in the {code}`python/mqt/{{repository}}` directory.
+These stub files are auto-generated; you can update them after changing the bindings by running {code}`nox -s stubs`.
 {%- endif %}
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
@@ -450,7 +486,7 @@ The docs can then be found in the {code}`docs/_build` directory.
 If something goes wrong, the CI pipeline will notify you.
 Here are some tips for finding the cause of certain failures:
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 - If any of the {code}`CI / 🇨‌ Test` checks fail, this indicates build errors or test failures in the C++ part of the code base.
   Look through the respective logs on GitHub for any error or failure messages.
@@ -468,7 +504,7 @@ Here are some tips for finding the cause of certain failures:
 - If any of the {code}`codecov/\*` checks fail, this means that your changes are not appropriately covered by tests or that the overall project coverage decreased too much.
   Ensure that you include tests for all your changes in the PR.
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
 - If {code}`cpp-linter` comments on your PR with a list of warnings, these have been raised by {code}`clang-tidy` when checking the C++ part of your changes for warnings or style guideline violations.
   The individual messages frequently provide helpful suggestions on how to fix the warnings.
@@ -576,7 +612,7 @@ Once everything is in order, navigate to the [Releases page](https://github.com/
 <!--- Links --->
 
 [clion]: https://www.jetbrains.com/clion/
-[mypy]: https://mypy-lang.org/
+[ty]: https://docs.astral.sh/ty/
 [nox]: https://nox.thea.codes/en/stable/
 [issues]: https://github.com/{{organization}}/{{repository}}/issues
 [pipx]: https://pypa.github.io/pipx/
