@@ -17,7 +17,7 @@ permissions:
 jobs:
   change-detection:
     name: 🔍 Change
-    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@c54be38945ae206affae9925ecd9c346f54c71b7 # v1.17.12
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@1ebbafc839b73f2edc0559d5456bfb8f848043fd # v1.17.14
 
   python-tests:
     name: 🐍 Test
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install uv
-        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
+        uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098 # v7.3.1
         with:
           enable-cache: true
           save-cache: ${{ github.ref == 'refs/heads/main' }}
@@ -39,7 +39,7 @@ jobs:
     name: 🐍 Lint
     needs: change-detection
     if: fromJSON(needs.change-detection.outputs.run-python-tests)
-    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@c54be38945ae206affae9925ecd9c346f54c71b7 # v1.17.12
+    uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-python-linter.yml@1ebbafc839b73f2edc0559d5456bfb8f848043fd # v1.17.14
     with:
       enable-ty: true
       enable-mypy: false
