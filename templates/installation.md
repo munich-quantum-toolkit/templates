@@ -358,7 +358,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
 {%- if project_type == "c++-mlir-python" %}
 
-6.  If you plan on developing for MQT {{name}}, you will also need to install MLIR.
+6.  If you plan to develop for MQT {{name}}, you will also need to install MLIR.
     The section below describes how to do this.
 
 (setting-up-mlir)=

@@ -54,7 +54,7 @@ The corresponding wheels are built separately since there is no stable ABI for f
 | **nox**    | Task automation for tests, lint, docs, and other sessions defined in {code}`noxfile.py`. | [Documentation](https://nox.thea.codes/en/stable/). Run sessions with {code}`nox -s <session>`.                                                        |
 | **prek**   | Runs hooks (formatting, linting) before each commit.                                     | [Documentation](https://prek.j178.dev). Install and run via {code}`prek install`, {code}`prek run` (staged files), or {code}`prek run -a` (all files). |
 | **ruff**   | Linter and formatter for Python, written in Rust.                                        | [Documentation](https://docs.astral.sh/ruff/). Used in prek and CI.                                                                                    |
-| **ty**     | Static type checker for Python.                                                          | [Documentation](https://docs.astral.sh/ty/). Used instead of mypy.                                                                                     |
+| **ty**     | Fast Python type checker and language server.                                            | [Documentation](https://docs.astral.sh/ty/).                                                                                                           |
 | **pytest** | Testing framework for Python.                                                            | [Documentation](https://docs.pytest.org/). Run via {code}`nox -s tests` or {code}`uv run pytest`.                                                      |
 
 The project adheres to modern standards and practices. For the Python ecosystem, we make use of the following standards:
