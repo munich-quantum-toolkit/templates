@@ -80,7 +80,7 @@ The project adheres to modern standards and practices. For the Python ecosystem,
 | Tool               | Description                                 | Links / Notes                                                          |
 | ------------------ | ------------------------------------------- | ---------------------------------------------------------------------- |
 | **GitHub Actions** | CI workflows (build, test, lint, coverage). | [Reusable MQT Workflows] in {code}`.github/workflows/`; see [Actions]. |
-| **Codecov**        | Code coverage reporting.                    | [Codecov for this repo].                                               |
+| **Codecov**        | Code coverage reporting.                    | [Codecov] for this repo.                                               |
 | **CodeRabbit**     | Automated code review on PRs.               | [CodeRabbit](https://www.coderabbit.ai/). See {doc}`contributing`.     |
 | **pre-commit.ci**  | Runs pre-commit in CI and can auto-fix.     | [pre-commit.ci](https://pre-commit.ci).                                |
 

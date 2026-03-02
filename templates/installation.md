@@ -313,11 +313,6 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     :::
     ::::
 
-    {%- if project_type == "c++-mlir-python" %}
-    If you plan on developing for MQT {{name}}, you will also need to install MLIR.
-    See {ref}`Setting Up MLIR <setting-up-mlir>` for instructions.
-    {% endif %}
-
 5.  Install pre-commit hooks to ensure code quality:
 
     The project uses [pre-commit] hooks for running linters and formatting tools on each commit.
@@ -362,6 +357,9 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     ```
 
 {%- if project_type == "c++-mlir-python" %}
+
+6.  If you plan on developing for MQT {{name}}, you will also need to install MLIR.
+    The section below describes how to do this.
 
 (setting-up-mlir)=
 
@@ -415,8 +413,6 @@ For debug builds on Windows, add the `-use_debug` flag to the script invocation.
 
 For supported LLVM versions, commit hashes, and other options, see the [`setup-mlir`] repository and its [`version-manifest.json`](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
 
-// A note on building MLIR by yourself. build instructions to be found in the scripts of the portable-mlir-toolchain repo
-
 ::::{note}
 :name: mlir-build-note
 
@@ -462,6 +458,9 @@ This disables all MLIR-related features in MQT {{name}} and removes the dependen
 $ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 ```
 
+[`setup-mlir`]: https://github.com/munich-quantum-software/setup-mlir/
+[`portable-mlir-toolchain`]: https://github.com/munich-quantum-software/portable-mlir-toolchain/
+
 {%- endif %}
 
 <!-- Links -->
@@ -474,5 +473,3 @@ $ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 [prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
-[`setup-mlir`]: https://github.com/munich-quantum-software/setup-mlir/
-[`portable-mlir-toolchain`]: https://github.com/munich-quantum-software/portable-mlir-toolchain/
