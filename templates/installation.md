@@ -1,7 +1,7 @@
 <!--- This file has been generated from an external template. Please do not modify it directly. -->
 <!--- Changes should be contributed to https://github.com/munich-quantum-toolkit/templates. -->
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ("c++-python", "c++-mlir-python") %}
 
 # Installation
 
@@ -70,7 +70,7 @@ $ uv pip install mqt.{{repository}}
 :::
 ::::
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ("c++-python", "c++-mlir-python") %}
 In most cases, no compilation is required; a platform-specific prebuilt wheel is downloaded and installed.
 {%- endif %}
 
@@ -82,7 +82,7 @@ Verify the installation:
 
 This prints the installed package version.
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ("c++-python", "c++-mlir-python") %}
 
 ## Building from Source for Performance
 
@@ -110,161 +110,6 @@ $ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 :::
 ::::
 This requires a C++20-capable [C++ compiler](https://en.wikipedia.org/wiki/List_of_compilers#C++_compilers) and [CMake](https://cmake.org/) 3.24 or newer.
-
-{%- endif %}
-
-{%- if project_type == "c++-mlir-python" %}
-
-## Setting Up MLIR
-
-MQT {{name}} enables [MLIR](https://mlir.llvm.org/) by default for building from source.
-MLIR is part of the [LLVM](https://llvm.org/) project and provides the intermediate representation used by MQT {{name}} for quantum programs.
-To build from source, you must install MLIR and make it available to both the C++ and Python builds on your platform.
-
-The recommended approach is to use the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) scripts to download a pre-built MLIR distribution; the binaries are produced by the [`portable-mlir-toolchain`](https://github.com/munich-quantum-software/portable-mlir-toolchain/) project.
-
-### Downloading the MLIR Distribution
-
-The [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) repository provides installation scripts for all supported operating systems.
-You must pass the LLVM version (e.g., `21.1.8`) and the installation prefix (directory) where MLIR should be extracted.
-The scripts download a platform-specific archive and use an embedded `zstd` helper for decompression, so the only host requirement is `tar`.
-
-::::{note}
-:name: tar-requirement
-
-`tar` is included by default on Windows 10 and Windows 11.
-On older Windows versions, install it for example via [Chocolatey](https://chocolatey.org/): `choco install tar`.
-::::
-
-::::{tab-set}
-:::{tab-item} macOS and Linux
-
-Run the Bash script with the desired LLVM version and installation path:
-
-```console
-$ curl -LsSf https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.sh | bash -s -- -v 21.1.8 -p /path/to/installation
-```
-
-Replace `/path/to/installation` with the directory where MLIR should be installed (e.g., `$HOME/mlir` or `/opt/mlir`).
-
-:::
-:::{tab-item} Windows
-
-Run the PowerShell script with the desired LLVM version and installation path:
-
-```console
-$ powershell -ExecutionPolicy ByPass -c "& ([scriptblock]::Create((irm https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.ps1))) -llvm_version 21.1.8 -install_prefix C:\path\to\installation"
-```
-
-Replace `C:\path\to\installation` with the directory where MLIR should be installed (e.g., `C:\mlir`).
-For debug builds on Windows, add the `-use_debug` flag to the script invocation.
-
-:::
-::::
-
-For supported LLVM versions, commit hashes, and other options, see the [`setup-mlir`](https://github.com/munich-quantum-software/setup-mlir/) repository and its [`version-manifest.json`](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
-
-### Making MLIR Available to the Build
-
-After installing MLIR, point the build system to it by setting the CMake variable {code}`MLIR_DIR` to the **CMake configuration directory** of the installation: {code}`<install-prefix>/lib/cmake/mlir`.
-:::::: {tab-set}
-
-::::: {tab-item} C++ Build
-
-Pass {code}`MLIR_DIR` when configuring with CMake:
-
-:::: {tab-set}
-::: {tab-item} macOS and Linux
-
-Use the same prefix you passed to the setup script (e.g., {code}`/path/to/installation`).
-
-```console
-$ cmake -S . -B build -DMLIR_DIR=/path/to/installation/lib/cmake/mlir
-```
-
-:::
-::: {tab-item} Windows
-
-Use the same prefix you passed to the setup script (e.g., {code}`C:\path\to\installation`).
-
-```console
-$ cmake -S . -B build -DMLIR_DIR=C:/path/to/installation/lib/cmake/mlir
-```
-
-Use forward slashes in the path, or escape backslashes when passing the value to CMake.
-
-:::
-::::
-
-:::::
-
-::::: {tab-item} Python Build
-
-When building the Python package from source, set {code}`MLIR_DIR` via the {code}`CMAKE_ARGS` environment variable so that the build backend passes it to CMake:
-
-:::: {tab-set}
-::: {tab-item} macOS and Linux
-
-```console
-(.venv) $ CMAKE_ARGS="-DMLIR_DIR=/path/to/installation/lib/cmake/mlir" pip install .
-```
-
-:::
-::: {tab-item} Windows
-
-```console
-(.venv) $ $env:CMAKE_ARGS="-DMLIR_DIR=C:/path/to/installation/lib/cmake/mlir"; pip install .
-```
-
-:::
-::::
-
-:::::
-
-::::::
-
-### Using CMake Presets
-
-In addition to passing {code}`MLIR_DIR` on the command line, you can use [CMake Presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) so that common scenarios (e.g., a fixed MLIR install path) are configured once. The project may ship a {code}`CMakePresets.json` with presets for common scenarios; you can also add your own preset as shown below.
-
-Define a preset that sets {code}`MLIR_DIR` in {code}`cacheVariables`; then configure with {code}`--preset default` (or your preset name) and build as usual.
-
-Example preset that uses a local MLIR installation:
-
-```json
-{
-  "version": 3,
-  "configurePresets": [
-    {
-      "name": "default",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build",
-      "cacheVariables": {
-        "MLIR_DIR": "/path/to/installation/lib/cmake/mlir"
-      }
-    }
-  ]
-}
-```
-
-On Windows, use a path with forward slashes (e.g., {code}`C:/mlir/lib/cmake/mlir`).
-After adding or updating presets in {code}`CMakePresets.json` in the project root, run:
-
-```console
-$ cmake --preset default
-$ cmake --build build
-```
-
-For Python builds, set {code}`CMAKE_ARGS` to include {code}`-DMLIR_DIR=...` as shown above, or use a preset that is applied when the Python build invokes CMake, if your workflow supports it.
-
-### Disabling MLIR
-
-If you do not need MLIR-based functionality, you can disable it by setting the {code}`BUILD_MQT_{{name.upper()}}_MLIR` option to {code}`OFF`.
-This disables all MLIR-related features in MQT {{name}}.
-
-```console
-$ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
-```
 
 {%- endif %}
 
@@ -309,7 +154,7 @@ setup(
 :::
 ::::
 
-{%- if project_type == "c++-python" %}
+{%- if project_type in ("c++-python", "c++-mlir-python") %}
 
 If you want to integrate the C++ library directly into your project, you can either
 
@@ -468,6 +313,11 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     :::
     ::::
 
+    {%- if project_type == "c++-mlir-python" %}
+    If you plan on developing for MQT {{name}}, you will also need to install MLIR.
+    See {ref}`Setting Up MLIR <setting-up-mlir>` for instructions.
+    {% endif %}
+
 5.  Install pre-commit hooks to ensure code quality:
 
     The project uses [pre-commit] hooks for running linters and formatting tools on each commit.
@@ -511,6 +361,109 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     $ prek install
     ```
 
+{%- if project_type == "c++-mlir-python" %}
+
+(setting-up-mlir)=
+
+## Setting Up MLIR
+
+MQT {{name}} requires [MLIR](https://mlir.llvm.org/), which is part of the [LLVM](https://llvm.org/) project, to be available when building from source.
+To successfully build MQT {{name}}, you must make an installation of MLIR available to the C++ builds on your platform.
+
+We highly recommend using the prebuilt MLIR distribution provided by the [`portable-mlir-toolchain`] project.
+These can be conveniently installed with the [`setup-mlir`] scripts as described below.
+
+### Downloading the MLIR Distribution
+
+The [`setup-mlir`] repository provides installation scripts for all supported operating systems.
+You must pass the LLVM version (e.g., `22.1.0`) and the installation prefix (directory) where MLIR should be extracted.
+The scripts download a platform-specific archive.
+The only requirement is that the `tar` command is available on the system.
+
+::::{note}
+:name: tar-requirement
+
+`tar` is included by default on Windows 10 and Windows 11.
+On older Windows versions, you can install it, for example, via [Chocolatey](https://chocolatey.org/): `choco install tar`.
+::::
+
+::::{tab-set}
+:::{tab-item} Linux and macOS
+
+Run the Bash script with the desired LLVM version and installation path:
+
+```console
+$ curl -LsSf https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.sh | bash -s -- -v 22.1.0 -p /path/to/installation
+```
+
+Replace `/path/to/installation` with the directory where the LLVM distribution should be installed (e.g., `/opt/llvm-22.1.0`).
+
+:::
+:::{tab-item} Windows
+
+Run the PowerShell script with the desired LLVM version and installation path:
+
+```console
+$ powershell -ExecutionPolicy ByPass -c "& ([scriptblock]::Create((irm https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.ps1))) -llvm_version 22.1.0 -install_prefix \path\to\installation"
+```
+
+Replace `\path\to\installation` with the directory where the LLVM distribution should be installed (e.g., `C:\llvm-22.1.0`).
+For debug builds on Windows, add the `-use_debug` flag to the script invocation.
+
+:::
+::::
+
+For supported LLVM versions, commit hashes, and other options, see the [`setup-mlir`] repository and its [`version-manifest.json`](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
+
+// A note on building MLIR by yourself. build instructions to be found in the scripts of the portable-mlir-toolchain repo
+
+::::{note}
+:name: mlir-build-note
+
+If you want to build MLIR from source, you can follow the instructions in the [`portable-mlir-toolchain`] repository.
+This is not recommended unless you need a specific configuration that is not available in the prebuilt distributions, as building MLIR from source can be complex and time-consuming.
+::::
+
+### Making MLIR Available to the Build
+
+After installing MLIR, point the build system to it by setting the CMake variable {code}`MLIR_DIR` to the **CMake configuration directory** of the installation:
+
+```console
+$ cmake -S . -B build -DMLIR_DIR=/path/to/installation/lib/cmake/mlir
+```
+
+Replace `/path/to/installation` with the actual path to the MLIR installation from the previous step.
+
+Alternatively, you can set the {code}`MLIR_DIR` environment variable to the same path before running CMake:
+
+::::{tab-set}
+:::{tab-item} Linux and macOS
+
+```console
+$ export MLIR_DIR=/path/to/installation/lib/cmake/mlir
+```
+
+:::
+:::{tab-item} Windows (PowerShell)
+
+```console
+$ $env:MLIR_DIR = "C:\path\to\installation\lib\cmake\mlir"
+```
+
+:::
+::::
+
+### Disabling MLIR
+
+If you do not need MLIR-based functionality, you can disable it by setting the {code}`BUILD_MQT_{{name.upper()}}_MLIR` option to {code}`OFF`.
+This disables all MLIR-related features in MQT {{name}} and removes the dependency on MLIR.
+
+```console
+$ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
+```
+
+{%- endif %}
+
 <!-- Links -->
 
 [FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
@@ -521,3 +474,5 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 [prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
+[`setup-mlir`]: https://github.com/munich-quantum-software/setup-mlir/
+[`portable-mlir-toolchain`]: https://github.com/munich-quantum-software/portable-mlir-toolchain/
