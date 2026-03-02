@@ -49,7 +49,7 @@ def main() -> None:
     parser.add_argument(
         "--project_type",
         type=str,
-        choices=["c++-python", "pure-python", "other"],
+        choices=["c++-python", "c++-mlir-python", "pure-python", "other"],
         required=True,
         help="Type of the project",
     )
