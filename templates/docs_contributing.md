@@ -94,37 +94,43 @@ Please adhere to the following guidelines to help the project grow sustainably.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
 
-(working-with-coderabbit)=
-
 ### Working with CodeRabbit
 
-We use [CodeRabbit](https://github.com/apps/coderabbit) for automated code review on pull requests.
-To get the most out of it and help the project maintain high quality, please follow these practices:
+We use [CodeRabbit](https://www.coderabbit.ai/) for automated code review on pull requests.
+To get the most out of it and help the project maintain its high ambitions for code quality, please follow these practices:
 
 - **Draft PRs**:
   CodeRabbit runs on every push to non-draft PRs.
-  If you are still experimenting, mark your PR as a draft so that review runs when you are ready for feedback.
+  If you are still experimenting, mark your PR as a draft so that the automated review only runs when you are ready for feedback.
 - **Respond to comments**:
-  Do not simply dismiss CodeRabbit's comments.
+  Do not simply resolve CodeRabbit's comments without answering them.
   It learns from your replies and improves over time.
   If a suggestion does not apply, take a moment to explain why in a reply.
 - **Avoid multiple AI review bots**:
-  CodeRabbit performs significantly worse when other AI review bots (e.g., Copilot) are active on the same PR.
+  CodeRabbit performs significantly worse when other AI review bots (e.g., GitHub Copilot) are active on the same PR.
   For the best results, do not tag Copilot unless you have already iterated with CodeRabbit and want an extra pass.
 - **Engage CodeRabbit in discussions**:
   When team members are discussing code in PR comments, CodeRabbit stays silent by default.
   Tag {code}`@coderabbitai` to engage it in the conversation and get its feedback on the specific points being discussed.
+  In particular, when you tag another person in a comment, ensure to also tag CodeRabbit.
+  Otherwise, you will just get an automatic "It seems like the humans are having a chat" response from CodeRabbit anyway, which does not add much value.
 - **Let CodeRabbit resolve comments**:
-  Do not resolve review comments manually before the next CodeRabbit run after your push.
-  CodeRabbit is designed to resolve completed comments itself.
+  Wait until after the next push before considering resolving CodeRabbit's comments manually.
+  CodeRabbit will automatically resolve comments that it thinks have been addressed by your changes.
+  Sometimes, it gets stuck, at which point you may resolve it manually.
 - **Manual review on drafts**:
   You can trigger a full review on a draft PR by commenting with {code}`@coderabbitai full review`.
+- **Continuing after reviews are paused**:
+  CodeRabbit has a default threshold for the number of reviews it performs on a PR before pausing further reviews to avoid spamming.
+  If you want to resume reviews, you can ask CodeRabbit to resume by commenting with {code}`@coderabbitai resume`.
+  Note that this will not trigger a review immediately; it will just allow CodeRabbit to perform reviews on the next push or manual trigger.
 
 ### Use of AI and LLMs
 
 Contributions may be prepared with the help of AI or LLM tools.
 However, [AI Slop](https://en.wikipedia.org/wiki/AI_slop)—generic, low-value, or clearly machine-generated content that does not meet our standards for clarity, accuracy, or usefulness—is not acceptable.
 Ensure that all text, code, and documentation you submit are accurate, relevant, and consistent with the project's style and guidelines.
+Please be mindful of the maintainers' time and consider the impact of your contributions on the project's long-term success.
 
 ## Get Started 🎉
 
@@ -321,15 +327,15 @@ We recommend using [{code}`nox`][nox] for development.
 {code}`nox` is a Python automation tool that allows you to define tasks in a {code}`noxfile.py` file and then run them with a single command.
 If you have not installed it yet, see our {ref}`installation guide for developers <development-setup>`.
 
-We define {%- if project_type in ["c++-python", "c++-mlir-python"] %} five {%- else %} four {%- endif %} convenient {code}`nox` sessions in our {code}`noxfile.py`:
+We define some convenient {code}`nox` sessions in our {code}`noxfile.py`:
 
 - {code}`tests` to run the Python tests
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
+- {code}`docs` to build the documentation
   {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - {code}`stubs` to regenerate the type stub files for the Python bindings
   {%- endif %}
-- {code}`docs` to build the documentation
 
 These are explained in more detail in the following sections.
 
@@ -362,7 +368,7 @@ We take extra care to install the project without build isolation so that rebuil
 If you only want to run the tests on a specific Python version, you can pass the desired Python version to the {code}`nox` command.
 
 ```console
-$ nox -s tests-3.12
+$ nox -s tests-3.14
 ```
 
 :::{note}
@@ -441,7 +447,14 @@ Every public function, class, and module should have a docstring that explains w
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html) to document the expected types of function arguments and return values.
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 For the compiled parts of the code base, we provide type hints in the form of stub files in the {code}`python/mqt/{{repository}}` directory.
-These stub files are auto-generated; you can update them after changing the bindings by running {code}`nox -s stubs`.
+These stub files are auto-generated.
+Do not edit them directly.
+Instead, you can use the {code}`nox` session {code}`stubs` to regenerate them automatically.
+
+```console
+nox -s stubs
+```
+
 {%- endif %}
 
 The Python API documentation is integrated into the overall documentation that we host on ReadTheDocs using the
