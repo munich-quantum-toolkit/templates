@@ -15,6 +15,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Added
 
+- 📝 Add `docs/tooling.md` page ([#223]) ([**@mhmohona**], [**@burgholzer**])
+- 📝 Add documentation for setting up MLIR and add `c++-mlir-python` as possible `project-type` ([#223]) ([**@mhmohona**], [**@burgholzer**])
 - 🔧 Add exclude labels to Release Drafter configuration ([#196]) ([**@burgholzer**])
 
 ### Changed
@@ -32,7 +34,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Changed
 
-- 📝 Add docs for setting up dev environment with uv ([#182]) ([**@adnathanail**])
+- 📝 Add documentation for setting up dev environment with `uv` ([#182]) ([**@adnathanail**])
 - 🔧 Remove instructions to install nox (it is installed by default) ([#182]) ([**@adnathanail**])
 - 🔧 Replace recommendation to use pre-commit with prek ([#182]) ([**@adnathanail**])
 
@@ -102,7 +104,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#113)._
 ### Added
 
 - 🎨 Add `has_changelog_and_upgrade_guide` flag to make templates more generic ([#55]) ([**@denialhaag**])
-- 🎨 Add `other` as possible `project_type` ([#54]) ([**@denialhaag**])
+- 🎨 Add `other` as possible `project-type` ([#54]) ([**@denialhaag**])
 
 ### Changed
 
@@ -173,6 +175,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#223]: https://github.com/munich-quantum-toolkit/templates/pull/223
 [#210]: https://github.com/munich-quantum-toolkit/templates/pull/210
 [#203]: https://github.com/munich-quantum-toolkit/templates/pull/203
 [#201]: https://github.com/munich-quantum-toolkit/templates/pull/201
@@ -212,6 +215,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 [**@denialhaag**]: https://github.com/denialhaag
 [**@Ectras**]: https://github.com/Ectras/
 [**@adnathanail**]: https://github.com/adnathanail
+[**@mhmohona**]: https://github.com/mhmohona
 
 <!-- General links -->
 
