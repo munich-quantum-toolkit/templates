@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.13] - 2026-03-03
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
+
 ### Added
 
 - 🔧 Add exclude labels to Release Drafter configuration ([#196]) ([**@burgholzer**])
@@ -150,7 +154,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.12...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...HEAD
+[1.1.13]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.13
 [1.1.12]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.12
 [1.1.11]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.11
 [1.1.10]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.10

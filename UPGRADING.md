@@ -4,8 +4,13 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-While not a breaking change, with this release, the action will only create a pull request once it runs on `main`.
-On all other branches, the action outputs `git diff` to the terminal.
+## [1.1.13]
+
+This release includes two non-breaking changes:
+
+- With this release, the action will only create a pull request once it runs on `main`.
+  On all other branches, the action outputs `git diff` to the terminal.
+- `c++-mlir-python` has been added as a `project_type`.
 
 ## [1.1.3]
 
@@ -65,6 +70,7 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...HEAD
+[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.13
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
 [1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
