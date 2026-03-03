@@ -4,8 +4,13 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-While not a breaking change, with this release, the action will only create a pull request once it runs on `main`.
-On all other branches, the action outputs `git diff` to the terminal.
+## [1.1.13]
+
+This release includes two non-breaking changes:
+
+- With this release, the action will only create a pull request once it runs on `main`.
+  On all other branches, the action outputs `git diff` to the terminal.
+- `c++-mlir-python` has been added as a `project-type`.
 
 ## [1.1.3]
 
@@ -13,7 +18,7 @@ This release includes two non-breaking changes:
 
 - A `has-changelog-and-upgrade-guide` flag has been added to make the templates more generic.
   If this flag is disabled, respective sections in templates such as `pull_request_template.md` are omitted.
-- `other` has been added as a `project_type`.
+- `other` has been added as a `project-type`.
   For this project type, the contribution and installation guides cannot be synchronized.
 
 ## [1.1.0]
@@ -21,7 +26,7 @@ This release includes two non-breaking changes:
 With this release, the templating action has new required inputs:
 
 - The `name` is the stylized name of the package (e.g., "Core" or "DDSIM").
-- The `project_type` specifies whether the project has C++ components.
+- The `project-type` specifies whether the project has C++ components.
   The options are `c++-python` or `pure-python`.
 
 The release adds support for templating several new files.
@@ -65,6 +70,7 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...HEAD
+[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.13
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
 [1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
