@@ -140,7 +140,7 @@ This policy applies regardless of whether the output was used verbatim or edited
 
 Append {code}`[AI]` to the commit subject line whenever an AI tool contributed to the changes in that commit.
 
-```
+```text
 ✨ Add feature X [AI]
 ```
 
@@ -151,7 +151,7 @@ Provide the following fields:
 
 | Field                    | Description                                                                |
 | ------------------------ | -------------------------------------------------------------------------- |
-| Tool + provider          | e.g., {code}`GitHub Copilot (OpenAI)`, {code}`Claude 3.7 (Anthropic)`      |
+| Tool + provider          | e.g., {code}`GitHub Copilot (OpenAI)`, {code}`Claude Opus 4.6 (Anthropic)` |
 | UTC datetime             | Approximate datetime of the AI session, e.g., {code}`2026-03-11 14:00 UTC` |
 | Prompt summary           | One-sentence summary of the prompt                                         |
 | Used verbatim or edited  | State whether the output was used as-is or meaningfully edited             |
@@ -184,7 +184,7 @@ The remediation process is: address the reviewer's feedback, update the AI prove
 | ------------------------ | ------------------------------------------------- |
 | Tool + provider          | GitHub Copilot (OpenAI)                           |
 | UTC datetime             | 2026-03-11 14:00 UTC                              |
-| Prompt summary           | Implement dijkstras algorithm for shortest path.  |
+| Prompt summary           | Implement Dijkstra's algorithm for shortest path.  |
 | Used verbatim or edited  | Edited (restructured logic, added error handling) |
 | Human reviewer(s) + date | @maintainer-a, 2026-03-11                         |
 ```
