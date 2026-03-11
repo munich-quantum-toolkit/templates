@@ -129,8 +129,8 @@ To get the most out of it and help the project maintain its high ambitions for c
 
 #### Scope
 
-"AI-assisted" means any contribution where an AI or LLM tool—such as a chat assistant (e.g., ChatGPT, Claude, Gemini), 
-a code-completion engine (e.g., GitHub Copilot, Tabnine), or a model-augmented IDE—was used to generate, suggest, or 
+"AI-assisted" means any contribution where an AI or LLM tool—such as a chat assistant (e.g., ChatGPT, Claude, Gemini),
+a code-completion engine (e.g., GitHub Copilot, Tabnine), or a model-augmented IDE—was used to generate, suggest, or
 substantially transform code, documentation, tests, or configuration.
 This policy applies regardless of whether the output was used verbatim or edited before submission.
 
@@ -150,7 +150,7 @@ Include a dedicated _AI Provenance_ section in your PR description when one or m
 Provide the following fields:
 
 | Field                    | Description                                                                |
-|--------------------------|----------------------------------------------------------------------------|
+| ------------------------ | -------------------------------------------------------------------------- |
 | Tool + provider          | e.g., {code}`GitHub Copilot (OpenAI)`, {code}`Claude 3.7 (Anthropic)`      |
 | UTC datetime             | Approximate datetime of the AI session, e.g., {code}`2026-03-11 14:00 UTC` |
 | Prompt summary           | One-sentence summary of the prompt                                         |
@@ -180,13 +180,13 @@ The remediation process is: address the reviewer's feedback, update the AI prove
 ```markdown
 ### AI Provenance
 
-| Field                    | Value                                                 |
-|--------------------------|-------------------------------------------------------|
-| Tool + provider          | GitHub Copilot (OpenAI)                               |
-| UTC datetime             | 2026-03-11 14:00 UTC                                  |
-| Prompt summary           | Implement dijkstras algorithm for shortest path.      |
-| Used verbatim or edited  | Edited (restructured logic, added error handling)     |
-| Human reviewer(s) + date | @maintainer-a, 2026-03-11                             |
+| Field                    | Value                                             |
+| ------------------------ | ------------------------------------------------- |
+| Tool + provider          | GitHub Copilot (OpenAI)                           |
+| UTC datetime             | 2026-03-11 14:00 UTC                              |
+| Prompt summary           | Implement dijkstras algorithm for shortest path.  |
+| Used verbatim or edited  | Edited (restructured logic, added error handling) |
+| Human reviewer(s) + date | @maintainer-a, 2026-03-11                         |
 ```
 
 #### References & further reading

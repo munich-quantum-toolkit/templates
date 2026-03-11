@@ -24,5 +24,6 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 - [ ] I have reviewed my own code changes.
 
 **If PR contains AI-assisted content:**
+
 - [ ] AI provenance section is present and all required fields are filled in.
 - [ ] Human sign-off: at least one human reviewer has read and understood all AI-generated content.
