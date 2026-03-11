@@ -184,7 +184,7 @@ The remediation process is: address the reviewer's feedback, update the AI prove
 | ------------------------ | ------------------------------------------------- |
 | Tool + provider          | GitHub Copilot (OpenAI)                           |
 | UTC datetime             | 2026-03-11 14:00 UTC                              |
-| Prompt summary           | Implement Dijkstra's algorithm for shortest path.  |
+| Prompt summary           | Implement Dijkstra's algorithm for shortest path. |
 | Used verbatim or edited  | Edited (restructured logic, added error handling) |
 | Human reviewer(s) + date | @maintainer-a, 2026-03-11                         |
 ```
