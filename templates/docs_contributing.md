@@ -125,7 +125,7 @@ To get the most out of it and help the project maintain its high ambitions for c
   If you want to resume reviews, you can ask CodeRabbit to resume by commenting with {code}`@coderabbitai resume`.
   Note that this will not trigger a review immediately; it will just allow CodeRabbit to perform reviews on the next push or manual trigger.
 
-### AI-assisted contributions (AI-generated code / "AI slop")
+### AI-assisted contributions
 
 #### Scope
 
