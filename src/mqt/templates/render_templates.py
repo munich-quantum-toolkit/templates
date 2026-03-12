@@ -87,6 +87,9 @@ def render_templates(
         raise ValueError(msg)
 
     if project_type == "other":
+        if synchronize_agents_md:
+            msg = "AGENTS.md cannot be synchronized for project type 'other'."
+            raise ValueError(msg)
         if synchronize_contribution_guide:
             msg = "Contribution guide cannot be synchronized for project type 'other'."
             raise ValueError(msg)
