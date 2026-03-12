@@ -79,6 +79,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         temp_dir / ".github" / "SUPPORT.md",
         temp_dir / "docs" / "_static" / "custom.css",
         temp_dir / "docs" / "_templates" / "page.html",
+        temp_dir / "docs" / "ai_usage.md",
         temp_dir / "docs" / "contributing.md",
         temp_dir / "docs" / "installation.md",
         temp_dir / "docs" / "lit_header.bib",
@@ -118,6 +119,7 @@ def test_other(temp_dir: Path) -> None:
         temp_dir / ".github" / "SUPPORT.md",
         temp_dir / "docs" / "_static" / "custom.css",
         temp_dir / "docs" / "_templates" / "page.html",
+        temp_dir / "docs" / "ai_usage.md",
         temp_dir / "docs" / "lit_header.bib",
     ]
     _check_files(files)
