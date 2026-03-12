@@ -128,7 +128,6 @@ def render_templates(
             },
         ),
         TemplateContainer(
-            template_name="docs_ai_usage.md",
             file_name="ai_usage.md",
             output_dir=Path("docs"),
             active=synchronize_contribution_guide or synchronize_pull_request_template,
