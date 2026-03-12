@@ -106,6 +106,7 @@ def render_templates(
             arguments={
                 "name": name,
                 "project_type": project_type,
+                "repository": repository,
                 "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
             },
         ),
