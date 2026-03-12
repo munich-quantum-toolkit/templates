@@ -46,13 +46,13 @@
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
-### C+++
+### C++
 
 - Targets Linux (glibc 2.28+), macOS (11.0+), and Windows on x86_64 and arm64 architectures
 - C++20
 - CMake 3.24+
 - `FetchContent` for dependency management (configured in `cmake/ExternalDependencies.cmake`)
-- `clang-format` and `clang-tidy` for formatiign/linting (see `.clang-format` and `.clang-tidy`)
+- `clang-format` and `clang-tidy` for formatting/linting (see `.clang-format` and `.clang-tidy`)
   {%- if project_type == "c++-mlir-python" %}
 - LLVM 22.1+ for building MLIR code
 - GoogleTest for unit tests (located in `test/` and `mlir/unittests/`)
@@ -79,7 +79,7 @@
 ### Documentation
 
 - `sphinx`
-- MyST (Markdow)
+- MyST (Markdown)
 - Furo theme
   {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - `breathe` for C++ API docs
