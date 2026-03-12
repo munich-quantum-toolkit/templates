@@ -128,6 +128,13 @@ def render_templates(
             },
         ),
         TemplateContainer(
+            template_name="docs_ai_usage.md",
+            file_name="ai_usage.md",
+            output_dir=Path("docs"),
+            active=synchronize_contribution_guide,
+            arguments={"name": name, "organization": organization, "repository": repository},
+        ),
+        TemplateContainer(
             template_name="docs_support.md",
             file_name="support.md",
             output_dir=Path("docs"),
@@ -176,7 +183,11 @@ def render_templates(
             file_name="pull_request_template.md",
             output_dir=Path(".github"),
             active=synchronize_pull_request_template,
-            arguments={"has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide},
+            arguments={
+                "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
+                "organization": organization,
+                "repository": repository,
+            },
         ),
         TemplateContainer(
             template_name="release-drafter.yml.in",

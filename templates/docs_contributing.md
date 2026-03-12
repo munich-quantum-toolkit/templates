@@ -127,72 +127,12 @@ To get the most out of it and help the project maintain its high ambitions for c
 
 ### AI-assisted contributions
 
-#### Scope
+We acknowledge the utility of AI-based coding assistants (e.g., GitHub Copilot, ChatGPT) in modern software development.
+However, their use requires a high degree of responsibility and transparency to maintain code quality and licensing compliance.
 
-"AI-assisted" means any contribution where an AI or LLM tool—such as a chat assistant (e.g., ChatGPT, Claude, Gemini),
-a code-completion engine (e.g., GitHub Copilot, Tabnine), or a model-augmented IDE—was used to generate, suggest, or
-substantially transform code, documentation, tests, or configuration.
-This policy applies regardless of whether the output was used verbatim or edited before submission.
-
-#### Required provenance metadata
-
-**Commit messages**
-
-Append {code}`[AI]` to the commit subject line whenever an AI tool contributed to the changes in that commit.
-
-```text
-✨ Add feature X [AI]
-```
-
-**PR "AI provenance" section**
-
-Include a dedicated _AI Provenance_ section in your PR description when one or more commits carry the {code}`[AI]` tag.
-Provide the following fields:
-
-| Field                    | Description                                                                |
-| ------------------------ | -------------------------------------------------------------------------- |
-| Tool + provider          | e.g., {code}`GitHub Copilot (OpenAI)`, {code}`Claude Opus 4.6 (Anthropic)` |
-| UTC datetime             | Approximate datetime of the AI session, e.g., {code}`2026-03-11 14:00 UTC` |
-| Prompt summary           | One-sentence summary of the prompt                                         |
-| Used verbatim or edited  | State whether the output was used as-is or meaningfully edited             |
-| Human reviewer(s) + date | Name(s) and date of the human who reviewed the AI-generated content        |
-
-:::{warning}
-Do **not** include secrets, credentials, API keys, or any personally identifiable information in prompt summaries.
-:::
-
-#### Prohibited uses & red flags
-
-The following is not acceptable:
-
-- Verbatim acceptance of complex system or security-critical code from an AI tool without independent review.
-- Submitting AI-generated content that contains unexplained complexity or logic that the contributor cannot explain.
-
-#### Enforcement & record-keeping
-
-PRs that do not comply with this policy will be blocked from merging until the deficiencies are remediated.
-The remediation process is: address the reviewer's feedback, update the AI provenance section, re-run CI checks, and re-request review.
-
-#### Examples
-
-**AI provenance PR snippet**
-
-```markdown
-### AI Provenance
-
-| Field                    | Value                                             |
-| ------------------------ | ------------------------------------------------- |
-| Tool + provider          | GitHub Copilot (OpenAI)                           |
-| UTC datetime             | 2026-03-11 14:00 UTC                              |
-| Prompt summary           | Implement Dijkstra's algorithm for shortest path. |
-| Used verbatim or edited  | Edited (restructured logic, added error handling) |
-| Human reviewer(s) + date | @maintainer-a, 2026-03-11                         |
-```
-
-#### References & further reading
-
-- [NIST SP 800-218A — Secure Software Development Practices for Generative AI and Dual-Use Foundation Models](https://csrc.nist.gov/pubs/sp/800/218/a/final)
-- [OpenSSF Security-Focused Guide for AI Code Assistant Instructions](https://best.openssf.org/Security-Focused-Guide-for-AI-Code-Assistant-Instructions.html)
+Please carefully read and follow our dedicated {doc}`AI Usage Guidelines <docs_ai_usage>` before submitting any AI-assisted contribution.
+In short: **You are responsible for every line of code you submit**, and a **human must always be in the loop**.
+We require disclosure of AI tool usage in your PR description.
 
 ## Get Started 🎉
 

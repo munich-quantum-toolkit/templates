@@ -25,5 +25,5 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 
 **If PR contains AI-assisted content:**
 
-- [ ] AI provenance section is present and all required fields are filled in.
-- [ ] Human sign-off: at least one human reviewer has read and understood all AI-generated content.
+- [ ] I have disclosed the use of AI tools in the PR description as per our [AI Usage Guidelines](https://github.com/{{organization}}/{{repository}}/blob/main/docs/ai_usage.md).
+- [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept full responsibility for it.
