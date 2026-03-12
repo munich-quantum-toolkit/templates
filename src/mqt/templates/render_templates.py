@@ -45,6 +45,7 @@ def render_templates(
     project_type: str,
     repository: str,
     has_changelog_and_upgrade_guide: bool,
+    synchronize_agents_md: bool,
     synchronize_contribution_guide: bool,
     synchronize_documentation_utilities: bool,
     synchronize_installation_guide: bool,
@@ -65,6 +66,7 @@ def render_templates(
         project_type: The type of the project. One of "pure-python", "c++-python", "c++-mlir-python", "other".
         repository: The name of the repository.
         has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
+        synchronize_agents_md: Whether to synchronize the AGENTS.md file.
         synchronize_contribution_guide: Whether to synchronize the contribution guide.
         synchronize_documentation_utilities: Whether to synchronize the documentation utilities.
         synchronize_installation_guide: Whether to synchronize the installation guide.
@@ -97,6 +99,16 @@ def render_templates(
     release_drafter_categories_dict = json.loads(release_drafter_categories)
 
     template_containers = [
+        TemplateContainer(
+            file_name="AGENTS.md",
+            output_dir=Path(),
+            active=synchronize_agents_md,
+            arguments={
+                "name": name,
+                "project_type": project_type,
+                "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
+            },
+        ),
         TemplateContainer(
             file_name="bug-report.yml",
             output_dir=Path(".github/ISSUE_TEMPLATE"),

@@ -66,6 +66,12 @@ def main() -> None:
         help="Whether the repository has a changelog and upgrade guide",
     )
     parser.add_argument(
+        "--synchronize_agents_md",
+        default=True,
+        type=_convert_to_bool,
+        help="Whether to synchronize the AGENTS.md file",
+    )
+    parser.add_argument(
         "--synchronize_contribution_guide",
         default=True,
         type=_convert_to_bool,
@@ -134,6 +140,7 @@ def main() -> None:
         project_type=args.project_type,
         repository=args.repository,
         has_changelog_and_upgrade_guide=args.has_changelog_and_upgrade_guide,
+        synchronize_agents_md=args.synchronize_agents_md,
         synchronize_contribution_guide=args.synchronize_contribution_guide,
         synchronize_documentation_utilities=args.synchronize_documentation_utilities,
         synchronize_installation_guide=args.synchronize_installation_guide,
