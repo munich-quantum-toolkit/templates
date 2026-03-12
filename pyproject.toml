@@ -113,13 +113,14 @@ ket   = "ket"
 
 [tool.check-sdist]
 git-only = [
+  "docs/*",
+  "tests/*",
   ".gitignore",
   ".license-tools-config.json",
+  "action.yml",
   "CHANGELOG.md",
   "UPGRADING.md",
   "uv.lock",
-  "tests/*",
-  "action.yml",
 ]
 
 
