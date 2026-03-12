@@ -6,9 +6,8 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [1.1.14]
 
-While not a breaking change, this release adds a new flag to the action:
-
-- `synchronize-agents-md`: Whether to synchronize the `AGENTS.md` file
+While not a breaking change, this release adds a new `synchronize-agents-md` flag that controls whether the `AGENTS.md` file is synchronized.
+This flag must be disabled for the `other` project type.
 
 ## [1.1.13]
 
