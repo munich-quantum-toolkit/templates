@@ -4,6 +4,14 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
+## [1.2.0]
+
+This release adds a new `synchronize-agents-md` flag that controls whether the `AGENTS.md` file is synchronized.
+The flag is ignored if the project type is `other`.
+
+Furthermore, this release adds a `docs/ai_usage.md` page.
+When upgrading, this page should be linked to on the `docs/index.md` page.
+
 ## [1.1.13]
 
 This release includes two non-breaking changes:
@@ -33,7 +41,7 @@ The release adds support for templating several new files.
 By default, the templating is enabled for all the added files.
 This behavior can be controlled using the following flags:
 
-- `synchronize-contribution-xguide`: Whether to synchronize `.github/CONTRIBUTING.md` and `docs/contributing.md`
+- `synchronize-contribution-guide`: Whether to synchronize `.github/CONTRIBUTING.md` and `docs/contributing.md`
 - `synchronize-documentation-utilities`: Whether to synchronize documentation utilities such as `docs/_templates/page.html` and `docs/_static/custom.css`
 - `synchronize-installation-guide`: Whether to synchronize `docs/installing.md`
 - `synchronize-release-drafter-template`: Whether to synchronize `.github/release-drafter.yml`
@@ -70,7 +78,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...HEAD
-[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.13
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...v1.2.0
+[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...v1.1.13
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
-[1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
+[1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...v1.1.0

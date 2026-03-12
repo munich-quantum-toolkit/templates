@@ -45,6 +45,7 @@ def render_templates(
     project_type: str,
     repository: str,
     has_changelog_and_upgrade_guide: bool,
+    synchronize_agents_md: bool,
     synchronize_contribution_guide: bool,
     synchronize_documentation_utilities: bool,
     synchronize_installation_guide: bool,
@@ -65,6 +66,7 @@ def render_templates(
         project_type: The type of the project. One of "pure-python", "c++-python", "c++-mlir-python", "other".
         repository: The name of the repository.
         has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
+        synchronize_agents_md: Whether to synchronize the AGENTS.md file.
         synchronize_contribution_guide: Whether to synchronize the contribution guide.
         synchronize_documentation_utilities: Whether to synchronize the documentation utilities.
         synchronize_installation_guide: Whether to synchronize the installation guide.
@@ -84,19 +86,24 @@ def render_templates(
         msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
         raise ValueError(msg)
 
-    if project_type == "other":
-        if synchronize_contribution_guide:
-            msg = "Contribution guide cannot be synchronized for project type 'other'."
-            raise ValueError(msg)
-        if synchronize_installation_guide:
-            msg = "Installation guide cannot be synchronized for project type 'other'."
-            raise ValueError(msg)
+    is_other = project_type == "other"
 
     if not release_drafter_categories:
         release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
     release_drafter_categories_dict = json.loads(release_drafter_categories)
 
     template_containers = [
+        TemplateContainer(
+            file_name="AGENTS.md",
+            output_dir=Path(),
+            active=synchronize_agents_md and not is_other,
+            arguments={
+                "name": name,
+                "project_type": project_type,
+                "repository": repository,
+                "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
+            },
+        ),
         TemplateContainer(
             file_name="bug-report.yml",
             output_dir=Path(".github/ISSUE_TEMPLATE"),
@@ -106,7 +113,7 @@ def render_templates(
         TemplateContainer(
             file_name="CONTRIBUTING.md",
             output_dir=Path(".github"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
@@ -118,7 +125,7 @@ def render_templates(
             template_name="docs_contributing.md",
             file_name="contributing.md",
             output_dir=Path("docs"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
@@ -142,7 +149,7 @@ def render_templates(
         TemplateContainer(
             file_name="tooling.md",
             output_dir=Path("docs"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
@@ -153,7 +160,7 @@ def render_templates(
         TemplateContainer(
             file_name="installation.md",
             output_dir=Path("docs"),
-            active=synchronize_installation_guide,
+            active=synchronize_installation_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
