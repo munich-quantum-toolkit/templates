@@ -4,7 +4,7 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 ## [Unreleased]
 
-## [1.1.14]
+## [1.2.0]
 
 While not a breaking change, this release adds a new `synchronize-agents-md` flag that controls whether the `AGENTS.md` file is synchronized.
 This flag must be disabled for the `other` project type.
@@ -75,8 +75,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.14...HEAD
-[1.1.14]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.14
-[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.13
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...v1.2.0
+[1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...v1.1.13
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
-[1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...HEAD
+[1.1.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.0.0...v1.1.0

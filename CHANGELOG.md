@@ -9,9 +9,9 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
-## [1.1.14] - 2026-03-12
+## [1.2.0] - 2026-03-12
 
-_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1114)._
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
 
 ### Added
 
@@ -172,8 +172,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.14...HEAD
-[1.1.14]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.14
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.2.0
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.13
 [1.1.12]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.12
 [1.1.11]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.11
