@@ -11,12 +11,12 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
-- 🤖 Add a dedicated policy on the use of AI within the MQT ([#237]) ([**ystade**], [**@burgholzer**])
+- 🤖 Add a dedicated policy on the use of AI within the MQT ([#237]) ([**@ystade**], [**@burgholzer**])
 
 ### Changed
 
-- 📝 Update the pull request template with AI-related information ([#237]) ([**ystade**], [**@burgholzer**])
-- 📝 Update the AI section in the contribution guide ([#237]) ([**ystade**], [**@burgholzer**])
+- 📝 Update the pull request template with AI-related information ([#237]) ([**@ystade**], [**@burgholzer**])
+- 📝 Update the AI section in the contribution guide ([#237]) ([**@ystade**], [**@burgholzer**])
 
 ## [1.1.13] - 2026-03-03
 

@@ -130,7 +130,7 @@ To get the most out of it and help the project maintain its high ambitions for c
 We acknowledge the utility of AI-based coding assistants (e.g., GitHub Copilot, ChatGPT) in modern software development.
 However, their use requires a high degree of responsibility and transparency to maintain code quality and licensing compliance.
 
-Please carefully read and follow our dedicated {doc}`AI Usage Guidelines <docs_ai_usage>` before submitting any AI-assisted contribution.
+Please carefully read and follow our dedicated {doc}`AI Usage Guidelines <ai_usage>` before submitting any AI-assisted contribution.
 In short: **You are responsible for every line of code you submit**, and a **human must always be in the loop**.
 We require disclosure of AI tool usage in your PR description.
 
