@@ -89,7 +89,7 @@ This helps us maintain a healthy ecosystem where both the software and its contr
 
 - **"Good First Issues"**: Do not use AI tools to solve issues labeled as "good first issue". These are intended as learning opportunities for new contributors. Automating them defeats the purpose.
 - **Spam**: Do not use AI to generate low-quality or repetitive comments/reviews ("AI Slop").
-- **Unreviewed Code**: Submitting code that you have not reviewed and tested yourself.
+- **Unreviewed Code**: Submitting code that you, as a human, have not reviewed and tested yourself.
 
 ## Summary
 
