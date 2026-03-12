@@ -10,7 +10,7 @@ This release adds a new `synchronize-agents-md` flag that controls whether the `
 The flag is ignored if the project type is `other`.
 
 Furthermore, this release adds a `docs/ai_usage.md` page.
-When upgrading, this page should be linked to on the `docs.index.md` page.
+When upgrading, this page should be linked to on the `docs/index.md` page.
 
 ## [1.1.13]
 
