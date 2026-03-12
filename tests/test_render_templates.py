@@ -123,3 +123,27 @@ def test_other(temp_dir: Path) -> None:
         temp_dir / "docs" / "lit_header.bib",
     ]
     _check_files(files)
+
+
+def test_ai_usage_renders_with_contribution_guide_only(temp_dir: Path) -> None:
+    """Test that AI usage renders correctly with only the contribution guide enabled."""
+    render_templates(
+        target_dir=temp_dir,
+        name="Test",
+        organization="munich-quantum-toolkit",
+        project_type="pure-python",
+        repository="test",
+        has_changelog_and_upgrade_guide=True,
+        synchronize_contribution_guide=True,
+        synchronize_documentation_utilities=False,
+        synchronize_installation_guide=False,
+        synchronize_issue_templates=False,
+        synchronize_pull_request_template=False,
+        synchronize_release_drafter_template=False,
+        synchronize_renovate_config=False,
+        synchronize_security_policy=False,
+        synchronize_support_resources=False,
+        release_drafter_categories="",
+    )
+
+    _check_files([temp_dir / "docs" / "ai_usage.md"])
