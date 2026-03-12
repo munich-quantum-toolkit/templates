@@ -100,6 +100,12 @@ We require disclosure of AI tool usage in your PR description.
   Do not close and reopen a new PR.
   Respond to comments to signal that you have addressed the feedback.
   Do not resolve review comments yourself; the reviewer will do so once satisfied.
+- If the reviewer suggested changes with explicit code suggestions as part of the comments, apply these directly using the GitHub UI.
+  This attributes the changes to the reviewer and automatically resolves the respective comments (this is an exception to the rule above).
+  If there are multiple suggestions that you want to apply at once, you can batch them into a single commit.
+  Go to the "Files changed" tab of the PR, and then click "Add suggestion to batch" for each suggestion you want to include.
+  Once you are done selecting suggestions, click "Commit suggestions".
+  Only apply suggestions manually if using the GitHub UI is not feasible.
 - Re-request a review after pushing changes that address feedback.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
