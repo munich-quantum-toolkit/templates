@@ -9,14 +9,21 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+## [1.1.14] - 2026-03-12
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1114)._
+
 ### Added
 
-- 🤖 Add a dedicated policy on the use of AI within the MQT ([#237]) ([**@ystade**], [**@burgholzer**])
+- 🤖 Synchronize `AGENTS.md` file ([#247]) ([**@denialhaag**])
+- 🤖 Add a dedicated page on the use of AI ([#237]) ([**@ystade**], [**@burgholzer**])
 
 ### Changed
 
-- 📝 Update the pull request template with AI-related information ([#237]) ([**@ystade**], [**@burgholzer**])
-- 📝 Update the AI section in the contribution guide ([#237]) ([**@ystade**], [**@burgholzer**])
+- 📝 Update contribution guide to encourage contributors to apply suggestions ([#241]) ([**@denialhaag**])
+- 🔧 Update Renovate configuration to remove `nanobind` from group of minor updates ([#238]) ([**@denialhaag**])
+- 📝 Update PR template with AI-related information ([#237]) ([**@ystade**], [**@burgholzer**])
+- 📝 Update AI section in the contribution guide ([#237]) ([**@ystade**], [**@burgholzer**])
 
 ## [1.1.13] - 2026-03-03
 
@@ -24,7 +31,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Added
 
-- 📝 Add `docs/tooling.md` page ([#223]) ([**@mhmohona**], [**@burgholzer**])
+- 📝 Synchronize `docs/tooling.md` page ([#223]) ([**@mhmohona**], [**@burgholzer**])
 - 📝 Add documentation for setting up MLIR and add `c++-mlir-python` as possible `project-type` ([#223]) ([**@mhmohona**], [**@burgholzer**])
 - 🔧 Add exclude labels to Release Drafter configuration ([#196]) ([**@burgholzer**])
 
@@ -165,7 +172,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.14...HEAD
+[1.1.14]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.14
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.13
 [1.1.12]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.12
 [1.1.11]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.11
@@ -184,6 +192,9 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#247]: https://github.com/munich-quantum-toolkit/templates/pull/247
+[#241]: https://github.com/munich-quantum-toolkit/templates/pull/241
+[#238]: https://github.com/munich-quantum-toolkit/templates/pull/238
 [#237]: https://github.com/munich-quantum-toolkit/templates/pull/237
 [#223]: https://github.com/munich-quantum-toolkit/templates/pull/223
 [#210]: https://github.com/munich-quantum-toolkit/templates/pull/210
