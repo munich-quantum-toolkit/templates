@@ -22,7 +22,7 @@
 
 ## Python
 
-- Install package: `uv sync --no-dev`
+- Install package: `uv sync`
 - Run tests: `uv run pytest`
 - Nox test shortcuts: `uvx nox -s tests`, `uvx nox -s minimums`
 - Python 3.14 variants: `uvx nox -s tests-3.14`, `uvx nox -s minimums-3.14`
