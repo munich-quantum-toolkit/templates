@@ -6,7 +6,7 @@ List any dependencies that are required for this change.
 
 Fixes #(issue) <!--- Replace `(issue)` with the issue number fixed by this pull request. If this PR does not fix an issue, please remove this line. -->
 
-## Checklist:
+## Checklist
 
 <!---
 This checklist serves as a reminder of a couple of things that ensure your pull request will be merged swiftly.
