@@ -86,16 +86,7 @@ def render_templates(
         msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
         raise ValueError(msg)
 
-    if project_type == "other":
-        if synchronize_agents_md:
-            msg = "AGENTS.md cannot be synchronized for project type 'other'."
-            raise ValueError(msg)
-        if synchronize_contribution_guide:
-            msg = "Contribution guide cannot be synchronized for project type 'other'."
-            raise ValueError(msg)
-        if synchronize_installation_guide:
-            msg = "Installation guide cannot be synchronized for project type 'other'."
-            raise ValueError(msg)
+    is_other = project_type == "other"
 
     if not release_drafter_categories:
         release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
@@ -105,7 +96,7 @@ def render_templates(
         TemplateContainer(
             file_name="AGENTS.md",
             output_dir=Path(),
-            active=synchronize_agents_md,
+            active=synchronize_agents_md and not is_other,
             arguments={
                 "name": name,
                 "project_type": project_type,
@@ -122,7 +113,7 @@ def render_templates(
         TemplateContainer(
             file_name="CONTRIBUTING.md",
             output_dir=Path(".github"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={"name": name, "repository": repository},
         ),
         TemplateContainer(
@@ -134,7 +125,7 @@ def render_templates(
             template_name="docs_contributing.md",
             file_name="contributing.md",
             output_dir=Path("docs"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
@@ -158,7 +149,7 @@ def render_templates(
         TemplateContainer(
             file_name="tooling.md",
             output_dir=Path("docs"),
-            active=synchronize_contribution_guide,
+            active=synchronize_contribution_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
@@ -169,7 +160,7 @@ def render_templates(
         TemplateContainer(
             file_name="installation.md",
             output_dir=Path("docs"),
-            active=synchronize_installation_guide,
+            active=synchronize_installation_guide and not is_other,
             arguments={
                 "name": name,
                 "organization": organization,
