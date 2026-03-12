@@ -8,7 +8,7 @@ This document describes breaking changes and how to upgrade. For a complete list
 
 While not a breaking change, this release adds a new flag to the action:
 
-- `synchronize-agents-md`: Whether to synchronize the `AGETNTS.md` file
+- `synchronize-agents-md`: Whether to synchronize the `AGENTS.md` file
 
 ## [1.1.13]
 
