@@ -95,7 +95,7 @@ Please adhere to the following guidelines to help the project grow sustainably.
   If there are multiple suggestions that you want to apply at once, you can batch them into a single commit.
   Go to the "Files changed" tab of the PR, and then click "Add suggestion to batch" for each suggestion you want to include.
   Once you are done selecting suggestions, click "Commit suggestions".
-  Only apply suggestions manually if that is not feasible.
+  Only apply suggestions manually if using the GitHub UI is not feasible.
 - Re-request a review after pushing changes that address feedback.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
