@@ -45,12 +45,7 @@
       commitMessagePrefix: "⬆\uFE0F\uD83D\uDCDC",
     },
     {
-      matchManagers: ["pep621"],
-      addLabels: ["python"],
-      commitMessagePrefix: "⬆\uFE0F\uD83D\uDC0D",
-    },
-    {
-      matchManagers: ["pip_requirements"],
+      matchManagers: ["pep621", "pip_requirements"],
       addLabels: ["python"],
       commitMessagePrefix: "⬆\uFE0F\uD83D\uDC0D",
     },
