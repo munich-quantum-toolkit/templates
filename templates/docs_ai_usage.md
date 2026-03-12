@@ -46,10 +46,12 @@ It is more important that we can follow your reasoning than that the text sounds
 
 Transparency helps the community understand the role of these tools and develop best practices.
 
-**If you use an AI tool to generate a significant portion of your contribution, you must disclose it.**
+**We encourage you to disclose any AI assistance.**
+This helps us understand how these tools are being used and identify potential issues.
+You can disclose this information in the following ways:
 
-- **Commit Messages**: Add a trailer or tag to your commit message, e.g., `Assisted-by: GitHub Copilot`.
-- **PR Description**: Include a section in your PR description stating which tool (name and version) was used and how (e.g., "Used GitHub Copilot to generate boilerplate for the new class").
+- **Commit Messages**: Add a trailer to your commit message in the form `Assisted-by: [Model Name] via [Tool Name]` (example: `Assisted-by: Claude Sonnet 4.6 via GitHub Copilot`)
+- **PR Description**: Mention the tool (name and version) and how it was used in the PR description.
 
 ### 5. Licensing and Copyright
 
@@ -61,7 +63,7 @@ You are responsible for ensuring that your contribution does not violate any thi
 ## Extractive Contributions
 
 Processing pull requests and comments for MQT {{name}} requires significant maintainer time and energy.
-Sending unreviewed AI output to open source projects shifts the burden of verifying correctness from the contributor to the maintainer.
+Sending unreviewed AI output to open-source projects shifts the burden of verifying correctness from the contributor to the maintainer.
 We classify such contributions as "extractive" because they consume more community resources than they provide in value.
 
 Our **golden rule** is that a contribution should be valuable enough to justify the review effort.
@@ -69,7 +71,7 @@ Nadia Eghbal captures this concept in her book _[Working in Public](https://pres
 
 > "When attention is being appropriated, producers need to weigh the costs and benefits of the transaction. To assess whether the appropriation of attention is net-positive, it's useful to distinguish between _extractive_ and _non-extractive_ contributions. Extractive contributions are those where the marginal cost of reviewing and merging that contribution is greater than the marginal benefit to the project's producers. In the case of a code contribution, it might be a pull request that's too complex or unwieldy to review, given the potential upside." — Nadia Eghbal
 
-Before AI tools became widespread, open source project maintainers would often review any and all changes sent to the project simply because submitting a pull request was a sign of interest from a potential long-term contributor.
+Before AI tools became widespread, open-source project maintainers would often review all changes sent to the project simply because submitting a pull request was a sign of interest from a potential long-term contributor.
 However, AI tools now allow the rapid generation of large volumes of code, which can easily overwhelm maintainers if submitted without careful review.
 Our policy exists to ensure that maintainer time is spent on high-quality interactions rather than debugging AI-generated code.
 
@@ -102,7 +104,7 @@ Parts of this guide were inspired by or adapted from the contribution guidelines
 - [Qiskit],
 - [LLVM], including the sources therein, such as [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora], which is licensed under the [Creative Commons Attribution 4.0 International License][cca].
 
-with the help of Gemini 3 Pro. The links above serve as attribution.
+with the help of Gemini 3 Pro (Preview). The links above serve as attribution.
 
 [Astral]: https://github.com/astral-sh/uv/blob/c89a78ec085077f6344b0439ddf07fdad7336310/CONTRIBUTING.md
 [Qiskit]: https://github.com/Qiskit/qiskit/blob/cd8701690723d3d9602fac63fe0bd7ea618799be/CONTRIBUTING.md#use-of-ai-tools
