@@ -133,6 +133,7 @@ However, their use requires a high degree of responsibility and transparency to 
 Please carefully read and follow our dedicated {doc}`AI Usage Guidelines <ai_usage>` before submitting any AI-assisted contribution.
 In short: **You are responsible for every line of code you submit**, and a **human must always be in the loop**.
 We require disclosure of AI tool usage in your PR description.
+Contributions that do not include this information or violate our {doc}`AI Usage Guidelines <ai_usage>` may be rejected without further review.
 
 ## Get Started 🎉
 
