@@ -91,7 +91,7 @@ Please adhere to the following guidelines to help the project grow sustainably.
   Respond to comments to signal that you have addressed the feedback.
   Do not resolve review comments yourself; the reviewer will do so once satisfied.
 - If the reviewer suggested changes with explicit code suggestions as part of the comments, apply these directly using the GitHub UI.
-  This automatically resolves the respective comments and attributes the changes to the reviewer.
+  This attributes the changes to the reviewer and automatically resolves the respective comments (this is an exception to the rule above).
   If there are multiple suggestions that you want to apply at once, you can batch them into a single commit.
   Go to the "Files changed" tab of the PR, and then click "Add suggestion to batch" for each suggestion you want to include.
   Once you are done selecting suggestions, click "Commit suggestions".
