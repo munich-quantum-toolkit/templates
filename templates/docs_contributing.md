@@ -92,8 +92,9 @@ Please adhere to the following guidelines to help the project grow sustainably.
   Do not resolve review comments yourself; the reviewer will do so once satisfied.
 - If the reviewer suggested changes with explicit code suggestions as part of the comments, apply these directly using the GitHub UI.
   This automatically resolves the respective comments and attributes the changes to the reviewer.
-  If there are multiple suggestions that you want to apply, take advantage of GitHub's batch suggestions feature.
-  Go to the "Files changed" tab of the PR, and then click "Add suggestion to batch" on each of the suggestions that you want to include in a single commit. When you are done selecting suggestions, click "Commit suggestions".
+  If there are multiple suggestions that you want to apply at once, you can batch them into a single commit.
+  Go to the "Files changed" tab of the PR, and then click "Add suggestion to batch" for each suggestion you want to include.
+  Once you are done selecting suggestions, click "Commit suggestions".
   Only apply suggestions manually if that is not feasible.
 - Re-request a review after pushing changes that address feedback.
 - Do not squash commits locally; maintainers typically squash on merge.
