@@ -90,6 +90,9 @@ Please adhere to the following guidelines to help the project grow sustainably.
   Do not close and reopen a new PR.
   Respond to comments to signal that you have addressed the feedback.
   Do not resolve review comments yourself; the reviewer will do so once satisfied.
+- If the reviewer suggested changes, apply these directly using the GitHub UI.
+  This automatically resolves the respective comments and attributes the changes to the reviewer.
+  Only apply suggestions manually if that is not feasible.
 - Re-request a review after pushing changes that address feedback.
 - Do not squash commits locally; maintainers typically squash on merge.
   Avoid rebasing or force-pushing before reviews; you may rebase after addressing feedback if desired.
