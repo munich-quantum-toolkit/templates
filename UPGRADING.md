@@ -7,6 +7,7 @@ This document describes breaking changes and how to upgrade. For a complete list
 ## [1.2.0]
 
 This release adds a new `synchronize-agents-md` flag that controls whether the `AGENTS.md` file is synchronized.
+The flag is ignored if the project type is `other`.
 
 Furthermore, this release adds a `docs/ai_usage.md` page.
 When upgrading, this page should be linked to on the `docs.index.md` page.
