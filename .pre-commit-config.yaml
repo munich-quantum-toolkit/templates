@@ -107,6 +107,7 @@ repos:
     rev: v0.15.10
     hooks:
       - id: ruff-format
+        types_or: [python, pyi, jupyter, markdown]
         priority: 1
       - id: ruff-check
         require_serial: true

@@ -79,6 +79,10 @@ unsafe-fixes = true
 fix = true
 show-fixes = true
 
+[tool.ruff.format]
+preview = true
+docstring-code-format = true
+
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
