@@ -15,8 +15,6 @@ ci:
   skip: [ty-check]
 
 repos:
-  # Priority 0: Fast validation and independent fixers
-
   ## Standard hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
@@ -26,9 +24,9 @@ repos:
       - id: end-of-file-fixer
         priority: 1
       - id: trailing-whitespace
-        priority: 1
+        priority: 2
 
-  ## Check the pyproject.toml file
+  ## Check pyproject.toml file
   - repo: https://github.com/henryiii/validate-pyproject-schema-store
     rev: 2026.04.11
     hooks:
@@ -52,26 +50,26 @@ repos:
         exclude: ^(\.pre-commit-config\.yaml)$
         priority: 0
 
-  ## Check for spelling
+  ## Ensure uv.lock is up-to-date
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.6
+    hooks:
+      - id: uv-lock
+        priority: 0
+
+  ## Check for typos
   - repo: https://github.com/adhtruong/mirrors-typos
     rev: v1.45.0
     hooks:
       - id: typos
-        priority: 0
+        priority: 3
 
   ## Check for license headers
   - repo: https://github.com/emzeat/mz-lictools
     rev: v2.9.0
     hooks:
       - id: license-tools
-        priority: 0
-
-  ## Ensure uv lock file is up-to-date
-  - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.6
-    hooks:
-      - id: uv-lock
-        priority: 0
+        priority: 4
 
   ## Tidy up BibTeX files
   - repo: https://github.com/FlamingTempura/bibtex-tidy
@@ -90,9 +88,7 @@ repos:
             "--trailing-commas",
             "--remove-empty-fields",
           ]
-        priority: 0
-
-  # Priority 1: Second-pass fixers
+        priority: 5
 
   ## Format configuration files with prettier
   - repo: https://github.com/rbubley/mirrors-prettier
@@ -100,22 +96,20 @@ repos:
     hooks:
       - id: prettier
         types_or: [yaml, markdown, html, css, scss, javascript, json, json5]
-        priority: 1
+        priority: 5
 
-  ## Python linting using ruff
+  ## Format and lint Python files with ruff
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.10
     hooks:
       - id: ruff-format
         types_or: [python, pyi, jupyter, markdown]
-        priority: 1
+        priority: 6
       - id: ruff-check
         require_serial: true
-        priority: 2
+        priority: 7
 
-  # Priority 2+: Final checks and fixers
-
-  ## Static type checking using ty (needs to run after lockfile update/ruff format, and ruff lint)
+  ## Check Python types with ty
   - repo: local
     hooks:
       - id: ty-check
@@ -125,4 +119,4 @@ repos:
         require_serial: true
         types_or: [python, pyi, jupyter]
         pass_filenames: false
-        priority: 3
+        priority: 8
