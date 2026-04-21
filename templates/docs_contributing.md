@@ -168,8 +168,8 @@ As of August 2025, our CI pipeline on GitHub continuously tests the library acro
 
 - {code}`ubuntu-24.04`: {code}`Release` and {code}`Debug` builds using {code}`gcc`
 - {code}`ubuntu-24.04-arm`: {code}`Release` build using {code}`gcc`
-- {code}`macos-15`: {code}`Release` and {code}`Debug` builds using {code}`AppleClang`
-- {code}`macos-15-intel`: {code}`Release` build using {code}`AppleClang`
+- {code}`macos-26`: {code}`Release` and {code}`Debug` builds using {code}`AppleClang`
+- {code}`macos-26-intel`: {code}`Release` build using {code}`AppleClang`
 - {code}`windows-2025`: {code}`Release` and {code}`Debug` builds using {code}`msvc`
 - {code}`windows-11-arm`: {code}`Release` build using {code}`msvc`
 
