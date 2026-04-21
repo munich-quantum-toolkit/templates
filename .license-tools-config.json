@@ -25,6 +25,6 @@
     "py\\.typed",
     ".*build.*",
     "templates/.*",
-    "LICENSE"
+    "(^|/)LICENSE$"
   ]
 }
