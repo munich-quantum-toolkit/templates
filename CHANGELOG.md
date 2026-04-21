@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Update default macOS runners in contribution guide ([#282]) ([**@denialhaag**])
+
 ## [1.2.0] - 2026-03-12
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
@@ -192,6 +196,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#282]: https://github.com/munich-quantum-toolkit/templates/pull/282
 [#247]: https://github.com/munich-quantum-toolkit/templates/pull/247
 [#241]: https://github.com/munich-quantum-toolkit/templates/pull/241
 [#238]: https://github.com/munich-quantum-toolkit/templates/pull/238
