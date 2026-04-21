@@ -57,8 +57,11 @@ You can disclose this information in the following ways:
 
 You are responsible for ensuring that your contribution does not violate any third-party licenses or copyrights.
 
-- **Originality**: Your submission must be your own original work of authorship.
-- **Training Data**: Be aware that some AI tools may generate code that is substantially similar to their training data. You must ensure that you have the right to contribute the generated code under [our license](https://github.com/{{organization}}/{{repository}}/blob/main/LICENSE.md).
+- **Originality**:
+  Your submission must be your own original work of authorship.
+- **Training Data**:
+  Be aware that some AI tools may generate code that is substantially similar to their training data.
+  You must ensure that you have the right to contribute the generated code under [our license](https://github.com/{{organization}}/{{repository}}/blob/main/LICENSE).
 
 ## Extractive Contributions
 
@@ -101,10 +104,11 @@ If a maintainer judges that a contribution relies too heavily on unverified AI g
 Parts of this guide were inspired by or adapted from the contribution guidelines of
 
 - [Astral],
-- [Qiskit],
-- [LLVM], including the sources therein, such as [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora], which is licensed under the [Creative Commons Attribution 4.0 International License][cca].
+- [Qiskit], and
+- [LLVM], including the sources therein, such as [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora], which is licensed under the [Creative Commons Attribution 4.0 International License][cca],
 
-with the help of Gemini 3 Pro (Preview). The links above serve as attribution.
+with the help of Gemini 3 Pro (Preview).
+The links above serve as attribution.
 
 [Astral]: https://github.com/astral-sh/uv/blob/c89a78ec085077f6344b0439ddf07fdad7336310/CONTRIBUTING.md
 [Qiskit]: https://github.com/Qiskit/qiskit/blob/cd8701690723d3d9602fac63fe0bd7ea618799be/CONTRIBUTING.md#use-of-ai-tools

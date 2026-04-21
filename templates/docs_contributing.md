@@ -55,7 +55,7 @@ Pick the path that fits your time and interests:
 ## Guidelines
 
 Please adhere to the following guidelines to help the project grow sustainably.
-Contributions that do not comply with these guidelines or violate our {doc}`AI Usage Guidelines <ai_usage>` may be rejected without further review.
+Contributions that do not comply with these guidelines or violate our {doc}`ai_usage` may be rejected without further review.
 
 ### Core Guidelines
 
@@ -81,7 +81,7 @@ Contributions that do not comply with these guidelines or violate our {doc}`AI U
 We acknowledge the utility of AI-based coding assistants (e.g., GitHub Copilot, ChatGPT) in modern software development.
 However, their use requires a high degree of responsibility and transparency to maintain code quality and licensing compliance.
 
-Please carefully read and follow our dedicated {doc}`AI Usage Guidelines <ai_usage>` before submitting any AI-assisted contribution.
+Please carefully read and follow our dedicated {doc}`ai_usage` before submitting any AI-assisted contribution.
 In short: **You are responsible for every line of code you submit**, and a **human must always be in the loop**.
 We require disclosure of AI tool usage in your PR description.
 
