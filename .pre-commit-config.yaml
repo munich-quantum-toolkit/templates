@@ -26,13 +26,6 @@ repos:
       - id: trailing-whitespace
         priority: 2
 
-  ## Check pyproject.toml file
-  - repo: https://github.com/henryiii/validate-pyproject-schema-store
-    rev: 2026.04.11
-    hooks:
-      - id: validate-pyproject
-        priority: 0
-
   ## Check JSON schemata
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.37.1
@@ -40,21 +33,28 @@ repos:
       - id: check-github-workflows
         priority: 0
 
-  ## Catch common capitalization mistakes
+  ## Check pyproject.toml file
+  - repo: https://github.com/henryiii/validate-pyproject-schema-store
+    rev: 2026.04.11
+    hooks:
+      - id: validate-pyproject
+        priority: 0
+
+  ## Ensure uv.lock is up to date
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.6
+    hooks:
+      - id: uv-lock
+        priority: 0
+
+  ## Check for common capitalization mistakes
   - repo: local
     hooks:
       - id: disallow-caps
         name: Disallow improper capitalization
         language: pygrep
-        entry: \b(?:Numpy|Github|PyTest|Mqt|Tum)\b
+        entry: \b(Numpy|Github|PyTest|Mqt|Tum)\b
         exclude: ^(\.pre-commit-config\.yaml)$
-        priority: 0
-
-  ## Ensure uv.lock is up-to-date
-  - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.6
-    hooks:
-      - id: uv-lock
         priority: 0
 
   ## Check for typos
@@ -64,14 +64,14 @@ repos:
       - id: typos
         priority: 3
 
-  ## Check for license headers
+  ## Check license headers
   - repo: https://github.com/emzeat/mz-lictools
     rev: v2.9.0
     hooks:
       - id: license-tools
         priority: 4
 
-  ## Tidy up BibTeX files
+  ## Format BibTeX files with bibtex-tidy
   - repo: https://github.com/FlamingTempura/bibtex-tidy
     rev: v1.14.0
     hooks:
