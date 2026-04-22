@@ -20,7 +20,7 @@ authors = [
 description = "A collection of templates and a GitHub action to synchronize them"
 readme = "README.md"
 license = "MIT"
-license-files = ["LICENSE.md"]
+license-files = ["LICENSE"]
 classifiers = [
   "Natural Language :: English",
   "Programming Language :: Python",
@@ -78,6 +78,10 @@ preview = true
 unsafe-fixes = true
 fix = true
 show-fixes = true
+
+[tool.ruff.format]
+preview = true
+docstring-code-format = true
 
 [tool.ruff.lint]
 select = ["ALL"]
