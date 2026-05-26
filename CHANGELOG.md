@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ## [Unreleased]
 
+### Added
+
+- 📝 Update contribution guide with details on CMake presets ([#310]) ([**@denialhaag**])
+
 ### Changed
 
 - 🎨 Improve Release Drafter configuration to use GitHub's native PR and author links ([#303]) ([**@denialhaag**])
@@ -198,6 +202,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#310]: https://github.com/munich-quantum-toolkit/templates/pull/310
 [#303]: https://github.com/munich-quantum-toolkit/templates/pull/303
 [#283]: https://github.com/munich-quantum-toolkit/templates/pull/283
 [#282]: https://github.com/munich-quantum-toolkit/templates/pull/282
