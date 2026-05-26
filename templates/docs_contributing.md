@@ -207,7 +207,7 @@ After configuring CMake, the project can be _built_ by calling:
 $ cmake --build --preset release
 ```
 
-This command is is equivalent to `cmake --build build/release --config Release`.
+This command is equivalent to `cmake --build build/release --config Release`.
 The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
 Building the project this way generates
