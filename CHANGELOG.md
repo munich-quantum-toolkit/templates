@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
+- 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311]) ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native PR and author links ([#303]) ([**@denialhaag**])
 - 📝 Update link to license file in AI usage guidelines ([#283]) ([**@denialhaag**])
 - 📝 Update default macOS runners in contribution guide ([#282]) ([**@denialhaag**])
@@ -198,6 +199,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#311]: https://github.com/munich-quantum-toolkit/templates/pull/311
 [#303]: https://github.com/munich-quantum-toolkit/templates/pull/303
 [#283]: https://github.com/munich-quantum-toolkit/templates/pull/283
 [#282]: https://github.com/munich-quantum-toolkit/templates/pull/282
