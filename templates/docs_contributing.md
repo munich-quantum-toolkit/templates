@@ -187,34 +187,33 @@ Both IDEs have excellent support for CMake projects and provide a convenient way
 If you prefer to work on the command line, the following instructions will guide you through the process.
 :::
 
-Our projects use CMake as the main build configuration tool.
+This project uses CMake as the main build configuration tool.
+To standardize the configuration, we provide [CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html).
+
 Building a project using CMake is a two-stage process.
 First, CMake needs to be _configured_ by calling:
 
 ```console
-$ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+$ cmake --preset release
 ```
 
-This tells CMake to
-
-- search the current directory {code}`.` (passed via {code}`-S`) for a {code}`CMakeLists.txt` file,
-- process it into a directory {code}`build` (passed via {code}`-B`), and
-- configure a {code}`Release` build (passed via {code}`-DCMAKE_BUILD_TYPE`) as opposed to, e.g., a {code}`Debug` build.
+Under the hood, this effectively calls `cmake -S . -B build/release -DCMAKE_BUILD_TYPE=Release` and configures a {code}`Release` build.
+A {code}`Debug` build can be requested by using the {code}`debug` preset.
+If you are on Windows, use the `release-windows` and `debug-windows` presets.
 
 After configuring CMake, the project can be _built_ by calling:
 
 ```console
-$ cmake --build build --config Release
+$ cmake --build --preset release
 ```
 
-This builds the project in the {code}`build` directory (passed via {code}`--build`).
-Some operating systems and development environments explicitly require a configuration to be set, which is why the {code}`--config` flag is also passed to the build command.
+This command is equivalent to `cmake --build build/release --config Release`.
 The flag {code}`--parallel <NUMBER_OF_THREADS>` may be added to trigger a parallel build.
 
 Building the project this way generates
 
-- the main project libraries in the {code}`build/src` directory and
-- some test executables in the {code}`build/test` directory.
+- the main project libraries in the {code}`build/release/src` directory and
+- some test executables in the {code}`build/release/test` directory.
 
 :::{note}
 
@@ -240,21 +239,30 @@ We use the [GoogleTest](https://google.github.io/googletest/primer.html) framewo
 All tests are contained in the {code}`test` directory, which is further divided into subdirectories for different parts of the library.
 You are expected to write tests for any new features you implement and ensure that all tests pass.
 Our CI pipeline on GitHub will also run the tests and check for any failures.
-It will also collect code coverage information and upload it to [Codecov](https://codecov.io/gh/{{organization}}/{{repository}}).
-Our goal is to have new contributions at least maintain the current code coverage level, while striving for covering as much of the code as possible.
-Try to write meaningful tests that actually test the correctness of the code and not just exercise the code paths.
 
 Most IDEs like [CLion][clion] or [Visual Studio Code][vscode] provide a convenient way to run the tests directly from the IDE.
 If you prefer to run the tests from the command line, you can use CMake's test runner [CTest](https://cmake.org/cmake/help/latest/manual/ctest.1.html).
 To run the tests, run the following command from the main project directory after building the project as described above:
 
 ```console
-$ ctest -C Release --test-dir build
+$ ctest --preset release
 ```
 
 :::{tip}
 If you want to disable configuring and building the C++ tests, you can pass {code}`-DBUILD_MQT_{{name.upper()}}_TESTS=OFF` to the CMake configure step.
 :::
+
+Our CI pipeline on GitHub also collects code coverage information and uploads it to [Codecov](https://codecov.io/gh/{{organization}}/{{repository}}).
+Our goal is to have new contributions at least maintain the current code coverage level, while striving for covering as much of the code as possible.
+Try to write meaningful tests that actually test the correctness of the code and not just exercise the code paths.
+
+If you want to enable coverage locally, you can use the `coverage` preset:
+
+```console
+$ cmake --preset coverage
+$ cmake --build --preset coverage
+$ ctest --preset coverage
+```
 
 ### C++ Code Formatting and Linting
 
@@ -267,7 +275,7 @@ To ensure the quality of the code and that it conforms to these guidelines, we u
 Common IDEs like [CLion][clion] or [Visual Studio Code][vscode] have plugins that can automatically run {code}`clang-tidy` on the code and automatically format it with {code}`clang-format`.
 
 - If you are using CLion, you can configure the project to use the {code}`.clang-tidy` and {code}`.clang-format` files in the project root directory.
-- If you are using Visual Studio Code, you can install the [clangd extension](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd).
+- If you are using [Visual Studio Code][vscode], you can install the [clangd extension](https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd).
 
 They will automatically execute {code}`clang-tidy` on your code and highlight any issues.
 In many cases, they also provide quick-fixes for these issues.
@@ -275,7 +283,7 @@ Furthermore, they provide a command to automatically format your code according 
 
 :::{note}
 
-After configuring CMake, you can run {code}`clang-tidy` on a file by calling the following command:
+After configuring CMake with the `lint` preset, you can run {code}`clang-tidy` on a file by calling the following command:
 
 ```console
 $ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
