@@ -14,7 +14,7 @@ categories:
       - "{{ label }}"
       {%- endfor %}
   {%- endfor %}
-change-template: "- $TITLE (#$NUMBER) (**@$AUTHOR**)"
+change-template: "- $TITLE ([#$NUMBER]($URL)) (**@$AUTHOR**)"
 change-title-escapes: '\<*_&'
 exclude-labels:
   - "skip-changelog"
