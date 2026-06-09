@@ -194,7 +194,7 @@ Building a project using CMake is a two-stage process.
 First, CMake needs to be _configured_ by calling:
 
 ```console
-$ cmake --preset release
+cmake --preset release
 ```
 
 Under the hood, this effectively calls `cmake -S . -B build/release -DCMAKE_BUILD_TYPE=Release` and configures a {code}`Release` build.
@@ -204,7 +204,7 @@ If you are on Windows, use the `release-windows` and `debug-windows` presets.
 After configuring CMake, the project can be _built_ by calling:
 
 ```console
-$ cmake --build --preset release
+cmake --build --preset release
 ```
 
 This command is equivalent to `cmake --build build/release --config Release`.
@@ -245,7 +245,7 @@ If you prefer to run the tests from the command line, you can use CMake's test r
 To run the tests, run the following command from the main project directory after building the project as described above:
 
 ```console
-$ ctest --preset release
+ctest --preset release
 ```
 
 :::{tip}
@@ -259,9 +259,9 @@ Try to write meaningful tests that actually test the correctness of the code and
 If you want to enable coverage locally, you can use the `coverage` preset:
 
 ```console
-$ cmake --preset coverage
-$ cmake --build --preset coverage
-$ ctest --preset coverage
+cmake --preset coverage
+cmake --build --preset coverage
+ctest --preset coverage
 ```
 
 ### C++ Code Formatting and Linting
@@ -286,7 +286,7 @@ Furthermore, they provide a command to automatically format your code according 
 After configuring CMake with the `lint` preset, you can run {code}`clang-tidy` on a file by calling the following command:
 
 ```console
-$ clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
+clang-tidy <FILE> -- -I <PATH_TO_INCLUDE_DIRECTORY>
 ```
 
 Here, {code}`<FILE>` is the file you want to analyze and {code}`<PATH_TO_INCLUDE_DIRECTORY>` is the path to the {code}`include` directory of the project.
@@ -382,7 +382,7 @@ The corresponding test files can be found in the {code}`tests` directory.
 A {code}`nox` session is provided to conveniently run the Python tests.
 
 ```console
-$ nox -s tests
+nox -s tests
 ```
 
 This command automatically builds the project and runs the tests on all supported Python versions.
@@ -392,7 +392,7 @@ We take extra care to install the project without build isolation so that rebuil
 If you only want to run the tests on a specific Python version, you can pass the desired Python version to the {code}`nox` command.
 
 ```console
-$ nox -s tests-3.14
+nox -s tests-3.14
 ```
 
 :::{note}
@@ -410,7 +410,7 @@ We provide an additional nox session {code}`minimums` that makes use of {code}`u
 This ensures that the project can still be built and the tests pass with the minimum required versions of the dependencies.
 
 ```console
-$ nox -s minimums
+nox -s minimums
 ```
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
@@ -432,7 +432,7 @@ This collection includes
 The hooks can be installed by running the following command in the root directory:
 
 ```console
-$ prek install
+prek install
 ```
 
 This will install the hooks in the {code}`.git/hooks` directory of the repository.
@@ -441,7 +441,7 @@ The hooks will be executed whenever you commit changes.
 You can also run the {code}`nox` session {code}`lint` to run the hooks manually.
 
 ```console
-$ nox -s lint
+nox -s lint
 ```
 
 :::{note}
@@ -449,7 +449,7 @@ $ nox -s lint
 If you do not want to use {code}`nox`, you can also run the hooks manually by using {code}`prek`.
 
 ```console
-$ prek run --all-files
+prek run --all-files
 ```
 
 :::
@@ -499,7 +499,7 @@ This allows us to provide up-to-date examples and tutorials that are guaranteed 
 You can build the documentation using the {code}`nox` session {code}`docs`.
 
 ```console
-$ nox -s docs
+nox -s docs
 ```
 
 This will install all dependencies for building the documentation in an isolated environment, build the Python package, and then build the documentation.

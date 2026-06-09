@@ -31,14 +31,14 @@ If you do not have {code}`uv` installed, install it with:
 :::{tab-item} macOS and Linux
 
 ```console
-$ curl -LsSf https://astral.sh/uv/install.sh | sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 :::
 :::{tab-item} Windows
 
 ```console
-$ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 :::
@@ -55,7 +55,7 @@ See the [uv documentation][uv] for more information.
 :sync: uv
 
 ```console
-$ uv pip install mqt.{{repository}}
+uv pip install mqt.{{repository}}
 ```
 
 :::
@@ -64,7 +64,7 @@ $ uv pip install mqt.{{repository}}
 :sync: pip
 
 ```console
-(.venv) $ python -m pip install mqt.{{repository}}
+(.venv) python -m pip install mqt.{{repository}}
 ```
 
 :::
@@ -77,7 +77,7 @@ In most cases, no compilation is required; a platform-specific prebuilt wheel is
 Verify the installation:
 
 ```console
-(.venv) $ python -c "import mqt.{{repository}}; print(mqt.{{repository}}.__version__)"
+(.venv) python -c "import mqt.{{repository}}; print(mqt.{{repository}}.__version__)"
 ```
 
 This prints the installed package version.
@@ -95,7 +95,7 @@ To get the best performance and enable platform-specific optimizations not avail
 :sync: uv
 
 ```console
-$ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
+uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ```
 
 :::
@@ -104,7 +104,7 @@ $ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 :sync: pip
 
 ```console
-(.venv) $ pip install mqt.{{repository}} --no-binary mqt.{{repository}}
+(.venv) pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ```
 
 :::
@@ -123,7 +123,7 @@ This ensures the package is installed when your project is installed.
 :::{tab-item} {code}`uv` _(recommended)_
 
 ```console
-$ uv add mqt.{{repository}}
+uv add mqt.{{repository}}
 ```
 
 :::
@@ -202,7 +202,7 @@ However, {code}`git` submodules can be cumbersome, especially when working with 
 First, add the submodule to your project (e.g., in the {code}`external` directory):
 
 ```console
-$ git submodule add https://github.com/{{organization}}/{{repository}}.git external/mqt-{{repository}}
+git submodule add https://github.com/{{organization}}/{{repository}}.git external/mqt-{{repository}}
 ```
 
 Then add the following line to your {code}`CMakeLists.txt` to make the library's targets available in your project:
@@ -218,11 +218,11 @@ add_subdirectory(external/mqt-{{repository}})
 You can install MQT {{name}} on your system after building it from source:
 
 ```console
-$ git clone https://github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
-$ cd mqt-{{repository}}
-$ cmake -S . -B build
-$ cmake --build build
-$ cmake --install build
+git clone https://github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
+cd mqt-{{repository}}
+cmake -S . -B build
+cmake --build build
+cmake --install build
 ```
 
 Then, in your project's {code}`CMakeLists.txt`, use {code}`find_package()` to locate the installed library:
@@ -252,7 +252,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
 
     ```console
-    $ git clone git@github.com:your_name_here/{{repository}}.git mqt-{{repository}}
+    git clone git@github.com:your_name_here/{{repository}}.git mqt-{{repository}}
     ```
 
    :::
@@ -260,7 +260,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    If you have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
 
     ```console
-    $ git clone git@github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
+    git clone git@github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
     ```
 
    :::
@@ -269,13 +269,13 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 2. Change into the project directory:
 
     ```console
-    $ cd mqt-{{repository}}
+    cd mqt-{{repository}}
     ```
 
 3. Create a branch for local development:
 
     ```console
-    $ git checkout -b name-of-your-bugfix-or-feature
+    git checkout -b name-of-your-bugfix-or-feature
     ```
 
    Now you can make your changes locally.
@@ -295,7 +295,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    Install the project (including development dependencies) with [{code}`uv`][uv]:
 
     ```console
-    $ uv sync
+    uv sync
     ```
 
    :::
@@ -304,10 +304,10 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    If you really don't want to use [{code}`uv`][uv], you can install the project and the development dependencies into a virtual environment using {code}`pip`.
 
     ```console
-    $ python -m venv .venv
-    $ source ./.venv/bin/activate
-    (.venv) $ python -m pip install -U pip
-    (.venv) $ python -m pip install -e . --group dev
+    python -m venv .venv
+    source ./.venv/bin/activate
+    (.venv) python -m pip install -U pip
+    (.venv) python -m pip install -e . --group dev
     ```
 
    :::
@@ -319,7 +319,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    These checks can be run manually via [{code}`nox`][nox], by running:
 
     ```console
-    $ nox -s lint
+    nox -s lint
     ```
 
    They can also be run automatically on every commit via [{code}`prek`][prek] (recommended).
@@ -329,14 +329,14 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    :::{tab-item} macOS and Linux
 
     ```console
-    $ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
+    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
     ```
 
    :::
    :::{tab-item} Windows
 
     ```console
-    $ powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
+    powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
     ```
 
    :::
@@ -344,7 +344,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    :::{tab-item} {code}`uv`
 
     ```console
-    $ uv tool install prek
+    uv tool install prek
     ```
 
    :::
@@ -353,7 +353,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    Then run:
 
     ```console
-    $ prek install
+    prek install
     ```
 
 {%- if project_type == "c++-mlir-python" %}
@@ -391,7 +391,7 @@ On older Windows versions, you can install it, for example, via [Chocolatey](htt
 Run the Bash script with the desired LLVM version and installation path:
 
 ```console
-$ curl -LsSf https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.sh | bash -s -- -v 22.1.0 -p /path/to/installation
+curl -LsSf https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.sh | bash -s -- -v 22.1.0 -p /path/to/installation
 ```
 
 Replace `/path/to/installation` with the directory where the LLVM distribution should be installed (e.g., `/opt/llvm-22.1.0`).
@@ -402,7 +402,7 @@ Replace `/path/to/installation` with the directory where the LLVM distribution s
 Run the PowerShell script with the desired LLVM version and installation path:
 
 ```console
-$ powershell -ExecutionPolicy ByPass -c "& ([scriptblock]::Create((irm https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.ps1))) -llvm_version 22.1.0 -install_prefix \path\to\installation"
+powershell -ExecutionPolicy ByPass -c "& ([scriptblock]::Create((irm https://github.com/munich-quantum-software/setup-mlir/releases/latest/download/setup-mlir.ps1))) -llvm_version 22.1.0 -install_prefix \path\to\installation"
 ```
 
 Replace `\path\to\installation` with the directory where the LLVM distribution should be installed (e.g., `C:\llvm-22.1.0`).
@@ -425,7 +425,7 @@ This is not recommended unless you need a specific configuration that is not ava
 After installing MLIR, point the build system to it by setting the CMake variable {code}`MLIR_DIR` to the **CMake configuration directory** of the installation:
 
 ```console
-$ cmake -S . -B build -DMLIR_DIR=/path/to/installation/lib/cmake/mlir
+cmake -S . -B build -DMLIR_DIR=/path/to/installation/lib/cmake/mlir
 ```
 
 Replace `/path/to/installation` with the actual path to the MLIR installation from the previous step.
@@ -436,14 +436,14 @@ Alternatively, you can set the {code}`MLIR_DIR` environment variable to the same
 :::{tab-item} Linux and macOS
 
 ```console
-$ export MLIR_DIR=/path/to/installation/lib/cmake/mlir
+export MLIR_DIR=/path/to/installation/lib/cmake/mlir
 ```
 
 :::
 :::{tab-item} Windows (PowerShell)
 
 ```console
-$ $env:MLIR_DIR = "C:\path\to\installation\lib\cmake\mlir"
+$env:MLIR_DIR = "C:\path\to\installation\lib\cmake\mlir"
 ```
 
 :::
@@ -455,7 +455,7 @@ If you do not need MLIR-based functionality, you can disable it by setting the {
 This disables all MLIR-related features in MQT {{name}} and removes the dependency on MLIR.
 
 ```console
-$ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
+cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 ```
 
 [`setup-mlir`]: https://github.com/munich-quantum-software/setup-mlir/

@@ -1,5 +1,5 @@
 [global]
-disable = ["MD013", "MD014", "MD033", "MD041"]
+disable = ["MD013", "MD033", "MD041"]
 
 [per-file-ignores]
 "templates/**" = ["MD024", "MD025"]
