@@ -78,12 +78,15 @@ Contributions that do not comply with these guidelines or violate our {doc}`ai_u
 
 ### AI-assisted contributions
 
-We acknowledge the utility of AI-based coding assistants (e.g., GitHub Copilot, ChatGPT) in modern software development.
+We acknowledge the utility of AI-based coding agents (e.g., Claude Code, OpenAI Codex, or GitHub Copilot) in modern software development.
 However, their use requires a high degree of responsibility and transparency to maintain code quality and licensing compliance.
 
 Please carefully read and follow our dedicated {doc}`ai_usage` before submitting any AI-assisted contribution.
 In short: **You are responsible for every line of code you submit**, and a **human must always be in the loop**.
 We require disclosure of AI tool usage in your PR description.
+
+If you use an agent, it will automatically read the provided {code}`AGENTS.md`, which contains context and instructions to help the agent work on MQT {{name}}.
+For Claude Code, create a symlink with {code}`ln -s AGENTS.md CLAUDE.md` so Claude picks up the same file.
 
 ### Pull Request Workflow
 
