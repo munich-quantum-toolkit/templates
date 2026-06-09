@@ -401,7 +401,7 @@ If you do not want to use {code}`nox`, you can also run the tests directly using
 This requires that you have the project and its test dependencies installed in your virtual environment (e.g., by running {code}`uv sync`).
 
 ```console
-(.venv) $ pytest
+pytest
 ```
 
 :::
@@ -511,7 +511,7 @@ If you do not want to use {code}`nox`, you can also build the documentation dire
 This requires that you have the project and its documentation dependencies installed in your virtual environment (e.g., by running {code}`uv sync`).
 
 ```console
-(.venv) $ sphinx-build -b html docs/ docs/_build
+sphinx-build -b html docs/ docs/_build
 ```
 
 The docs can then be found in the {code}`docs/_build` directory.

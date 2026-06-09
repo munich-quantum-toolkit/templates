@@ -64,7 +64,7 @@ uv pip install mqt.{{repository}}
 :sync: pip
 
 ```console
-(.venv) python -m pip install mqt.{{repository}}
+python -m pip install mqt.{{repository}}
 ```
 
 :::
@@ -77,7 +77,7 @@ In most cases, no compilation is required; a platform-specific prebuilt wheel is
 Verify the installation:
 
 ```console
-(.venv) python -c "import mqt.{{repository}}; print(mqt.{{repository}}.__version__)"
+python -c "import mqt.{{repository}}; print(mqt.{{repository}}.__version__)"
 ```
 
 This prints the installed package version.
@@ -104,7 +104,7 @@ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 :sync: pip
 
 ```console
-(.venv) pip install mqt.{{repository}} --no-binary mqt.{{repository}}
+pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 ```
 
 :::
@@ -306,8 +306,8 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     ```console
     python -m venv .venv
     source ./.venv/bin/activate
-    (.venv) python -m pip install -U pip
-    (.venv) python -m pip install -e . --group dev
+    python -m pip install -U pip
+    python -m pip install -e . --group dev
     ```
 
    :::
