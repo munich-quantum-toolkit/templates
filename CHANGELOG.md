@@ -4,8 +4,8 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on a mixture of [Keep a Changelog] and [Common Changelog].
-This project adheres to [Semantic Versioning], with the exception that minor releases may include breaking changes.
+The format is based on a mixture of [Keep a Changelog] and [Common Changelog]. This project adheres
+to [Semantic Versioning], with the exception that minor releases may include breaking changes.
 
 ## [Unreleased]
 
@@ -18,7 +18,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 - 🔧 Set up `rumdl` for linting and formatting Markdown files ([#322]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311]) ([**@burgholzer**])
-- 🎨 Improve Release Drafter configuration to use GitHub's native author links ([#303], [#316]) ([**@denialhaag**])
+- 🎨 Improve Release Drafter configuration to use GitHub's native author links ([#303], [#316])
+  ([**@denialhaag**])
 - 📝 Update link to license file in AI usage guidelines ([#283]) ([**@denialhaag**])
 - 📝 Update default macOS runners in contribution guide ([#282]) ([**@denialhaag**])
 
@@ -33,8 +34,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
 
 ### Changed
 
-- 📝 Update contribution guide to encourage contributors to apply suggestions ([#241]) ([**@denialhaag**])
-- 🔧 Update Renovate configuration to remove `nanobind` from group of minor updates ([#238]) ([**@denialhaag**])
+- 📝 Update contribution guide to encourage contributors to apply suggestions ([#241])
+  ([**@denialhaag**])
+- 🔧 Update Renovate configuration to remove `nanobind` from group of minor updates ([#238])
+  ([**@denialhaag**])
 - 📝 Update PR template with AI-related information ([#237]) ([**@ystade**], [**@burgholzer**])
 - 📝 Update AI section in the contribution guide ([#237]) ([**@ystade**], [**@burgholzer**])
 
@@ -45,7 +48,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 ### Added
 
 - 📝 Synchronize `docs/tooling.md` page ([#223]) ([**@mhmohona**], [**@burgholzer**])
-- 📝 Add documentation for setting up MLIR and add `c++-mlir-python` as possible `project-type` ([#223]) ([**@mhmohona**], [**@burgholzer**])
+- 📝 Add documentation for setting up MLIR and add `c++-mlir-python` as possible `project-type`
+  ([#223]) ([**@mhmohona**], [**@burgholzer**])
 - 🔧 Add exclude labels to Release Drafter configuration ([#196]) ([**@burgholzer**])
 
 ### Changed
@@ -107,7 +111,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Changed
 
-- 🎨 Use `pinGitHubActionDigestsToSemver` helper in Renovate configuration ([#66]) ([**@denialhaag**])
+- 🎨 Use `pinGitHubActionDigestsToSemver` helper in Renovate configuration ([#66])
+  ([**@denialhaag**])
 - 🎨 Improve wording in installation guide ([#66]) ([**@denialhaag**])
 
 ## [1.1.5] - 2025-09-02
@@ -132,7 +137,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#113)._
 
 ### Added
 
-- 🎨 Add `has_changelog_and_upgrade_guide` flag to make templates more generic ([#55]) ([**@denialhaag**])
+- 🎨 Add `has_changelog_and_upgrade_guide` flag to make templates more generic ([#55])
+  ([**@denialhaag**])
 - 🎨 Add `other` as possible `project-type` ([#54]) ([**@denialhaag**])
 
 ### Changed
@@ -157,7 +163,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 ### Added
 
-- ✨ Synchronize documentation utilities such as `page.html` and `custom.css` ([#45]) ([**@denialhaag**])
+- ✨ Synchronize documentation utilities such as `page.html` and `custom.css` ([#45])
+  ([**@denialhaag**])
 - ✨ Synchronize contribution guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
 - ✨ Synchronize installation guide ([#31]) ([**@denialhaag**], [**@burgholzer**])
 - ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])

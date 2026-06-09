@@ -4,7 +4,8 @@ Please include a summary of the change and, if applicable, which issue is fixed.
 Please also include relevant motivation and context.
 List any dependencies that are required for this change.
 
-Fixes #(issue) <!--- Replace `(issue)` with the issue number fixed by this pull request. If this PR does not fix an issue, please remove this line. -->
+Fixes #(issue) <!--- Replace `(issue)` with the issue number fixed by this pull request. If this PR
+does not fix an issue, please remove this line. -->
 
 ## Checklist
 
@@ -16,7 +17,8 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 - [ ] I have added appropriate tests that cover the new/changed functionality.
 - [ ] I have updated the documentation to reflect these changes.
       {%- if has_changelog_and_upgrade_guide %}
-- [ ] I have added entries to the changelog for any noteworthy additions, changes, fixes, or removals.
+- [ ] I have added entries to the changelog for any noteworthy additions, changes, fixes, or
+      removals.
 - [ ] I have added migration instructions to the upgrade guide (if needed).
       {%- endif %}
 - [ ] The changes follow the project's style guidelines and introduce no new warnings.
@@ -25,6 +27,8 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 
 **If PR contains AI-assisted content:**
 
-- [ ] I have disclosed the use of AI tools in the PR description as per our [AI Usage Guidelines](https://github.com/{{organization}}/{{repository}}/blob/main/docs/ai_usage.md).
+- [ ] I have disclosed the use of AI tools in the PR description as per our
+      [AI Usage Guidelines](https://github.com/{{organization}}/{{repository}}/blob/main/docs/ai_usage.md).
 - [ ] AI-assisted commits include an `Assisted-by: [Model Name] via [Tool Name]` footer.
-- [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept full responsibility for it.
+- [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept
+      full responsibility for it.

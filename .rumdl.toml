@@ -1,5 +1,5 @@
 [global]
-disable = ["MD013"]
+line-length = 100
 
 [per-file-ignores]
 # The PR template is not a Markdown document in that sense
@@ -8,3 +8,12 @@ disable = ["MD013"]
 "templates/**" = ["MD024", "MD025", "MD041"]
 # The README starts with an image and may include HTML
 "README.md" = ["MD033", "MD041"]
+
+[per-file-flavor]
+"docs/ai_usage.md" = "myst"
+"templates/ai_usage.md" = "myst"
+"templates/docs_contributing.md" = "myst"
+"templates/installation.md" = "myst"
+
+[MD013]
+reflow = true
