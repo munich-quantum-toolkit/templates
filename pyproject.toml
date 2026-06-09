@@ -72,10 +72,6 @@ filterwarnings = ["error"]
 error-on-warning = true
 
 
-[tool.rumdl]
-disable = ["MD013", "MD014", "MD024", "MD025", "MD033", "MD041"]
-
-
 [tool.ruff]
 line-length = 120
 preview = true
