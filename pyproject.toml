@@ -121,6 +121,7 @@ git-only = [
   "tests/*",
   ".gitignore",
   ".license-tools-config.json",
+  ".rumdl.toml",
   "action.yml",
   "CHANGELOG.md",
   "UPGRADING.md",
