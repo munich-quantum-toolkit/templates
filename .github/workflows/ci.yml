@@ -18,9 +18,13 @@ jobs:
   change-detection:
     name: 🔍 Change
     uses: munich-quantum-toolkit/workflows/.github/workflows/reusable-change-detection.yml@e227ce742023e2e600d7fab6dfcebbf8b4b36614 # v2.0.3
+    with:
+      additional-python-files: templates/**
 
   python-tests:
     name: 🐍 Test
+    needs: change-detection
+    if: fromJSON(needs.change-detection.outputs.run-python-tests)
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
@@ -58,6 +62,6 @@ jobs:
           allowed-skips: >-
             ${{
               !fromJSON(needs.change-detection.outputs.run-python-tests)
-              && 'python-linter,' || ''
+              && 'python-tests,python-linter,' || ''
             }}
           jobs: ${{ toJSON(needs) }}
