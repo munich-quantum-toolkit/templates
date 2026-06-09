@@ -7,11 +7,12 @@
 
 ## C++
 
-- Configure: `cmake -S . -B build_cpp -DCMAKE_BUILD_TYPE=Release`
-- Build: `cmake --build build_cpp --config Release`
-- Test: `ctest --test-dir build_cpp -C Release`
-- Single test binary: `./build_cpp/test/path/to/binary`
-- For debug builds, replace `Release` with `Debug`.
+- Configure: `cmake --preset release`
+- Build: `cmake --build --preset release`
+- Test: `ctest --preset release`
+- Single test binary: `./build/release/test/path/to/binary`
+- For debug builds, replace `release` with `debug`.
+- For more presets, see `CMakePresets.json`.
 
 ## Python
 
@@ -36,7 +37,7 @@
 
 - Sources: `docs/`
   {%- if project_type == "c++-mlir-python" %}
-- Build MLIR docs: `cmake --build build_cpp --target mlir-doc --config Release`
+- Build MLIR docs: `cmake --build --preset release --target mlir-doc`
   {%- endif %}
 - Build docs locally: `uvx nox --non-interactive -s docs`
 - Link check: `uvx nox -s docs -- -b linkcheck`

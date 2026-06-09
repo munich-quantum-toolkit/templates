@@ -11,7 +11,8 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Added
 
-- 📝 Update contribution guide with details on CMake presets ([#310]) ([**@denialhaag**])
+- 📝 Update contribution guide with details on `AGENTS.md` ([#323]) ([**@denialhaag**])
+- 📝 Update contribution guide with details on CMake presets ([#310], [#323]) ([**@denialhaag**])
 
 ### Changed
 
@@ -203,6 +204,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#323]: https://github.com/munich-quantum-toolkit/templates/pull/323
 [#316]: https://github.com/munich-quantum-toolkit/templates/pull/316
 [#311]: https://github.com/munich-quantum-toolkit/templates/pull/311
 [#310]: https://github.com/munich-quantum-toolkit/templates/pull/310
