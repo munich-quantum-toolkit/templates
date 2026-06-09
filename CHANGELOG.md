@@ -15,6 +15,7 @@ This project adheres to [Semantic Versioning], with the exception that minor rel
 
 ### Changed
 
+- 🔧 Set up `rumdl` for linting and formatting Markdown files ([#322]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311]) ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native author links ([#303], [#316]) ([**@denialhaag**])
 - 📝 Update link to license file in AI usage guidelines ([#283]) ([**@denialhaag**])
@@ -203,6 +204,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#322]: https://github.com/munich-quantum-toolkit/templates/pull/322
 [#316]: https://github.com/munich-quantum-toolkit/templates/pull/316
 [#311]: https://github.com/munich-quantum-toolkit/templates/pull/311
 [#310]: https://github.com/munich-quantum-toolkit/templates/pull/310
