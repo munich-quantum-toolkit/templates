@@ -5,15 +5,16 @@ line-length = 100
 # The PR template is not a Markdown document in that sense
 ".github/pull_request_template.md" = ["MD041"]
 # The templates may have arbitrary violations as long as the rendered version is compliant
-"templates/**" = ["MD024", "MD025", "MD041"]
-# The README starts with an image and may include HTML
+"templates/**" = ["MD024", "MD041"]
+# The README starts with an image and may include HTML tags
 "README.md" = ["MD033", "MD041"]
 
 [per-file-flavor]
-"docs/ai_usage.md" = "myst"
+"docs/**" = "myst"
 "templates/ai_usage.md" = "myst"
 "templates/docs_contributing.md" = "myst"
 "templates/installation.md" = "myst"
+"templates/tooling.md" = "myst"
 
 [MD013]
 reflow = true
