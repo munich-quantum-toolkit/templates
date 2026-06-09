@@ -652,10 +652,8 @@ Once everything is in order, navigate to the [Releases page](https://github.com/
 [ty]: https://docs.astral.sh/ty/
 [nox]: https://nox.thea.codes/en/stable/
 [issues]: https://github.com/{{organization}}/{{repository}}/issues
-[pipx]: https://pypa.github.io/pipx/
 [pre-commit]: https://pre-commit.com/
 [ruff]: https://docs.astral.sh/ruff/
-[uv]: https://docs.astral.sh/uv/
 [vscode]: https://code.visualstudio.com/
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [Common Changelog]: https://common-changelog.org

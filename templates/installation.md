@@ -245,63 +245,63 @@ Set up a reproducible development environment for MQT {{name}}.
 This is the recommended starting point for both bug fixes and new features.
 For detailed guidelines and workflows, see {doc}`contributing`.
 
-1.  Get the code:
+1. Get the code:
 
-    ::::{tab-set}
-    :::{tab-item} External Contribution
-    If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
+   ::::{tab-set}
+   :::{tab-item} External Contribution
+   If you do not have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, fork the repository on GitHub (see <https://docs.github.com/en/get-started/quickstart/fork-a-repo>) and clone your fork locally.
 
     ```console
     $ git clone git@github.com:your_name_here/{{repository}}.git mqt-{{repository}}
     ```
 
-    :::
-    :::{tab-item} Internal Contribution
-    If you have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
+   :::
+   :::{tab-item} Internal Contribution
+   If you have write access to the [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}}) repository, clone the repository locally.
 
     ```console
     $ git clone git@github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
     ```
 
-    :::
-    ::::
+   :::
+   ::::
 
-2.  Change into the project directory:
+2. Change into the project directory:
 
     ```console
     $ cd mqt-{{repository}}
     ```
 
-3.  Create a branch for local development:
+3. Create a branch for local development:
 
     ```console
     $ git checkout -b name-of-your-bugfix-or-feature
     ```
 
-    Now you can make your changes locally.
+   Now you can make your changes locally.
 
-4.  Install the project and its development dependencies:
+4. Install the project and its development dependencies:
 
-    We highly recommend using modern, fast tooling for the development workflow.
-    We recommend using [{code}`uv`][uv].
-    If you don't have {code}`uv`, follow the installation instructions in the recommendation above (see {ref}`tip above <uv-recommendation>`).
-    See the [uv documentation][uv] for more information.
+   We highly recommend using modern, fast tooling for the development workflow.
+   We recommend using [{code}`uv`][uv].
+   If you don't have {code}`uv`, follow the installation instructions in the recommendation above (see {ref}`tip above <uv-recommendation>`).
+   See the [uv documentation][uv] for more information.
 
-    ::::{tab-set}
-    :sync-group: installer
+   ::::{tab-set}
+   :sync-group: installer
 
-    :::{tab-item} {code}`uv` _(recommended)_
-    :sync: uv
-    Install the project (including development dependencies) with [{code}`uv`][uv]:
+   :::{tab-item} {code}`uv` _(recommended)_
+   :sync: uv
+   Install the project (including development dependencies) with [{code}`uv`][uv]:
 
     ```console
     $ uv sync
     ```
 
-    :::
-    :::{tab-item} {code}`pip`
-    :sync: pip
-    If you really don't want to use [{code}`uv`][uv], you can install the project and the development dependencies into a virtual environment using {code}`pip`.
+   :::
+   :::{tab-item} {code}`pip`
+   :sync: pip
+   If you really don't want to use [{code}`uv`][uv], you can install the project and the development dependencies into a virtual environment using {code}`pip`.
 
     ```console
     $ python -m venv .venv
@@ -310,47 +310,47 @@ For detailed guidelines and workflows, see {doc}`contributing`.
     (.venv) $ python -m pip install -e . --group dev
     ```
 
-    :::
-    ::::
+   :::
+   ::::
 
-5.  Install pre-commit hooks to ensure code quality:
+5. Install pre-commit hooks to ensure code quality:
 
-    The project uses [pre-commit] hooks for running linters and formatting tools on each commit.
-    These checks can be run manually via [{code}`nox`][nox], by running:
+   The project uses [pre-commit] hooks for running linters and formatting tools on each commit.
+   These checks can be run manually via [{code}`nox`][nox], by running:
 
     ```console
     $ nox -s lint
     ```
 
-    They can also be run automatically on every commit via [{code}`prek`][prek] (recommended).
-    To set this up, install {code}`prek`, e.g., via:
+   They can also be run automatically on every commit via [{code}`prek`][prek] (recommended).
+   To set this up, install {code}`prek`, e.g., via:
 
-    ::::{tab-set}
-    :::{tab-item} macOS and Linux
+   ::::{tab-set}
+   :::{tab-item} macOS and Linux
 
     ```console
     $ curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
     ```
 
-    :::
-    :::{tab-item} Windows
+   :::
+   :::{tab-item} Windows
 
     ```console
     $ powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
     ```
 
-    :::
+   :::
 
-    :::{tab-item} {code}`uv`
+   :::{tab-item} {code}`uv`
 
     ```console
     $ uv tool install prek
     ```
 
-    :::
-    ::::
+   :::
+   ::::
 
-    Then run:
+   Then run:
 
     ```console
     $ prek install
@@ -358,8 +358,8 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
 {%- if project_type == "c++-mlir-python" %}
 
-6.  If you plan to contribute to MQT {{name}}, you will also need to install MLIR.
-    The section below describes how to do this.
+6. If you plan to contribute to MQT {{name}}, you will also need to install MLIR.
+   The section below describes how to do this.
 
 (setting-up-mlir)=
 
@@ -468,7 +468,6 @@ $ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 [FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
 [git-submodule]: https://git-scm.com/docs/git-submodule
 [nox]: https://nox.thea.codes/en/stable/
-[pipx]: https://pypa.github.io/pipx/
 [pre-commit]: https://pre-commit.com/
 [prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/

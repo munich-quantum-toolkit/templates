@@ -261,4 +261,3 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [Common Changelog]: https://common-changelog.org
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[GitHub Release Notes]: https://github.com/munich-quantum-toolkit/templates/releases
