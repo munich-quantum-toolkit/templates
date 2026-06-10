@@ -1,6 +1,3 @@
-[global]
-line-length = 80
-
 [per-file-ignores]
 # The PR template is not a Markdown document in that sense
 ".github/pull_request_template.md" = ["MD041"]
@@ -17,5 +14,9 @@ line-length = 80
 "templates/tooling.md" = "myst"
 
 [MD013]
+line-length = 80
 reflow = true
 reflow-mode = "semantic-line-breaks"
+
+[MD060]
+enabled = true
