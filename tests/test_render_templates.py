@@ -40,9 +40,19 @@ def _check_files(files: list[Path]) -> None:
     for file in files:
         assert file.exists()
         file_before = file.read_text()
-        subprocess.run(["prek", "run", "--files", str(file)], check=False)
+        subprocess.run(["prek", "run", "--files", str(file), "--skip", "rumdl", "--skip", "rumdl-fmt"], check=False)
         file_after = file.read_text()
-        assert file_before == file_after, f"File {file.name} was modified by pre-commit"
+        assert file_before == file_after, f"{file.name} was modified by prek"
+        if file.suffix != ".md":
+            continue
+        check = subprocess.run(
+            ["rumdl", "check", str(file), "--fix", "--disable", "MD013"],
+            capture_output=True,
+            check=False,
+        )
+        assert check.returncode == 0, f"rumdl check failed for {file.name}:\n{check.stdout.decode()}"
+        fmt = subprocess.run(["rumdl", "fmt", str(file), "--disable", "MD013"], capture_output=True, check=False)
+        assert fmt.returncode == 0, f"rumdl fmt failed for {file.name}:\n{fmt.stdout.decode()}"
 
 
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
