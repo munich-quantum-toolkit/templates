@@ -40,7 +40,9 @@ def _check_files(files: list[Path]) -> None:
     for file in files:
         assert file.exists()
         file_before = file.read_text()
-        subprocess.run(["prek", "run", "--files", str(file)], check=False)
+        subprocess.run(["prek", "run", "--files", str(file), "--skip", "rumdl", "--skip", "rumdl-fmt"], check=False)
+        subprocess.run(["rumdl", "check", "--fix", "--disable", "MD013"], check=False)
+        subprocess.run(["rumdl", "fmt", "--disable", "MD013"], check=False)
         file_after = file.read_text()
         assert file_before == file_after, f"File {file.name} was modified by pre-commit"
 

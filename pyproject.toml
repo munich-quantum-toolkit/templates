@@ -132,7 +132,8 @@ git-only = [
 [dependency-groups]
 test = [
   "pytest>=9.0.1",
-  "prek>=0.2.27",
+  "prek>=0.4.4",
+  "rumdl>=0.2.10",
 ]
 dev = [
   {include-group = "test"},
