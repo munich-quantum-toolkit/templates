@@ -554,10 +554,12 @@ cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
 
 <!-- Links -->
 
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 [FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
 [git-submodule]: https://git-scm.com/docs/git-submodule
+{%- endif %}
 [nox]: https://nox.thea.codes/en/stable/
 [pre-commit]: https://pre-commit.com/
 [prek]: https://prek.j178.dev
-[ruff]: https://docs.astral.sh/ruff/
 [uv]: https://docs.astral.sh/uv/
+[ruff]: https://docs.astral.sh/ruff/

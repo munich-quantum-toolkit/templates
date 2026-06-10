@@ -884,13 +884,17 @@ GitHub, edit the release draft if necessary, and publish the release.
 
 <!--- Links --->
 
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
 [clion]: https://www.jetbrains.com/clion/
-[ty]: https://docs.astral.sh/ty/
+[vscode]: https://code.visualstudio.com/
+{%- endif %}
 [nox]: https://nox.thea.codes/en/stable/
-[issues]: https://github.com/{{organization}}/{{repository}}/issues
 [pre-commit]: https://pre-commit.com/
 [ruff]: https://docs.astral.sh/ruff/
-[vscode]: https://code.visualstudio.com/
+[ty]: https://docs.astral.sh/ty/
+[issues]: https://github.com/{{organization}}/{{repository}}/issues
+{%- if has_changelog_and_upgrade_guide %}
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [Common Changelog]: https://common-changelog.org
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
+{%- endif %}
