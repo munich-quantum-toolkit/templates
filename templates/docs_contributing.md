@@ -409,10 +409,10 @@ directory of the project.
 
 :::
 
-Our {code}`pre-commit` configuration also includes {code}`clang-format`.
-If you have installed {code}`pre-commit`,
+Our [{code}`prek`][prek] configuration also includes {code}`clang-format`.
+If you have installed {code}`prek`,
 it will automatically run {code}`clang-format` on your code before each commit.
-If you do not have {code}`pre-commit` set up,
+If you do not have {code}`prek` set up,
 the [pre-commit.ci](https://pre-commit.ci) bot will run {code}`clang-format` on
 your code and automatically format it according to the style guide.
 
@@ -582,8 +582,7 @@ nox -s minimums
 
 {%- endif %}
 
-The Python code is formatted
-and linted using a collection of [{code}`pre-commit`][pre-commit] hooks.
+The Python code is formatted and linted using a collection of pre-commit hooks.
 This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust,
@@ -610,7 +609,7 @@ nox -s lint
 :::{note}
 
 If you do not want to use {code}`nox`,
-you can also run the hooks manually by using {code}`prek`.
+you can also run the hooks manually by using [{code}`prek`][prek].
 
 ```console
 prek run --all-files
@@ -748,8 +747,9 @@ Here are some tips for finding the cause of certain failures:
 {%- endif %}
 
 - If the {code}`pre-commit.ci` check fails,
-  some of the {code}`pre-commit` checks failed
-  and could not be fixed automatically by the _pre-commit.ci_ bot.
+  some of the {code}`prek` checks failed
+  and could not be fixed automatically by the
+  [pre-commit.ci](https://pre-commit.ci) bot.
   The individual log messages frequently provide helpful suggestions on how to
   fix the warnings.
 
@@ -889,7 +889,7 @@ GitHub, edit the release draft if necessary, and publish the release.
 [vscode]: https://code.visualstudio.com/
 {%- endif %}
 [nox]: https://nox.thea.codes/en/stable/
-[pre-commit]: https://pre-commit.com/
+[prek]: https://prek.j178.dev
 [ruff]: https://docs.astral.sh/ruff/
 [ty]: https://docs.astral.sh/ty/
 [issues]: https://github.com/{{organization}}/{{repository}}/issues

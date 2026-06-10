@@ -12,6 +12,8 @@ with the exception that minor releases may include breaking changes.
 
 ### Added
 
+- 📝 Update contribution and installation guides to reference `prek` instead of
+  `pre-commit` ([#326]) ([**@denialhaag**])
 - 📝 Update contribution guide with details on `AGENTS.md` ([#323])
   ([**@denialhaag**])
 - 📝 Update contribution guide with details on CMake presets
@@ -82,9 +84,9 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 - 📝 Add documentation for setting up dev environment with `uv` ([#182])
   ([**@adnathanail**])
-- 🔧 Remove instructions to install nox
-  (it is installed by default) ([#182]) ([**@adnathanail**])
-- 🔧 Replace recommendation to use pre-commit with prek ([#182])
+- 🔧 Remove instructions to install `nox`
+  as it is installed by default ([#182]) ([**@adnathanail**])
+- 🔧 Replace recommendation to use `pre-commit` with `prek` ([#182])
   ([**@adnathanail**])
 
 ## [1.1.11] - 2025-12-06
@@ -234,6 +236,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#326]: https://github.com/munich-quantum-toolkit/templates/pull/326
 [#323]: https://github.com/munich-quantum-toolkit/templates/pull/323
 [#322]: https://github.com/munich-quantum-toolkit/templates/pull/322
 [#316]: https://github.com/munich-quantum-toolkit/templates/pull/316
