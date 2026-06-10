@@ -16,13 +16,15 @@ Fixes #(issue)
 This checklist serves as a reminder of a couple of things that ensure your pull request will be merged swiftly.
 -->
 
-- [ ] The pull request only contains commits that are focused and relevant to this change.
+- [ ] The pull request only contains commits that are focused
+      and relevant to this change.
 - [ ] I have added appropriate tests that cover the new/changed functionality.
 - [ ] I have updated the documentation to reflect these changes.
-- [ ] I have added entries to the changelog for any noteworthy additions, changes, fixes, or
-      removals.
+- [ ] I have added entries to the changelog for any noteworthy additions,
+      changes, fixes, or removals.
 - [ ] I have added migration instructions to the upgrade guide (if needed).
-- [ ] The changes follow the project's style guidelines and introduce no new warnings.
+- [ ] The changes follow the project's style guidelines
+      and introduce no new warnings.
 - [ ] The changes are fully tested and pass the CI checks.
 - [ ] I have reviewed my own code changes.
 
@@ -30,6 +32,8 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 
 - [ ] I have disclosed the use of AI tools in the PR description as per our
       [AI Usage Guidelines](https://github.com/munich-quantum-toolkit/templates/blob/main/docs/ai_usage.md).
-- [ ] AI-assisted commits include an `Assisted-by: [Model Name] via [Tool Name]` footer.
-- [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept
-      full responsibility for it.
+- [ ] AI-assisted commits include an `Assisted-by: [Model Name] via [Tool Name]`
+      footer.
+- [ ] I confirm that I have personally reviewed
+      and understood all AI-generated content,
+      and accept full responsibility for it.

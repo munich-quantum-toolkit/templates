@@ -1,14 +1,16 @@
 # Upgrade Guide
 
-This document describes breaking changes and how to upgrade. For a complete list of changes,
-including minor and patch releases, please refer to the [changelog](CHANGELOG.md).
+This document describes breaking changes and how to upgrade.
+For a complete list of changes, including minor and patch releases,
+please refer to the [changelog](CHANGELOG.md).
 
 ## [Unreleased]
 
 ## [1.2.0]
 
-This release adds a new `synchronize-agents-md` flag that controls whether the `AGENTS.md` file is
-synchronized. The flag is ignored if the project type is `other`.
+This release adds a new `synchronize-agents-md` flag that controls
+whether the `AGENTS.md` file is synchronized.
+The flag is ignored if the project type is `other`.
 
 Furthermore, this release adds a `docs/ai_usage.md` page.
 When upgrading, this page should be linked to on the `docs/index.md` page.
@@ -17,7 +19,8 @@ When upgrading, this page should be linked to on the `docs/index.md` page.
 
 This release includes two non-breaking changes:
 
-- With this release, the action will only create a pull request once it runs on `main`.
+- With this release, the action will only create a pull request
+  once it runs on `main`.
   On all other branches, the action outputs `git diff` to the terminal.
 - `c++-mlir-python` has been added as a `project-type`.
 
@@ -25,11 +28,14 @@ This release includes two non-breaking changes:
 
 This release includes two non-breaking changes:
 
-- A `has-changelog-and-upgrade-guide` flag has been added to make the templates more generic. If
-  this flag is disabled, respective sections in templates such as `pull_request_template.md` are
-  omitted.
+- A `has-changelog-and-upgrade-guide` flag has been added to make the templates
+  more generic.
+  If this flag is disabled,
+  respective sections in templates such
+  as `pull_request_template.md` are omitted.
 - `other` has been added as a `project-type`.
-  For this project type, the contribution and installation guides cannot be synchronized.
+  For this project type, the contribution
+  and installation guides cannot be synchronized.
 
 ## [1.1.0]
 
@@ -43,16 +49,20 @@ The release adds support for templating several new files.
 By default, the templating is enabled for all the added files.
 This behavior can be controlled using the following flags:
 
-- `synchronize-contribution-guide`: Whether to synchronize `.github/CONTRIBUTING.md` and
-  `docs/contributing.md`
-- `synchronize-documentation-utilities`: Whether to synchronize documentation utilities such as
-  `docs/_templates/page.html` and `docs/_static/custom.css`
+- `synchronize-contribution-guide`:
+  Whether to synchronize `.github/CONTRIBUTING.md` and `docs/contributing.md`
+- `synchronize-documentation-utilities`:
+  Whether to synchronize documentation utilities such
+  as `docs/_templates/page.html` and `docs/_static/custom.css`
 - `synchronize-installation-guide`: Whether to synchronize `docs/installing.md`
-- `synchronize-release-drafter-template`: Whether to synchronize `.github/release-drafter.yml`
+- `synchronize-release-drafter-template`:
+  Whether to synchronize `.github/release-drafter.yml`
 - `synchronize-renovate-config`: Whether to synchronize `.github/renovate.json5`
-- `synchronize-support-resources`: Whether to synchronize `.github/SUPPORT.md` and `docs/support.md`
+- `synchronize-support-resources`:
+  Whether to synchronize `.github/SUPPORT.md` and `docs/support.md`
 
-The categories of the Release Drafter can be configured using `release-drafter-categories`.
+The categories of the Release Drafter can be configured using
+`release-drafter-categories`.
 If not provided, the default categories are used.
 
 See below for an exemplary action configuration:

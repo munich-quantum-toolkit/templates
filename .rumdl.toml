@@ -1,5 +1,5 @@
 [global]
-line-length = 100
+line-length = 80
 
 [per-file-ignores]
 # The PR template is not a Markdown document in that sense
@@ -18,3 +18,4 @@ line-length = 100
 
 [MD013]
 reflow = true
+reflow-mode = "semantic-line-breaks"
