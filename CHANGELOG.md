@@ -12,6 +12,8 @@ with the exception that minor releases may include breaking changes.
 
 ### Added
 
+- 📝 Update CodeRabbit instructions in contribution guide ([#327])
+  ([**@denialhaag**])
 - 📝 Update contribution and installation guides to reference `prek` instead of
   `pre-commit` ([#326]) ([**@denialhaag**])
 - 📝 Update contribution guide with details on `AGENTS.md` ([#323])
@@ -236,6 +238,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#327]: https://github.com/munich-quantum-toolkit/templates/pull/327
 [#326]: https://github.com/munich-quantum-toolkit/templates/pull/326
 [#323]: https://github.com/munich-quantum-toolkit/templates/pull/323
 [#322]: https://github.com/munich-quantum-toolkit/templates/pull/322

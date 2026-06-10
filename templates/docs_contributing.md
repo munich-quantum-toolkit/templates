@@ -151,13 +151,15 @@ so Claude picks up the same file.
 
 ### Working with CodeRabbit
 
-We use [CodeRabbit](https://www.coderabbit.ai/)
-for automated code review on pull requests.
+We often use [CodeRabbit](https://www.coderabbit.ai/)
+for the initial review of PRs.
 We use this tool to ease the workload on our maintainers
 and to counteract the trend of sloppy AI-assisted contributions.
-Note that having your PR reviewed by CodeRabbit does **not** count
-as an AI-assisted contribution
-for the purpose of the disclosure requirement mentioned above.
+
+Once your PR is ready, an initial review by CodeRabbit can be requested via
+{code}`@coderabbitai full review`.
+Just post this command as a PR comment on GitHub.
+Any subsequent reviews can be requested via {code}`@coderabbitai review`.
 
 To get the most out of it and help the project maintain its high ambitions
 for code quality, please follow these practices:
@@ -167,10 +169,6 @@ for code quality, please follow these practices:
   leading to overcomplicated code.
   Treat its comments as suggestions: consider them,
   but feel free to disagree and explain why.
-- **Draft PRs**: CodeRabbit runs on every push to non-draft PRs.
-  If you are still experimenting,
-  mark your PR as a draft so that the automated review only runs
-  when you are ready for feedback.
 - **Respond to comments**:
   Do not simply resolve CodeRabbit's comments without answering them.
   It learns from your replies and improves over time.
@@ -195,19 +193,10 @@ for code quality, please follow these practices:
   CodeRabbit will automatically resolve comments
   that it thinks have been addressed by your changes.
   Sometimes, it gets stuck, at which point you may resolve it manually.
-- **Manual review on drafts**:
-  You can trigger a full review on a draft PR by commenting with
-  {code}`@coderabbitai full review`.
-- **Continuing after reviews are paused**:
-  CodeRabbit has a default threshold
-  for the number of reviews it performs on a PR
-  before pausing further reviews to avoid spamming.
-  If you want to resume reviews,
-  you can ask CodeRabbit to resume by commenting with
-  {code}`@coderabbitai resume`.
-  Note that this will not trigger a review immediately;
-  it will just allow CodeRabbit to perform reviews on the next push
-  or manual trigger.
+
+Note that having your PR reviewed by CodeRabbit does **not** count
+as an AI-assisted contribution
+for the purpose of the disclosure requirement mentioned above.
 
 ## Get Started 🎉
 
