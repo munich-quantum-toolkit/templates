@@ -609,7 +609,7 @@ nox -s lint
 :::{note}
 
 If you do not want to use {code}`nox`,
-you can also run the hooks manually by using {code}`prek`.
+you can also run the hooks manually by using [{code}`prek`][prek].
 
 ```console
 prek run --all-files
