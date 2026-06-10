@@ -90,7 +90,7 @@ For the Python ecosystem, we make use of the following standards:
 | **GitHub Actions** | CI workflows (build, test, lint, coverage). | [Reusable MQT Workflows] in {code}`.github/workflows/`; see [Actions]. |
 | **Codecov**        | Code coverage reporting.                    | [Codecov] for this repo.                                               |
 | **CodeRabbit**     | Automated code review on PRs.               | [CodeRabbit](https://www.coderabbit.ai/). See {doc}`contributing`.     |
-| **pre-commit.ci**  | Runs pre-commit in CI and can auto-fix.     | [pre-commit.ci](https://pre-commit.ci).                                |
+| **pre-commit.ci**  | Runs pre-commit hooks in CI and auto-fixes. | [pre-commit.ci](https://pre-commit.ci).                                |
 
 [Actions]: https://github.com/{{organization}}/{{repository}}/actions
 [Codecov]: https://codecov.io/gh/{{organization}}/{{repository}}
