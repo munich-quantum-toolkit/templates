@@ -582,8 +582,7 @@ nox -s minimums
 
 {%- endif %}
 
-The Python code is formatted
-and linted using a collection of pre-commit hooks.
+The Python code is formatted and linted using a collection of pre-commit hooks.
 This collection includes
 
 - [ruff][ruff], an extremely fast Python linter and formatter written in Rust,
