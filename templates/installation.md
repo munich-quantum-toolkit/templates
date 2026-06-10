@@ -362,7 +362,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
 5. Install pre-commit hooks to ensure code quality: <!-- rumdl-disable-line MD013 -->
 
-   The project uses [{code}`prek`][prek] hooks for running linters and formatting tools on each commit.
+   The project uses pre-commit hooks for running linters and formatting tools on each commit.
    These checks can be run manually via [{code}`nox`][nox], by running:
 
    ```console
