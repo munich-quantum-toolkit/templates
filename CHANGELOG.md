@@ -24,7 +24,7 @@ with the exception that minor releases may include breaking changes.
 ### Changed
 
 - 🔧 Set up `rumdl` for linting
-  and formatting Markdown files ([#322]) ([**@denialhaag**])
+  and formatting Markdown files ([#322], [#328]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
   ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native author links
@@ -238,6 +238,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#328]: https://github.com/munich-quantum-toolkit/templates/pull/328
 [#327]: https://github.com/munich-quantum-toolkit/templates/pull/327
 [#326]: https://github.com/munich-quantum-toolkit/templates/pull/326
 [#323]: https://github.com/munich-quantum-toolkit/templates/pull/323
