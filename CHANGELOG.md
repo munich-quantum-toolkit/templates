@@ -10,6 +10,10 @@ with the exception that minor releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-06-10
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
+
 ### Added
 
 - 📝 Update CodeRabbit instructions in contribution guide ([#327])
@@ -218,7 +222,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.0
 [1.2.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.2.0
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.13
 [1.1.12]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.12

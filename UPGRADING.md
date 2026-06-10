@@ -6,6 +6,18 @@ please refer to the [changelog](CHANGELOG.md).
 
 ## [Unreleased]
 
+## [1.3.0]
+
+All Markdown templates have been linted
+and reformatted with [`rumdl`](https://rumdl.dev/).
+In line with [MD013](https://rumdl.dev/md013/),
+we are strictly enforcing a line length of 80.
+This makes the raw files more readable and easier to edit.
+Consuming repositories can enable `rumdl` with a configuration similar to the
+one of this repository.
+Rule MD013 may have to be disables for some of the rendered templates,
+as the formatting may change depending on the set of templating variables.
+
 ## [1.2.0]
 
 This release adds a new `synchronize-agents-md` flag that controls
@@ -92,7 +104,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...v1.2.0
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...v1.1.13
 [1.1.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.0...v1.1.3
