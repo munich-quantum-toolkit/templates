@@ -1,6 +1,6 @@
 [per-file-ignores]
 # The PR template is not a Markdown document in that sense
-"**/pull_request_template.md" = ["MD041"]
+"**/pull_request_template.md" = ["MD013", "MD041"]
 # The templates may have arbitrary violations as long as the rendered version is compliant
 "templates/**" = ["MD024", "MD041"]
 # The README starts with an image and may include HTML tags
