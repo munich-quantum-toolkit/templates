@@ -4,11 +4,7 @@ Please include a summary of the change and, if applicable, which issue is fixed.
 Please also include relevant motivation and context.
 List any dependencies that are required for this change.
 
-<!---
-Replace `(issue)` with the issue number fixed by this pull request.
-If this PR does not fix an issue, please remove the line.
--->
-Fixes #(issue)
+Fixes #(issue) <!--- Replace `(issue)` with the issue number fixed by this pull request. If this PR does not fix an issue, please remove this line. -->
 
 ## Checklist
 
@@ -27,6 +23,6 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 
 **If PR contains AI-assisted content:**
 
-- [ ] I have disclosed the use of AI tools in the PR description as per our [AI Usage Guidelines](https://github.com/{{organization}}/{{repository}}/blob/main/docs/ai_usage.md).
+- [ ] I have disclosed the use of AI tools in the PR description as per our [AI Usage Guidelines](https://github.com/munich-quantum-toolkit/templates/blob/main/docs/ai_usage.md).
 - [ ] AI-assisted commits include an `Assisted-by: [Model Name] via [Tool Name]` footer.
 - [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept full responsibility for it.
