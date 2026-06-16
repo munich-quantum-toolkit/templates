@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -264,3 +265,6 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
         # Write the rendered template to a file
         output_path = output_dir / template_container.file_name
         output_path.write_text(output + "\n", encoding="utf-8")
+
+        # Format the rendered template
+        subprocess.run(["prek", "run", "--files", str(output_path)], check=False)
