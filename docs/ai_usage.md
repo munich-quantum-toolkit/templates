@@ -78,11 +78,12 @@ You can disclose this information in the following ways:
 You are responsible for ensuring
 that your contribution does not violate any third-party licenses or copyrights.
 
-- **Originality**: Your submission must be your own original work of authorship.
+- **Originality**:
+  Your submission must be your own original work of authorship.
 - **Training Data**: Be aware that some AI tools may generate code
   that is substantially similar to their training data.
   You must ensure that you have the right to contribute the generated code under
-  [our license](https://github.com/munich-quantum-toolkit/templates/blob/main/LICENSE.md).
+  [our license](https://github.com/munich-quantum-toolkit/templates/blob/main/LICENSE).
 
 ## Extractive Contributions
 
@@ -162,11 +163,11 @@ Parts of this guide were inspired by
 or adapted from the contribution guidelines of
 
 - [Astral],
-- [Qiskit],
+- [Qiskit], and
 - [LLVM], including the sources therein, such as
   [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora],
   which is licensed under the
-  [Creative Commons Attribution 4.0 International License][cca].
+  [Creative Commons Attribution 4.0 International License][cca],
 
 with the help of Gemini 3 Pro (Preview).
 The links above serve as attribution.
