@@ -15,8 +15,6 @@ we are strictly enforcing a line length of 80.
 This makes the raw files more readable and easier to edit.
 Consuming repositories can enable `rumdl` with a configuration similar to the
 one of this repository.
-Rule MD013 may have to be disables for some of the rendered templates,
-as the formatting may change depending on the set of templating variables.
 
 ## [1.2.0]
 

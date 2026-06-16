@@ -10,7 +10,7 @@ with the exception that minor releases may include breaking changes.
 
 ## [Unreleased]
 
-## [1.3.0] - 2026-06-10
+## [1.3.0] - 2026-06-16
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
 
