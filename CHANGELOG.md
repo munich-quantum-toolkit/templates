@@ -27,8 +27,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
 
 ### Changed
 
+- ✨ Format rendered templates with `prek` to ensure they satisfy all checks
+  ([#338]) ([**@denialhaag**])
 - 🔧 Set up `rumdl` for linting
-  and formatting Markdown files ([#322], [#328]) ([**@denialhaag**])
+  and formatting Markdown files ([#322], [#328], [#332]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
   ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native author links
@@ -243,6 +245,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#338]: https://github.com/munich-quantum-toolkit/templates/pull/338
+[#332]: https://github.com/munich-quantum-toolkit/templates/pull/332
 [#328]: https://github.com/munich-quantum-toolkit/templates/pull/328
 [#327]: https://github.com/munich-quantum-toolkit/templates/pull/327
 [#326]: https://github.com/munich-quantum-toolkit/templates/pull/326

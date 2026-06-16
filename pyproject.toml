@@ -29,6 +29,7 @@ classifiers = [
 ]
 dependencies = [
   "jinja2>=3.1.6",
+  "prek>=0.4.5",
 ]
 requires-python = ">=3.13"
 
@@ -132,10 +133,8 @@ git-only = [
 [dependency-groups]
 test = [
   "pytest>=9.0.1",
-  "prek>=0.4.4",
   "rumdl>=0.2.10",
 ]
 dev = [
   {include-group = "test"},
-  "ty==0.0.42",
 ]

@@ -35,7 +35,7 @@ If you do not have {code}`uv` installed, install it with:
 
 ::::{tab-set}
 
-:::{tab-item} macOS and Linux
+:::{tab-item} Linux and macOS
 
 ```console
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -43,7 +43,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 :::
 
-:::{tab-item} Windows
+:::{tab-item} Windows (PowerShell)
 
 ```console
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
@@ -282,6 +282,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    ::::{tab-set}
 
    :::{tab-item} External Contribution
+
    If you do not have write access to the
    [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}})
    repository, fork the repository on GitHub (see
@@ -295,6 +296,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    :::
 
    :::{tab-item} Internal Contribution
+
    If you have write access to the
    [{{organization}}/{{repository}}](https://github.com/{{organization}}/{{repository}})
    repository, clone the repository locally.
@@ -334,8 +336,9 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    :sync-group: installer
 
    :::{tab-item} {code}`uv` _(recommended)_
-   :sync: uv Install the project
-   (including development dependencies) with [{code}`uv`][uv]:
+   :sync: uv
+
+   Install the project (including development dependencies) with [{code}`uv`][uv]:
 
    ```console
    uv sync
@@ -344,8 +347,9 @@ For detailed guidelines and workflows, see {doc}`contributing`.
    :::
 
    :::{tab-item} {code}`pip`
-   :sync: pip If you really don't want to use [{code}`uv`][uv],
-   you can install the project
+   :sync: pip
+
+   If you really don't want to use [{code}`uv`][uv], you can install the project
    and the development dependencies into a virtual environment using
    {code}`pip`.
 
@@ -374,7 +378,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
    ::::{tab-set}
 
-   :::{tab-item} macOS and Linux
+   :::{tab-item} Linux and macOS
 
    ```console
    curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
@@ -382,7 +386,7 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
    :::
 
-   :::{tab-item} Windows
+   :::{tab-item} Windows (PowerShell)
 
    ```console
    powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
@@ -465,7 +469,7 @@ where the LLVM distribution should be installed (e.g., `/opt/llvm-22.1.0`).
 
 :::
 
-:::{tab-item} Windows
+:::{tab-item} Windows (PowerShell)
 
 Run the PowerShell script with the desired LLVM version and installation path:
 
