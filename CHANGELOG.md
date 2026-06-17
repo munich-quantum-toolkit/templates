@@ -10,6 +10,12 @@ with the exception that minor releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-06-17
+
+### Fixed
+
+- 🐛 Run `prek` from root of target repository ([#344]) ([**@denialhaag**])
+
 ## [1.3.0] - 2026-06-16
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
@@ -224,7 +230,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.1...HEAD
+[1.3.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.1
 [1.3.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.0
 [1.2.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.2.0
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.1.13
@@ -245,6 +252,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#344]: https://github.com/munich-quantum-toolkit/templates/pull/344
 [#338]: https://github.com/munich-quantum-toolkit/templates/pull/338
 [#332]: https://github.com/munich-quantum-toolkit/templates/pull/332
 [#328]: https://github.com/munich-quantum-toolkit/templates/pull/328
