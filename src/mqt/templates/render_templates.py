@@ -82,6 +82,8 @@ def render_templates(
     Raises:
         ValueError: If the arguments are incompatible with each other or if the project type is not supported.
     """
+    target_dir = target_dir.resolve()
+
     supported_project_types = ["pure-python", "c++-python", "c++-mlir-python", "other"]
     if project_type not in supported_project_types:
         msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
