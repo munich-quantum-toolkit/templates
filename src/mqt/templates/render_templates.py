@@ -82,6 +82,8 @@ def render_templates(
     Raises:
         ValueError: If the arguments are incompatible with each other or if the project type is not supported.
     """
+    target_dir = target_dir.resolve()
+
     supported_project_types = ["pure-python", "c++-python", "c++-mlir-python", "other"]
     if project_type not in supported_project_types:
         msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
@@ -236,7 +238,7 @@ def render_templates(
         if template_container.arguments is None:
             _copy_template(template_container, output_dir)
         else:
-            _render_template(environment, template_container, output_dir)
+            _render_template(environment, template_container, target_dir)
 
 
 def _copy_template(template_container: TemplateContainer, output_dir: Path) -> None:
@@ -252,7 +254,7 @@ def _copy_template(template_container: TemplateContainer, output_dir: Path) -> N
         output_path.write_text(output, encoding="utf-8")
 
 
-def _render_template(environment: jinja2.Environment, template_container: TemplateContainer, output_dir: Path) -> None:
+def _render_template(environment: jinja2.Environment, template_container: TemplateContainer, target_dir: Path) -> None:
     """Render a template."""
     if template_container.active:
         assert template_container.arguments is not None
@@ -263,8 +265,8 @@ def _render_template(environment: jinja2.Environment, template_container: Templa
         output = template.render(**template_container.arguments)
 
         # Write the rendered template to a file
-        output_path = output_dir / template_container.file_name
+        output_path = target_dir / template_container.output_dir / template_container.file_name
         output_path.write_text(output + "\n", encoding="utf-8")
 
         # Format the rendered template
-        subprocess.run(["prek", "run", "--files", str(output_path)], check=False)
+        subprocess.run(["prek", "run", "--files", str(output_path)], cwd=target_dir, check=False)
