@@ -481,8 +481,8 @@ directory.
 
 The package lives in the {code}`src/mqt/{{repository}}` directory.
 
-We recommend using [{code}`nox`][nox]
-for development. {code}`nox` is a Python automation tool
+We recommend using [{code}`nox`][nox] for development.
+{code}`nox` is a Python automation tool
 that allows you to define tasks in a {code}`noxfile.py` file
 and then run them with a single command.
 If you have not installed it yet,
@@ -619,9 +619,9 @@ prek run --all-files
 The Python code is documented using
 [Google-style docstrings](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
 Every public function, class,
-and module should have a docstring that explains what it does
-and how to use it. {code}`ruff` will check for missing docstrings
-and will explicitly warn you if you forget to add one.
+and module should have a docstring that explains what it does and how to use it.
+{code}`ruff` will check for missing docstrings and will explicitly warn you
+if you forget to add one.
 
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html)
 to document the expected types of function arguments and return values.
