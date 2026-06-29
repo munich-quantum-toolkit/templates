@@ -9,8 +9,8 @@
 
 # Templates for the Munich Quantum Toolkit (MQT)
 
-This repository contains a collection of templates
-and a GitHub Action to synchronize them across the repositories of the
+This repository contains a collection of templates and a GitHub Action to
+synchronize them across the repositories of the
 [_Munich Quantum Toolkit (MQT)_](https://mqt.readthedocs.io).
 
 If you have any questions, feel free to create a
@@ -23,8 +23,7 @@ an [issue](https://github.com/munich-quantum-toolkit/templates/issues) on
 The _[Munich Quantum Toolkit (MQT)](https://mqt.readthedocs.io)_ is developed by
 the [Chair for Design Automation](https://www.cda.cit.tum.de/) at the
 [Technical University of Munich](https://www.tum.de/) and supported by
-[MQSC](https://mq.sc).
-Among others, it is part of the
+[MQSC](https://mq.sc). Among others, it is part of the
 [Munich Quantum Software Stack (MQSS)](https://www.munich-quantum-valley.de/research/research-areas/mqss)
 ecosystem, which is being developed as part of the
 [Munich Quantum Valley (MQV)](https://www.munich-quantum-valley.de) initiative.
@@ -47,11 +46,9 @@ reality and keep them up-to-date!
 
 ## Getting Started
 
-This repository includes a GitHub Action
-that can be used to synchronize the [templates](./templates/) to other MQT
-repositories.
-For an example on how to use the Action,
-refer to this repository's
+This repository includes a GitHub Action that can be used to synchronize the
+[templates](./templates/) to other MQT repositories. For an example on how to
+use the Action, refer to this repository's
 [`templating.yml`](./.github/workflows/templating.yml).
 
 ---

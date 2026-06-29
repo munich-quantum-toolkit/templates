@@ -5,8 +5,8 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on a mixture of [Keep a Changelog] and [Common Changelog].
-This project adheres to [Semantic Versioning],
-with the exception that minor releases may include breaking changes.
+This project adheres to [Semantic Versioning], with the exception that minor
+releases may include breaking changes.
 
 ## [Unreleased]
 
@@ -28,15 +28,15 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
   `pre-commit` ([#326]) ([**@denialhaag**])
 - 📝 Update contribution guide with details on `AGENTS.md` ([#323])
   ([**@denialhaag**])
-- 📝 Update contribution guide with details on CMake presets
-  ([#310], [#323]) ([**@denialhaag**])
+- 📝 Update contribution guide with details on CMake presets ([#310], [#323])
+  ([**@denialhaag**])
 
 ### Changed
 
 - ✨ Format rendered templates with `prek` to ensure they satisfy all checks
   ([#338]) ([**@denialhaag**])
-- 🔧 Set up `rumdl` for linting
-  and formatting Markdown files ([#322], [#328], [#332]) ([**@denialhaag**])
+- 🔧 Set up `rumdl` for linting and formatting Markdown files ([#322], [#328],
+  [#332]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
   ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native author links
@@ -53,8 +53,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
 ### Added
 
 - 🤖 Synchronize `AGENTS.md` file ([#247]) ([**@denialhaag**])
-- 🤖 Add a dedicated page on the use of AI ([#237])
-  ([**@ystade**], [**@burgholzer**])
+- 🤖 Add a dedicated page on the use of AI ([#237]) ([**@ystade**],
+  [**@burgholzer**])
 
 ### Changed
 
@@ -62,10 +62,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
   ([#241]) ([**@denialhaag**])
 - 🔧 Update Renovate configuration to remove `nanobind` from group of minor
   updates ([#238]) ([**@denialhaag**])
-- 📝 Update PR template with AI-related information ([#237])
-  ([**@ystade**], [**@burgholzer**])
-- 📝 Update AI section in the contribution guide ([#237])
-  ([**@ystade**], [**@burgholzer**])
+- 📝 Update PR template with AI-related information ([#237]) ([**@ystade**],
+  [**@burgholzer**])
+- 📝 Update AI section in the contribution guide ([#237]) ([**@ystade**],
+  [**@burgholzer**])
 
 ## [1.1.13] - 2026-03-03
 
@@ -73,10 +73,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Added
 
-- 📝 Synchronize `docs/tooling.md` page ([#223])
-  ([**@mhmohona**], [**@burgholzer**])
-- 📝 Add documentation for setting up MLIR and add `c++-mlir-python`
-  as possible `project-type` ([#223]) ([**@mhmohona**], [**@burgholzer**])
+- 📝 Synchronize `docs/tooling.md` page ([#223]) ([**@mhmohona**],
+  [**@burgholzer**])
+- 📝 Add documentation for setting up MLIR and add `c++-mlir-python` as possible
+  `project-type` ([#223]) ([**@mhmohona**], [**@burgholzer**])
 - 🔧 Add exclude labels to Release Drafter configuration ([#196])
   ([**@burgholzer**])
 
@@ -98,8 +98,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 - 📝 Add documentation for setting up dev environment with `uv` ([#182])
   ([**@adnathanail**])
-- 🔧 Remove instructions to install `nox`
-  as it is installed by default ([#182]) ([**@adnathanail**])
+- 🔧 Remove instructions to install `nox` as it is installed by default ([#182])
+  ([**@adnathanail**])
 - 🔧 Replace recommendation to use `pre-commit` with `prek` ([#182])
   ([**@adnathanail**])
 
@@ -138,8 +138,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Changed
 
-- 👷 Use `pep440` versioning
-  for all `pre-commit` dependencies ([#90]) ([**@denialhaag**])
+- 👷 Use `pep440` versioning for all `pre-commit` dependencies ([#90])
+  ([**@denialhaag**])
 - 📝 Mention `macos-15-intel` runner in contribution guide ([#79])
   ([**@denialhaag**])
 
@@ -199,12 +199,12 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 ### Added
 
-- ✨ Synchronize documentation utilities such as `page.html`
-  and `custom.css` ([#45]) ([**@denialhaag**])
-- ✨ Synchronize contribution guide ([#31])
-  ([**@denialhaag**], [**@burgholzer**])
-- ✨ Synchronize installation guide ([#31])
-  ([**@denialhaag**], [**@burgholzer**])
+- ✨ Synchronize documentation utilities such as `page.html` and `custom.css`
+  ([#45]) ([**@denialhaag**])
+- ✨ Synchronize contribution guide ([#31]) ([**@denialhaag**],
+  [**@burgholzer**])
+- ✨ Synchronize installation guide ([#31]) ([**@denialhaag**],
+  [**@burgholzer**])
 - ✨ Synchronize Renovate config ([#25]) ([**@denialhaag**])
 - ✨ Synchronize Release Drafter template ([#24]) ([**@denialhaag**])
 - ✨ Synchronize support resources ([#23]) ([**@denialhaag**])
