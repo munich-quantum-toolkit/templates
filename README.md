@@ -9,7 +9,7 @@
 
 # Templates for the Munich Quantum Toolkit (MQT)
 
-This repository contains a collection of templates and a GitHub Action to
+This repository contains a collection of templates and a GitHub action to
 synchronize them across the repositories of the
 [_Munich Quantum Toolkit (MQT)_](https://mqt.readthedocs.io).
 
@@ -46,7 +46,7 @@ reality and keep them up-to-date!
 
 ## Getting Started
 
-This repository includes a GitHub Action that can be used to synchronize the
+This repository includes a GitHub action that can be used to synchronize the
 [templates](./templates/) to other MQT repositories. For an example on how to
 use the Action, refer to this repository's
 [`templating.yml`](./.github/workflows/templating.yml).
