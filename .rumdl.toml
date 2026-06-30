@@ -3,7 +3,7 @@
 "**/pull_request_template.md" = ["MD013", "MD041"]
 # The templates may have arbitrary violations as long as the rendered version is compliant
 "templates/**" = ["MD024", "MD041"]
-# The README starts with an image and may include HTML tags
+# The README may include HTML and dooes not need to start with a top-level heading
 "README.md" = ["MD033", "MD041"]
 
 [per-file-flavor]
@@ -16,6 +16,7 @@
 [MD013]
 line-length = 80
 code-blocks = false
+headings = false
 reflow = true
 reflow-mode = "normalize"
 
