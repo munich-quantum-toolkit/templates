@@ -5,8 +5,8 @@
 
 {%- if project_type in ("c++-python", "c++-mlir-python") %}
 
-MQT {{name}} is primarily developed as a C++20 library with Python bindings.
-The Python package is available on
+MQT {{name}} is primarily developed as a C++20 library with Python bindings. The
+Python package is available on
 [PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all
 major operating systems with all
 [officially supported Python versions](https://devguide.python.org/versions/).
@@ -14,8 +14,8 @@ major operating systems with all
 {%- elif project_type == "pure-python" %}
 
 MQT {{name}} is a Python package available on
-[PyPI](https://pypi.org/project/mqt.{{repository}}/).
-It can be installed on all major operating systems with all
+[PyPI](https://pypi.org/project/mqt.{{repository}}/). It can be installed on all
+major operating systems with all
 [officially supported Python versions](https://devguide.python.org/versions/).
 
 {%- endif %}
@@ -23,13 +23,11 @@ It can be installed on all major operating systems with all
 :::::{tip}
 :name: uv-recommendation
 
-We recommend using [{code}`uv`][uv].
-It is a fast Python package and project manager by [Astral](https://astral.sh/)
-(creators of [{code}`ruff`][ruff]).
-It can replace {code}`pip` and {code}`virtualenv`,
-automatically manages virtual environments, installs packages,
-and can install Python itself.
-It is significantly faster than {code}`pip`.
+We recommend using [{code}`uv`][uv]. It is a fast Python package and project
+manager by [Astral](https://astral.sh/) (creators of [{code}`ruff`][ruff]). It
+can replace {code}`pip` and {code}`virtualenv`, automatically manages virtual
+environments, installs packages, and can install Python itself. It is
+significantly faster than {code}`pip`.
 
 If you do not have {code}`uv` installed, install it with:
 
@@ -81,8 +79,8 @@ python -m pip install mqt.{{repository}}
 ::::
 
 {%- if project_type in ("c++-python", "c++-mlir-python") %}
-In most cases, no compilation is required;
-a platform-specific prebuilt wheel is downloaded and installed.
+In most cases, no compilation is required; a platform-specific prebuilt wheel is
+downloaded and installed.
 {%- endif %}
 
 Verify the installation:
@@ -97,9 +95,8 @@ This prints the installed package version.
 
 ## Building from Source for Performance
 
-To get the best performance
-and enable platform-specific optimizations not available in portable wheels,
-we recommend building the library from source:
+To get the best performance and enable platform-specific optimizations not
+available in portable wheels, we recommend building the library from source:
 
 ::::{tab-set}
 :sync-group: installer
@@ -132,9 +129,9 @@ and [CMake](https://cmake.org/) 3.24 or newer.
 
 ## Integrating MQT {{name}} into Your Project
 
-To use the MQT {{name}} Python package in your project,
-add it as a dependency in your {code}`pyproject.toml` or {code}`setup.py`.
-This ensures the package is installed when your project is installed.
+To use the MQT {{name}} Python package in your project, add it as a dependency
+in your {code}`pyproject.toml` or {code}`setup.py`. This ensures the package is
+installed when your project is installed.
 
 ::::{tab-set}
 
@@ -175,13 +172,13 @@ setup(
 
 {%- if project_type in ("c++-python", "c++-mlir-python") %}
 
-If you want to integrate the C++ library directly into your project,
-you can either
+If you want to integrate the C++ library directly into your project, you can
+either
 
-- add it as a [{code}`git` submodule][git-submodule] and build it
-  as part of your project, or
-- install MQT {{name}} on your system
-  and use CMake's {code}`find_package()` command to locate it, or
+- add it as a [{code}`git` submodule][git-submodule] and build it as part of
+  your project, or
+- install MQT {{name}} on your system and use CMake's {code}`find_package()`
+  command to locate it, or
 - use CMake's [{code}`FetchContent`][FetchContent] module to combine both
   approaches.
 
@@ -189,11 +186,10 @@ you can either
 
 :::{tab-item} {code}`FetchContent`
 
-This is the recommended approach
-because it lets you detect installed versions of MQT {{name}}
-and only downloads the library if it is not available on the system.
-Furthermore, CMake's [{code}`FetchContent`][FetchContent] module provides
-flexibility in how the library is integrated into the project.
+This is the recommended approach because it lets you detect installed versions
+of MQT {{name}} and only downloads the library if it is not available on the
+system. Furthermore, CMake's [{code}`FetchContent`][FetchContent] module
+provides flexibility in how the library is integrated into the project.
 
 ```cmake
 include(FetchContent)
@@ -225,11 +221,9 @@ FetchContent_MakeAvailable(${FETCH_PACKAGES})
 :::{tab-item} {code}`git-submodule`
 
 Adding the library as a [{code}`git` submodule][git-submodule] is a simple
-approach.
-However, {code}`git` submodules can be cumbersome,
-especially when working with multiple branches or versions of the library.
-First, add the submodule to your project
-(e.g., in the {code}`external` directory):
+approach. However, {code}`git` submodules can be cumbersome, especially when
+working with multiple branches or versions of the library. First, add the
+submodule to your project (e.g., in the {code}`external` directory):
 
 ```console
 git submodule add https://github.com/{{organization}}/{{repository}}.git external/mqt-{{repository}}
@@ -256,8 +250,8 @@ cmake --build build
 cmake --install build
 ```
 
-Then, in your project's {code}`CMakeLists.txt`,
-use {code}`find_package()` to locate the installed library:
+Then, in your project's {code}`CMakeLists.txt`, use {code}`find_package()` to
+locate the installed library:
 
 ```cmake
 find_package(mqt-{{repository}} <version> REQUIRED)
@@ -273,9 +267,9 @@ find_package(mqt-{{repository}} <version> REQUIRED)
 
 ## Development Setup
 
-Set up a reproducible development environment for MQT {{name}}.
-This is the recommended starting point for both bug fixes and new features.
-For detailed guidelines and workflows, see {doc}`contributing`.
+Set up a reproducible development environment for MQT {{name}}. This is the
+recommended starting point for both bug fixes and new features. For detailed
+guidelines and workflows, see {doc}`contributing`.
 
 1. Get the code: <!-- rumdl-disable-line MD013 -->
 
@@ -412,42 +406,36 @@ For detailed guidelines and workflows, see {doc}`contributing`.
 
 {%- if project_type == "c++-mlir-python" %}
 
-6. If you plan to contribute to MQT {{name}},
-   you will also need to install MLIR.
-   The section below describes how to do this.
+6. If you plan to contribute to MQT {{name}}, you will also need to install
+   MLIR. The section below describes how to do this.
 
 (setting-up-mlir)=
 
 ## Setting Up MLIR
 
-MQT {{name}} requires [MLIR](https://mlir.llvm.org/),
-which is part of the [LLVM](https://llvm.org/) project,
-to be available when building from source.
-To successfully build MQT {{name}},
-you must make an installation of MLIR available to the C++ builds on your
-platform.
+MQT {{name}} requires [MLIR](https://mlir.llvm.org/), which is part of the
+[LLVM](https://llvm.org/) project, to be available when building from source. To
+successfully build MQT {{name}}, you must make an installation of MLIR available
+to the C++ builds on your platform.
 
 We highly recommend using the prebuilt MLIR distribution provided by the
-[`portable-mlir-toolchain`] project.
-These can be conveniently installed with the [`setup-mlir`] scripts
-as described below.
+[`portable-mlir-toolchain`] project. These can be conveniently installed with
+the [`setup-mlir`] scripts as described below.
 
 ### Downloading the MLIR Distribution
 
-The [`setup-mlir`] repository provides installation scripts
-for all supported operating systems.
-You must pass the LLVM version
-(e.g., `22.1.0`)
-and the installation prefix (directory) where MLIR should be extracted.
-The scripts download a platform-specific archive.
-The only requirement is that the `tar` command is available on the system.
+The [`setup-mlir`] repository provides installation scripts for all supported
+operating systems. You must pass the LLVM version (e.g., `22.1.0`) and the
+installation prefix (directory) where MLIR should be extracted. The scripts
+download a platform-specific archive. The only requirement is that the `tar`
+command is available on the system.
 
 ::::{note}
 :name: tar-requirement
 
-`tar` is included by default on Windows 10 and Windows 11.
-On older Windows versions, you can install it, for example,
-via [Chocolatey](https://chocolatey.org/): `choco install tar`.
+`tar` is included by default on Windows 10 and Windows 11. On older Windows
+versions, you can install it, for example, via
+[Chocolatey](https://chocolatey.org/): `choco install tar`.
 ::::
 
 ::::{tab-set}
@@ -464,8 +452,8 @@ curl -LsSf https://github.com/munich-quantum-software/setup-mlir/releases/latest
 
 <!-- rumdl-enable MD013 -->
 
-Replace `/path/to/installation` with the directory
-where the LLVM distribution should be installed (e.g., `/opt/llvm-22.1.0`).
+Replace `/path/to/installation` with the directory where the LLVM distribution
+should be installed (e.g., `/opt/llvm-22.1.0`).
 
 :::
 
@@ -481,26 +469,25 @@ powershell -ExecutionPolicy ByPass -c "& ([scriptblock]::Create((irm https://git
 
 <!-- rumdl-enable MD013 -->
 
-Replace `\path\to\installation` with the directory
-where the LLVM distribution should be installed (e.g., `C:\llvm-22.1.0`).
-For debug builds on Windows, add the `-use_debug` flag to the script invocation.
+Replace `\path\to\installation` with the directory where the LLVM distribution
+should be installed (e.g., `C:\llvm-22.1.0`). For debug builds on Windows, add
+the `-use_debug` flag to the script invocation.
 
 :::
 
 ::::
 
-For supported LLVM versions, commit hashes, and other options,
-see the [`setup-mlir`] repository and its
+For supported LLVM versions, commit hashes, and other options, see the
+[`setup-mlir`] repository and its
 [`version-manifest.json`](https://github.com/munich-quantum-software/setup-mlir/blob/main/version-manifest.json).
 
 ::::{note}
 :name: mlir-build-note
 
-If you want to build MLIR from source,
-you can follow the instructions in the [`portable-mlir-toolchain`] repository.
-This is not recommended unless you need a specific configuration
-that is not available in the prebuilt distributions,
-as building MLIR from source can be complex and time-consuming.
+If you want to build MLIR from source, you can follow the instructions in the
+[`portable-mlir-toolchain`] repository. This is not recommended unless you need
+a specific configuration that is not available in the prebuilt distributions, as
+building MLIR from source can be complex and time-consuming.
 ::::
 
 ### Making MLIR Available to the Build
@@ -541,11 +528,9 @@ $env:MLIR_DIR = "C:\path\to\installation\lib\cmake\mlir"
 
 ### Disabling MLIR
 
-If you do not need MLIR-based functionality,
-you can disable it by setting the {code}`BUILD_MQT_{{name.upper()}}_MLIR` option
-to {code}`OFF`.
-This disables all MLIR-related features in MQT {{name}}
-and removes the dependency on MLIR.
+If you do not need MLIR-based functionality, you can disable it by setting the
+{code}`BUILD_MQT_{{name.upper()}}_MLIR` option to {code}`OFF`. This disables all
+MLIR-related features in MQT {{name}} and removes the dependency on MLIR.
 
 ```console
 cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
