@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Changed
+
+- 🔧 Configure `rumdl` to use `reflow-mode = "normalize"` ([#351])
+  ([**@denialhaag**])
+
 ## [1.3.1] - 2026-06-17
 
 ### Fixed
@@ -252,6 +257,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#351]: https://github.com/munich-quantum-toolkit/templates/pull/351
 [#344]: https://github.com/munich-quantum-toolkit/templates/pull/344
 [#338]: https://github.com/munich-quantum-toolkit/templates/pull/338
 [#332]: https://github.com/munich-quantum-toolkit/templates/pull/332
