@@ -147,7 +147,7 @@ of
 - [Astral],
 - [Qiskit], and
 - [LLVM], including the sources therein, such as
-  [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora], <!-- rumdl-disable-line MD013 -->
+  [Fedora Council Policy Proposal: Policy on AI-Assisted Contributions (fetched 2026-03-12)][fedora],
   which is licensed under the
   [Creative Commons Attribution 4.0 International License][cca],
 
