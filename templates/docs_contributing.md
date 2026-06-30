@@ -73,10 +73,11 @@ Contributions that do not comply with these guidelines or violate our
 - Focus on a single feature or bug at a time and only touch relevant files.
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
-- Document new features. {%- if has_changelog_and_upgrade_guide %} For
-  user-facing changes, add a changelog entry; for breaking changes, update the
+- Document new features.
+{%- if has_changelog_and_upgrade_guide %}
+  For user-facing changes, add a changelog entry; for breaking changes, update the
   upgrade guide. For details, see {ref}`maintaining-changelog-upgrade-guide`.
-  {%- endif %}
+{%- endif %}
 - Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and
@@ -448,10 +449,10 @@ We define some convenient {code}`nox` sessions in our {code}`noxfile.py`:
 - {code}`tests` to run the Python tests
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
-- {code}`docs` to build the documentation {%- if project_type in
-  ["c++-python", "c++-mlir-python"] %}
-- {code}`stubs` to regenerate the type stub files for the Python bindings {%-
-  endif %}
+- {code}`docs` to build the documentation
+{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+- {code}`stubs` to regenerate the type stub files for the Python bindings
+{%- endif %}
 
 These are explained in more detail in the following sections.
 
