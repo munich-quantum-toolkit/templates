@@ -45,8 +45,7 @@ def _check_files(files: list[Path]) -> None:
         assert file_before == file_after, f"{file.name} was modified by prek"
         if file.suffix != ".md":
             continue
-        check = subprocess.run(["rumdl", "check", str(file)], capture_output=True, check=False)
-        assert check.returncode == 0, f"rumdl check failed for {file.name}:\n{check.stdout.decode()}"
+        subprocess.run(["prek", "run", "rumdl", "--files", str(file)], check=True)
 
 
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
