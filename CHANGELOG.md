@@ -10,6 +10,15 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.3.3] - 2026-07-01
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#133)._
+
+### Added
+
+- ✨ Add input for specifying the base branch of the templating PRs ([#362])
+  ([**@denialhaag**])
+
 ## [1.3.2] - 2026-06-30
 
 ### Changed
@@ -90,14 +99,15 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 ### Changed
 
 - 📝 Update list of runners in contribution guide ([#210]) ([**@denialhaag**])
-- 👷 Create PRs only when the action runs on `main` ([#203]) ([**@denialhaag**])
+- 👷 Create templating PRs only when the action runs on `main` ([#203])
+  ([**@denialhaag**])
 - 🔧 Tweak Renovate configuration ([#197]) ([**@burgholzer**])
 
 ### Fixed
 
 - 🐛 Remove empty section title from Release Drafter template ([#201])
   ([**@denialhaag**])
-- 🐛 Use unique branch names for PRs ([#190]) ([**@denialhaag**])
+- 🐛 Use unique branch names for templating PRs ([#190]) ([**@denialhaag**])
 
 ## [1.1.12] - 2026-01-09
 
@@ -114,7 +124,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ### Changed
 
-- 🔧 Group all Renovate patch version updates into a single update PR ([#160])
+- 🔧 Group all patch version updates into a single Renovate PR ([#160])
   ([**@burgholzer**])
 - 🔧 Use more Renovate presets ([#160]) ([**@burgholzer**])
 
@@ -237,7 +247,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.2...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...HEAD
+[1.3.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.3
 [1.3.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.2
 [1.3.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.1
 [1.3.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.0
@@ -260,6 +271,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#362]: https://github.com/munich-quantum-toolkit/templates/pull/362
 [#351]: https://github.com/munich-quantum-toolkit/templates/pull/351
 [#344]: https://github.com/munich-quantum-toolkit/templates/pull/344
 [#338]: https://github.com/munich-quantum-toolkit/templates/pull/338

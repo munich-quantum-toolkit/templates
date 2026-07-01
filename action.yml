@@ -30,7 +30,7 @@ inputs:
     description: Name of the repository
     required: true
   base-branch:
-    description: Base branch for the pull request
+    description: Base branch of the pull request
     default: main
   has-changelog-and-upgrade-guide:
     description: Whether the repository has a changelog and upgrade guide
