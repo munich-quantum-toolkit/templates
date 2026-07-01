@@ -121,11 +121,11 @@ runs:
           --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES \
           --release_drafter_categories "$RELEASE_DRAFTER_CATEGORIES"
     - name: Show changes
-      if: ${{ github.ref != 'refs/heads/${{ inputs.base-branch }}' }}
+      if: ${{ github.ref != format('refs/heads/{0}', inputs.base-branch) }}
       shell: bash
       run: git --no-pager diff
     - name: Determine branch name
-      if: ${{ github.ref == 'refs/heads/${{ inputs.base-branch }}' }}
+      if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       shell: bash
       env:
         MQT_TEMPLATES_REF: ${{ github.action_ref }}
@@ -135,7 +135,7 @@ runs:
         echo "SANITIZED_REF: $SANITIZED_REF"
         echo "BRANCH_NAME=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_ENV"
     - name: Create pull request
-      if: ${{ github.ref == 'refs/heads/${{ inputs.base-branch }}' }}
+      if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
         token: ${{ inputs.token }}
