@@ -6,6 +6,12 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.3.3]
+
+This release adds a new `base-branch` input to the templating action. It
+determines the base branch of the templating pull request. The input is not a
+required input and defaults to `main`.
+
 ## [1.3.0]
 
 All Markdown templates have been linted and reformatted with
@@ -27,8 +33,9 @@ page should be linked to on the `docs/index.md` page.
 
 This release includes two non-breaking changes:
 
-- With this release, the action will only create a pull request once it runs on
-  `main`. On all other branches, the action outputs `git diff` to the terminal.
+- With this release, the action will only create a templating pull request once
+  it runs on `main`. On all other branches, the action outputs `git diff` to the
+  terminal.
 - `c++-mlir-python` has been added as a `project-type`.
 
 ## [1.1.3]
@@ -94,7 +101,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...HEAD
+[1.3.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...v1.3.3
 [1.3.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...v1.2.0
 [1.1.13]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.3...v1.1.13

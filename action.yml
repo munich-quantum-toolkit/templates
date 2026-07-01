@@ -29,6 +29,9 @@ inputs:
   repository:
     description: Name of the repository
     required: true
+  base-branch:
+    description: Base branch of the pull request
+    default: main
   has-changelog-and-upgrade-guide:
     description: Whether the repository has a changelog and upgrade guide
     default: true
@@ -70,6 +73,7 @@ runs:
   steps:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
+        ref: ${{ inputs.base-branch }}
         token: ${{ inputs.token }}
     - name: Install latest version of uv
       uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
@@ -117,11 +121,11 @@ runs:
           --synchronize_support_resources $SYNCHRONIZE_SUPPORT_RESOURCES \
           --release_drafter_categories "$RELEASE_DRAFTER_CATEGORIES"
     - name: Show changes
-      if: ${{ github.ref != 'refs/heads/main' }}
+      if: ${{ github.ref != format('refs/heads/{0}', inputs.base-branch) }}
       shell: bash
       run: git --no-pager diff
     - name: Determine branch name
-      if: ${{ github.ref == 'refs/heads/main' }}
+      if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       shell: bash
       env:
         MQT_TEMPLATES_REF: ${{ github.action_ref }}
@@ -131,7 +135,7 @@ runs:
         echo "SANITIZED_REF: $SANITIZED_REF"
         echo "BRANCH_NAME=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_ENV"
     - name: Create pull request
-      if: ${{ github.ref == 'refs/heads/main' }}
+      if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
         token: ${{ inputs.token }}
@@ -141,6 +145,6 @@ runs:
           This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
           For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md).
         branch: ${{ env.BRANCH_NAME }}
-        base: main
+        base: ${{ inputs.base-branch }}
         labels: "documentation"
         sign-commits: true
