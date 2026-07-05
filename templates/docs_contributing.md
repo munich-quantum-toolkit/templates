@@ -7,8 +7,8 @@ Thank you for your interest in contributing to MQT {{name}}! This document
 outlines the development guidelines and how to contribute.
 
 We use GitHub to
-[host code](https://github.com/{{organization}}/{{repository}}), to
-[track issues and feature requests][issues], as well as accept
+[host code](https://github.com/{{organization}}/{{repository}}), to [track
+issues and feature requests][issues], as well as accept
 [pull requests](https://github.com/{{organization}}/{{repository}}/pulls). See
 <https://docs.github.com/en/get-started/quickstart> for a general introduction
 to working with GitHub and contributing to projects.
@@ -212,8 +212,8 @@ To access the latest build logs, visit the
 
 Additionally, we regularly run extensive tests with an even wider matrix of
 compilers and operating systems. We are not aware of any issues with other
-compilers or operating systems. If you encounter any problems, please
-[open an issue][issues] and let us know.
+compilers or operating systems. If you encounter any problems, please [open an
+issue][issues] and let us know.
 
 ### Configure and Build
 
