@@ -6,6 +6,26 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.4.0]
+
+This release updates the shared AI usage policy. AI agents may now perform
+coding and GitHub workflow tasks within a scope explicitly authorized by a
+human. The authorization may cover the whole scoped task; approval is not
+required for each individual message. The human remains accountable and must
+review the resulting code and public text before merging or accepting it.
+
+Every agent-authored or agent-edited public text body must begin with
+`🤖 *AI text below* 🤖`; issue and pull request titles are exempt. Every commit
+prepared with AI assistance must include an
+`Assisted-by: [Model Name] via [Tool Name]` trailer. The prohibition on using AI
+for contributions to issues labeled `good first issue` remains in place.
+
+Repositories whose operational agent instructions are too project-specific for
+the generic template should set `synchronize-agents-md: false` and maintain
+`AGENTS.md` locally. This opt-out affects only `AGENTS.md`; the centrally
+managed AI usage policy remains synchronized through the contribution guide or
+pull request template options.
+
 ## [1.3.3]
 
 This release adds a new `base-branch` input to the templating action. It
@@ -101,7 +121,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...v1.3.3
 [1.3.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.1.13...v1.2.0

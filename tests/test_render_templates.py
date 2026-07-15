@@ -48,6 +48,23 @@ def _check_files(files: list[Path]) -> None:
         subprocess.run(["prek", "run", "rumdl", "--files", str(file)], check=True)
 
 
+def _check_ai_guidance(target_dir: Path, *, has_agents_md: bool) -> None:
+    """Check that all rendered AI guidance uses the same policy requirements."""
+    files = [
+        target_dir / ".github" / "pull_request_template.md",
+        target_dir / "docs" / "ai_usage.md",
+        target_dir / "docs" / "contributing.md",
+    ]
+    if has_agents_md:
+        files.append(target_dir / "AGENTS.md")
+
+    for file in files:
+        content = file.read_text()
+        assert "🤖 *AI text below* 🤖" in content
+        assert "Assisted-by: [Model Name] via [Tool Name]" in content
+        assert "authoriz" in content.lower()
+
+
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
 def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
@@ -91,6 +108,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         temp_dir / "docs" / "tooling.md",
     ]
     _check_files(files)
+    _check_ai_guidance(temp_dir, has_agents_md=True)
 
 
 def test_other(temp_dir: Path) -> None:
@@ -154,3 +172,29 @@ def test_ai_usage_renders_with_contribution_guide_only(temp_dir: Path) -> None:
     )
 
     _check_files([temp_dir / "docs" / "ai_usage.md"])
+
+
+def test_disabling_agents_md_does_not_disable_ai_guidance(temp_dir: Path) -> None:
+    """Test that the AGENTS.md opt-out leaves the shared AI policy enabled."""
+    render_templates(
+        target_dir=temp_dir,
+        name="Test",
+        organization="munich-quantum-toolkit",
+        project_type="pure-python",
+        repository="test",
+        has_changelog_and_upgrade_guide=True,
+        synchronize_agents_md=False,
+        synchronize_contribution_guide=True,
+        synchronize_documentation_utilities=False,
+        synchronize_installation_guide=False,
+        synchronize_issue_templates=False,
+        synchronize_pull_request_template=True,
+        synchronize_release_drafter_template=False,
+        synchronize_renovate_config=False,
+        synchronize_security_policy=False,
+        synchronize_support_resources=False,
+        release_drafter_categories="",
+    )
+
+    assert not (temp_dir / "AGENTS.md").exists()
+    _check_ai_guidance(temp_dir, has_agents_md=False)
