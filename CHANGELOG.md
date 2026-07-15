@@ -10,6 +10,19 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-07-15
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#140)._
+
+### Changed
+
+- 🤖 Permit AI agents to perform explicitly authorized coding and GitHub tasks
+  while requiring human review, visible disclosure on public text, and commit
+  attribution ([#369]) ([**@burgholzer**])
+- 🤖 Clarify that repositories with project-specific agent instructions can
+  disable `AGENTS.md` synchronization without disabling the shared AI usage
+  policy ([#369]) ([**@burgholzer**])
+
 ## [1.3.3] - 2026-07-01
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#133)._
@@ -247,7 +260,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.3
 [1.3.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.2
 [1.3.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.1
@@ -271,6 +285,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#369]: https://github.com/munich-quantum-toolkit/templates/pull/369
 [#362]: https://github.com/munich-quantum-toolkit/templates/pull/362
 [#351]: https://github.com/munich-quantum-toolkit/templates/pull/351
 [#344]: https://github.com/munich-quantum-toolkit/templates/pull/344
