@@ -48,6 +48,7 @@ required-version = ">=0.8.17"
 [tool.uv.build-backend]
 module-name = "mqt.templates"
 source-include = [
+  "AGENTS.md",
   "defaults/**",
   "templates/**"
 ]
