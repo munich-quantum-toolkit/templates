@@ -648,7 +648,7 @@ finding the cause of certain failures:
 
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 
-- If any of the {code}`CI / 🇨‌ Test` checks fail, this indicates build errors or
+- If any of the {code}`CI / 🇨 Test` checks fail, this indicates build errors or
   test failures in the C++ part of the code base. Look through the respective
   logs on GitHub for any error or failure messages.
 
@@ -675,7 +675,7 @@ finding the cause of certain failures:
   been raised by {code}`clang-tidy` when checking the C++ part of your changes
   for warnings or style guideline violations. The individual messages frequently
   provide helpful suggestions on how to fix the warnings. If you don't see any
-  messages, but the {code}`🇨‌ Lint / 🚨 Lint` check is red, click on the
+  messages, but the {code}`🇨 Lint / 🚨 Lint` check is red, click on the
   {code}`Details` link to see the full log of the check and a step summary.
 
 {%- endif %}

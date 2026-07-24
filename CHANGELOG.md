@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Fixed
+
+- 🩹 Remove hidden Unicode characters in contribution guide ([#377])
+  ([**@denialhaag**])
+
 ## [1.4.0] - 2026-07-15
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#140)._
@@ -285,6 +290,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#377]: https://github.com/munich-quantum-toolkit/templates/pull/377
 [#369]: https://github.com/munich-quantum-toolkit/templates/pull/369
 [#362]: https://github.com/munich-quantum-toolkit/templates/pull/362
 [#351]: https://github.com/munich-quantum-toolkit/templates/pull/351
