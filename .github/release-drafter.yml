@@ -5,64 +5,51 @@ name-template: "MQT Templates $RESOLVED_VERSION Release"
 tag-template: "v$RESOLVED_VERSION"
 categories:
   - title: "🚀 Features and Enhancements"
-    when:
-      labels:
-        - "enhancement"
-        - "feature"
-        - "refactor"
-        - "usability"
+    labels:
+      - "enhancement"
+      - "feature"
+      - "refactor"
+      - "usability"
   - title: "🐛 Bug Fixes"
-    when:
-      labels:
-        - "bug"
-        - "fix"
+    labels:
+      - "bug"
+      - "fix"
   - title: "📄 Documentation"
-    when:
-      labels:
-        - "documentation"
-  - title: "🤖 CI & Tooling"
-    when:
-      labels:
-        - "continuous integration"
-        - "tooling"
+    labels:
+      - "documentation"
+  - title: "🤖 CI"
+    labels:
+      - "continuous integration"
   - title: "📦 Packaging"
-    when:
-      labels:
-        - "packaging"
+    labels:
+      - "packaging"
   - title: "🧹 Code Quality"
-    when:
-      labels:
-        - "code quality"
+    labels:
+      - "code quality"
   - title: "⬆️ Dependencies"
     collapse-after: 5
-    when:
-      labels:
-        - "dependencies"
-        - "github-actions"
-        - "pre-commit"
-        - "submodules"
-  - type: "pre-exclude"
-    when:
-      labels:
-        - "skip-changelog"
-        - "backport"
-        - "release-prep"
-  - type: "version-resolver"
-    semver-increment: "major"
-    when:
-      label: "major"
-  - type: "version-resolver"
-    semver-increment: "minor"
-    when:
-      label: "minor"
-  - type: "version-resolver"
-    semver-increment: "patch"
-    when:
-      label: "patch"
-  - type: "version-resolver"
-    semver-increment: "patch"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "pre-commit"
+      - "submodules"
 change-template: "- $TITLE ([#$NUMBER]($URL)) (**@$AUTHOR**)"
 change-title-escapes: '\<*_&'
+exclude-labels:
+  - "skip-changelog"
+  - "backport"
+  - "release-prep"
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+  patch:
+    labels:
+      - "patch"
+  default: patch
 
 template: |
   ## 👀 What Changed
