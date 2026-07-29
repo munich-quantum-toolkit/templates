@@ -62,8 +62,12 @@ def _check_ai_guidance(target_dir: Path, *, has_agents_md: bool) -> None:
         content = file.read_text()
         normalized = " ".join(content.split())
         assert "🤖 *AI text below* 🤖" in content
-        assert "ai assistance must be disclosed in the pr description" in normalized.lower()
-        assert "`Assisted-by: [Model Name] via [Tool Name]` trailers are recommended, not required" in normalized
+        assert (
+            "ai assistance must be disclosed in the pr description" in normalized.lower()
+            or "i have disclosed ai assistance in the pr description" in normalized.lower()
+        )
+        assert "Assisted-by: [Model Name] via [Tool Name]" in normalized
+        assert "recommend" in normalized.lower()
         assert "authoriz" in content.lower()
 
 

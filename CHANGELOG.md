@@ -10,6 +10,23 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.4.2] - 2026-07-29
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
+
+### Changed
+
+- 🤖 Require disclosure of AI assistance in the PR description and recommend
+  commit-level `Assisted-by` attribution ([#383]) ([**@burgholzer**])
+- 🧪 Prefer semantic tests in the owning subsystem and avoid promoting optional
+  production tools into default builds solely for subprocess testing ([#383])
+  ([**@burgholzer**])
+
+### Fixed
+
+- 🐍 Keep source-distribution checks compatible with uv 0.12 ([#383])
+  ([**@burgholzer**])
+
 ## [1.4.1] - 2026-07-24
 
 ### Fixed
@@ -267,7 +284,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
+[1.4.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.2
 [1.4.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.1
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.3.3
@@ -293,6 +311,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#383]: https://github.com/munich-quantum-toolkit/templates/pull/383
 [#377]: https://github.com/munich-quantum-toolkit/templates/pull/377
 [#369]: https://github.com/munich-quantum-toolkit/templates/pull/369
 [#362]: https://github.com/munich-quantum-toolkit/templates/pull/362

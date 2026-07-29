@@ -31,5 +31,7 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 
 - [ ] Any agent that created, edited, or submitted GitHub content was explicitly authorized for that scope, as required by our [AI Usage Guidelines](https://github.com/{{organization}}/{{repository}}/blob/main/docs/ai_usage.md).
 - [ ] Every agent-authored or agent-edited public text body begins with the visible disclosure `🤖 *AI text below* 🤖` (titles are exempt).
-- [ ] AI assistance must be disclosed in the PR description; I have done so. Commit-level `Assisted-by: [Model Name] via [Tool Name]` trailers are recommended, not required.
+- [ ] I have disclosed AI assistance in the PR description.
 - [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept full responsibility for it.
+
+We recommend adding an `Assisted-by: [Model Name] via [Tool Name]` footer to commits prepared with AI assistance.

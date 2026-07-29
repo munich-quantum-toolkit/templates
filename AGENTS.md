@@ -10,9 +10,9 @@
 - Run tests with `uv run --group test python -m pytest`.
 - Run changed-file checks with `uv run prek run --files <paths>`; run
   `uv run prek run --all-files` before handoff when practical.
-- Follow `docs/ai_usage.md`. An `Assisted-by: [Model Name] via [Tool Name]`
-  trailer is recommended for AI-assisted commits, but it is not required and its
-  absence is not a review finding.
+- Follow `docs/ai_usage.md` as the current contribution-level disclosure and
+  attribution policy. Do not duplicate its requirements in this operational
+  guide.
 
 ## Template Changes
 

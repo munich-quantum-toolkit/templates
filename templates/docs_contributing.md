@@ -102,9 +102,9 @@ within an explicitly authorized scope, but you must review their work and remain
 accountable for the result. Every agent-authored or agent-edited public text
 body must begin with `🤖 *AI text below* 🤖`; issue and pull request titles are
 exempt. AI assistance must be disclosed in the PR description. Commit-level
-`Assisted-by: [Model Name] via [Tool Name]` trailers are recommended, not
-required; their absence is not a review finding. AI assistance must not be used
-for contributions to issues labeled "good first issue".
+`Assisted-by: [Model Name] via [Tool Name]` trailers are recommended for commits
+prepared with AI assistance. AI assistance must not be used for contributions to
+issues labeled "good first issue".
 
 If you use an agent, it will automatically read the provided {code}`AGENTS.md`,
 which contains context and instructions to help the agent work on MQT {{name}}.
@@ -159,10 +159,6 @@ code quality, please follow these practices:
   LLMs can be overly defensive and conservative, leading to overcomplicated
   code. Treat its comments as suggestions: consider them, but feel free to
   disagree and explain why.
-- **Keep findings substantive**: Focus on correctness, contracts,
-  maintainability, tests, documentation, licensing, and validation. Do not turn
-  optional process metadata, such as a recommended AI-attribution trailer, into
-  a code-review finding.
 - **Respond to comments**: Do not simply resolve CodeRabbit's comments without
   answering them. It learns from your replies and improves over time. If a
   suggestion does not apply, take a moment to explain why in a reply.
