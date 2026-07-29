@@ -406,8 +406,8 @@ guidelines and workflows, see {doc}`contributing`.
 
 {%- if project_type == "c++-mlir-python" %}
 
-6. If you plan to contribute to MQT {{name}}, you will also need to install
-   MLIR. The section below describes how to do this.
+6. Install LLVM/MLIR as described below. It is required to build MQT {{name}}
+   from source.
 
 (setting-up-mlir)=
 
@@ -517,16 +517,6 @@ $env:MLIR_DIR = "C:\path\to\installation\lib\cmake\mlir"
 :::
 
 ::::
-
-### Disabling MLIR
-
-If you do not need MLIR-based functionality, you can disable it by setting the
-{code}`BUILD_MQT_{{name.upper()}}_MLIR` option to {code}`OFF`. This disables all
-MLIR-related features in MQT {{name}} and removes the dependency on MLIR.
-
-```console
-cmake -S . -B build -DBUILD_MQT_{{name.upper()}}_MLIR=OFF
-```
 
 [`setup-mlir`]: https://github.com/munich-quantum-software/setup-mlir/
 [`portable-mlir-toolchain`]: https://github.com/munich-quantum-software/portable-mlir-toolchain/

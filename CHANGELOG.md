@@ -10,6 +10,15 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.4.3] - 2026-07-29
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#143)._
+
+### Changed
+
+- 📝 Require LLVM/MLIR for `c++-mlir-python` projects and remove the obsolete
+  instructions for disabling MLIR ([**@burgholzer**])
+
 ## [1.4.2] - 2026-07-29
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
@@ -285,7 +294,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...HEAD
+[1.4.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.3
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.2
 [1.4.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.1
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.0

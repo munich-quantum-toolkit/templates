@@ -128,6 +128,14 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
     _check_files(files)
     _check_ai_guidance(temp_dir, has_agents_md=True)
 
+    installation = " ".join((temp_dir / "docs" / "installation.md").read_text().split())
+    if project_type == "c++-mlir-python":
+        assert "Install LLVM/MLIR as described below. It is required to build MQT Test from source." in installation
+        assert "Disabling MLIR" not in installation
+        assert "BUILD_MQT_TEST_MLIR" not in installation
+    else:
+        assert "Setting Up MLIR" not in installation
+
 
 def test_other(temp_dir: Path) -> None:
     """Test that templates for `other` projects are rendered correctly."""
