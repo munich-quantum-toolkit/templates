@@ -6,6 +6,24 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.4.2]
+
+AI assistance must still be disclosed in the pull request description, and
+agent-authored public text still requires the visible disclosure described in
+the AI usage guidelines. We recommend adding
+`Assisted-by: [Model Name] via [Tool Name]` trailers to commits prepared with AI
+assistance.
+
+The agent guide now requires tests to remain in the corresponding test tree,
+organized by the component that owns the behavior. Subprocess tests remain
+appropriate for irreducible driver-level contracts, but they belong in the test
+tree rather than a production tool directory.
+
+This policy change is not retroactive. A consuming repository's existing rules
+remain in force until it adopts the files rendered by v1.4.2. Repositories that
+set `synchronize-agents-md: false` should update their locally maintained
+`AGENTS.md` consistently.
+
 ## [1.4.0]
 
 This release updates the shared AI usage policy. AI agents may now perform
@@ -121,7 +139,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
+[1.4.2]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...v1.4.2
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...v1.3.3
 [1.3.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.2.0...v1.3.0
