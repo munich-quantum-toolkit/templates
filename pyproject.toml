@@ -118,6 +118,9 @@ ket   = "ket"
 
 
 [tool.check-sdist]
+# uv_build 0.12 emits a TOML 1.0-normalized pyproject.toml and preserves the
+# original file in source distributions, even when the source already is
+# TOML 1.0.
 sdist-only = ["pyproject.toml.orig"]
 git-only = [
   "docs/*",

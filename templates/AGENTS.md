@@ -106,11 +106,13 @@
   `ty`, formatting, and metadata checks). All hooks must pass before submitting.
 - MUST add or update tests for every code change, even if not explicitly
   requested.
-- PREFER placing tests with the component that owns the behavior. Reserve tool-
-  or CLI-level subprocess tests for contracts that cannot be exercised
-  meaningfully through a lower-level public API. Normal test targets and
-  dependencies belong in the test build; avoid promoting an otherwise optional
-  production tool into the default build solely for subprocess testing.
+- MUST place tests in the repository's corresponding test tree, organized by the
+  component that owns the behavior. NEVER place tests or test fixtures in
+  production source or tool directories. Reserve tool- or CLI-level subprocess
+  tests for contracts that cannot be exercised meaningfully through a lower-
+  level public API. Normal test targets and dependencies belong in the test
+  build; avoid promoting an otherwise optional production tool into the default
+  build solely for subprocess testing.
 - MUST follow existing code style by checking neighboring files for patterns.
 {%- if has_changelog_and_upgrade_guide %}
 - MUST update `CHANGELOG.md` and `UPGRADING.md` when changes are user-facing,

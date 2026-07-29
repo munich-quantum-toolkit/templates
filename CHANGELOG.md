@@ -18,13 +18,14 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
 
 - 🤖 Require disclosure of AI assistance in the PR description and recommend
   commit-level `Assisted-by` attribution ([#383]) ([**@burgholzer**])
-- 🧪 Prefer semantic tests in the owning subsystem and avoid promoting optional
-  production tools into default builds solely for subprocess testing ([#383])
-  ([**@burgholzer**])
+- 🧪 Keep tests in their respective test trees, organized by owning component,
+  and avoid promoting optional production tools into default builds solely for
+  subprocess testing ([#383]) ([**@burgholzer**])
 
 ### Fixed
 
-- 🐍 Keep source-distribution checks compatible with uv 0.12 ([#383])
+- 🐍 Account for the TOML 1.0-normalized `pyproject.toml` and preserved original
+  emitted by `uv_build` 0.12 in source-distribution checks ([#383])
   ([**@burgholzer**])
 
 ## [1.4.1] - 2026-07-24

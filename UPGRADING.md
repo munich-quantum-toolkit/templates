@@ -14,9 +14,10 @@ the AI usage guidelines. We recommend adding
 `Assisted-by: [Model Name] via [Tool Name]` trailers to commits prepared with AI
 assistance.
 
-The agent guide now recommends placing tests with the subsystem that owns the
-behavior. Tool-local subprocess tests remain appropriate for irreducible
-driver-level contracts.
+The agent guide now requires tests to remain in the corresponding test tree,
+organized by the component that owns the behavior. Subprocess tests remain
+appropriate for irreducible driver-level contracts, but they belong in the test
+tree rather than a production tool directory.
 
 This policy change is not retroactive. A consuming repository's existing rules
 remain in force until it adopts the files rendered by v1.4.2. Repositories that

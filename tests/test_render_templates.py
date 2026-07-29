@@ -50,25 +50,37 @@ def _check_files(files: list[Path]) -> None:
 
 def _check_ai_guidance(target_dir: Path, *, has_agents_md: bool) -> None:
     """Check that all rendered AI guidance uses the same policy requirements."""
-    files = [
-        target_dir / ".github" / "pull_request_template.md",
+    pull_request_template = target_dir / ".github" / "pull_request_template.md"
+    human_guides = [
         target_dir / "docs" / "ai_usage.md",
         target_dir / "docs" / "contributing.md",
     ]
+    files = [pull_request_template, *human_guides]
     if has_agents_md:
         files.append(target_dir / "AGENTS.md")
 
     for file in files:
         content = file.read_text()
-        normalized = " ".join(content.split())
         assert "🤖 *AI text below* 🤖" in content
-        assert (
-            "ai assistance must be disclosed in the pr description" in normalized.lower()
-            or "i have disclosed ai assistance in the pr description" in normalized.lower()
-        )
+        assert "authoriz" in content.lower()
+
+    pull_request_content = " ".join(pull_request_template.read_text().split())
+    assert "I have disclosed AI assistance in the PR description." in pull_request_content
+    assert "Assisted-by:" not in pull_request_content
+
+    for file in human_guides:
+        normalized = " ".join(file.read_text().split())
+        assert "AI assistance must be disclosed in the PR description." in normalized
         assert "Assisted-by: [Model Name] via [Tool Name]" in normalized
         assert "recommend" in normalized.lower()
-        assert "authoriz" in content.lower()
+
+    if has_agents_md:
+        agents_content = " ".join((target_dir / "AGENTS.md").read_text().split())
+        assert "AI assistance MUST be disclosed in the PR description." in agents_content
+        assert "Assisted-by: [Model Name] via [Tool Name]" in agents_content
+        assert "recommended, not required" in agents_content
+        assert "corresponding test tree" in agents_content
+        assert "production source or tool directories" in agents_content
 
 
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])

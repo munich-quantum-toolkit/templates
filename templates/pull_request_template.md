@@ -33,5 +33,3 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 - [ ] Every agent-authored or agent-edited public text body begins with the visible disclosure `🤖 *AI text below* 🤖` (titles are exempt).
 - [ ] I have disclosed AI assistance in the PR description.
 - [ ] I confirm that I have personally reviewed and understood all AI-generated content, and accept full responsibility for it.
-
-We recommend adding an `Assisted-by: [Model Name] via [Tool Name]` footer to commits prepared with AI assistance.
