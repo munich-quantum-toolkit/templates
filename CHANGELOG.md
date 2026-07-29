@@ -17,7 +17,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#143)._
 ### Changed
 
 - 📝 Require LLVM/MLIR for `c++-mlir-python` projects and remove the obsolete
-  instructions for disabling MLIR ([**@burgholzer**])
+  instructions for disabling MLIR ([#384]) ([**@burgholzer**])
 
 ## [1.4.2] - 2026-07-29
 
@@ -322,6 +322,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#384]: https://github.com/munich-quantum-toolkit/templates/pull/384
 [#383]: https://github.com/munich-quantum-toolkit/templates/pull/383
 [#377]: https://github.com/munich-quantum-toolkit/templates/pull/377
 [#369]: https://github.com/munich-quantum-toolkit/templates/pull/369
