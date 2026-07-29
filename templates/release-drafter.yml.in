@@ -9,28 +9,34 @@ categories:
     {%- if title == "⬆️ Dependencies" %}
     collapse-after: 5
     {%- endif %}
-    labels:
-      {%- for label in labels %}
-      - "{{ label }}"
-      {%- endfor %}
+    when:
+      labels:
+        {%- for label in labels %}
+        - "{{ label }}"
+        {%- endfor %}
   {%- endfor %}
+  - type: "pre-exclude"
+    when:
+      labels:
+        - "skip-changelog"
+        - "backport"
+        - "release-prep"
+  - type: "version-resolver"
+    semver-increment: "major"
+    when:
+      label: "major"
+  - type: "version-resolver"
+    semver-increment: "minor"
+    when:
+      label: "minor"
+  - type: "version-resolver"
+    semver-increment: "patch"
+    when:
+      label: "patch"
+  - type: "version-resolver"
+    semver-increment: "patch"
 change-template: "- $TITLE ([#$NUMBER]($URL)) (**@$AUTHOR**)"
 change-title-escapes: '\<*_&'
-exclude-labels:
-  - "skip-changelog"
-  - "backport"
-  - "release-prep"
-version-resolver:
-  major:
-    labels:
-      - "major"
-  minor:
-    labels:
-      - "minor"
-  patch:
-    labels:
-      - "patch"
-  default: patch
 
 template: |
   {% if has_changelog_and_upgrade_guide -%}

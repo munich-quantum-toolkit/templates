@@ -83,6 +83,20 @@ def _check_ai_guidance(target_dir: Path, *, has_agents_md: bool) -> None:
         assert "production source or tool directories" in agents_content
 
 
+def _check_release_drafter(target_dir: Path) -> None:
+    """Check that Release Drafter uses the current category schema."""
+    content = (target_dir / ".github" / "release-drafter.yml").read_text()
+    assert 'title: "🤖 CI & Tooling"' in content
+    assert '"continuous integration"' in content
+    assert '"tooling"' in content
+    assert "exclude-labels:" not in content
+    assert "\n    label:" not in content
+    assert "\n    labels:" not in content
+    assert "\nversion-resolver:" not in content
+    assert content.count('type: "pre-exclude"') == 1
+    assert content.count('type: "version-resolver"') == 4
+
+
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
 def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
@@ -127,6 +141,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
     ]
     _check_files(files)
     _check_ai_guidance(temp_dir, has_agents_md=True)
+    _check_release_drafter(temp_dir)
 
     installation = " ".join((temp_dir / "docs" / "installation.md").read_text().split())
     if project_type == "c++-mlir-python":
@@ -173,6 +188,7 @@ def test_other(temp_dir: Path) -> None:
         temp_dir / "docs" / "lit_header.bib",
     ]
     _check_files(files)
+    _check_release_drafter(temp_dir)
 
 
 def test_ai_usage_renders_with_contribution_guide_only(temp_dir: Path) -> None:
