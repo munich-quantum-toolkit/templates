@@ -8,6 +8,10 @@ of changes, including minor and patch releases, please refer to the
 
 ## [1.4.2]
 
+Release Drafter configuration now uses category-based matching, exclusion, and
+version resolution. The CI category is now named `CI & Tooling` and matches both
+the `continuous integration` and `tooling` labels.
+
 The installation guide for `c++-mlir-python` projects now treats LLVM/MLIR as a
 mandatory source-build dependency. It no longer documents a generated
 `BUILD_MQT_<NAME>_MLIR` CMake option for disabling MLIR.

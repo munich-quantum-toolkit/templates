@@ -16,6 +16,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
 
 ### Changed
 
+- 🔧 Migrate Release Drafter configuration to the current category schema and
+  group CI and tooling changes together ([#386]) ([**@burgholzer**])
 - 📝 Require LLVM/MLIR for `c++-mlir-python` projects and remove the obsolete
   instructions for disabling MLIR ([#384]) ([**@burgholzer**])
 - 🤖 Require disclosure of AI assistance in the PR description and recommend
@@ -314,6 +316,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#386]: https://github.com/munich-quantum-toolkit/templates/pull/386
 [#384]: https://github.com/munich-quantum-toolkit/templates/pull/384
 [#383]: https://github.com/munich-quantum-toolkit/templates/pull/383
 [#377]: https://github.com/munich-quantum-toolkit/templates/pull/377
