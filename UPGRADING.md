@@ -6,13 +6,11 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
-## [1.4.3]
+## [1.4.2]
 
 The installation guide for `c++-mlir-python` projects now treats LLVM/MLIR as a
 mandatory source-build dependency. It no longer documents a generated
 `BUILD_MQT_<NAME>_MLIR` CMake option for disabling MLIR.
-
-## [1.4.2]
 
 AI assistance must still be disclosed in the pull request description, and
 agent-authored public text still requires the visible disclosure described in
@@ -145,8 +143,7 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...HEAD
-[1.4.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...v1.4.3
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...v1.4.2
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...v1.3.3
