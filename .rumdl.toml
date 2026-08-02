@@ -3,7 +3,7 @@
 "**/pull_request_template.md" = ["MD013", "MD041"]
 # The templates may have arbitrary violations as long as the rendered version is compliant
 "templates/**" = ["MD024", "MD041"]
-# The README may include HTML and dooes not need to start with a top-level heading
+# The README may include HTML and does not need to start with a top-level heading
 "README.md" = ["MD033", "MD041"]
 
 [per-file-flavor]
@@ -22,3 +22,4 @@ reflow-mode = "normalize"
 
 [MD060]
 enabled = true
+style = "aligned"
