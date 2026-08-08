@@ -75,8 +75,9 @@ Contributions that do not comply with these guidelines or violate our
 - Add tests for new features to ensure they work as intended.
 - Document new features.
 {%- if has_changelog_and_upgrade_guide %}
-  For user-facing changes, add a changelog entry; for breaking changes, update the
-  upgrade guide. For details, see {ref}`maintaining-changelog-upgrade-guide`.
+  For user-facing changes, add a changelog entry; for breaking changes, update
+  the upgrade guide. For details, see
+  {ref}`maintaining-changelog-upgrade-guide`.
 {%- endif %}
 - Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
