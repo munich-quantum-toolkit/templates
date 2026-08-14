@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Changed
 
-- 📝 Improve AGENTS.md prose, terminology, and test guidance ([#399])
+- 🤖 Improve prose, terminology, and test guidance in AGENTS.md ([#399])
   ([**@denialhaag**])
 
 ## [1.4.2] - 2026-07-29
@@ -21,21 +21,13 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
 
 ### Changed
 
-- 🔧 Migrate Release Drafter configuration to the current category schema and
+- 🔧 Migrate Release Drafter configuration to the current category schema, and
   group CI and tooling changes together ([#386]) ([**@burgholzer**])
 - 📝 Require LLVM/MLIR for `c++-mlir-python` projects and remove the obsolete
   instructions for disabling MLIR ([#384]) ([**@burgholzer**])
 - 🤖 Require disclosure of AI assistance in the PR description and recommend
   commit-level `Assisted-by` attribution ([#383]) ([**@burgholzer**])
-- 🧪 Keep tests in their respective test trees, organized by owning component,
-  and avoid promoting optional production tools into default builds solely for
-  subprocess testing ([#383]) ([**@burgholzer**])
-
-### Fixed
-
-- 🐍 Account for the TOML 1.0-normalized `pyproject.toml` and preserved original
-  emitted by `uv_build` 0.12 in source-distribution checks ([#383])
-  ([**@burgholzer**])
+- 🤖 Improve test guidance in AGENTS.md ([#383]) ([**@burgholzer**])
 
 ## [1.4.1] - 2026-07-24
 
