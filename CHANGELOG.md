@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Improve AGENTS.md prose, terminology, and test guidance ([#399])
+  ([**@denialhaag**])
+
 ## [1.4.2] - 2026-07-29
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#142)._
@@ -316,6 +321,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#399]: https://github.com/munich-quantum-toolkit/templates/pull/399
 [#386]: https://github.com/munich-quantum-toolkit/templates/pull/386
 [#384]: https://github.com/munich-quantum-toolkit/templates/pull/384
 [#383]: https://github.com/munich-quantum-toolkit/templates/pull/383
