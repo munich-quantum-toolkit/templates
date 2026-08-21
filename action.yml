@@ -75,6 +75,7 @@ runs:
       with:
         ref: ${{ inputs.base-branch }}
         token: ${{ inputs.token }}
+        persist-credentials: false
     - name: Install latest version of uv
       uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
       with:
@@ -125,6 +126,7 @@ runs:
       shell: bash
       run: git --no-pager diff
     - name: Determine branch name
+      id: determine-branch-name
       if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       shell: bash
       env:
@@ -133,7 +135,7 @@ runs:
         echo "MQT_TEMPLATES_REF: $MQT_TEMPLATES_REF"
         SANITIZED_REF="$(printf '%s' "$MQT_TEMPLATES_REF" | tr -d '\n')"
         echo "SANITIZED_REF: $SANITIZED_REF"
-        echo "BRANCH_NAME=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_ENV"
+        echo "branch-name=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_OUTPUT"
     - name: Create pull request
       if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
@@ -144,7 +146,7 @@ runs:
         body: |
           This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
           For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md).
-        branch: ${{ env.BRANCH_NAME }}
+        branch: ${{ steps.determine-branch-name.outputs.branch-name }}
         base: ${{ inputs.base-branch }}
         labels: "documentation"
         sign-commits: true
