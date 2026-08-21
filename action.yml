@@ -199,7 +199,7 @@ runs:
             --field "sha=$COMMIT_OID" --field "force=true" >/dev/null
 
         # Open a pull request unless one is already open for this branch.
-        if [ -z "$(gh pr list --repo "$REPOSITORY" --head "$BRANCH_NAME" --state open --json number --jq '.[].number')" ]; then
+        if [ -z "$(gh pr list --repo "$REPOSITORY" --head "$BRANCH_NAME" --base "$BASE_BRANCH" --state open --json number --jq '.[].number')" ]; then
           gh pr create \
             --repo "$REPOSITORY" \
             --title "📝 Update templated files" \
