@@ -159,9 +159,9 @@ runs:
           --field "ref=refs/heads/$TEMPORARY_BRANCH" \
           --field "sha=$BASE_OID" >/dev/null
 
-        # Commit through the GraphQL API so that GitHub signs the commit.
-        # `--no-renames` splits a rename into a deletion and an addition, so that the old
-        # path is removed rather than left behind.
+        # Commit through the GraphQL API so that GitHub signs the commit and attributes it
+        # to the app. `--no-renames` splits a rename into a deletion and an addition, so
+        # that the old path is removed rather than left behind.
         ADDITIONS="$(git diff --cached --no-renames --name-only --diff-filter=ACM |
           while IFS= read -r file; do
             jq -n --arg path "$file" \
