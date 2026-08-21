@@ -131,9 +131,9 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.token }}
         REPOSITORY: ${{ github.repository }}
+        RUN_ID: ${{ github.run_id }}
         BASE_BRANCH: ${{ inputs.base-branch }}
         MQT_TEMPLATES_REF: ${{ github.action_ref }}
-        RUN_ID: ${{ github.run_id }}
       run: |
         set -euo pipefail
 
