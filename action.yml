@@ -126,26 +126,17 @@ runs:
       shell: bash
       run: git --no-pager diff
     - if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
-      name: Determine branch name
-      id: determine-branch-name
-      shell: bash
-      env:
-        MQT_TEMPLATES_REF: ${{ github.action_ref }}
-      run: |
-        echo "MQT_TEMPLATES_REF: $MQT_TEMPLATES_REF"
-        SANITIZED_REF="$(printf '%s' "$MQT_TEMPLATES_REF" | tr -d '\n')"
-        echo "SANITIZED_REF: $SANITIZED_REF"
-        echo "branch-name=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_OUTPUT"
-    - if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       name: Create pull request
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.token }}
         REPOSITORY: ${{ github.repository }}
         BASE_BRANCH: ${{ inputs.base-branch }}
-        BRANCH_NAME: ${{ steps.determine-branch-name.outputs.branch-name }}
+        MQT_TEMPLATES_REF: ${{ github.action_ref }}
       run: |
         set -euo pipefail
+
+        BRANCH_NAME="update-mqt-templates-$(printf '%s' "$MQT_TEMPLATES_REF" | tr -d '\n')"
 
         # Nothing to do if the templating step did not change anything.
         git add --all
