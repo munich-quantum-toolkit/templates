@@ -32,6 +32,18 @@ repos:
     hooks:
       - id: check-github-workflows
         priority: 0
+      - id: check-renovate
+        additional_dependencies: [json5]
+        # Also validate the Renovate configuration that is rendered into the consuming repositories
+        files: renovate\.json5$
+        priority: 0
+
+  ## Check for security issues in GitHub Actions workflows
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.29.0
+    hooks:
+      - id: zizmor
+        priority: 0
 
   ## Check pyproject.toml file
   - repo: https://github.com/henryiii/validate-pyproject-schema-store
