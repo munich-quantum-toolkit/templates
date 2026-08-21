@@ -133,6 +133,7 @@ runs:
         REPOSITORY: ${{ github.repository }}
         BASE_BRANCH: ${{ inputs.base-branch }}
         MQT_TEMPLATES_REF: ${{ github.action_ref }}
+        RUN_ID: ${{ github.run_id }}
       run: |
         set -euo pipefail
 
@@ -148,7 +149,7 @@ runs:
         # Build the commit on a temporary branch, so that an already open pull request
         # keeps its current commit if anything below fails.
         BASE_OID="$(git rev-parse HEAD)"
-        TEMPORARY_BRANCH="$BRANCH_NAME-tmp"
+        TEMPORARY_BRANCH="$BRANCH_NAME-$RUN_ID"
         cleanup() {
           gh api --method DELETE "repos/$REPOSITORY/git/refs/heads/$TEMPORARY_BRANCH" \
             >/dev/null 2>&1 || true
@@ -156,9 +157,7 @@ runs:
         trap cleanup EXIT
         gh api "repos/$REPOSITORY/git/refs" \
           --field "ref=refs/heads/$TEMPORARY_BRANCH" \
-          --field "sha=$BASE_OID" >/dev/null 2>&1 ||
-          gh api --method PATCH "repos/$REPOSITORY/git/refs/heads/$TEMPORARY_BRANCH" \
-            --field "sha=$BASE_OID" --field "force=true" >/dev/null
+          --field "sha=$BASE_OID" >/dev/null
 
         # Commit through the GraphQL API so that GitHub signs the commit.
         # `--no-renames` splits a rename into a deletion and an addition, so that the old
