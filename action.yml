@@ -138,15 +138,69 @@ runs:
         echo "branch-name=update-mqt-templates-$SANITIZED_REF" >> "$GITHUB_OUTPUT"
     - if: ${{ github.ref == format('refs/heads/{0}', inputs.base-branch) }}
       name: Create pull request
-      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
-      with:
-        token: ${{ inputs.token }}
-        commit-message: 📝 Update templated files
-        title: 📝 Update templated files
-        body: |
-          This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
-          For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md).
-        branch: ${{ steps.determine-branch-name.outputs.branch-name }}
-        base: ${{ inputs.base-branch }}
-        labels: "documentation"
-        sign-commits: true
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        REPOSITORY: ${{ github.repository }}
+        BASE_BRANCH: ${{ inputs.base-branch }}
+        BRANCH_NAME: ${{ steps.determine-branch-name.outputs.branch-name }}
+      run: |
+        set -euo pipefail
+
+        # Nothing to do if the templating step did not change anything.
+        git add --all
+        if git diff --cached --quiet; then
+          echo "No changes to the templated files."
+          exit 0
+        fi
+
+        # Point the pull request branch at the current base, so the commit below applies
+        # cleanly whether or not the branch already exists from an earlier run.
+        BASE_OID="$(git rev-parse HEAD)"
+        gh api "repos/$REPOSITORY/git/refs" \
+          --field "ref=refs/heads/$BRANCH_NAME" \
+          --field "sha=$BASE_OID" >/dev/null 2>&1 ||
+          gh api --method PATCH "repos/$REPOSITORY/git/refs/heads/$BRANCH_NAME" \
+            --field "sha=$BASE_OID" --field "force=true" >/dev/null
+
+        # Commit through the GraphQL API so that GitHub signs the commit.
+        # `--no-renames` splits a rename into a deletion and an addition, so that the old
+        # path is removed rather than left behind.
+        ADDITIONS="$(git diff --cached --no-renames --name-only --diff-filter=ACM |
+          while IFS= read -r file; do
+            jq -n --arg path "$file" \
+                  --arg contents "$(base64 < "$file" | tr -d '\n')" \
+                  '{path: $path, contents: $contents}'
+          done | jq --slurp '.')"
+        DELETIONS="$(git diff --cached --no-renames --name-only --diff-filter=D |
+          jq --raw-input '{path: .}' | jq --slurp '.')"
+
+        jq -n \
+          --arg repository "$REPOSITORY" \
+          --arg branch "$BRANCH_NAME" \
+          --arg oid "$BASE_OID" \
+          --argjson additions "$ADDITIONS" \
+          --argjson deletions "$DELETIONS" \
+          '{
+            query: "mutation($input: CreateCommitOnBranchInput!) { createCommitOnBranch(input: $input) { commit { oid } } }",
+            variables: {
+              input: {
+                branch: {repositoryNameWithOwner: $repository, branchName: $branch},
+                message: {headline: "📝 Update templated files"},
+                expectedHeadOid: $oid,
+                fileChanges: {additions: $additions, deletions: $deletions}
+              }
+            }
+          }' | gh api graphql --input - >/dev/null
+
+        # Open a pull request unless one is already open for this branch.
+        if [ -z "$(gh pr list --repo "$REPOSITORY" --head "$BRANCH_NAME" --state open --json number --jq '.[].number')" ]; then
+          gh pr create \
+            --repo "$REPOSITORY" \
+            --title "📝 Update templated files" \
+            --body "This pull request updates the files in this repository with the latest changes from the MQT Templates repository.
+        For details on the respective changes, see the [changelog](https://github.com/munich-quantum-toolkit/templates/blob/main/CHANGELOG.md) as well as the [upgrade guide](https://github.com/munich-quantum-toolkit/templates/blob/main/UPGRADING.md)." \
+            --base "$BASE_BRANCH" \
+            --head "$BRANCH_NAME" \
+            --label documentation
+        fi

@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Added
 
-- 🔒️ Set up `zizmor` to check the action for security issues ([#405])
+- 🔒️ Set up `zizmor` to check the action for security issues ([#405], [#406])
   ([**@denialhaag**])
 
 ### Changed
@@ -320,6 +320,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#406]: https://github.com/munich-quantum-toolkit/templates/pull/406
 [#405]: https://github.com/munich-quantum-toolkit/templates/pull/405
 [#404]: https://github.com/munich-quantum-toolkit/templates/pull/404
 [#399]: https://github.com/munich-quantum-toolkit/templates/pull/399
