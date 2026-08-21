@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Added
 
-- 👷 Check the action and the workflows for security issues with zizmor ([#405])
+- 🔒️ Set up `zizmor` to check the action for security issues ([#405])
   ([**@denialhaag**])
 
 ### Changed
