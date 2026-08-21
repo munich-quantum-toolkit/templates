@@ -43,7 +43,13 @@ repos:
     rev: v1.29.0
     hooks:
       - id: zizmor
-        args: ["--no-progress", "--persona=pedantic"]
+        args:
+          [
+            "--no-progress",
+            "--min-severity=informational",
+            "--min-confidence=low",
+            "--persona=pedantic",
+          ]
         priority: 0
 
   ## Check pyproject.toml file
