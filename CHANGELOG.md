@@ -17,6 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Document reduced test matrix for draft pull requests ([#411])
+  ([**@denialhaag**])
 - 📝 Link contribution guide to stable documentation ([#410])
   ([**@denialhaag**])
 - 📝 Remove mention of extensive tests from contribution guide ([#404])
@@ -322,6 +324,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#411]: https://github.com/munich-quantum-toolkit/templates/pull/411
 [#410]: https://github.com/munich-quantum-toolkit/templates/pull/410
 [#406]: https://github.com/munich-quantum-toolkit/templates/pull/406
 [#405]: https://github.com/munich-quantum-toolkit/templates/pull/405
