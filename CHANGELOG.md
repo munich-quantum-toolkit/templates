@@ -10,6 +10,8 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.4.3] - 2026-08-26
+
 ### Added
 
 - 🔒️ Set up `zizmor` to check the action for security issues ([#405], [#406])
@@ -297,7 +299,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...HEAD
+[1.4.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.3
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.2
 [1.4.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.1
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.0
