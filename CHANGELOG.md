@@ -17,6 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Link contribution guide to stable documentation ([#410])
+  ([**@denialhaag**])
 - 📝 Remove mention of extensive tests from contribution guide ([#404])
   ([**@denialhaag**])
 - 🤖 Improve prose, terminology, and test guidance in AGENTS.md ([#399])
@@ -320,6 +322,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#410]: https://github.com/munich-quantum-toolkit/templates/pull/410
 [#406]: https://github.com/munich-quantum-toolkit/templates/pull/406
 [#405]: https://github.com/munich-quantum-toolkit/templates/pull/405
 [#404]: https://github.com/munich-quantum-toolkit/templates/pull/404
