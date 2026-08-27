@@ -12,6 +12,7 @@ releases may include breaking changes.
 
 ### Added
 
+- ✨ Synchronize `.gitignore` file ([**@denialhaag**])
 - 🔒️ Set up `zizmor` to check the action for security issues ([#405], [#406])
   ([**@denialhaag**])
 

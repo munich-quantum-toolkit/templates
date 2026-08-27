@@ -57,6 +57,7 @@ def render_templates(
     synchronize_security_policy: bool,
     synchronize_support_resources: bool,
     release_drafter_categories: str,
+    synchronize_gitignore: bool = False,
 ) -> None:
     """Render templates.
 
@@ -78,6 +79,7 @@ def render_templates(
         synchronize_security_policy: Whether to synchronize the security policy.
         synchronize_support_resources: Whether to synchronize the support resources.
         release_drafter_categories: The categories for the release drafter.
+        synchronize_gitignore: Whether to synchronize the .gitignore file.
 
     Raises:
         ValueError: If the arguments are incompatible with each other or if the project type is not supported.
@@ -106,6 +108,13 @@ def render_templates(
                 "repository": repository,
                 "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
             },
+        ),
+        TemplateContainer(
+            template_name=".gitignore.in",
+            file_name=".gitignore",
+            output_dir=Path(),
+            active=synchronize_gitignore and not is_other,
+            arguments={"project_type": project_type},
         ),
         TemplateContainer(
             file_name="bug-report.yml",

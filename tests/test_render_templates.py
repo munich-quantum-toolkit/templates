@@ -111,6 +111,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         synchronize_agents_md=True,
         synchronize_contribution_guide=True,
         synchronize_documentation_utilities=True,
+        synchronize_gitignore=True,
         synchronize_installation_guide=True,
         synchronize_issue_templates=True,
         synchronize_pull_request_template=True,
@@ -142,6 +143,7 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
     _check_files(files)
     _check_ai_guidance(temp_dir, has_agents_md=True)
     _check_release_drafter(temp_dir)
+    assert (temp_dir / ".gitignore").exists()
 
     installation = " ".join((temp_dir / "docs" / "installation.md").read_text().split())
     if project_type == "c++-mlir-python":

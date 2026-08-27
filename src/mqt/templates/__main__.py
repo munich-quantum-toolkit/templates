@@ -84,6 +84,12 @@ def main() -> None:
         help="Whether to synchronize documentation utilities such as page.html and custom.css",
     )
     parser.add_argument(
+        "--synchronize_gitignore",
+        default=False,
+        type=_convert_to_bool,
+        help="Whether to synchronize the .gitignore file",
+    )
+    parser.add_argument(
         "--synchronize_installation_guide",
         default=True,
         type=_convert_to_bool,
@@ -143,6 +149,7 @@ def main() -> None:
         synchronize_agents_md=args.synchronize_agents_md,
         synchronize_contribution_guide=args.synchronize_contribution_guide,
         synchronize_documentation_utilities=args.synchronize_documentation_utilities,
+        synchronize_gitignore=args.synchronize_gitignore,
         synchronize_installation_guide=args.synchronize_installation_guide,
         synchronize_issue_templates=args.synchronize_issue_templates,
         synchronize_pull_request_template=args.synchronize_pull_request_template,
