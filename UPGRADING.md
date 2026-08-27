@@ -6,6 +6,12 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+This release adds a new `synchronize-gitignore` flag that controls whether the
+`.gitignore` file is synchronized. The flag is enabled by default and ignored if
+the project type is `other`. Repositories with project-specific ignore rules
+should set `synchronize-gitignore: false` until those rules are incorporated
+into the shared template.
+
 ## [1.4.2]
 
 Release Drafter configuration now uses category-based matching, exclusion, and

@@ -49,6 +49,7 @@ def render_templates(
     synchronize_agents_md: bool,
     synchronize_contribution_guide: bool,
     synchronize_documentation_utilities: bool,
+    synchronize_gitignore: bool,
     synchronize_installation_guide: bool,
     synchronize_issue_templates: bool,
     synchronize_pull_request_template: bool,
@@ -70,6 +71,7 @@ def render_templates(
         synchronize_agents_md: Whether to synchronize the AGENTS.md file.
         synchronize_contribution_guide: Whether to synchronize the contribution guide.
         synchronize_documentation_utilities: Whether to synchronize the documentation utilities.
+        synchronize_gitignore: Whether to synchronize the .gitignore file.
         synchronize_installation_guide: Whether to synchronize the installation guide.
         synchronize_issue_templates: Whether to synchronize the issue templates.
         synchronize_pull_request_template: Whether to synchronize the pull request template.
@@ -96,6 +98,13 @@ def render_templates(
     release_drafter_categories_dict = json.loads(release_drafter_categories)
 
     template_containers = [
+        TemplateContainer(
+            template_name=".gitignore.in",
+            file_name=".gitignore",
+            output_dir=Path(),
+            active=synchronize_gitignore and not is_other,
+            arguments={"project_type": project_type},
+        ),
         TemplateContainer(
             file_name="AGENTS.md",
             output_dir=Path(),
