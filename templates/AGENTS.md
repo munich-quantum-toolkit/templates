@@ -73,7 +73,7 @@
 
 ### Python
 
-- Python 3.10+
+- Python 3.11+
 {%- if project_type in ["c++-python", "c++-mlir-python"] %}
 - Stable ABI wheels for 3.12+; free-threading support for 3.14+
 - `scikit-build-core` as build backend
