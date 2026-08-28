@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Added
 
-- ✨ Synchronize `.gitignore` file ([#415]) ([**@denialhaag**])
+- ✨ Synchronize `.gitignore` file ([#415], [#417]) ([**@denialhaag**])
 
 ### Changed
 
@@ -336,6 +336,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#417]: https://github.com/munich-quantum-toolkit/templates/pull/417
 [#416]: https://github.com/munich-quantum-toolkit/templates/pull/416
 [#415]: https://github.com/munich-quantum-toolkit/templates/pull/415
 [#411]: https://github.com/munich-quantum-toolkit/templates/pull/411
