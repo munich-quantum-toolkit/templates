@@ -16,6 +16,7 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Document LLVM 23.1 for MLIR projects ([#422]) ([**@denialhaag**])
 - 📝 Document Python 3.11+ and Apple silicon support ([#416])
   ([**@denialhaag**])
 
@@ -336,6 +337,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#422]: https://github.com/munich-quantum-toolkit/templates/pull/422
 [#417]: https://github.com/munich-quantum-toolkit/templates/pull/417
 [#416]: https://github.com/munich-quantum-toolkit/templates/pull/416
 [#415]: https://github.com/munich-quantum-toolkit/templates/pull/415
