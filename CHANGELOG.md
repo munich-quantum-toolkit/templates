@@ -16,6 +16,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Document `nanobind` 3 split-mode Stable ABI wheels ([#423])
+  ([**@denialhaag**])
 - 📝 Document LLVM 23.1 for MLIR projects ([#422]) ([**@denialhaag**])
 - 📝 Document Python 3.11+ and Apple silicon support ([#416])
   ([**@denialhaag**])
@@ -337,6 +339,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#423]: https://github.com/munich-quantum-toolkit/templates/pull/423
 [#422]: https://github.com/munich-quantum-toolkit/templates/pull/422
 [#417]: https://github.com/munich-quantum-toolkit/templates/pull/417
 [#416]: https://github.com/munich-quantum-toolkit/templates/pull/416
