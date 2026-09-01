@@ -63,7 +63,7 @@
 - `clang-format` and `clang-tidy` for formatting/linting (see `.clang-format`
   and `.clang-tidy`)
 {%- if project_type == "c++-mlir-python" %}
-- LLVM 22.1+ for building MLIR code
+- LLVM 23.1+ for building MLIR code
 - GoogleTest for unit tests (located in `test/` and `mlir/unittests/`)
 {%- elif project_type == "c++-python" %}
 - GoogleTest for unit tests (located in `test/`)
