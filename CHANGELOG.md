@@ -16,8 +16,7 @@ releases may include breaking changes.
 
 ### Changed
 
-- 📝 Document `nanobind` 3 split-mode Stable ABI wheels ([#423])
-  ([**@denialhaag**])
+- 📝 Document `nanobind` 3 split-mode wheels ([#423]) ([**@denialhaag**])
 - 📝 Document LLVM 23.1 for MLIR projects ([#422]) ([**@denialhaag**])
 - 📝 Document Python 3.11+ and Apple silicon support ([#416])
   ([**@denialhaag**])
