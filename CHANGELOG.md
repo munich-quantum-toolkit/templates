@@ -10,6 +10,10 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-03
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#150)._
+
 ### Added
 
 - ✨ Synchronize `.gitignore` file ([#415], [#417]) ([**@denialhaag**])
@@ -20,6 +24,11 @@ releases may include breaking changes.
 - 📝 Document LLVM 23.1 for MLIR projects ([#422]) ([**@denialhaag**])
 - 📝 Document Python 3.11+ and Apple silicon support ([#416])
   ([**@denialhaag**])
+
+### Fixed
+
+- 🐛 Keep release drafts branch-specific and shorten change entries with GitHub
+  autolinks ([#424]) ([**@burgholzer**])
 
 ## [1.4.3] - 2026-08-26
 
@@ -310,7 +319,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.0
 [1.4.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.3
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.2
 [1.4.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.1
@@ -338,6 +348,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#424]: https://github.com/munich-quantum-toolkit/templates/pull/424
 [#423]: https://github.com/munich-quantum-toolkit/templates/pull/423
 [#422]: https://github.com/munich-quantum-toolkit/templates/pull/422
 [#417]: https://github.com/munich-quantum-toolkit/templates/pull/417
