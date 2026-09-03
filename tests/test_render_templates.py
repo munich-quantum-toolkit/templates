@@ -89,6 +89,8 @@ def _check_release_drafter(target_dir: Path) -> None:
     assert 'title: "🤖 CI & Tooling"' in content
     assert '"continuous integration"' in content
     assert '"tooling"' in content
+    assert "filter-by-commitish: true" in content
+    assert 'change-template: "- $TITLE (#$NUMBER) (@$AUTHOR)"' in content
     assert "exclude-labels:" not in content
     assert "\n    label:" not in content
     assert "\n    labels:" not in content
