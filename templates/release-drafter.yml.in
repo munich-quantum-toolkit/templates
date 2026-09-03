@@ -3,6 +3,7 @@
 
 name-template: "MQT {{name}} $RESOLVED_VERSION Release"
 tag-template: "v$RESOLVED_VERSION"
+filter-by-commitish: true
 categories:
   {%- for title, labels in release_drafter_categories.items() %}
   - title: "{{ title }}"
@@ -35,7 +36,7 @@ categories:
       label: "patch"
   - type: "version-resolver"
     semver-increment: "patch"
-change-template: "- $TITLE ([#$NUMBER]($URL)) (**@$AUTHOR**)"
+change-template: "- $TITLE (#$NUMBER) (@$AUTHOR)"
 change-title-escapes: '\<*_&'
 
 template: |
