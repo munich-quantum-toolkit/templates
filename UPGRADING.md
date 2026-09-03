@@ -6,11 +6,17 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.5.0]
+
 This release adds a new `synchronize-gitignore` flag that controls whether the
 `.gitignore` file is synchronized. The flag is enabled by default and ignored if
 the project type is `other`. Repositories with project-specific ignore rules
 should set `synchronize-gitignore: false` until those rules are incorporated
 into the shared template.
+
+Release Drafter now keeps drafts and comparison baselines scoped to their target
+branch. Change entries use GitHub's native pull request and user autolinks to
+keep large release notes within GitHub's release body limit.
 
 ## [1.4.2]
 
@@ -153,7 +159,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.2...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...v1.5.0
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...v1.4.2
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...v1.4.0
 [1.3.3]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.0...v1.3.3
