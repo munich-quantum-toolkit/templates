@@ -6,6 +6,10 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+The `synchronize-gitignore` flag remains enabled by default and now also applies
+to repositories with `project-type: other`. Repositories with project-specific
+ignore rules must explicitly set `synchronize-gitignore: false`.
+
 ## [1.5.0]
 
 This release adds a new `synchronize-gitignore` flag that controls whether the
