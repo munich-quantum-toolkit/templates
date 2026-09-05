@@ -12,8 +12,8 @@ releases may include breaking changes.
 
 ### Added
 
-- ✨ Synchronize `.gitignore` for `other` projects ([#427])
-  ([**@denialhaag**])
+- ✨ Synchronize `.gitignore` for repositories with `project-type: other`
+  ([#427]) ([**@denialhaag**])
 
 ## [1.5.0] - 2026-09-03
 
