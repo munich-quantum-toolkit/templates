@@ -102,7 +102,7 @@ def render_templates(
             template_name=".gitignore.in",
             file_name=".gitignore",
             output_dir=Path(),
-            active=synchronize_gitignore and not is_other,
+            active=synchronize_gitignore,
             arguments={"project_type": project_type},
         ),
         TemplateContainer(

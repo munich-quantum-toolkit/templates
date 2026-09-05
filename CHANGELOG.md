@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Added
+
+- ✨ Synchronize `.gitignore` for repositories with `project-type: other`
+  ([#427]) ([**@denialhaag**])
+
 ## [1.5.0] - 2026-09-03
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#150)._
@@ -348,6 +353,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#427]: https://github.com/munich-quantum-toolkit/templates/pull/427
 [#424]: https://github.com/munich-quantum-toolkit/templates/pull/424
 [#423]: https://github.com/munich-quantum-toolkit/templates/pull/423
 [#422]: https://github.com/munich-quantum-toolkit/templates/pull/422
