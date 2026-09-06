@@ -6,6 +6,9 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+Rendered guidance for C++ projects now requires CMake 3.28 or newer. Upgrade
+CMake before applying the updated installation, contribution, or agent guide.
+
 The `synchronize-gitignore` flag remains enabled by default and now also applies
 to repositories with `project-type: other`. Repositories with project-specific
 ignore rules must explicitly set `synchronize-gitignore: false`.

@@ -147,6 +147,9 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
     _check_ai_guidance(temp_dir, has_agents_md=True)
     _check_release_drafter(temp_dir)
 
+    agents = " ".join((temp_dir / "AGENTS.md").read_text().split())
+    contributing = " ".join((temp_dir / "docs" / "contributing.md").read_text().split())
+
     installation = " ".join((temp_dir / "docs" / "installation.md").read_text().split())
     if project_type == "c++-mlir-python":
         assert "Install LLVM/MLIR as described below. It is required to build MQT Test from source." in installation
@@ -154,6 +157,11 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         assert "BUILD_MQT_TEST_MLIR" not in installation
     else:
         assert "Setting Up MLIR" not in installation
+
+    if project_type != "pure-python":
+        assert "CMake 3.28+" in agents
+        assert "[CMake](https://cmake.org/) 3.28 or newer" in contributing
+        assert "[CMake](https://cmake.org/) 3.28 or newer" in installation
 
 
 def test_other(temp_dir: Path) -> None:
