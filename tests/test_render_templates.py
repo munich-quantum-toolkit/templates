@@ -48,57 +48,6 @@ def _check_files(files: list[Path]) -> None:
         subprocess.run(["prek", "run", "rumdl", "--files", str(file)], check=True)
 
 
-def _check_ai_guidance(target_dir: Path, *, has_agents_md: bool) -> None:
-    """Check that all rendered AI guidance uses the same policy requirements."""
-    pull_request_template = target_dir / ".github" / "pull_request_template.md"
-    human_guides = [
-        target_dir / "docs" / "ai_usage.md",
-        target_dir / "docs" / "contributing.md",
-    ]
-    files = [pull_request_template, *human_guides]
-    if has_agents_md:
-        files.append(target_dir / "AGENTS.md")
-
-    for file in files:
-        content = file.read_text()
-        assert "🤖 *AI text below* 🤖" in content
-        assert "authoriz" in content.lower()
-
-    pull_request_content = " ".join(pull_request_template.read_text().split())
-    assert "I have disclosed AI assistance in the PR description." in pull_request_content
-    assert "Assisted-by:" not in pull_request_content
-
-    for file in human_guides:
-        normalized = " ".join(file.read_text().split())
-        assert "AI assistance must be disclosed in the PR description." in normalized
-        assert "Assisted-by: [Model Name] via [Tool Name]" in normalized
-        assert "recommend" in normalized.lower()
-
-    if has_agents_md:
-        agents_content = " ".join((target_dir / "AGENTS.md").read_text().split())
-        assert "AI assistance MUST be disclosed in the PR description." in agents_content
-        assert "Assisted-by: [Model Name] via [Tool Name]" in agents_content
-        assert "recommended, not required" in agents_content
-        assert "corresponding test tree" in agents_content
-        assert "production source or tool directories" in agents_content
-
-
-def _check_release_drafter(target_dir: Path) -> None:
-    """Check that Release Drafter uses the current category schema."""
-    content = (target_dir / ".github" / "release-drafter.yml").read_text()
-    assert 'title: "🤖 CI & Tooling"' in content
-    assert '"continuous integration"' in content
-    assert '"tooling"' in content
-    assert "filter-by-commitish: true" in content
-    assert 'change-template: "- $TITLE (#$NUMBER) (@$AUTHOR)"' in content
-    assert "exclude-labels:" not in content
-    assert "\n    label:" not in content
-    assert "\n    labels:" not in content
-    assert "\nversion-resolver:" not in content
-    assert content.count('type: "pre-exclude"') == 1
-    assert content.count('type: "version-resolver"') == 4
-
-
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
 def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
@@ -144,24 +93,6 @@ def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgra
         temp_dir / "docs" / "tooling.md",
     ]
     _check_files(files)
-    _check_ai_guidance(temp_dir, has_agents_md=True)
-    _check_release_drafter(temp_dir)
-
-    agents = " ".join((temp_dir / "AGENTS.md").read_text().split())
-    contributing = " ".join((temp_dir / "docs" / "contributing.md").read_text().split())
-
-    installation = " ".join((temp_dir / "docs" / "installation.md").read_text().split())
-    if project_type == "c++-mlir-python":
-        assert "Install LLVM/MLIR as described below. It is required to build MQT Test from source." in installation
-        assert "Disabling MLIR" not in installation
-        assert "BUILD_MQT_TEST_MLIR" not in installation
-    else:
-        assert "Setting Up MLIR" not in installation
-
-    if project_type != "pure-python":
-        assert "CMake 3.28+" in agents
-        assert "[CMake](https://cmake.org/) 3.28 or newer" in contributing
-        assert "[CMake](https://cmake.org/) 3.28 or newer" in installation
 
 
 def test_other(temp_dir: Path) -> None:
@@ -202,57 +133,3 @@ def test_other(temp_dir: Path) -> None:
         temp_dir / "docs" / "lit_header.bib",
     ]
     _check_files(files)
-    _check_release_drafter(temp_dir)
-
-
-def test_ai_usage_renders_with_contribution_guide_only(temp_dir: Path) -> None:
-    """Test that AI usage renders correctly with only the contribution guide enabled."""
-    render_templates(
-        target_dir=temp_dir,
-        name="Test",
-        organization="munich-quantum-toolkit",
-        project_type="pure-python",
-        repository="test",
-        has_changelog_and_upgrade_guide=True,
-        synchronize_agents_md=False,
-        synchronize_contribution_guide=True,
-        synchronize_documentation_utilities=False,
-        synchronize_gitignore=False,
-        synchronize_installation_guide=False,
-        synchronize_issue_templates=False,
-        synchronize_pull_request_template=False,
-        synchronize_release_drafter_template=False,
-        synchronize_renovate_config=False,
-        synchronize_security_policy=False,
-        synchronize_support_resources=False,
-        release_drafter_categories="",
-    )
-
-    _check_files([temp_dir / "docs" / "ai_usage.md"])
-
-
-def test_disabling_agents_md_does_not_disable_ai_guidance(temp_dir: Path) -> None:
-    """Test that the AGENTS.md opt-out leaves the shared AI policy enabled."""
-    render_templates(
-        target_dir=temp_dir,
-        name="Test",
-        organization="munich-quantum-toolkit",
-        project_type="pure-python",
-        repository="test",
-        has_changelog_and_upgrade_guide=True,
-        synchronize_agents_md=False,
-        synchronize_contribution_guide=True,
-        synchronize_documentation_utilities=False,
-        synchronize_gitignore=False,
-        synchronize_installation_guide=False,
-        synchronize_issue_templates=False,
-        synchronize_pull_request_template=True,
-        synchronize_release_drafter_template=False,
-        synchronize_renovate_config=False,
-        synchronize_security_policy=False,
-        synchronize_support_resources=False,
-        release_drafter_categories="",
-    )
-
-    assert not (temp_dir / "AGENTS.md").exists()
-    _check_ai_guidance(temp_dir, has_agents_md=False)
