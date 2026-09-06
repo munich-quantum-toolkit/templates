@@ -10,6 +10,10 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-09-06
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#151)._
+
 ### Added
 
 - ✨ Synchronize `.gitignore` for repositories with `project-type: other`
@@ -329,7 +333,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.1...HEAD
+[1.5.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.0
 [1.4.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.3
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.2
