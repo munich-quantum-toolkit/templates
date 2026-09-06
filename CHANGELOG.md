@@ -15,6 +15,11 @@ releases may include breaking changes.
 - ✨ Synchronize `.gitignore` for repositories with `project-type: other`
   ([#427]) ([**@denialhaag**])
 
+### Changed
+
+- 💥 Require CMake 3.28 or newer for rendered C++ project guidance ([#433])
+  ([**@burgholzer**])
+
 ## [1.5.0] - 2026-09-03
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#150)._
@@ -353,6 +358,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#433]: https://github.com/munich-quantum-toolkit/templates/pull/433
 [#427]: https://github.com/munich-quantum-toolkit/templates/pull/427
 [#424]: https://github.com/munich-quantum-toolkit/templates/pull/424
 [#423]: https://github.com/munich-quantum-toolkit/templates/pull/423
