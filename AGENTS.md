@@ -6,8 +6,8 @@
   `src/mqt/templates/`; rendering tests are in `tests/`.
 - Update template sources rather than generated files in `docs/` or `.github/`.
   The repository's templating workflow regenerates those consumers.
-- Set up the test environment with `uv sync --group test`.
-- Run tests with `uv run --group test python -m pytest`.
+- Install the package with `uv sync`.
+- Run tests with `uv run pytest`.
 - Run changed-file checks with `uv run prek run --files <paths>`; run
   `uv run prek run --all-files` before handoff when practical.
 - Follow `docs/ai_usage.md` as the current contribution-level disclosure and
@@ -19,10 +19,14 @@
 - Keep rendered policy text consistent across `templates/AGENTS.md`,
   `templates/ai_usage.md`, `templates/docs_contributing.md`, and
   `templates/pull_request_template.md` when changing AI contribution rules.
-- Add or update rendering tests for every template behavior change, including
-  synchronization flags and project-type variants.
-- Preserve the generated-file headers in template output. Do not hand-edit the
-  generated consumers in this repository.
+- Keep rendering tests focused on representative end-to-end behavior. Verify
+  which files are rendered and that formatting and lint checks leave them
+  unchanged. Do not add assertions that merely repeat template content or
+  implementation logic.
+- Write changelog entries from this repository's perspective: describe how the
+  templates or rendered output changed. For example, when changing guidance,
+  write `Document Python 3.11+`, not `Require Python 3.11+`.
+- Preserve the generated-file headers in template output.
 
 ## Release Preparation
 
