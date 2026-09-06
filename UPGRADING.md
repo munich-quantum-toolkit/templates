@@ -6,6 +6,11 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.5.1]
+
+Rendered guidance for C++ projects now requires CMake 3.28 or newer. Upgrade
+CMake before applying the updated installation, contribution, or agent guide.
+
 The `synchronize-gitignore` flag remains enabled by default and now also applies
 to repositories with `project-type: other`. Repositories with project-specific
 ignore rules must explicitly set `synchronize-gitignore: false`.
@@ -163,7 +168,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.1...HEAD
+[1.5.1]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...v1.5.0
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...v1.4.2
 [1.4.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.3.3...v1.4.0
