@@ -11,13 +11,13 @@ to understand the project's ecosystem.
 
 ## C++
 
-| Tool             | Description                          | Links / Notes                                                                                                 |
-| ---------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| **CMake**        | Build system.                        | [Documentation](https://cmake.org/).                                                                          |
-| **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root. |
-| **clang-tidy**   | Static analysis and linting for C++. | [Documentation](https://clang.llvm.org/extra/clang-tidy/). Config: {code}`.clang-tidy` in project root.       |
-| **Doxygen**      | C++ API documentation (comments).    | [Documentation](https://www.doxygen.nl/). Rendered in Sphinx via [breathe](https://breathe.readthedocs.io/).  |
-| **GoogleTest**   | C++ unit testing.                    | [Primer](https://google.github.io/googletest/primer.html). Tests in {code}`test/`; run via CTest.             |
+| Tool             | Description                          | Links / Notes                                                                                                                                                                                 |
+| ---------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CMake**        | Build system.                        | [Documentation](https://cmake.org/).                                                                                                                                                          |
+| **clang-format** | Code formatter (LLVM style).         | [Documentation](https://clang.llvm.org/docs/ClangFormat.html). Config: {code}`.clang-format` in project root.                                                                                 |
+| **clang-tidy**   | Static analysis and linting for C++. | [Documentation](https://clang.llvm.org/extra/clang-tidy/). Config: {code}`.clang-tidy` in project root.                                                                                       |
+| **Doxygen**      | C++ API documentation (comments).    | [Documentation](https://www.doxygen.nl/). {% if repository == "core" %}Native HTML linked from Sphinx.{% else %}Rendered in Sphinx via [breathe](https://breathe.readthedocs.io/).{% endif %} |
+| **GoogleTest**   | C++ unit testing.                    | [Primer](https://google.github.io/googletest/primer.html). Tests in {code}`test/`; run via CTest.                                                                                             |
 
 ## C++/Python Bindings and Packaging
 
