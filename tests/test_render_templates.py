@@ -50,14 +50,21 @@ def _check_files(files: list[Path]) -> None:
 
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python", "c++-mlir-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
-def test_non_other(temp_dir: Path, project_type: str, *, has_changelog_and_upgrade_guide: bool) -> None:
+@pytest.mark.parametrize("repository", ["test", "core"])
+def test_non_other(
+    temp_dir: Path,
+    project_type: str,
+    repository: str,
+    *,
+    has_changelog_and_upgrade_guide: bool,
+) -> None:
     """Test that templates for non-`other` projects are rendered correctly."""
     render_templates(
         target_dir=temp_dir,
         name="Test",
         organization="munich-quantum-toolkit",
         project_type=project_type,
-        repository="test",
+        repository=repository,
         has_changelog_and_upgrade_guide=has_changelog_and_upgrade_guide,
         synchronize_agents_md=True,
         synchronize_contribution_guide=True,
