@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/munich-quantum-toolkit/templates/ci.yml?branch=main&style=flat-square&logo=github&label=ci)](https://github.com/munich-quantum-toolkit/templates/actions/workflows/ci.yml)
+
 <p align="center">
   <a href="https://mqt.readthedocs.io">
     <picture>

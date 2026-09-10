@@ -7,20 +7,18 @@
 # Licensed under the MIT License
 
 [build-system]
-requires = ["uv_build>=0.12.0,<0.13.0"]
 build-backend = "uv_build"
+requires = [ "uv-build>=0.12,<0.13" ]
+
 
 [project]
 name = "mqt-templates"
 version = "1.5.1"
-authors = [
-  { name="Daniel Haag", email = "daniel.haag@tum.de" },
-  { name="Lukas Burgholzer", email = "burgholzer@me.com" },
-]
 description = "A collection of templates and a GitHub action to synchronize them"
 readme = "README.md"
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = [ "LICENSE" ]
+requires-python = ">=3.13"
 classifiers = [
   "Natural Language :: English",
   "Programming Language :: Python",
@@ -31,62 +29,66 @@ dependencies = [
   "jinja2>=3.1.6",
   "prek>=0.4.5",
 ]
-requires-python = ">=3.13"
 
-[project.scripts]
-mqt-templates = "mqt.templates.__main__:main"
+[[project.authors]]
+name = "Daniel Haag"
+email = "daniel.haag@tum.de"
+
+[[project.authors]]
+name = "Lukas Burgholzer"
+email = "burgholzer@me.com"
 
 [project.urls]
 Homepage = "https://github.com/munich-quantum-toolkit/templates"
 Issues = "https://github.com/munich-quantum-toolkit/templates/issues"
 Discussions = "https://github.com/munich-quantum-toolkit/templates/discussions"
 
+[project.scripts]
+mqt-templates = "mqt.templates.__main__:main"
+
+
+[dependency-groups]
+dev = [
+  { include-group = "test" },
+]
+test = [
+  "pytest>=9.0.1",
+]
+
 
 [tool.uv]
 required-version = ">=0.8.17"
 
-[tool.uv.build-backend]
-module-name = "mqt.templates"
-source-include = [
-  "AGENTS.md",
-  "defaults/**",
-  "templates/**"
-]
-
 [tool.uv.sources]
 mqt-templates = { workspace = true }
 
-
-[tool.pytest]
-minversion = "9.0"
-testpaths = ["tests"]
-strict = true
-addopts = [
-  "-ra",
-  "--showlocals",
-]
-log_level = "INFO"
-filterwarnings = ["error"]
-
-
-[tool.ty.terminal]
-# Error if ty emits any warning-level diagnostics.
-error-on-warning = true
+[tool.uv.build-backend]
+module-name = "mqt.templates"
+source-include = [ "AGENTS.md", "defaults/**", "templates/**" ]
 
 
 [tool.ruff]
 line-length = 120
 preview = true
-unsafe-fixes = true
 fix = true
+unsafe-fixes = true
 show-fixes = true
 
 [tool.ruff.format]
 preview = true
 docstring-code-format = true
 
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [ "INP001", "T20" ]
+
+[tool.ruff.lint.isort]
+known-first-party = [ "mqt.templates" ]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
 [tool.ruff.lint]
-select = ["ALL"]
+select = [ "ALL" ]
 ignore = [
   "C90",     # <...> too complex
   "CPY001",  # Missing copyright notice at top of file
@@ -96,32 +98,17 @@ ignore = [
   "S404",    # `subprocess` module is possibly insecure
   "S603",    # `subprocess` call: check for execution of untrusted input
   "S607",    # Starting a process with a partial executable path
-  "TID252",  # Prefer absolute imports over relative imports from parent modules
   "T20",     # print statement used
+  "TID252",  # Prefer absolute imports over relative imports from parent modules
 ]
 future-annotations = true
-
-[tool.ruff.lint.isort]
-known-first-party = ["mqt.templates"]
-
-[tool.ruff.lint.per-file-ignores]
-"tests/**" = ["T20", "INP001"]
-
-[tool.ruff.lint.pydocstyle]
-convention = "google"
-
-
-[tool.typos.default.extend-words]
-wille = "wille"
-aer = "aer"
-ket   = "ket"
 
 
 [tool.check-sdist]
 # uv_build 0.12 emits a TOML 1.0-normalized pyproject.toml and preserves the
 # original file in source distributions, even when the source already is
 # TOML 1.0.
-sdist-only = ["pyproject.toml.orig"]
+sdist-only = [ "pyproject.toml.orig" ]
 git-only = [
   "docs/*",
   "tests/*",
@@ -135,10 +122,31 @@ git-only = [
 ]
 
 
-[dependency-groups]
-test = [
-  "pytest>=9.0.1",
+[tool.pyproject-fmt]
+generate_python_version_classifiers = false
+table_format = "long"
+sub_table_spacing = "\n"
+separate_root_table = "\n\n"
+
+
+[tool.typos.default.extend-words]
+wille = "wille"
+aer = "aer"
+ket = "ket"
+
+
+[tool.ty.terminal]
+# Error if ty emits any warning-level diagnostics.
+error-on-warning = true
+
+
+[tool.pytest]
+addopts = [
+  "-ra",
+  "--showlocals",
 ]
-dev = [
-  {include-group = "test"},
-]
+filterwarnings = [ "error" ]
+log_level = "INFO"
+minversion = "9.0"
+strict = true
+testpaths = [ "tests" ]
