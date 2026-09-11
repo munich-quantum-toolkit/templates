@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Fixed
+
+- 📝 Document shared Ninja CMake presets for all platforms in the contribution
+  guide ([**@denialhaag**])
+
 ## [1.5.2] - 2026-09-11
 
 ### Fixed
