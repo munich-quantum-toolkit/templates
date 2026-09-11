@@ -10,6 +10,16 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.5.2] - 2026-09-11
+
+### Fixed
+
+- 📝 Document LLVM/MLIR installation before the first package build ([#438])
+  ([**@burgholzer**])
+- 📝 Correct documentation build and link-check commands, explain executable
+  notebooks and system prerequisites, and document MQT Core's native Doxygen
+  HTML integration ([#438]) ([**@burgholzer**])
+
 ## [1.5.1] - 2026-09-06
 
 _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#151)._
@@ -333,7 +343,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.1...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.2...HEAD
+[1.5.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.2
 [1.5.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.0
 [1.4.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.4.3
@@ -363,6 +374,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#438]: https://github.com/munich-quantum-toolkit/templates/pull/438
 [#433]: https://github.com/munich-quantum-toolkit/templates/pull/433
 [#427]: https://github.com/munich-quantum-toolkit/templates/pull/427
 [#424]: https://github.com/munich-quantum-toolkit/templates/pull/424
