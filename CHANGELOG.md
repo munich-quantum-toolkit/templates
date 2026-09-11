@@ -12,14 +12,14 @@ releases may include breaking changes.
 
 ## [1.5.3] - 2026-09-11
 
-### Fixed
+### Changed
 
-- 📝 Document shared Ninja CMake presets for all platforms in the contribution
-  guide ([#444]) ([**@denialhaag**])
+- 📝 Document shared Ninja CMake presets for all platforms ([#444])
+  ([**@denialhaag**])
 
 ## [1.5.2] - 2026-09-11
 
-### Fixed
+### Changed
 
 - 📝 Document LLVM/MLIR installation before the first package build ([#438])
   ([**@burgholzer**])
@@ -38,8 +38,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#151)._
 
 ### Changed
 
-- 💥 Require CMake 3.28 or newer for rendered C++ project guidance ([#433])
-  ([**@burgholzer**])
+- 📝 Document CMake 3.28 requirement ([#433]) ([**@burgholzer**])
 
 ## [1.5.0] - 2026-09-03
 
