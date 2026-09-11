@@ -10,10 +10,12 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.5.3] - 2026-09-11
+
 ### Fixed
 
 - 📝 Document shared Ninja CMake presets for all platforms in the contribution
-  guide ([**@denialhaag**])
+  guide ([#444]) ([**@denialhaag**])
 
 ## [1.5.2] - 2026-09-11
 
@@ -348,7 +350,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.2...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.3...HEAD
+[1.5.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.3
 [1.5.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.2
 [1.5.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.0
@@ -379,6 +382,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#444]: https://github.com/munich-quantum-toolkit/templates/pull/444
 [#438]: https://github.com/munich-quantum-toolkit/templates/pull/438
 [#433]: https://github.com/munich-quantum-toolkit/templates/pull/433
 [#427]: https://github.com/munich-quantum-toolkit/templates/pull/427
