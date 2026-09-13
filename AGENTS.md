@@ -36,10 +36,10 @@ or another automatic versioning tool. A release-preparation PR must:
 - Set `[project].version` in `pyproject.toml` to the release version.
 - Run `uv lock` and include the matching `mqt-templates` version update in
   `uv.lock`.
-- Move the relevant entries from `CHANGELOG.md`'s `Unreleased` section into a
-  dated `## [x.y.z]` section. Each entry must link to its PR and every
-  contributor, for example `([#123]) ([**@username**])`; define those links at
-  the bottom of the file.
+- Prepare a dated `## [x.y.z]` section in `CHANGELOG.md` from the release's Git
+  history, merged PRs, and any existing Unreleased notes. Each entry must link
+  to its PR and every contributor, for example `([#123]) ([**@username**])`;
+  define those links at the bottom of the file.
 - Add or finalize the corresponding `UPGRADING.md` section and update the
   changelog and upgrade-guide version links.
 - Use the release title `🔖 Prepare release of \`vX.Y.Z\`` and verify the

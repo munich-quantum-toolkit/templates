@@ -20,7 +20,6 @@ This checklist serves as a reminder of a couple of things that ensure your pull 
 - [ ] I have added appropriate tests that cover the new/changed functionality.
 - [ ] I have updated the documentation to reflect these changes.
 {%- if has_changelog_and_upgrade_guide %}
-- [ ] I have added entries to the changelog for any noteworthy additions, changes, fixes, or removals.
 - [ ] I have added migration instructions to the upgrade guide (if needed).
 {%- endif %}
 - [ ] The changes follow the project's style guidelines and introduce no new warnings.
