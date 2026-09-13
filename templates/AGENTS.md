@@ -150,10 +150,11 @@
   Keep a workaround or suppression only when it is still necessary, scope it as
   narrowly as possible, and document the technical reason.
 {%- if has_changelog_and_upgrade_guide %}
-- MUST describe user-facing changes in the PR description and update
-  `UPGRADING.md` when migration instructions or significant context are needed.
-- Prepare `CHANGELOG.md` entries during release preparation, as described in
-  `docs/contributing.md`. Feature and fix PRs do not need changelog entries.
+- MUST describe user-facing changes and required migrations in the PR
+  description.
+- Prepare `CHANGELOG.md` and `UPGRADING.md` during release preparation, as
+  described in `docs/contributing.md`. Feature and fix PRs do not need entries
+  in either file.
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
   corresponding links at the bottom of `CHANGELOG.md`.
@@ -230,6 +231,5 @@
   modified?
 {%- endif %}
 {%- if has_changelog_and_upgrade_guide %}
-- Does the PR description explain user-facing changes, and is `UPGRADING.md`
-  updated when migration instructions or significant context are needed?
+- Does the PR description explain user-facing changes and required migrations?
 {%- endif %}
