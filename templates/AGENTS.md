@@ -152,9 +152,9 @@
 {%- if has_changelog_and_upgrade_guide %}
 - MUST describe user-facing changes and required migrations in the PR
   description.
-- Prepare `CHANGELOG.md` and `UPGRADING.md` during release preparation, as
-  described in `docs/contributing.md`. Feature and fix PRs do not need entries
-  in either file.
+- MUST NOT change `CHANGELOG.md` or `UPGRADING.md` except in release-preparation
+  PRs or when explicitly asked. Follow the release-preparation guidance in
+  `docs/contributing.md`.
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
   corresponding links at the bottom of `CHANGELOG.md`.

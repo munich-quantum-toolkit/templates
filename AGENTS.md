@@ -30,6 +30,10 @@
 
 ## Release Preparation
 
+Describe user-facing changes and required migrations in PR descriptions. Do not
+change `CHANGELOG.md` or `UPGRADING.md` except in release-preparation PRs or
+when explicitly asked.
+
 This repository uses manual static versioning; it does not use `setuptools_scm`
 or another automatic versioning tool. A release-preparation PR must:
 
