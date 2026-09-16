@@ -30,22 +30,18 @@
 
 ## Release Preparation
 
-Describe user-facing changes and required migrations in PR descriptions. Do not
-change `CHANGELOG.md` or `UPGRADING.md` except in release-preparation PRs or
-when explicitly asked.
-
 This repository uses manual static versioning; it does not use `setuptools_scm`
 or another automatic versioning tool. A release-preparation PR must:
 
 - Set `[project].version` in `pyproject.toml` to the release version.
 - Run `uv lock` and include the matching `mqt-templates` version update in
   `uv.lock`.
-- Prepare a dated `## [x.y.z]` section in `CHANGELOG.md` from the release's Git
-  history, merged PRs, and any existing Unreleased notes. Each entry must link
-  to its PR and every contributor, for example `([#123]) ([**@username**])`;
-  define those links at the bottom of the file.
-- Prepare the corresponding `UPGRADING.md` section from PR migration
-  instructions and update the changelog and upgrade-guide version links.
+- Move the relevant entries from `CHANGELOG.md`'s `Unreleased` section into a
+  dated `## [x.y.z]` section. Each entry must link to its PR and every
+  contributor, for example `([#123]) ([**@username**])`; define those links at
+  the bottom of the file.
+- Add or finalize the corresponding `UPGRADING.md` section and update the
+  changelog and upgrade-guide version links.
 - Use the release title `🔖 Prepare release of \`vX.Y.Z\`` and verify the
   Release Drafter draft proposes the same version after the PR is merged.
 - Do not create or publish the Git tag or GitHub release unless the human has
