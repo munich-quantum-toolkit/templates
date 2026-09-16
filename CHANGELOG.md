@@ -10,13 +10,6 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
-### Changed
-
-- 📝 Restore per-PR changelog and upgrade-guide updates ([#452])
-  ([**@denialhaag**])
-- 📝 Use shared documentation guidance for MQT Core ([#452])
-  ([**@denialhaag**])
-
 ### Removed
 
 - 🔥 Remove support for the `c++-mlir-python` project type ([#452])

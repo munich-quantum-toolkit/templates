@@ -13,15 +13,6 @@ Disable synchronization for guides with project-specific content, and set
 `synchronize-gitignore: false` if local ignore rules such as `**/.lit` are
 needed.
 
-MQT Core now receives the shared C++ documentation guidance. Repositories with
-custom Doxygen integration or documentation workflows should maintain their
-contribution and tooling guides locally by setting
-`synchronize-contribution-guide: false`.
-
-The contributor and agent guides again require changelog entries for user-facing
-changes and upgrade instructions for breaking changes in each PR. The PR
-checklist again includes both items.
-
 ## [1.5.1]
 
 Rendered guidance for C++ projects now requires CMake 3.28 or newer. Upgrade
