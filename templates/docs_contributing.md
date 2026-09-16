@@ -399,14 +399,10 @@ refactor.
 For some tips on how to write good Doxygen comments, see the
 [Doxygen Manual](https://www.doxygen.nl/manual/docblocks.html).
 
-{% if repository == "core" %}
-The C++ API reference uses native Doxygen HTML linked from Sphinx.
-{% else %}
 The C++ API documentation is integrated into the overall documentation that we
 host on ReadTheDocs using the
-[breathe](https://breathe.readthedocs.io/en/latest/) extension for Sphinx.
-{% endif %}
-See {ref}`working-on-documentation` for more information on how to build the
+[breathe](https://breathe.readthedocs.io/en/latest/) extension for Sphinx. See
+{ref}`working-on-documentation` for more information on how to build the
 documentation.
 
 {%- endif %}
@@ -630,10 +626,6 @@ Doxygen; DD visualizations also need the Graphviz `dot` executable. The session
 manages Python packages, not these system tools.
 {% if project_type == "c++-mlir-python" %}
 LLVM/MLIR must also be installed as described in {ref}`setting-up-mlir`.
-{% endif %}
-{% if repository == "core" %}
-See {doc}`development` for Core's documentation validation and local-device
-execution contract.
 {% endif %}
 
 Omit `--non-interactive` to serve the documentation while editing. To check
