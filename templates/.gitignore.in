@@ -57,7 +57,7 @@ venv/
 python/**/_version.py
 src/**/_version.py
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 # CMake
 .ccache/
@@ -71,13 +71,6 @@ CMakeUserPresets.json
 CTestTestfile.cmake
 cmake_install.cmake
 compile_commands.json
-
-{%- endif %}
-
-{%- if project_type == "c++-mlir-python" %}
-
-# MLIR
-**/.lit
 
 {%- endif %}
 

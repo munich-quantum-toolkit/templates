@@ -65,7 +65,7 @@ def render_templates(
         target_dir: The directory to render the templates to.
         name: The name of the project.
         organization: The organization of the project.
-        project_type: The type of the project. One of "pure-python", "c++-python", "c++-mlir-python", "other".
+        project_type: The type of the project. One of "pure-python", "c++-python", "other".
         repository: The name of the repository.
         has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
         synchronize_agents_md: Whether to synchronize the AGENTS.md file.
@@ -86,7 +86,7 @@ def render_templates(
     """
     target_dir = target_dir.resolve()
 
-    supported_project_types = ["pure-python", "c++-python", "c++-mlir-python", "other"]
+    supported_project_types = ["pure-python", "c++-python", "other"]
     if project_type not in supported_project_types:
         msg = f"Project type '{project_type}' is not supported. Must be one of {supported_project_types}."
         raise ValueError(msg)

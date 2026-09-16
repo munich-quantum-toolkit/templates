@@ -194,7 +194,7 @@ perfect. We will guide you through the process.
 Check out our {ref}`installation guide for developers <development-setup>` for
 instructions on how to set up your development environment.
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## Working on the C++ Library
 
@@ -407,7 +407,7 @@ documentation.
 
 {%- endif %}
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## Working on the Python Package
 
@@ -454,13 +454,13 @@ We define some convenient {code}`nox` sessions in our {code}`noxfile.py`:
 - {code}`minimums` to run the Python tests with the minimum dependencies
 - {code}`lint` to run the Python code formatting and linting
 - {code}`docs` to build the documentation
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 - {code}`stubs` to regenerate the type stub files for the Python bindings
 {%- endif %}
 
 These are explained in more detail in the following sections.
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## Running the Python Tests
 
@@ -472,7 +472,7 @@ These are explained in more detail in the following sections.
 
 The Python code is tested by unit tests using the
 [{code}`pytest`](https://docs.pytest.org/en/latest/) framework.
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 The corresponding test files can be found in the {code}`test/python` directory.
 {%- elif project_type == "pure-python" %}
 The corresponding test files can be found in the {code}`tests` directory.
@@ -519,7 +519,7 @@ dependencies.
 nox -s minimums
 ```
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## Python Code Formatting and Linting
 
@@ -563,7 +563,7 @@ prek run --all-files
 
 :::
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## Python Documentation
 
@@ -581,7 +581,7 @@ and will explicitly warn you if you forget to add one.
 
 We heavily rely on [type hints](https://docs.python.org/3/library/typing.html)
 to document the expected types of function arguments and return values.
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 For the compiled parts of the code base, we provide type hints in the form of
 stub files in the {code}`python/mqt/{{repository}}` directory. These stub files
 are auto-generated. Do not edit them directly. Instead, you can use the
@@ -624,9 +624,6 @@ uvx nox --non-interactive -s docs
 Install the project's native build requirements first. C++ API generation needs
 Doxygen; DD visualizations also need the Graphviz `dot` executable. The session
 manages Python packages, not these system tools.
-{% if project_type == "c++-mlir-python" %}
-LLVM/MLIR must also be installed as described in {ref}`setting-up-mlir`.
-{% endif %}
 
 Omit `--non-interactive` to serve the documentation while editing. To check
 external links, run:
@@ -640,7 +637,7 @@ uvx nox --non-interactive -s docs -- -b linkcheck
 If something goes wrong, the CI pipeline will notify you. Here are some tips for
 finding the cause of certain failures:
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 - If any of the {code}`CI / 🇨 Test` checks fail, this indicates build errors or
   test failures in the C++ part of the code base. Look through the respective
@@ -663,7 +660,7 @@ finding the cause of certain failures:
   decreased too much. Ensure that you include tests for all your changes in the
   PR.
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 - If {code}`cpp-linter` comments on your PR with a list of warnings, these have
   been raised by {code}`clang-tidy` when checking the C++ part of your changes
@@ -799,7 +796,7 @@ GitHub, edit the release draft if necessary, and publish the release.
 
 <!--- Links --->
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 [clion]: https://www.jetbrains.com/clion/
 [vscode]: https://code.visualstudio.com/
 {%- endif %}

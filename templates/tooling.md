@@ -7,7 +7,7 @@ This page summarizes the main tools, software, and standards used in MQT
 {{name}}. It serves as a quick reference for new contributors and users who want
 to understand the project's ecosystem.
 
-{%- if project_type in ["c++-python", "c++-mlir-python"] %}
+{%- if project_type == "c++-python" %}
 
 ## C++
 
@@ -36,17 +36,6 @@ Free-threaded CPython uses the separate
 One `cp315-abi3t` wheel per platform supports free-threaded CPython 3.15 and
 newer.
 
-{%- if project_type == "c++-mlir-python" %}
-
-## MLIR
-
-| Tool                        | Description                                                                       | Links / Notes                                                                               |
-| --------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| **MLIR**                    | Compiler infrastructure for building domain-specific compilers.                   | [Documentation](https://mlir.llvm.org/). We generally track the latest stable LLVM release. |
-| **portable-mlir-toolchain** | Pre-built binaries for MLIR and LLVM on all supported platforms.                  | [Documentation](https://github.com/munich-quantum-software/portable-mlir-toolchain).        |
-| **setup-mlir**              | Installation scripts and a GitHub action for installing pre-built MLIR toolchain. | [Documentation](https://github.com/munich-quantum-software/setup-mlir).                     |
-
-{%- endif %}
 {%- endif %}
 
 ## Python
