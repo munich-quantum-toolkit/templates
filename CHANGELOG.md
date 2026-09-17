@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Removed
+
+- 🔥 Remove support for the `c++-mlir-python` project type ([#452])
+  ([**@denialhaag**])
+
 ## [1.5.3] - 2026-09-11
 
 ### Changed
@@ -381,6 +386,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#452]: https://github.com/munich-quantum-toolkit/templates/pull/452
 [#444]: https://github.com/munich-quantum-toolkit/templates/pull/444
 [#438]: https://github.com/munich-quantum-toolkit/templates/pull/438
 [#433]: https://github.com/munich-quantum-toolkit/templates/pull/433

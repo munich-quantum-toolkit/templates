@@ -6,6 +6,11 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+The `c++-mlir-python` project type is no longer supported. Change the action's
+`project-type` input to `c++-python`. Maintain MLIR-specific installation,
+development, and tooling guidance locally. Disable synchronization for guides
+with project-specific content.
+
 ## [1.5.1]
 
 Rendered guidance for C++ projects now requires CMake 3.28 or newer. Upgrade
