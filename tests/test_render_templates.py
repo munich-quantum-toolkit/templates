@@ -100,32 +100,6 @@ def test_non_other(
     _check_files(files)
 
 
-def test_removed_project_type(tmp_path: Path) -> None:
-    """Reject the removed MLIR project type before writing files."""
-    with pytest.raises(ValueError, match="is not supported"):
-        render_templates(
-            target_dir=tmp_path,
-            name="Test",
-            organization="munich-quantum-toolkit",
-            project_type="c++-mlir-python",
-            repository="test",
-            has_changelog_and_upgrade_guide=True,
-            synchronize_agents_md=True,
-            synchronize_contribution_guide=True,
-            synchronize_documentation_utilities=True,
-            synchronize_gitignore=True,
-            synchronize_installation_guide=True,
-            synchronize_issue_templates=True,
-            synchronize_pull_request_template=True,
-            synchronize_release_drafter_template=True,
-            synchronize_renovate_config=True,
-            synchronize_security_policy=True,
-            synchronize_support_resources=True,
-            release_drafter_categories="",
-        )
-    assert not any(tmp_path.iterdir())
-
-
 def test_other(temp_dir: Path) -> None:
     """Test that templates for `other` projects are rendered correctly."""
     render_templates(

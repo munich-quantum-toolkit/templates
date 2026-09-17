@@ -7,11 +7,9 @@ of changes, including minor and patch releases, please refer to the
 ## [Unreleased]
 
 The `c++-mlir-python` project type is no longer supported. Change the action's
-`project-type` input or the CLI's `--project_type` argument to `c++-python`.
-Maintain MLIR-specific installation, development, and tooling guidance locally.
-Disable synchronization for guides with project-specific content, and set
-`synchronize-gitignore: false` if local ignore rules such as `**/.lit` are
-needed.
+`project-type` input to `c++-python`. Maintain MLIR-specific installation,
+development, and tooling guidance locally. Disable synchronization for guides
+with project-specific content.
 
 ## [1.5.1]
 
