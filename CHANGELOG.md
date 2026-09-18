@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Document Ubuntu 26.04 CI runners for x64 and ARM ([#453])
+  ([**@denialhaag**])
+
 ### Removed
 
 - 🔥 Remove support for the `c++-mlir-python` project type ([#452])
@@ -386,6 +391,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#453]: https://github.com/munich-quantum-toolkit/templates/pull/453
 [#452]: https://github.com/munich-quantum-toolkit/templates/pull/452
 [#444]: https://github.com/munich-quantum-toolkit/templates/pull/444
 [#438]: https://github.com/munich-quantum-toolkit/templates/pull/438
