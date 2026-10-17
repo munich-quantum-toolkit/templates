@@ -65,13 +65,11 @@
 
 ### Python
 
-- Python 3.11+
-{%- if project_type == "c++-python" %}
+- Python 3.11+ {%- if project_type == "c++-python" %}
 - Split-mode Stable ABI wheels: `cp311-abi3` for GIL-enabled CPython 3.11+ and
   `cp315-abi3t` for free-threaded CPython 3.15+
 - `scikit-build-core` as build backend
-- `nanobind` for bindings
-{%- endif %}
+- `nanobind` for bindings {%- endif %}
 - `uv` for installation, packaging, and tooling
 - `ruff` for formatting/linting (configured in `pyproject.toml`)
 - `ty` for type checking
@@ -82,10 +80,8 @@
 
 - `sphinx`
 - MyST (Markdown)
-- Furo theme
-{%- if project_type == "c++-python" %}
-- `breathe` for C++ API docs
-{%- endif %}
+- Furo theme {%- if project_type == "c++-python" %}
+- `breathe` for C++ API docs {%- endif %}
 
 ## Development Guidelines
 
@@ -140,14 +136,13 @@
   different terms, explain the mapping once. NEVER invent synonyms for variety.
 - MUST remove obsolete scaffolding and diagnostic suppressions before handoff.
   Keep a workaround or suppression only when it is still necessary, scope it as
-  narrowly as possible, and document the technical reason.
-{%- if has_changelog_and_upgrade_guide %}
+  narrowly as possible, and document the technical reason. {%- if
+  has_changelog_and_upgrade_guide %}
 - MUST update `CHANGELOG.md` and `UPGRADING.md` when changes are user-facing,
   breaking, or otherwise noteworthy.
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
-  corresponding links at the bottom of `CHANGELOG.md`.
-{%- endif %}
+  corresponding links at the bottom of `CHANGELOG.md`. {%- endif %}
 - AI assistance MUST be disclosed in the PR description.
 - Commit-level `Assisted-by: [Model Name] via [Tool Name]` trailers are
   recommended, not required. For example:
@@ -210,12 +205,9 @@
 - Did `uvx nox -s lint` pass without errors?
 - Are all changes covered by at least one automated test?
 - Were any agent-authored issue or pull request texts explicitly authorized and
-  marked with the required visible disclosure?
-{%- if project_type == "c++-python" %}
+  marked with the required visible disclosure? {%- if project_type ==
+  "c++-python" %}
 - Were Python stubs regenerated via `uvx nox -s stubs` if bindings were
-  modified?
-{%- endif %}
-{%- if has_changelog_and_upgrade_guide %}
+  modified? {%- endif %} {%- if has_changelog_and_upgrade_guide %}
 - Are `CHANGELOG.md` and `UPGRADING.md` updated when changes are user-facing,
-  breaking, or otherwise noteworthy?
-{%- endif %}
+  breaking, or otherwise noteworthy? {%- endif %}
