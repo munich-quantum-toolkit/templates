@@ -12,6 +12,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Document full project names in generated agent instructions ([#477])
+  ([**@simon1hofmann**])
 - 📝 Document Ubuntu 26.04 CI runners for x64 and ARM ([#453])
   ([**@denialhaag**])
 
@@ -391,6 +393,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#477]: https://github.com/munich-quantum-toolkit/templates/pull/477
 [#453]: https://github.com/munich-quantum-toolkit/templates/pull/453
 [#452]: https://github.com/munich-quantum-toolkit/templates/pull/452
 [#444]: https://github.com/munich-quantum-toolkit/templates/pull/444
@@ -476,6 +479,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 [**@adnathanail**]: https://github.com/adnathanail
 [**@mhmohona**]: https://github.com/mhmohona
 [**@ystade**]: https://github.com/ystade
+[**@simon1hofmann**]: https://github.com/simon1hofmann
 
 <!-- General links -->
 
