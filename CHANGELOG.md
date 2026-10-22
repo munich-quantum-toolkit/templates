@@ -473,13 +473,13 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Contributor -->
 
-[**@simon1hofmann**]: https://github.com/simon1hofmann
 [**@burgholzer**]: https://github.com/burgholzer
 [**@denialhaag**]: https://github.com/denialhaag
 [**@Ectras**]: https://github.com/Ectras/
 [**@adnathanail**]: https://github.com/adnathanail
 [**@mhmohona**]: https://github.com/mhmohona
 [**@ystade**]: https://github.com/ystade
+[**@simon1hofmann**]: https://github.com/simon1hofmann
 
 <!-- General links -->
 
