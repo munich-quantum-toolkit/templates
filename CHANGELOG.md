@@ -12,8 +12,10 @@ releases may include breaking changes.
 
 ### Changed
 
-- 📝 Document full project names in generated agent instructions ([#477])
-  ([**@simon1hofmann**])
+- 🔧 Update Release Drafter template to credit co-authors and first-time
+  contributors ([#482]) ([**@denialhaag**])
+- 📝 Update agent instructions to require full project names in documentation,
+  code comments, and public text ([#477]) ([**@simon1hofmann**])
 - 📝 Document Ubuntu 26.04 CI runners for x64 and ARM ([#453])
   ([**@denialhaag**])
 
@@ -393,6 +395,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#482]: https://github.com/munich-quantum-toolkit/templates/pull/482
 [#477]: https://github.com/munich-quantum-toolkit/templates/pull/477
 [#453]: https://github.com/munich-quantum-toolkit/templates/pull/453
 [#452]: https://github.com/munich-quantum-toolkit/templates/pull/452
