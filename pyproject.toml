@@ -13,7 +13,7 @@ requires = [ "uv-build>=0.13,<0.14" ]
 
 [project]
 name = "mqt-templates"
-version = "1.5.3"
+version = "1.6.0"
 description = "A collection of templates and a GitHub action to synchronize them"
 readme = "README.md"
 license = "MIT"
