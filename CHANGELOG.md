@@ -10,6 +10,10 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-10-24
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#160)._
+
 ### Changed
 
 - 🔧 Update Release Drafter template to credit co-authors and first-time
@@ -363,7 +367,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.3...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.6.0
 [1.5.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.3
 [1.5.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.2
 [1.5.1]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.1

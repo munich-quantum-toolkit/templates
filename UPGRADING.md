@@ -6,6 +6,8 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+## [1.6.0]
+
 The `c++-mlir-python` project type is no longer supported. Change the action's
 `project-type` input to `c++-python`. Maintain MLIR-specific installation,
 development, and tooling guidance locally. Disable synchronization for guides
@@ -173,7 +175,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.1...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.3...v1.6.0
 [1.5.1]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...v1.5.0
 [1.4.2]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.1...v1.4.2
