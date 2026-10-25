@@ -296,7 +296,7 @@ guidelines and workflows, see {doc}`contributing`.
    repository, clone the repository locally.
 
    ```console
-   git clone git@github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
+   git clone git@github.com:{{organization}}/{{repository}}.git mqt-{{repository}}
    ```
 
    :::
