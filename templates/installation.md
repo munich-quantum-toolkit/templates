@@ -62,8 +62,12 @@ See the [uv documentation][uv] for more information.
 :sync: uv
 
 ```console
+uv venv
 uv pip install mqt.{{repository}}
 ```
+
+Activate the environment with `source .venv/bin/activate` on Linux or macOS, or
+`.venv\Scripts\Activate.ps1` in Windows PowerShell, before running Python.
 
 :::
 
@@ -358,52 +362,18 @@ guidelines and workflows, see {doc}`contributing`.
 
    ::::
 
-5. Install pre-commit hooks to ensure code quality:
+5. Run checks and install pre-commit hooks:
 
-   The project uses pre-commit hooks for running linters and formatting tools on
-   each commit. These checks can be run manually via [{code}`nox`][nox], by
-   running:
-
-   ```console
-   nox -s lint
-   ```
-
-   They can also be run automatically on every commit via [{code}`prek`][prek]
-   (recommended). To set this up, install {code}`prek`, e.g., via:
-
-   ::::{tab-set}
-
-   :::{tab-item} Linux and macOS
+   Use [{code}`nox`][nox] to run the checks and [{code}`prek`][prek] to install
+   the hooks. With {code}`uv`, run both in the project environment:
 
    ```console
-   curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
+   uv run nox -s lint
+   uv run prek install
    ```
 
-   :::
-
-   :::{tab-item} Windows (PowerShell)
-
-   ```console
-   powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
-   ```
-
-   :::
-
-   :::{tab-item} {code}`uv`
-
-   ```console
-   uv tool install prek
-   ```
-
-   :::
-
-   ::::
-
-   Then run:
-
-   ```console
-   prek install
-   ```
+   If you used {code}`pip`, keep the development environment activated and run
+   {code}`nox -s lint` and {code}`prek install` directly.
 
 <!-- Links -->
 
