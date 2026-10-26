@@ -145,7 +145,9 @@
 - MUST NOT add changelog entries for minor documentation edits, formatting,
   test-only changes, or internal maintenance without noteworthy user impact,
   unless explicitly requested.
-- MUST update `UPGRADING.md` only when users need migration instructions.
+- MUST update `UPGRADING.md` when users need migration instructions. MAY also
+  explain significant new features or workflows there when the additional
+  context helps users.
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
   corresponding links at the bottom of `CHANGELOG.md`. {%- endif %}
@@ -216,5 +218,5 @@
 - Were Python stubs regenerated via `uvx nox -s stubs` if bindings were
   modified? {%- endif %} {%- if has_changelog_and_upgrade_guide %}
 - Does the changelog cover noteworthy user impact and omit routine maintenance?
-- Is the upgrade guide updated only when users need migration instructions? {%-
-  endif %}
+- Does the upgrade guide include needed migration instructions and, where
+  useful, context for significant new features or workflows? {%- endif %}

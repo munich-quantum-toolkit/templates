@@ -74,9 +74,10 @@ Contributions that do not comply with these guidelines or violate our
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
 - Document new features. {%- if has_changelog_and_upgrade_guide %} For
-  noteworthy user-facing changes, add a changelog entry. Update the upgrade
-  guide only when users need migration instructions. For details, see
-  {ref}`maintaining-changelog-upgrade-guide`. {%- endif %}
+  noteworthy user-facing changes, add a changelog entry. Add migration
+  instructions or useful context for significant new features to the upgrade
+  guide. For details, see {ref}`maintaining-changelog-upgrade-guide`. {%- endif
+  %}
 - Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and
@@ -701,8 +702,7 @@ are the following categories:
 When updating the changelog, follow these guidelines:
 
 - Do not add entries for minor documentation edits, formatting, test-only
-  changes, or internal maintenance without noteworthy user impact, unless
-  explicitly requested.
+  changes, or internal maintenance without noteworthy user impact.
 - Write entries in the imperative mood (e.g., "Add support for X" or "Fix bug in
   Y").
 - A single PR may result in multiple changelog entries.
@@ -712,8 +712,10 @@ When updating the changelog, follow these guidelines:
   at the bottom of the file. If this is your first contribution to this project,
   do not forget to add a link to your GitHub profile.
 
-Update the upgrade guide only when users need migration instructions. Explain
-how to adapt their use of MQT {{name}} to the changed behavior or requirements.
+Update the upgrade guide when users need migration instructions. Explain how to
+adapt their use of MQT {{name}} to the changed behavior or requirements. You may
+also use it to explain significant new features or workflows when that context
+helps users.
 
 {%- endif %}
 
