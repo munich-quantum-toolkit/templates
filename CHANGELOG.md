@@ -12,6 +12,8 @@ releases may include breaking changes.
 
 ### Fixed
 
+- 📝 Create virtual environments and run development tools through `uv run` in
+  Python setup and contribution guides ([#490]) ([**@simon1hofmann**])
 - 🐛 Correct the SSH clone URL in generated installation guides ([#488])
   ([**@simon1hofmann**])
 
@@ -405,6 +407,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#490]: https://github.com/munich-quantum-toolkit/templates/pull/490
 [#488]: https://github.com/munich-quantum-toolkit/templates/pull/488
 [#482]: https://github.com/munich-quantum-toolkit/templates/pull/482
 [#477]: https://github.com/munich-quantum-toolkit/templates/pull/477
