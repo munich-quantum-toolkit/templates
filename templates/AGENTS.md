@@ -145,7 +145,7 @@
 - MUST NOT add changelog entries for minor documentation edits, formatting,
   test-only changes, or internal maintenance without noteworthy user impact,
   unless explicitly requested.
-- MUST update `UPGRADING.md` when users need migration instructions. MAY also
+- MUST update `UPGRADING.md` when users need migration instructions. SHOULD also
   explain significant new features or workflows there when the additional
   context helps users.
 - MUST format changelog entries with the pull request reference and every

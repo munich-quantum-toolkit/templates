@@ -713,9 +713,9 @@ When updating the changelog, follow these guidelines:
   do not forget to add a link to your GitHub profile.
 
 Update the upgrade guide when users need migration instructions. Explain how to
-adapt their use of MQT {{name}} to the changed behavior or requirements. You may
-also use it to explain significant new features or workflows when that context
-helps users.
+adapt their use of MQT {{name}} to the changed behavior or requirements. You are
+encouraged to also use it to explain significant new features or workflows when
+that context helps users.
 
 {%- endif %}
 
