@@ -140,8 +140,14 @@
   Keep a workaround or suppression only when it is still necessary, scope it as
   narrowly as possible, and document the technical reason. {%- if
   has_changelog_and_upgrade_guide %}
-- MUST update `CHANGELOG.md` and `UPGRADING.md` when changes are user-facing,
-  breaking, or otherwise noteworthy.
+- MUST add changelog entries for noteworthy changes to behavior, compatibility,
+  security, or performance. Judge significance by user impact, not diff size.
+- MUST NOT add changelog entries for minor documentation edits, formatting,
+  test-only changes, or internal maintenance without noteworthy user impact,
+  unless explicitly requested.
+- MUST update `UPGRADING.md` when users need migration instructions. SHOULD also
+  explain significant new features or workflows there when the additional
+  context helps users.
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
   corresponding links at the bottom of `CHANGELOG.md`. {%- endif %}
@@ -211,5 +217,6 @@
   "c++-python" %}
 - Were Python stubs regenerated via `uvx nox -s stubs` if bindings were
   modified? {%- endif %} {%- if has_changelog_and_upgrade_guide %}
-- Are `CHANGELOG.md` and `UPGRADING.md` updated when changes are user-facing,
-  breaking, or otherwise noteworthy? {%- endif %}
+- Does the changelog cover noteworthy user impact and omit routine maintenance?
+- Does the upgrade guide include needed migration instructions and, where
+  useful, context for significant new features or workflows? {%- endif %}

@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Clarify changelog guidance in agent instructions and contribution guides to
+  focus on noteworthy user impact ([#491]) ([**@simon1hofmann**])
+
 ### Fixed
 
 - 📝 Document virtual environment creation and activation, and use `uvx nox` in
@@ -407,6 +412,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#491]: https://github.com/munich-quantum-toolkit/templates/pull/491
 [#490]: https://github.com/munich-quantum-toolkit/templates/pull/490
 [#488]: https://github.com/munich-quantum-toolkit/templates/pull/488
 [#482]: https://github.com/munich-quantum-toolkit/templates/pull/482
