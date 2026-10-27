@@ -478,7 +478,7 @@ The corresponding test files can be found in the {code}`tests` directory.
 A {code}`nox` session is provided to conveniently run the Python tests.
 
 ```console
-nox -s tests
+uvx nox -s tests
 ```
 
 This command automatically builds the project and runs the tests on all
@@ -491,7 +491,7 @@ If you only want to run the tests on a specific Python version, you can pass the
 desired Python version to the {code}`nox` command.
 
 ```console
-nox -s tests-3.14
+uvx nox -s tests-3.14
 ```
 
 :::{note}
@@ -502,7 +502,7 @@ dependencies installed in your virtual environment (e.g., by running
 {code}`uv sync`).
 
 ```console
-pytest
+uv run pytest
 ```
 
 :::
@@ -514,7 +514,7 @@ still be built and the tests pass with the minimum required versions of the
 dependencies.
 
 ```console
-nox -s minimums
+uvx nox -s minimums
 ```
 
 {%- if project_type == "c++-python" %}
@@ -547,7 +547,7 @@ repository. The hooks will be executed whenever you commit changes.
 You can also run the {code}`nox` session {code}`lint` to run the hooks manually.
 
 ```console
-nox -s lint
+uvx nox -s lint
 ```
 
 :::{note}
@@ -586,7 +586,7 @@ are auto-generated. Do not edit them directly. Instead, you can use the
 {code}`nox` session {code}`stubs` to regenerate them automatically.
 
 ```console
-nox -s stubs
+uvx nox -s stubs
 ```
 
 {%- endif %}

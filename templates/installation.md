@@ -55,28 +55,48 @@ See the [uv documentation][uv] for more information.
 
 :::::
 
-::::{tab-set}
+::::::{tab-set}
 :sync-group: installer
 
-:::{tab-item} {code}`uv` _(recommended)_
+:::::{tab-item} {code}`uv` _(recommended)_
 :sync: uv
 
+::::{tab-set}
+
+:::{tab-item} Linux and macOS
+
 ```console
+uv venv
+source .venv/bin/activate
 uv pip install mqt.{{repository}}
 ```
 
 :::
 
-:::{tab-item} {code}`pip`
+:::{tab-item} Windows (PowerShell)
+
+```console
+uv venv
+.\.venv\Scripts\Activate.ps1
+uv pip install mqt.{{repository}}
+```
+
+:::
+
+::::
+
+:::::
+
+:::::{tab-item} {code}`pip`
 :sync: pip
 
 ```console
 python -m pip install mqt.{{repository}}
 ```
 
-:::
+:::::
 
-::::
+::::::
 
 {%- if project_type == "c++-python" %}
 In most cases, no compilation is required; a platform-specific prebuilt wheel is
@@ -365,7 +385,7 @@ guidelines and workflows, see {doc}`contributing`.
    running:
 
    ```console
-   nox -s lint
+   uvx nox -s lint
    ```
 
    They can also be run automatically on every commit via [{code}`prek`][prek]
