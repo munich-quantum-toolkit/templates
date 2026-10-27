@@ -74,9 +74,10 @@ Contributions that do not comply with these guidelines or violate our
   Split multiple features into separate contributions.
 - Add tests for new features to ensure they work as intended.
 - Document new features. {%- if has_changelog_and_upgrade_guide %} For
-  user-facing changes, add a changelog entry; for breaking changes, update the
-  upgrade guide. For details, see {ref}`maintaining-changelog-upgrade-guide`.
-  {%- endif %}
+  noteworthy user-facing changes, add a changelog entry. Add migration
+  instructions or useful context for significant new features to the upgrade
+  guide. For details, see {ref}`maintaining-changelog-upgrade-guide`. {%- endif
+  %}
 - Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and
@@ -686,9 +687,10 @@ releases may include breaking changes. To inform users about changes to the
 project, we maintain a {doc}`changelog <CHANGELOG>` and an
 {doc}`upgrade guide <UPGRADING>`.
 
-If your PR includes noteworthy changes, please update the changelog. The format
-is based on a mixture of [Keep a Changelog] and [Common Changelog]. There are
-the following categories:
+Add changelog entries for noteworthy changes to behavior, compatibility,
+security, or performance. Judge significance by user impact, not diff size. The
+format is based on a mixture of [Keep a Changelog] and [Common Changelog]. There
+are the following categories:
 
 - {code}`Added` for new features.
 - {code}`Changed` for changes in existing functionality.
@@ -699,7 +701,8 @@ the following categories:
 
 When updating the changelog, follow these guidelines:
 
-- Add a changelog entry for every user-facing change in your PR.
+- Do not add entries for minor documentation edits, formatting, test-only
+  changes, or internal maintenance without noteworthy user impact.
 - Write entries in the imperative mood (e.g., "Add support for X" or "Fix bug in
   Y").
 - A single PR may result in multiple changelog entries.
@@ -709,14 +712,10 @@ When updating the changelog, follow these guidelines:
   at the bottom of the file. If this is your first contribution to this project,
   do not forget to add a link to your GitHub profile.
 
-If your PR introduces major or breaking changes, or if you think additional
-context would help users, please also add a section to the upgrade guide. The
-upgrade guide is intended to provide a general overview of significant changes
-in a more descriptive and prose-oriented form than the changelog. Use it to
-explain how users may need to adapt their usage of MQT {{name}}, highlight new
-workflows, or clarify the impact of important updates. Feel free to write in a
-style that is helpful and accessible for users seeking to understand the broader
-implications of recent changes.
+Update the upgrade guide when users need migration instructions. Explain how to
+adapt their use of MQT {{name}} to the changed behavior or requirements. You are
+encouraged to also use it to explain significant new features or workflows when
+that context helps users.
 
 {%- endif %}
 

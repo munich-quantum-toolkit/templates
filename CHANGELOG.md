@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Changed
+
+- 📝 Clarify changelog guidance in agent instructions and contribution guides to
+  focus on noteworthy user impact ([#491]) ([**@simon1hofmann**])
+
 ### Fixed
 
 - 🐛 Correct the SSH clone URL in generated installation guides ([#488])
@@ -405,6 +410,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#491]: https://github.com/munich-quantum-toolkit/templates/pull/491
 [#488]: https://github.com/munich-quantum-toolkit/templates/pull/488
 [#482]: https://github.com/munich-quantum-toolkit/templates/pull/482
 [#477]: https://github.com/munich-quantum-toolkit/templates/pull/477
