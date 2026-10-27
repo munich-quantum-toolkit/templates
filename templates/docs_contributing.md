@@ -477,7 +477,7 @@ The corresponding test files can be found in the {code}`tests` directory.
 A {code}`nox` session is provided to conveniently run the Python tests.
 
 ```console
-uv run nox -s tests
+uvx nox -s tests
 ```
 
 This command automatically builds the project and runs the tests on all
@@ -490,7 +490,7 @@ If you only want to run the tests on a specific Python version, you can pass the
 desired Python version to the {code}`nox` command.
 
 ```console
-uv run nox -s tests-3.14
+uvx nox -s tests-3.14
 ```
 
 :::{note}
@@ -513,7 +513,7 @@ still be built and the tests pass with the minimum required versions of the
 dependencies.
 
 ```console
-uv run nox -s minimums
+uvx nox -s minimums
 ```
 
 {%- if project_type == "c++-python" %}
@@ -537,7 +537,7 @@ The hooks can be installed by running the following command in the root
 directory:
 
 ```console
-uv run prek install
+prek install
 ```
 
 This will install the hooks in the {code}`.git/hooks` directory of the
@@ -546,7 +546,7 @@ repository. The hooks will be executed whenever you commit changes.
 You can also run the {code}`nox` session {code}`lint` to run the hooks manually.
 
 ```console
-uv run nox -s lint
+uvx nox -s lint
 ```
 
 :::{note}
@@ -555,7 +555,7 @@ If you do not want to use {code}`nox`, you can also run the hooks manually by
 using [{code}`prek`][prek].
 
 ```console
-uv run prek run --all-files
+prek run --all-files
 ```
 
 :::
@@ -585,7 +585,7 @@ are auto-generated. Do not edit them directly. Instead, you can use the
 {code}`nox` session {code}`stubs` to regenerate them automatically.
 
 ```console
-uv run nox -s stubs
+uvx nox -s stubs
 ```
 
 {%- endif %}

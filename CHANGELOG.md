@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Fixed
 
-- 📝 Create virtual environments and run development tools through `uv run` in
+- 📝 Document virtual environment creation and activation, and use `uvx nox` in
   Python setup and contribution guides ([#490]) ([**@simon1hofmann**])
 - 🐛 Correct the SSH clone URL in generated installation guides ([#488])
   ([**@simon1hofmann**])

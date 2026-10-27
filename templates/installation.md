@@ -55,32 +55,48 @@ See the [uv documentation][uv] for more information.
 
 :::::
 
-::::{tab-set}
+::::::{tab-set}
 :sync-group: installer
 
-:::{tab-item} {code}`uv` _(recommended)_
+:::::{tab-item} {code}`uv` _(recommended)_
 :sync: uv
+
+::::{tab-set}
+
+:::{tab-item} Linux and macOS
 
 ```console
 uv venv
+source .venv/bin/activate
 uv pip install mqt.{{repository}}
 ```
 
-Activate the environment with `source .venv/bin/activate` on Linux or macOS, or
-`.venv\Scripts\Activate.ps1` in Windows PowerShell, before running Python.
+:::
+
+:::{tab-item} Windows (PowerShell)
+
+```console
+uv venv
+.\.venv\Scripts\Activate.ps1
+uv pip install mqt.{{repository}}
+```
 
 :::
 
-:::{tab-item} {code}`pip`
+::::
+
+:::::
+
+:::::{tab-item} {code}`pip`
 :sync: pip
 
 ```console
 python -m pip install mqt.{{repository}}
 ```
 
-:::
+:::::
 
-::::
+::::::
 
 {%- if project_type == "c++-python" %}
 In most cases, no compilation is required; a platform-specific prebuilt wheel is
@@ -362,18 +378,52 @@ guidelines and workflows, see {doc}`contributing`.
 
    ::::
 
-5. Run checks and install pre-commit hooks:
+5. Install pre-commit hooks to ensure code quality:
 
-   Use [{code}`nox`][nox] to run the checks and [{code}`prek`][prek] to install
-   the hooks. With {code}`uv`, run both in the project environment:
+   The project uses pre-commit hooks for running linters and formatting tools on
+   each commit. These checks can be run manually via [{code}`nox`][nox], by
+   running:
 
    ```console
-   uv run nox -s lint
-   uv run prek install
+   uvx nox -s lint
    ```
 
-   If you used {code}`pip`, keep the development environment activated and run
-   {code}`nox -s lint` and {code}`prek install` directly.
+   They can also be run automatically on every commit via [{code}`prek`][prek]
+   (recommended). To set this up, install {code}`prek`, e.g., via:
+
+   ::::{tab-set}
+
+   :::{tab-item} Linux and macOS
+
+   ```console
+   curl --proto '=https' --tlsv1.2 -LsSf https://github.com/j178/prek/releases/latest/download/prek-installer.sh | sh
+   ```
+
+   :::
+
+   :::{tab-item} Windows (PowerShell)
+
+   ```console
+   powershell -ExecutionPolicy ByPass -c "irm https://github.com/j178/prek/releases/latest/download/prek-installer.ps1 | iex"
+   ```
+
+   :::
+
+   :::{tab-item} {code}`uv`
+
+   ```console
+   uv tool install prek
+   ```
+
+   :::
+
+   ::::
+
+   Then run:
+
+   ```console
+   prek install
+   ```
 
 <!-- Links -->
 
