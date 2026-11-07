@@ -87,6 +87,7 @@ runs:
       shell: bash
       working-directory: ${{ github.action_path }}
       env:
+        PREK_SKIP: ${{ env.PREK_SKIP || env.SKIP }}, ty
         TARGET_DIR: ${{ github.workspace }}
         NAME: ${{ inputs.name }}
         ORGANIZATION: ${{ inputs.organization }}
