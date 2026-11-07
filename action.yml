@@ -87,7 +87,9 @@ runs:
       shell: bash
       working-directory: ${{ github.action_path }}
       env:
+        # Runtime settings
         TARGET_DIR: ${{ github.workspace }}
+        # Action inputs
         NAME: ${{ inputs.name }}
         ORGANIZATION: ${{ inputs.organization }}
         PROJECT_TYPE: ${{ inputs.project-type }}
