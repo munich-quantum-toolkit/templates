@@ -54,9 +54,6 @@ This repository includes a GitHub action that can be used to synchronize the
 use the Action, refer to this repository's
 [`templating.yml`](./.github/workflows/templating.yml).
 
-Use `package: core` for `legacy-core` to keep the `mqt.core` and `mqt-core`
-package names. `package` defaults to `repository`.
-
 ---
 
 ## Acknowledgements

@@ -29,7 +29,7 @@ inputs:
     description: Name of the repository
     required: true
   package:
-    description: Package suffix for Python, CMake, and source paths (defaults to the repository name)
+    description: Package suffix for Python, CMake, and source paths
     default: ""
   base-branch:
     description: Base branch of the pull request

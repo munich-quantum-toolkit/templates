@@ -62,8 +62,8 @@ def test_non_other(
         name="Test",
         organization="munich-quantum-toolkit",
         project_type=project_type,
-        repository="test-repository",
-        package="test",
+        repository="test",
+        package="test-package",
         has_changelog_and_upgrade_guide=has_changelog_and_upgrade_guide,
         synchronize_agents_md=True,
         synchronize_contribution_guide=True,
@@ -78,10 +78,6 @@ def test_non_other(
         synchronize_support_resources=True,
         release_drafter_categories="",
     )
-
-    installation = (temp_dir / "docs" / "installation.md").read_text()
-    assert "import mqt.test;" in installation
-    assert "git@github.com:munich-quantum-toolkit/test-repository.git" in installation
 
     files = [
         temp_dir / ".github" / "CONTRIBUTING.md",
@@ -113,7 +109,7 @@ def test_other(temp_dir: Path) -> None:
         organization="munich-quantum-toolkit",
         project_type="other",
         repository="test",
-        package="test",
+        package="test-package",
         has_changelog_and_upgrade_guide=True,
         synchronize_agents_md=False,
         synchronize_contribution_guide=False,

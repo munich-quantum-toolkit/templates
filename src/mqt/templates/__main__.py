@@ -62,7 +62,7 @@ def main() -> None:
     parser.add_argument(
         "--package",
         type=str,
-        help="Package suffix for Python, CMake, and source paths (defaults to the repository name)",
+        help="Package suffix for Python, CMake, and source paths",
     )
     parser.add_argument(
         "--has_changelog_and_upgrade_guide",
