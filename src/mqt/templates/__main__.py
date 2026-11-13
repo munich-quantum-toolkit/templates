@@ -60,14 +60,9 @@ def main() -> None:
         help="Name of the repository",
     )
     parser.add_argument(
-        "--package_name",
+        "--package",
         type=str,
         help="Package suffix for Python, CMake, and source paths (defaults to the repository name)",
-    )
-    parser.add_argument(
-        "--documentation_project",
-        type=str,
-        help="Read the Docs subproject slug (defaults to the repository name)",
     )
     parser.add_argument(
         "--has_changelog_and_upgrade_guide",
@@ -155,8 +150,7 @@ def main() -> None:
         organization=args.organization,
         project_type=args.project_type,
         repository=args.repository,
-        package_name=args.package_name,
-        documentation_project=args.documentation_project,
+        package=args.package or args.repository,
         has_changelog_and_upgrade_guide=args.has_changelog_and_upgrade_guide,
         synchronize_agents_md=args.synchronize_agents_md,
         synchronize_contribution_guide=args.synchronize_contribution_guide,
