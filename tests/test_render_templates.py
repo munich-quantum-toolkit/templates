@@ -50,9 +50,21 @@ def _check_files(files: list[Path]) -> None:
 
 @pytest.mark.parametrize("project_type", ["c++-python", "pure-python"])
 @pytest.mark.parametrize("has_changelog_and_upgrade_guide", [True, False])
+@pytest.mark.parametrize(
+    ("repository", "package_name", "documentation_project", "expected_package", "expected_documentation_project"),
+    [
+        ("test", None, None, "test", "test"),
+        ("legacy-core", "core", "core-docs", "core", "core-docs"),
+    ],
+)
 def test_non_other(
     temp_dir: Path,
     project_type: str,
+    repository: str,
+    package_name: str | None,
+    documentation_project: str | None,
+    expected_package: str,
+    expected_documentation_project: str,
     *,
     has_changelog_and_upgrade_guide: bool,
 ) -> None:
@@ -62,7 +74,9 @@ def test_non_other(
         name="Test",
         organization="munich-quantum-toolkit",
         project_type=project_type,
-        repository="test",
+        repository=repository,
+        package_name=package_name,
+        documentation_project=documentation_project,
         has_changelog_and_upgrade_guide=has_changelog_and_upgrade_guide,
         synchronize_agents_md=True,
         synchronize_contribution_guide=True,
@@ -76,6 +90,21 @@ def test_non_other(
         synchronize_security_policy=True,
         synchronize_support_resources=True,
         release_drafter_categories="",
+    )
+
+    installation = (temp_dir / "docs" / "installation.md").read_text()
+    assert f"git@github.com:munich-quantum-toolkit/{repository}.git" in installation
+    assert f"import mqt.{expected_package};" in installation
+    if project_type == "c++-python":
+        assert f"find_package(mqt-{expected_package} <version> REQUIRED)" in installation
+        assert f"python/mqt/{expected_package}/" in (temp_dir / "AGENTS.md").read_text()
+    contributing = (temp_dir / "docs" / "contributing.md").read_text()
+    source_dir = "python" if project_type == "c++-python" else "src"
+    assert f"{source_dir}/mqt/{expected_package}" in contributing
+    assert f"https://github.com/munich-quantum-toolkit/{repository}/issues" in contributing
+    assert (
+        f"https://mqt.readthedocs.io/projects/{expected_documentation_project}/en/stable/contributing.html"
+        in (temp_dir / ".github" / "CONTRIBUTING.md").read_text()
     )
 
     files = [

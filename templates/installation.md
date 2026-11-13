@@ -7,15 +7,15 @@
 
 MQT {{name}} is primarily developed as a C++20 library with Python bindings. The
 Python package is available on
-[PyPI](https://pypi.org/project/mqt.{{repository}}/) and can be installed on all
-major operating systems with all
+[PyPI](https://pypi.org/project/mqt.{{package_name}}/) and can be installed on
+all major operating systems with all
 [officially supported Python versions](https://devguide.python.org/versions/).
 
 {%- elif project_type == "pure-python" %}
 
 MQT {{name}} is a Python package available on
-[PyPI](https://pypi.org/project/mqt.{{repository}}/). It can be installed on all
-major operating systems with all
+[PyPI](https://pypi.org/project/mqt.{{package_name}}/). It can be installed on
+all major operating systems with all
 [officially supported Python versions](https://devguide.python.org/versions/).
 
 {%- endif %}
@@ -68,7 +68,7 @@ See the [uv documentation][uv] for more information.
 ```console
 uv venv
 source .venv/bin/activate
-uv pip install mqt.{{repository}}
+uv pip install mqt.{{package_name}}
 ```
 
 :::
@@ -78,7 +78,7 @@ uv pip install mqt.{{repository}}
 ```console
 uv venv
 .\.venv\Scripts\Activate.ps1
-uv pip install mqt.{{repository}}
+uv pip install mqt.{{package_name}}
 ```
 
 :::
@@ -91,7 +91,7 @@ uv pip install mqt.{{repository}}
 :sync: pip
 
 ```console
-python -m pip install mqt.{{repository}}
+python -m pip install mqt.{{package_name}}
 ```
 
 :::::
@@ -106,7 +106,7 @@ downloaded and installed.
 Verify the installation:
 
 ```console
-python -c "import mqt.{{repository}}; print(mqt.{{repository}}.__version__)"
+python -c "import mqt.{{package_name}}; print(mqt.{{package_name}}.__version__)"
 ```
 
 This prints the installed package version.
@@ -125,7 +125,7 @@ available in portable wheels, we recommend building the library from source:
 :sync: uv
 
 ```console
-uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
+uv pip install mqt.{{package_name}} --no-binary mqt.{{package_name}}
 ```
 
 :::
@@ -134,7 +134,7 @@ uv pip install mqt.{{repository}} --no-binary mqt.{{repository}}
 :sync: pip
 
 ```console
-pip install mqt.{{repository}} --no-binary mqt.{{repository}}
+pip install mqt.{{package_name}} --no-binary mqt.{{package_name}}
 ```
 
 :::
@@ -158,7 +158,7 @@ installed when your project is installed.
 :::{tab-item} {code}`uv` _(recommended)_
 
 ```console
-uv add mqt.{{repository}}
+uv add mqt.{{package_name}}
 ```
 
 :::
@@ -168,7 +168,7 @@ uv add mqt.{{repository}}
 ```toml
 [project]
 # ...
-dependencies = ["mqt.{{repository}}>=<version>"]
+dependencies = ["mqt.{{package_name}}>=<version>"]
 # ...
 ```
 
@@ -181,7 +181,7 @@ from setuptools import setup
 
 setup(
     # ...
-    install_requires=["mqt.{{repository}}>=<version>"],
+    install_requires=["mqt.{{package_name}}>=<version>"],
     # ...
 )
 ```
@@ -226,11 +226,11 @@ set(MQT_{{name.upper()}}_REPO_OWNER "{{organization}}"
     CACHE STRING "MQT {{name}} repository owner (change when using a fork)")
 # cmake-format: on
 FetchContent_Declare(
-  mqt-{{repository}}
+  mqt-{{package_name}}
   GIT_REPOSITORY https://github.com/${MQT_{{name.upper()}}_REPO_OWNER}/{{repository}}.git
   GIT_TAG ${MQT_{{name.upper()}}_REV}
   FIND_PACKAGE_ARGS ${MQT_{{name.upper()}}_MINIMUM_VERSION})
-list(APPEND FETCH_PACKAGES mqt-{{repository}})
+list(APPEND FETCH_PACKAGES mqt-{{package_name}})
 
 # Make all declared dependencies available.
 FetchContent_MakeAvailable(${FETCH_PACKAGES})
@@ -246,14 +246,14 @@ working with multiple branches or versions of the library. First, add the
 submodule to your project (e.g., in the {code}`external` directory):
 
 ```console
-git submodule add https://github.com/{{organization}}/{{repository}}.git external/mqt-{{repository}}
+git submodule add https://github.com/{{organization}}/{{repository}}.git external/mqt-{{package_name}}
 ```
 
 Then add the following line to your {code}`CMakeLists.txt` to make the library's
 targets available in your project:
 
 ```cmake
-add_subdirectory(external/mqt-{{repository}})
+add_subdirectory(external/mqt-{{package_name}})
 ```
 
 :::
@@ -263,8 +263,8 @@ add_subdirectory(external/mqt-{{repository}})
 You can install MQT {{name}} on your system after building it from source:
 
 ```console
-git clone https://github.com/{{organization}}/{{repository}}.git mqt-{{repository}}
-cd mqt-{{repository}}
+git clone https://github.com/{{organization}}/{{repository}}.git mqt-{{package_name}}
+cd mqt-{{package_name}}
 cmake -S . -B build
 cmake --build build
 cmake --install build
@@ -274,7 +274,7 @@ Then, in your project's {code}`CMakeLists.txt`, use {code}`find_package()` to
 locate the installed library:
 
 ```cmake
-find_package(mqt-{{repository}} <version> REQUIRED)
+find_package(mqt-{{package_name}} <version> REQUIRED)
 ```
 
 :::
@@ -304,7 +304,7 @@ guidelines and workflows, see {doc}`contributing`.
    your fork locally.
 
    ```console
-   git clone git@github.com:your_name_here/{{repository}}.git mqt-{{repository}}
+   git clone git@github.com:your_name_here/{{repository}}.git mqt-{{package_name}}
    ```
 
    :::
@@ -316,7 +316,7 @@ guidelines and workflows, see {doc}`contributing`.
    repository, clone the repository locally.
 
    ```console
-   git clone git@github.com:{{organization}}/{{repository}}.git mqt-{{repository}}
+   git clone git@github.com:{{organization}}/{{repository}}.git mqt-{{package_name}}
    ```
 
    :::
@@ -326,7 +326,7 @@ guidelines and workflows, see {doc}`contributing`.
 2. Change into the project directory:
 
    ```console
-   cd mqt-{{repository}}
+   cd mqt-{{package_name}}
    ```
 
 3. Create a branch for local development:

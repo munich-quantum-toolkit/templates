@@ -45,6 +45,8 @@ def render_templates(
     organization: str,
     project_type: str,
     repository: str,
+    package_name: str | None = None,
+    documentation_project: str | None = None,
     has_changelog_and_upgrade_guide: bool,
     synchronize_agents_md: bool,
     synchronize_contribution_guide: bool,
@@ -67,6 +69,8 @@ def render_templates(
         organization: The organization of the project.
         project_type: The type of the project. One of "pure-python", "c++-python", "other".
         repository: The name of the repository.
+        package_name: The suffix in Python and CMake package names and source paths. Defaults to the repository name.
+        documentation_project: The Read the Docs subproject slug. Defaults to the repository name.
         has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
         synchronize_agents_md: Whether to synchronize the AGENTS.md file.
         synchronize_contribution_guide: Whether to synchronize the contribution guide.
@@ -92,6 +96,8 @@ def render_templates(
         raise ValueError(msg)
 
     is_other = project_type == "other"
+    package_name = package_name or repository
+    documentation_project = documentation_project or repository
 
     if not release_drafter_categories:
         release_drafter_categories = Path(DEFAULTS_DIR / "release_drafter_categories.json").read_text(encoding="utf-8")
@@ -112,7 +118,7 @@ def render_templates(
             arguments={
                 "name": name,
                 "project_type": project_type,
-                "repository": repository,
+                "package_name": package_name,
                 "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
             },
         ),
@@ -126,7 +132,7 @@ def render_templates(
             file_name="CONTRIBUTING.md",
             output_dir=Path(".github"),
             active=synchronize_contribution_guide and not is_other,
-            arguments={"name": name, "repository": repository},
+            arguments={"name": name, "documentation_project": documentation_project},
         ),
         TemplateContainer(
             file_name="custom.css",
@@ -143,6 +149,7 @@ def render_templates(
                 "organization": organization,
                 "project_type": project_type,
                 "repository": repository,
+                "package_name": package_name,
                 "has_changelog_and_upgrade_guide": has_changelog_and_upgrade_guide,
             },
         ),
@@ -178,6 +185,7 @@ def render_templates(
                 "organization": organization,
                 "project_type": project_type,
                 "repository": repository,
+                "package_name": package_name,
             },
         ),
         TemplateContainer(

@@ -54,6 +54,25 @@ This repository includes a GitHub action that can be used to synchronize the
 use the Action, refer to this repository's
 [`templating.yml`](./.github/workflows/templating.yml).
 
+Repository links, package names, and documentation links use the repository name
+by default. If these identifiers differ, set `package-name` to the suffix used
+in Python and CMake package names and source paths, and set
+`documentation-project` to the Read the Docs subproject slug. For example,
+`legacy-core` can keep the `mqt.core` Python package, `mqt-core` CMake package,
+and existing documentation project with these action inputs:
+
+```yaml
+with:
+  name: Core
+  repository: legacy-core
+  package-name: core
+  documentation-project: core
+```
+
+The command-line options are `--package_name` and `--documentation_project`.
+Omitted or empty values use the repository name. GitHub links and clone URLs
+always use `repository`.
+
 ---
 
 ## Acknowledgements
