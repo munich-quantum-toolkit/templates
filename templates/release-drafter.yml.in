@@ -37,6 +37,7 @@ categories:
   - type: "version-resolver"
     semver-increment: "patch"
 change-template: "- $TITLE (#$NUMBER) ($AUTHORS)"
+change-authors-exclude-bots: true
 change-title-escapes: '\<*_&'
 
 template: |
