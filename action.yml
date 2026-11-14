@@ -28,6 +28,9 @@ inputs:
   repository:
     description: Name of the repository
     required: true
+  package:
+    description: Package suffix for Python, CMake, and source paths
+    default: ""
   base-branch:
     description: Base branch of the pull request
     default: main
@@ -94,6 +97,7 @@ runs:
         ORGANIZATION: ${{ inputs.organization }}
         PROJECT_TYPE: ${{ inputs.project-type }}
         REPOSITORY: ${{ inputs.repository }}
+        PACKAGE: ${{ inputs.package }}
         HAS_CHANGELOG_AND_UPGRADE_GUIDE: ${{ inputs.has-changelog-and-upgrade-guide }}
         SYNCHRONIZE_AGENTS_MD: ${{ inputs.synchronize-agents-md }}
         SYNCHRONIZE_CONTRIBUTION_GUIDE: ${{ inputs.synchronize-contribution-guide }}
@@ -114,6 +118,7 @@ runs:
           --organization $ORGANIZATION \
           --project_type $PROJECT_TYPE \
           --repository $REPOSITORY \
+          --package "$PACKAGE" \
           --has_changelog_and_upgrade_guide $HAS_CHANGELOG_AND_UPGRADE_GUIDE \
           --synchronize_agents_md $SYNCHRONIZE_AGENTS_MD \
           --synchronize_contribution_guide $SYNCHRONIZE_CONTRIBUTION_GUIDE \

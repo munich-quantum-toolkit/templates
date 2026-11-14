@@ -6,6 +6,12 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
+The `package` input controls package names and Python source paths independently
+of `repository`. It defaults to `repository` in the action and CLI. For
+`repository: legacy-core`, set `package: core` to keep `mqt.core` and
+`mqt-core`; GitHub and documentation links still use `legacy-core`. Direct
+callers of `render_templates` must pass `package` explicitly.
+
 ## [1.6.0]
 
 The `c++-mlir-python` project type is no longer supported. Change the action's
