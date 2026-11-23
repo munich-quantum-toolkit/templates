@@ -12,7 +12,7 @@ releases may include breaking changes.
 
 ### Added
 
-- ✨ Add a `package` input to separate package names and source paths from the
+- ✨ Add a `package` input to separate the name of the Python package from the
   repository name ([#498]) ([**@denialhaag**])
 
 ### Changed

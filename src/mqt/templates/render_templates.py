@@ -68,7 +68,7 @@ def render_templates(
         organization: The organization of the project.
         project_type: The type of the project. One of "pure-python", "c++-python", "other".
         repository: The name of the repository.
-        package: The suffix in Python and CMake package names and source paths.
+        package: The name of the Python package.
         has_changelog_and_upgrade_guide: Whether the project has a changelog and upgrade guide.
         synchronize_agents_md: Whether to synchronize the AGENTS.md file.
         synchronize_contribution_guide: Whether to synchronize the contribution guide.
