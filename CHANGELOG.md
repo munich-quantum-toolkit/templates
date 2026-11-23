@@ -17,6 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
+  ([**@denialhaag**])
 - 📝 Clarify changelog guidance in agent instructions and contribution guides to
   focus on noteworthy user impact ([#491]) ([**@simon1hofmann**])
 
@@ -418,6 +420,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 <!-- PR links -->
 
 [#498]: https://github.com/munich-quantum-toolkit/templates/pull/498
+[#501]: https://github.com/munich-quantum-toolkit/templates/pull/501
 [#491]: https://github.com/munich-quantum-toolkit/templates/pull/491
 [#490]: https://github.com/munich-quantum-toolkit/templates/pull/490
 [#488]: https://github.com/munich-quantum-toolkit/templates/pull/488

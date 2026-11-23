@@ -791,16 +791,16 @@ GitHub, edit the release draft if necessary, and publish the release.
 <!--- Links --->
 
 {%- if project_type == "c++-python" %}
-[clion]: https://www.jetbrains.com/clion/
-[vscode]: https://code.visualstudio.com/
+[clion]: <https://www.jetbrains.com/clion/>
+[vscode]: <https://code.visualstudio.com/>
 {%- endif %}
-[nox]: https://nox.thea.codes/en/stable/
-[prek]: https://prek.j178.dev
-[ruff]: https://docs.astral.sh/ruff/
-[ty]: https://docs.astral.sh/ty/
-[issues]: https://github.com/{{organization}}/{{repository}}/issues
+[nox]: <https://nox.thea.codes/en/stable/>
+[prek]: <https://prek.j178.dev>
+[ruff]: <https://docs.astral.sh/ruff/>
+[ty]: <https://docs.astral.sh/ty/>
+[issues]: <https://github.com/{{organization}}/{{repository}}/issues>
 {%- if has_changelog_and_upgrade_guide %}
-[Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
-[Common Changelog]: https://common-changelog.org
-[Semantic Versioning]: https://semver.org/spec/v2.0.0.html
+[Keep a Changelog]: <https://keepachangelog.com/en/1.1.0/>
+[Common Changelog]: <https://common-changelog.org>
+[Semantic Versioning]: <https://semver.org/spec/v2.0.0.html>
 {%- endif %}

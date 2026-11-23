@@ -427,10 +427,10 @@ guidelines and workflows, see {doc}`contributing`.
 <!-- Links -->
 
 {%- if project_type == "c++-python" %}
-[FetchContent]: https://cmake.org/cmake/help/latest/module/FetchContent.html
-[git-submodule]: https://git-scm.com/docs/git-submodule
+[FetchContent]: <https://cmake.org/cmake/help/latest/module/FetchContent.html>
+[git-submodule]: <https://git-scm.com/docs/git-submodule>
 {%- endif %}
-[nox]: https://nox.thea.codes/en/stable/
-[prek]: https://prek.j178.dev
-[uv]: https://docs.astral.sh/uv/
-[ruff]: https://docs.astral.sh/ruff/
+[nox]: <https://nox.thea.codes/en/stable/>
+[prek]: <https://prek.j178.dev>
+[uv]: <https://docs.astral.sh/uv/>
+[ruff]: <https://docs.astral.sh/ruff/>
