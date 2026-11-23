@@ -17,12 +17,12 @@ maintains locally.
 The action synchronizes `.github/renovate.json5` by default. It includes the
 shared CMake preset and enables the regex manager. Repositories with their own
 Renovate configuration can extend
-`github>munich-quantum-toolkit/templates:cmake` directly. If they set
+`github>munich-quantum-toolkit/templates//renovate/cmake` directly. If they set
 `enabledManagers`, add `custom.regex` to that list.
 
 The preset reference follows the Templates repository's default branch. To use a
 specific Templates release, append `#<tag>` once that tag contains
-[`cmake.json`](../cmake.json).
+[`renovate/cmake.json`](../renovate/cmake.json).
 
 ### Track a release by commit SHA
 
