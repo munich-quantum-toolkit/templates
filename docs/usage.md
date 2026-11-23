@@ -63,3 +63,8 @@ annotated declarations in `cmake/ExternalDependencies.cmake`.
 The synchronized configuration opens individual CMake update pull requests for
 review and schedules regular dependency updates on weekends. Checksummed release
 archives need a rule that updates the checksum alongside the version.
+
+The patch and minor update rules determine which version updates can merge
+automatically. Minor updates to excluded packages, such as nanobind and MQT
+GitHub dependencies, require review. Digest updates and lockfile maintenance use
+their own rules.

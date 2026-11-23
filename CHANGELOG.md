@@ -15,6 +15,8 @@ releases may include breaking changes.
 - 🔧 Enable reviews of annotated CMake FetchContent updates in the default
   Renovate template and use cron for its weekend schedule ([#508])
   ([**@burgholzer**]).
+- 🔧 Limit version automerge in the Renovate template to its explicit patch and
+  minor update groups ([#508]) ([**@burgholzer**]).
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
   ([**@denialhaag**])
 - 📝 Clarify changelog guidance in agent instructions and contribution guides to
