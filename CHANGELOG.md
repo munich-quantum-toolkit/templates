@@ -17,6 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 🤖 Clarify testing and PR description guidance in agent instructions and
+  contribution guides ([#510]) ([**@denialhaag**])
 - 📝 Improve wording in documentation contribution guide ([#509])
   ([**@denialhaag**])
 - 🔧 Enable reviews of annotated CMake FetchContent updates in the default
@@ -426,6 +428,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#510]: https://github.com/munich-quantum-toolkit/templates/pull/510
 [#509]: https://github.com/munich-quantum-toolkit/templates/pull/509
 [#508]: https://github.com/munich-quantum-toolkit/templates/pull/508
 [#501]: https://github.com/munich-quantum-toolkit/templates/pull/501
