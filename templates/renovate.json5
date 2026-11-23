@@ -4,6 +4,7 @@
   minimumReleaseAge: "7 days",
   extends: [
     "config:recommended",
+    "github>munich-quantum-toolkit/templates:cmake",
     ":gitSignOff",
     "helpers:pinGitHubActionDigestsToSemver",
     ":automergeDigest",
@@ -16,6 +17,7 @@
   ],
   enabledManagers: [
     "cargo",
+    "custom.regex",
     "github-actions",
     "npm",
     "pep621",
@@ -27,7 +29,8 @@
     automerge: true,
   },
   labels: ["dependencies"],
-  schedule: ["every weekend"],
+  // Saturday and Sunday (UTC).
+  schedule: ["* * * * 0,6"],
   packageRules: [
     {
       matchManagers: ["cargo"],
@@ -94,6 +97,13 @@
       matchDatasources: ["pypi"],
       matchPackageNames: ["mqt*"],
       minimumReleaseAge: null,
+    },
+    {
+      description: "Review FetchContent updates individually",
+      matchManagers: ["custom.regex"],
+      matchFileNames: ["cmake/ExternalDependencies.cmake"],
+      groupName: null,
+      automerge: false,
     },
   ],
 }

@@ -12,6 +12,9 @@ releases may include breaking changes.
 
 ### Changed
 
+- 🔧 Enable reviews of annotated CMake FetchContent updates in the default
+  Renovate template and use cron for its weekend schedule ([#508])
+  ([**@burgholzer**]).
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
   ([**@denialhaag**])
 - 📝 Clarify changelog guidance in agent instructions and contribution guides to
@@ -414,6 +417,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#508]: https://github.com/munich-quantum-toolkit/templates/pull/508
 [#501]: https://github.com/munich-quantum-toolkit/templates/pull/501
 [#491]: https://github.com/munich-quantum-toolkit/templates/pull/491
 [#490]: https://github.com/munich-quantum-toolkit/templates/pull/490
