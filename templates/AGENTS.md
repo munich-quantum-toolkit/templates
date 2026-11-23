@@ -220,8 +220,7 @@
 ## Self-Review Checklist
 
 - Did `uvx nox -s lint` pass without errors?
-- Do tests cover any features or bug fixes, and did I extend existing tests
-  where possible?
+- Are all relevant changes adequately covered by tests?
 - Were any agent-authored issue or pull request texts explicitly authorized and
   marked with the required visible disclosure? {%- if project_type ==
   "c++-python" %}
