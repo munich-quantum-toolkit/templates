@@ -95,11 +95,16 @@
 - MUST run `uvx nox -s lint` after every batch of changes. This runs the full
   `prek` hook set from `.pre-commit-config.yaml` (including `ruff`, `typos`,
   `ty`, formatting, and metadata checks). All hooks must pass before submitting.
-- MUST add or update tests for every code change, even if not explicitly
-  requested.
-- MUST write tests that protect intended behavior or reproduce a concrete
-  regression. NEVER test provisional implementation choices that are not part of
-  the supported contract.
+- MUST cover features and bug fixes with tests of intended behavior or a
+  concrete regression. Existing coverage is sufficient when it already protects
+  the changed behavior. NEVER test provisional implementation choices that are
+  not part of the supported contract.
+- MUST first look for an existing test to extend with a relevant assertion or
+  parameter before adding a separate test. Add a new test only when the behavior
+  does not fit the existing tests.
+- MUST NOT add tests solely for routine maintenance such as dependency or
+  version bumps, metadata updates, formatting, or documentation edits. Run the
+  relevant existing checks instead.
 - MUST place tests in the repository's corresponding test tree, organized by the
   component that owns the behavior. NEVER place tests or test fixtures in
   production source or tool directories. Reserve tool- or CLI-level subprocess
@@ -171,6 +176,10 @@
   per-message approval is not required. Actions outside that scope require fresh
   authorization. The human remains responsible for reviewing all submitted work.
 - MUST use the repository's pull request template when one is present.
+- MUST focus PR descriptions on what changed, why, and any dependencies or
+  migration details reviewers need. Omit validation commands, test counts, and
+  pass/fail summaries because CI reports these results. Mention tests added or
+  changed only when they help explain behavior or regression coverage.
 - Every agent-authored or agent-edited public text body MUST begin with
   `🤖 *AI text below* 🤖` on its first line. This applies to issue and pull
   request descriptions, review bodies, inline review comments, issue comments,
@@ -211,7 +220,7 @@
 ## Self-Review Checklist
 
 - Did `uvx nox -s lint` pass without errors?
-- Are all changes covered by at least one automated test?
+- Are all relevant changes adequately covered by tests?
 - Were any agent-authored issue or pull request texts explicitly authorized and
   marked with the required visible disclosure? {%- if project_type ==
   "c++-python" %}
