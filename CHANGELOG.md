@@ -21,11 +21,11 @@ releases may include breaking changes.
   ([**@denialhaag**])
 - 📝 Improve wording in documentation contribution guide ([#509])
   ([**@denialhaag**])
-- 🔧 Enable reviews of annotated CMake FetchContent updates in the default
-  Renovate template and use cron for its weekend schedule ([#508])
-  ([**@burgholzer**]).
-- 🔧 Limit version automerge in the Renovate template to its explicit patch and
-  minor update groups ([#508]) ([**@burgholzer**]).
+- 🔧 Enable PEP 723 dependency updates and individual reviews of annotated CMake
+  `FetchContent` updates in the Renovate template ([#508], [#512])
+  ([**@burgholzer**], [**@denialhaag**])
+- 🔧 Use cron for Renovate's weekend schedule and limit version automerge to
+  explicit patch and minor update groups ([#508]) ([**@burgholzer**])
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
   ([**@denialhaag**])
 - 📝 Clarify changelog guidance in agent instructions and contribution guides to
@@ -428,6 +428,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#512]: https://github.com/munich-quantum-toolkit/templates/pull/512
 [#510]: https://github.com/munich-quantum-toolkit/templates/pull/510
 [#509]: https://github.com/munich-quantum-toolkit/templates/pull/509
 [#508]: https://github.com/munich-quantum-toolkit/templates/pull/508
