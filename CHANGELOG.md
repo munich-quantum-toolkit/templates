@@ -17,7 +17,7 @@ releases may include breaking changes.
 
 ### Changed
 
-- 📝 Improve prose in documentation contribution guide ([#509])
+- 📝 Improve wording in documentation contribution guide ([#509])
   ([**@denialhaag**])
 - 🔧 Enable reviews of annotated CMake FetchContent updates in the default
   Renovate template and use cron for its weekend schedule ([#508])

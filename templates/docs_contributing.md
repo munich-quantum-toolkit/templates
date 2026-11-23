@@ -608,9 +608,8 @@ build the documentation.
 Our tutorials use [MyST-NB](https://myst-nb.readthedocs.io/) Markdown notebooks,
 so code in `{code-cell}` blocks runs during the build, while ordinary code
 fences only display code. When writing an example, include the setup readers
-need, show useful output, and add assertions to check the behavior you're
-demonstrating. Use local simulation for executable examples, and explain
-credentials and remote-device deployment in configuration instructions.
+need and show useful output. Use local simulation for executable examples, and
+explain credentials and remote-device deployment in configuration instructions.
 
 Before building the documentation, install the project's native build
 requirements, including Doxygen if you're generating C++ API documentation. Then
