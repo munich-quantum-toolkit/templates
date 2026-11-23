@@ -10,6 +10,11 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+### Added
+
+- ✨ Add a `package` input to separate the name of the Python package from the
+  repository name ([#498]) ([**@denialhaag**])
+
 ### Changed
 
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
@@ -415,6 +420,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 <!-- PR links -->
 
 [#501]: https://github.com/munich-quantum-toolkit/templates/pull/501
+[#498]: https://github.com/munich-quantum-toolkit/templates/pull/498
 [#491]: https://github.com/munich-quantum-toolkit/templates/pull/491
 [#490]: https://github.com/munich-quantum-toolkit/templates/pull/490
 [#488]: https://github.com/munich-quantum-toolkit/templates/pull/488

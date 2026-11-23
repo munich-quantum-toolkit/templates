@@ -431,8 +431,7 @@ to a specific Python installation.
 
 :::
 
-The Python package itself lives in the {code}`python/mqt/{{repository}}`
-directory.
+The Python package itself lives in the {code}`python/mqt/{{package}}` directory.
 
 {%- elif project_type == "pure-python" %}
 
@@ -440,7 +439,7 @@ directory.
 
 {%- endif %}
 
-The package lives in the {code}`src/mqt/{{repository}}` directory.
+The package lives in the {code}`src/mqt/{{package}}` directory.
 
 We recommend using [{code}`nox`][nox] for development. {code}`nox` is a Python
 automation tool that allows you to define tasks in a {code}`noxfile.py` file and
@@ -581,9 +580,9 @@ We heavily rely on [type hints](https://docs.python.org/3/library/typing.html)
 to document the expected types of function arguments and return values.
 {%- if project_type == "c++-python" %}
 For the compiled parts of the code base, we provide type hints in the form of
-stub files in the {code}`python/mqt/{{repository}}` directory. These stub files
-are auto-generated. Do not edit them directly. Instead, you can use the
-{code}`nox` session {code}`stubs` to regenerate them automatically.
+stub files in the {code}`python/mqt/{{package}}` directory. These stub files are
+auto-generated. Do not edit them directly. Instead, you can use the {code}`nox`
+session {code}`stubs` to regenerate them automatically.
 
 ```console
 uvx nox -s stubs
