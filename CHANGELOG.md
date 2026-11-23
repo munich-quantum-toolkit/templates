@@ -17,6 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
+- 📝 Improve wording in documentation contribution guide ([#509])
+  ([**@denialhaag**])
 - 🔧 Enable reviews of annotated CMake FetchContent updates in the default
   Renovate template and use cron for its weekend schedule ([#508])
   ([**@burgholzer**]).
@@ -424,6 +426,7 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- PR links -->
 
+[#509]: https://github.com/munich-quantum-toolkit/templates/pull/509
 [#508]: https://github.com/munich-quantum-toolkit/templates/pull/508
 [#501]: https://github.com/munich-quantum-toolkit/templates/pull/501
 [#498]: https://github.com/munich-quantum-toolkit/templates/pull/498
