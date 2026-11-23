@@ -117,7 +117,6 @@ git-only = [
   ".rumdl.toml",
   "action.yml",
   "CHANGELOG.md",
-  "cmake.json",
   "renovate/*",
   "UPGRADING.md",
   "uv.lock",

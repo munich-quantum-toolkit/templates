@@ -1,4 +1,0 @@
-{
-  "description": "Compatibility alias for the CMake FetchContent preset",
-  "extends": ["./renovate/cmake"]
-}
