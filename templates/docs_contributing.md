@@ -72,18 +72,13 @@ Contributions that do not comply with these guidelines or violate our
   [gitmoji](https://gitmoji.dev) for additional context.
 - Focus on a single feature or bug at a time and only touch relevant files.
   Split multiple features into separate contributions.
-- Cover new features and bug fixes with meaningful tests. Reuse existing
-  coverage when it already protects the behavior, and look for an existing test
-  to extend with a relevant assertion or parameter before adding a separate
-  test.
-- Do not add tests solely for routine maintenance such as dependency or version
-  bumps, metadata updates, formatting, or documentation edits. Run the relevant
-  existing checks instead.
+- Add tests for new features to ensure they work as intended.
 - Document new features. {%- if has_changelog_and_upgrade_guide %} For
   noteworthy user-facing changes, add a changelog entry. Add migration
   instructions or useful context for significant new features to the upgrade
   guide. For details, see {ref}`maintaining-changelog-upgrade-guide`. {%- endif
   %}
+- Add tests for bug fixes to demonstrate the fix.
 - Document your code thoroughly and ensure it is readable.
 - Keep your code clean by removing debug statements, leftover comments, and
   unrelated code.
@@ -122,9 +117,7 @@ Claude picks up the same file.
   GitHub.
 - Use a clear title, reference related issues by number, and describe the
   changes. Follow the PR template; only omit the issue reference if not
-  applicable. Leave validation commands, test counts, and pass/fail summaries to
-  CI. Mention tests added or changed only when they help explain behavior or
-  regression coverage.
+  applicable.
 - Draft PRs may use a reduced test matrix, while all other CI checks still run.
   Converting a draft to a regular PR triggers the full test matrix.
 - After the full test matrix passes, request a review from a maintainer. If
@@ -659,8 +652,8 @@ finding the cause of certain failures:
 
 - If any of the {code}`codecov/\*` checks fail, this means that your changes are
   not appropriately covered by tests or that the overall project coverage
-  decreased too much. Check whether tests exercise any new or changed code
-  behavior, and add or update coverage where needed.
+  decreased too much. Ensure that you include tests for all your changes in the
+  PR.
 
 {%- if project_type == "c++-python" %}
 

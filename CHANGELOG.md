@@ -17,8 +17,8 @@ releases may include breaking changes.
 
 ### Changed
 
-- 🤖 Clarify testing and PR description guidance in agent instructions and
-  contribution guides ([#510]) ([**@denialhaag**])
+- 🤖 Clarify testing and PR description guidance in agent instructions ([#510])
+  ([**@denialhaag**])
 - 📝 Improve wording in documentation contribution guide ([#509])
   ([**@denialhaag**])
 - 🔧 Enable reviews of annotated CMake FetchContent updates in the default
