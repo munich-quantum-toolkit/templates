@@ -49,10 +49,8 @@ reality and keep them up-to-date!
 
 ## Getting Started
 
-This repository includes a GitHub action that can be used to synchronize the
-[templates](./templates/) to other MQT repositories. For an example on how to
-use the Action, refer to this repository's
-[`templating.yml`](./.github/workflows/templating.yml).
+See the [usage guide](docs/usage.md) for template synchronization and Renovate
+configuration.
 
 ---
 
