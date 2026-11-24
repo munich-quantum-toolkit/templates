@@ -10,20 +10,24 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-11-24
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#170)._
+
 ### Added
 
-- ✨ Add a `package` input to separate the name of the Python package from the
-  repository name ([#498]) ([**@denialhaag**])
+- ✨ Add a `package` input for package names and source paths that differ from
+  the repository name ([#498]) ([**@denialhaag**])
 
 ### Changed
 
+- 🔧 Enable Renovate updates for PEP 723 scripts and annotated CMake dependency
+  pins, with separate PRs for CMake updates ([#508], [#512], [#513], [#514])
+  ([**@burgholzer**], [**@denialhaag**])
 - 🤖 Clarify testing and PR description guidance in agent instructions ([#510])
   ([**@denialhaag**])
-- 📝 Improve wording in documentation contribution guide ([#509])
+- 📝 Clarify documentation build instructions in the contribution guide ([#509])
   ([**@denialhaag**])
-- 🔧 Enable PEP 723 dependency updates and individual reviews of annotated CMake
-  `FetchContent` updates in the Renovate template ([#508], [#512], [#513],
-  [#514]) ([**@burgholzer**], [**@denialhaag**])
 - 🔧 Use cron for Renovate's weekend schedule and limit version automerge to
   explicit patch and minor update groups ([#508]) ([**@burgholzer**])
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
@@ -201,10 +205,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
   ([#338]) ([**@denialhaag**])
 - 🔧 Set up `rumdl` for linting and formatting Markdown files ([#322], [#328],
   [#332]) ([**@denialhaag**])
-- 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
-  ([**@burgholzer**])
 - 🎨 Improve Release Drafter configuration to use GitHub's native author links
   ([#303], [#316]) ([**@denialhaag**])
+- 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
+  ([**@burgholzer**])
 - 📝 Update link to license file in AI usage guidelines ([#283])
   ([**@denialhaag**])
 - 📝 Update default macOS runners in contribution guide ([#282])
@@ -224,12 +228,12 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
 
 - 📝 Update contribution guide to encourage contributors to apply suggestions
   ([#241]) ([**@denialhaag**])
-- 🔧 Update Renovate configuration to remove `nanobind` from group of minor
-  updates ([#238]) ([**@denialhaag**])
 - 📝 Update PR template with AI-related information ([#237]) ([**@ystade**],
   [**@burgholzer**])
 - 📝 Update AI section in the contribution guide ([#237]) ([**@ystade**],
   [**@burgholzer**])
+- 🔧 Update Renovate configuration to remove `nanobind` from group of minor
+  updates ([#238]) ([**@denialhaag**])
 
 ## [1.1.13] - 2026-03-03
 
@@ -324,13 +328,13 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ## [1.1.4] - 2025-09-02
 
-### Fixed
-
-- 🐛 Allow `name` to contain whitespace character ([#58]) ([**@denialhaag**])
-
 ### Changed
 
 - 🎨 Improve wording in issue templates ([#57]) ([**@denialhaag**])
+
+### Fixed
+
+- 🐛 Allow `name` to contain whitespace character ([#58]) ([**@denialhaag**])
 
 ## [1.1.3] - 2025-09-02
 
@@ -395,7 +399,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.7.0
 [1.6.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.6.0
 [1.5.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.3
 [1.5.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.2

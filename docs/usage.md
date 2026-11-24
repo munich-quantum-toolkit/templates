@@ -21,7 +21,7 @@ The synchronized `.github/renovate.json5` includes the
 ```cmake
 # renovate: datasource=github-tags depName=google/googletest
 set(GTEST_REV
-    "52eb8108c5bdec04579160ae17225d66034bd723" # tag=v1.17.0
+    "063de7e9578f82b369302001269680b4b1553359" # tag=v1.18.0
 )
 # renovate: datasource=github-releases depName=nlohmann/json
 set(JSON_TAG v3.12.0)

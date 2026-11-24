@@ -6,11 +6,12 @@ of changes, including minor and patch releases, please refer to the
 
 ## [Unreleased]
 
-The `package` input controls package names and Python source paths independently
-of `repository`. It defaults to `repository` in the action and CLI. For
-`repository: legacy-core`, set `package: core` to keep `mqt.core` and
-`mqt-core`; GitHub and documentation links still use `legacy-core`. Direct
-callers of `render_templates` must pass `package` explicitly.
+## [1.7.0]
+
+This release adds an optional `package` input to the templating action. Set it
+when your Python package name differs from the repository name. Otherwise, no
+workflow change is needed. For example, the `legacy-core` repository provides
+`mqt.core`, so its workflow needs `package: core`.
 
 ## [1.6.0]
 
@@ -181,7 +182,8 @@ jobs:
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.3...v1.6.0
 [1.5.1]: https://github.com/munich-quantum-toolkit/templates/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/munich-quantum-toolkit/templates/compare/v1.4.3...v1.5.0
