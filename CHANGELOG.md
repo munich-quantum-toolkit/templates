@@ -205,10 +205,10 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#130)._
   ([#338]) ([**@denialhaag**])
 - 🔧 Set up `rumdl` for linting and formatting Markdown files ([#322], [#328],
   [#332]) ([**@denialhaag**])
-- 🎨 Improve Release Drafter configuration to use GitHub's native author links
-  ([#303], [#316]) ([**@denialhaag**])
 - 💚 Update templating workflow to use `client-id` instead of `app-id` ([#311])
   ([**@burgholzer**])
+- 🎨 Improve Release Drafter configuration to use GitHub's native author links
+  ([#303], [#316]) ([**@denialhaag**])
 - 📝 Update link to license file in AI usage guidelines ([#283])
   ([**@denialhaag**])
 - 📝 Update default macOS runners in contribution guide ([#282])
@@ -228,12 +228,12 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#120)._
 
 - 📝 Update contribution guide to encourage contributors to apply suggestions
   ([#241]) ([**@denialhaag**])
+- 🔧 Update Renovate configuration to remove `nanobind` from group of minor
+  updates ([#238]) ([**@denialhaag**])
 - 📝 Update PR template with AI-related information ([#237]) ([**@ystade**],
   [**@burgholzer**])
 - 📝 Update AI section in the contribution guide ([#237]) ([**@ystade**],
   [**@burgholzer**])
-- 🔧 Update Renovate configuration to remove `nanobind` from group of minor
-  updates ([#238]) ([**@denialhaag**])
 
 ## [1.1.13] - 2026-03-03
 
@@ -328,13 +328,13 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#1113)._
 
 ## [1.1.4] - 2025-09-02
 
-### Changed
-
-- 🎨 Improve wording in issue templates ([#57]) ([**@denialhaag**])
-
 ### Fixed
 
 - 🐛 Allow `name` to contain whitespace character ([#58]) ([**@denialhaag**])
+
+### Changed
+
+- 🎨 Improve wording in issue templates ([#57]) ([**@denialhaag**])
 
 ## [1.1.3] - 2025-09-02
 
