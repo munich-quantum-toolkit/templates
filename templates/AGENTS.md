@@ -22,7 +22,7 @@
   `uv sync --inexact --no-dev --no-build-isolation-package mqt-{{ package }}`
 - Run tests: `uv run --no-sync pytest`
 - Nox test shortcuts: `uvx nox -s tests`, `uvx nox -s minimums`
-- Python 3.14 variants: `uvx nox -s tests-3.14`, `uvx nox -s minimums-3.14`
+- Python 3.15 variants: `uvx nox -s tests-3.15`, `uvx nox -s minimums-3.15`
 
 {%- elif project_type == "pure-python" %}
 
@@ -31,7 +31,7 @@
 - Install package: `uv sync`
 - Run tests: `uv run pytest`
 - Nox test shortcuts: `uvx nox -s tests`, `uvx nox -s minimums`
-- Python 3.14 variants: `uvx nox -s tests-3.14`, `uvx nox -s minimums-3.14`
+- Python 3.15 variants: `uvx nox -s tests-3.15`, `uvx nox -s minimums-3.15`
 
 {%- endif %}
 
@@ -65,7 +65,7 @@
 
 ### Python
 
-- Python 3.11+ {%- if project_type == "c++-python" %}
+- Python 3.11.5+ {%- if project_type == "c++-python" %}
 - Split-mode Stable ABI wheels: `cp311-abi3` for GIL-enabled CPython 3.11+ and
   `cp315-abi3t` for free-threaded CPython 3.15+
 - `scikit-build-core` as build backend

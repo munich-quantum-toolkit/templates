@@ -491,7 +491,7 @@ If you only want to run the tests on a specific Python version, you can pass the
 desired Python version to the {code}`nox` command.
 
 ```console
-uvx nox -s tests-3.14
+uvx nox -s tests-3.15
 ```
 
 :::{note}

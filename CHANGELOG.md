@@ -10,20 +10,24 @@ releases may include breaking changes.
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-11-24
+
+_If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#170)._
+
 ### Added
 
-- ✨ Add a `package` input to separate the name of the Python package from the
-  repository name ([#498]) ([**@denialhaag**])
+- ✨ Add a `package` input for package names and source paths that differ from
+  the repository name ([#498]) ([**@denialhaag**])
 
 ### Changed
 
+- 🔧 Enable Renovate updates for PEP 723 scripts and annotated CMake dependency
+  pins, with separate PRs for CMake updates ([#508], [#512], [#513], [#514])
+  ([**@burgholzer**], [**@denialhaag**])
 - 🤖 Clarify testing and PR description guidance in agent instructions ([#510])
   ([**@denialhaag**])
-- 📝 Improve wording in documentation contribution guide ([#509])
+- 📝 Clarify documentation build instructions in the contribution guide ([#509])
   ([**@denialhaag**])
-- 🔧 Enable PEP 723 dependency updates and individual reviews of annotated CMake
-  `FetchContent` updates in the Renovate template ([#508], [#512], [#513],
-  [#514]) ([**@burgholzer**], [**@denialhaag**])
 - 🔧 Use cron for Renovate's weekend schedule and limit version automerge to
   explicit patch and minor update groups ([#508]) ([**@burgholzer**])
 - 🔧 Exclude bot co-authors in the Release Drafter template ([#501])
@@ -395,7 +399,8 @@ _If you are upgrading: please see [`UPGRADING.md`](UPGRADING.md#110)._
 
 <!-- Version links -->
 
-[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.6.0...HEAD
+[unreleased]: https://github.com/munich-quantum-toolkit/templates/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.7.0
 [1.6.0]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.6.0
 [1.5.3]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.3
 [1.5.2]: https://github.com/munich-quantum-toolkit/templates/releases/tag/v1.5.2
