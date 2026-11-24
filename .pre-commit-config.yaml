@@ -40,7 +40,7 @@ repos:
 
   ## Check for security issues in GitHub Actions workflows
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.32.0
+    rev: v1.33.1
     hooks:
       - id: zizmor
         args:
@@ -92,7 +92,7 @@ repos:
 
   ## Format BibTeX files with bibtex-tidy
   - repo: https://github.com/FlamingTempura/bibtex-tidy
-    rev: v1.14.0
+    rev: v1.15.1
     hooks:
       - id: bibtex-tidy
         args:
@@ -129,7 +129,7 @@ repos:
 
   ## Format pyproject.toml with pyproject-fmt
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.30.6
+    rev: v2.31.2
     hooks:
       - id: pyproject-fmt
         priority: 5
