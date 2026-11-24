@@ -39,16 +39,29 @@ set(GTEST_REV
 
 ### Track a release by version
 
-Use `github-releases` for a numeric GitHub release version. The variable can
-supply the Git tag or form part of a release asset URL.
+Use `github-releases` for a GitHub release version, with or without a `v`
+prefix. The variable can supply the Git tag or form part of a release asset URL.
 
 ```cmake
 # renovate: datasource=github-releases depName=aws/aws-sdk-cpp
 set(AWSSDK_VERSION 1.11.935)
 ```
 
-If CMake adds a prefix such as `v` to the tag, set a Renovate `extractVersion`
-rule for that dependency to extract the numeric version. Keep the minimum
+Store the complete release tag when it includes a `v` prefix. Derive the numeric
+version in CMake when `find_package()` needs it:
+
+```cmake
+# renovate: datasource=github-releases depName=nlohmann/json
+set(JSON_TAG v3.12.0)
+string(REGEX REPLACE "^v" "" JSON_VERSION "${JSON_TAG}")
+FetchContent_Declare(
+  nlohmann_json
+  URL https://github.com/nlohmann/json/releases/download/${JSON_TAG}/json.tar.xz
+      FIND_PACKAGE_ARGS ${JSON_VERSION})
+```
+
+Renovate updates the full tag, so the release asset URL and package version stay
+in sync without a dependency-specific `extractVersion` rule. Keep the minimum
 supported installed-package version separate from the fetched version where they
 serve different purposes.
 
