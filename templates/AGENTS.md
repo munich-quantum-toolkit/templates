@@ -89,22 +89,28 @@
 
 - MUST use the full project name, MQT {{name}}, in documentation, code comments,
   and public text.
+
 - MUST read and follow `docs/ai_usage.md`. A human must review and understand
   all AI-assisted work. AI assistance must not be used for contributions to
   issues labeled `good first issue`.
+
 - MUST run `uvx nox -s lint` after every batch of changes. This runs the full
   `prek` hook set from `.pre-commit-config.yaml` (including `ruff`, `typos`,
   `ty`, formatting, and metadata checks). All hooks must pass before submitting.
+
 - MUST cover features and bug fixes with tests of intended behavior or a
   concrete regression. Existing coverage is sufficient when it already protects
   the changed behavior. NEVER test provisional implementation choices that are
   not part of the supported contract.
+
 - MUST first look for an existing test to extend with a relevant assertion or
   parameter before adding a separate test. Add a new test only when the behavior
   does not fit the existing tests.
+
 - MUST NOT add tests solely for routine maintenance such as dependency or
   version bumps, metadata updates, formatting, or documentation edits. Run the
   relevant existing checks instead.
+
 - MUST place tests in the repository's corresponding test tree, organized by the
   component that owns the behavior. NEVER place tests or test fixtures in
   production source or tool directories. Reserve tool- or CLI-level subprocess
@@ -112,11 +118,14 @@
   level public API. Normal test targets and dependencies belong in the test
   build; avoid promoting an otherwise optional production tool into the default
   build solely for subprocess testing.
+
 - MUST follow existing code style by checking neighboring files for patterns.
+
 - MUST write code comments, documentation, tests, changelog entries, and public
   text for the final design. NEVER preserve prompts, review chronology, former
   names, or abandoned approaches unless they remain necessary user-facing
   context.
+
 - MUST apply
   [Orwell's six rules for writing](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/)
   to every category of prose, including reasoning, descriptions, commit
@@ -137,35 +146,45 @@
   short, direct sentences; give each sentence one main idea; use one term for
   one meaning; and use explicit nouns instead of vague pronouns. These are
   mandatory style rules, not a claim of formal ASD-STE100 compliance.
+
 - MUST base terminology and phrasing on existing usage in the repository and on
   established precedents in the communities the repository draws from. Use the
   established term that most precisely matches the concept. If communities use
   different terms, explain the mapping once. NEVER invent synonyms for variety.
+
 - MUST remove obsolete scaffolding and diagnostic suppressions before handoff.
   Keep a workaround or suppression only when it is still necessary, scope it as
   narrowly as possible, and document the technical reason. {%- if
   has_changelog_and_upgrade_guide %}
+
 - MUST add changelog entries for noteworthy changes to behavior, compatibility,
   security, or performance. Judge significance by user impact, not diff size.
+
 - MUST NOT add changelog entries for minor documentation edits, formatting,
   test-only changes, or internal maintenance without noteworthy user impact,
   unless explicitly requested.
+
 - MUST update `UPGRADING.md` when users need migration instructions. SHOULD also
   explain significant new features or workflows there when the additional
   context helps users.
+
 - MUST format changelog entries with the pull request reference and every
   contributing author, for example `([#123]) ([**@username**])`, and define the
   corresponding links at the bottom of `CHANGELOG.md`. {%- endif %}
+
 - AI assistance MUST be disclosed in the PR description.
+
 - Commit-level `Assisted-by: [Model Name] via [Tool Name]` trailers are
   recommended, not required. For example:
   `Assisted-by: Claude Sonnet 4.6 via GitHub Copilot`. Do not rewrite otherwise
   valid history solely to add one.
+
 - NEVER modify files that start with "This file has been generated from an
   external template. Please do not modify it directly." These files are managed
   by
   [the MQT templates action](https://github.com/munich-quantum-toolkit/templates)
   and changes will be overwritten.
+
 - PREFER running targeted tests over the full test suite during development.
 
 ### GitHub Issues and Pull Requests
